@@ -6,9 +6,9 @@ const  app = express();
 const PORT = process.env.PORT || 8080 ;
 
 
-let publicPath = path.join(__dirname, 'client/build')
+let publicPath = path.join(__dirname, '../client/build')
 if(PORT===8080){
-    publicPath = path.resolve(__dirname, '../client/public')
+    publicPath = path.join(__dirname, '../client/public')
 }
 
 app.use(express.json());
@@ -19,6 +19,8 @@ app.use(express.static(__dirname + publicPath));
 
 app.get('/',(req,res)=>{
     console.log('hhhh')
+    // res.send('heeeloo')
+    res.sendFile(path.resolve(publicPath, 'index.html'));
 
 })
 
