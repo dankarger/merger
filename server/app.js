@@ -24,7 +24,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use('*', (req,res)=> {
-    res.send("this routes does not exist")
+    res.sendFile(path.resolve(publicPath, 'index.html'));
 });
 
 
