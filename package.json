@@ -9,13 +9,14 @@
     "start-server-dev": "nodemon ./server/app.js",
     "start-react-dev": "npm run start --prefix client",
     "build-react": "npm run build --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run start-server-dev\" \"npm run start-react-dev\"",
     "heroku-postbuild": "npm install --prefix client && npm run build-react"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cloudinary": "^1.28.1",
     "cors": "^2.8.5",
     "dotenv": "^15.0.0",
