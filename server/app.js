@@ -1,6 +1,7 @@
 const path = require("path");
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 require("./db/mongoose")
+const {cloudinary} = require('./utils/cloudinary')
 
 const express = require('express');
 const cors = require('cors');
@@ -31,6 +32,16 @@ app.use('/api/users', userRoute)
 //     res.sendFile(path.resolve(publicPath, 'index.html'));
 //
 // })
+app.get('/api/images', async (req,res)=> {
+    const {resources} = await cloudinary.search.expression().sort_by('public_id', 'desc')
+        .max_results(30)
+        .execute();
+    const publicIds = resources.map( file => file.public_id);
+    res.send(publicIds);
+})
+
+
+
 
 app.get('*', (req,res)=> {
     res.sendFile(path.resolve(publicPath, 'index.html'));
