@@ -18,7 +18,10 @@ app.use(express.static(__dirname + publicPath));
 
 
 
+app.get('/',(req,res)=>{
+    console.log('hhhh')
 
+})
 
 app.use('*', (req,res)=> {
     res.send("this routes does not exist")
