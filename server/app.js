@@ -13,7 +13,7 @@ if(PORT===8080){
 
 app.use(express.json());
 app.use(cors());
-app.use(express.static(__dirname + publicPath));
+app.use(express.static(publicPath));
 
 
 
