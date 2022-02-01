@@ -1,5 +1,7 @@
 const path = require("path");
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+require("./db/mongoose")
+
 const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt')
