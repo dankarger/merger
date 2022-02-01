@@ -7,9 +7,9 @@ const PORT = process.env.PORT || 8080 ;
 
 
 
-let publicPath = path.join(__dirname, 'client/build')
+let publicPath = path.join(__dirname, '../client/build')
 if(PORT===8080){
-    publicPath = path.join(__dirname, 'client/public')
+    publicPath = path.join(__dirname, '../client/public')
 }
 
 app.use(express.json());
