@@ -22,7 +22,7 @@ app.get('/',(req,res)=>{
 
 })
 
-app.use('*', (req,res)=> {
+app.get('*', (req,res)=> {
     res.sendFile(path.resolve(publicPath, 'index.html'));
 });
 
