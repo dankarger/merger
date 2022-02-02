@@ -1,9 +1,10 @@
 const express = require('express');
 const imageRoute = express.Router();
-const userController = require('../controller/user.controller')
+const imageController = require('../controller/image.controller')
 
 
-imageRoute.get('/', )
+imageRoute.get('/',imageController.getImages )
+imageRoute.post('/',imageController.uploadImage )
 
 
 

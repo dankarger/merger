@@ -1,5 +1,5 @@
 import React from "react";
-
+import UploadImages from "../components/UploadImage/UploadImage";
 
 const WorkSpace =()=> {
 
@@ -7,7 +7,7 @@ const WorkSpace =()=> {
     return(
         <div>
             <h1> Workspace</h1>
-
+        <UploadImages />
         </div>
     )
 }

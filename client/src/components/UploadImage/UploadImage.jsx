@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import myApi from '../../api/Api';
 
-export default function Upload() {
+export default function UploadImages() {
     const[fileInputState,setFileInputState]=useState('')
     const[selectedFile,setSelectedFile]=useState('');
     const [previewSource,setPreviewSource]=useState()
@@ -29,9 +29,10 @@ export default function Upload() {
     const uploadImage= async (base64EncodedImage) => {
         console.log(base64EncodedImage);
         try {
-            await fetch('/api/upload', {
-                method: 'POST',
-                body: JSON.stringify({ data: base64EncodedImage }),
+            await myApi.post('/images', {
+                // method: 'POST',
+                // body: JSON.stringify({ data: base64EncodedImage }),
+                 data: base64EncodedImage ,
                 headers: { 'Content-Type': 'application/json' },
             });
         }catch (error) {
