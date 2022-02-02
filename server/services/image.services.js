@@ -16,13 +16,16 @@ const getImages = async ()=> {
 }
 
 const uploadImage = async (req,res)=> {
-    const fileStr = req.body.data;
-    const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-        upload_preset:'workspace'
-    })
-    res.json('file uploaded')
-    return fileStr
+    try {
+        const fileStr = req.body.data;
+        const uploadResponse = await cloudinary.uploader.upload(fileStr, {
+            upload_preset: 'workspace'
+        })
 
+        return ('file uploaded')
+    }catch(e) {
+        console.log(e.message)
+    }
 }
 
 

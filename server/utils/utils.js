@@ -1,5 +1,3 @@
-const multer =require('multer');
-
 
 
 const checkBodyRequest=(req)=> {
@@ -10,5 +8,7 @@ const checkBodyRequest=(req)=> {
 
 
 module.exports = {
-    checkBodyRequest
+    checkBodyRequest,
+
+
 }

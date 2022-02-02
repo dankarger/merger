@@ -34,7 +34,7 @@ export default function UploadImages() {
                 // body: JSON.stringify({ data: base64EncodedImage }),
                  data: base64EncodedImage ,
                 headers: { 'Content-Type': 'application/json',
-                            'Access-Control':'Allow-Origin'},
+                            'Access-Control-Allow-Origin': '*'}
             });
         }catch (error) {
             console.log(error)

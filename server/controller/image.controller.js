@@ -22,7 +22,7 @@ const uploadImage =async (req, res)=> {
       res.status(200).send(image);
     } catch (error) {
         console.error(error)
-        res.status(500).json({err:error.message})
+        res.status(500).send({error:error})
     }
 }
 

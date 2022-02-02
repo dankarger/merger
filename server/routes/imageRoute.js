@@ -1,10 +1,13 @@
 const express = require('express');
 const imageRoute = express.Router();
 const imageController = require('../controller/image.controller')
+// const upload =require("../utils/utils.upload");
+const {upload, upload2} = require('../middlewares/multerUpload')
 
 
 imageRoute.get('/',imageController.getImages )
 imageRoute.post('/',imageController.uploadImage )
+// imageRoute.post('/' ,imageController.uploadImage )
 
 
 
