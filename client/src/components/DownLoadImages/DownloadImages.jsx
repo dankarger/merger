@@ -4,18 +4,32 @@ import {Image} from 'cloudinary-react'
 import myApi from '../../api/Api';
 // import SimpleAccordion from "../components/Accordion/Accordion";
 import ActionAreaCard from "../../components/Card/Card";
+import {AdvancedImage} from '@cloudinary/react'
+import {Cloudinary} from "@cloudinary/url-gen";
+
 
 const DownloadImages = () => {
     const [imageIds, setImageId] = useState([]);
     const [imageIds2, setImageId2] = useState([]);
 
+
+    const cld = new Cloudinary({
+        cloud: {
+            cloudName: 'meme3'
+        }
+    });
+
+    // cld.image returns a CloudinaryImage with the configuration set.
+    const myImage = cld.image('sample');
+
+
     const loadImages = async () => {
         try {
             const {data} = await myApi.get('/images');
             // const data =await res.json();
-            setImageId(data)
+            setImageId(data.resources)
             // return data.data
-            console.log('da', data)
+            console.log('da', data.resources)
         } catch (e) {
             console.error(e)
         }
@@ -26,10 +40,11 @@ const DownloadImages = () => {
 
             setImageId2(
                 imageIds.map((imageId, index) => (
+                    // console.log('dd',imageId.public_id)
                     <Image
                         key={index}
                         cloudName="meme3"
-                        publicId={imageId}
+                        publicId={imageId.public_id}
                         width="300"
                         crop='scale'
                     />
@@ -51,29 +66,33 @@ const DownloadImages = () => {
                     <ActionAreaCard image={ <Image
                         key={index}
                         cloudName="meme3"
-                        publicId={imageId}
+                        publicId={imageId.public_id}
                         width="300"
                         crop='scale'
                     />}/>
                 ))}
-                {imageIds && imageIds.map((image,index)=>{
+                {/*{imageIds && imageIds.map((image,index)=>{*/}
 
-                    return (
+                    {/*return (*/}
 
-                       <div>
+                    {/*   <div>*/}
 
-                        <Image
-                        key={index}
-                        cloudName="meme3"
-                        publicId={image.publicId}
-                        width="300"
-                        crop='scale'
-                    />
-                    <img src={image.secure_url} alt="dd"/>
-                       </div>
-                )
+                    {/*    <Image*/}
+                    {/*    key={index}*/}
+                    {/*    cloudName="meme3"*/}
+                    {/*    publicId={image}*/}
+                    {/*    width="300"*/}
+                    {/*    crop='scale'*/}
+                    {/*/>*/}
+                    {/*<img src={image.secure_url} alt="dd"/>*/}
+                    {/*   </div>*/}
+                {/*)*/}
 
-                })}
+                {/*})}*/}
+                <h2>hhfff</h2>
+                <div>
+                    <AdvancedImage cldImg={myImage} />
+                </div>
             </div>
     )
 }
