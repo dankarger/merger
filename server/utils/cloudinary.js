@@ -8,6 +8,9 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+const test = await  cloudinary.v2.api.resources(
+    function(error, result) {console.log(result, error); });
+console.log('test',test)
 //
 // cloudinary.v2.uploader.upload("https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
 //     { public_id: "olympic_flag" },

@@ -12,7 +12,7 @@ const getImages = async function (req, res) {
         const images = await imageService.getImages()
         res.status(200).send(images);
     } catch (e) {
-        res.status(400).json({message: 'Images not found'})
+        res.status(400).json({message: 'Images not found'+ e.message})
     }
 }
 

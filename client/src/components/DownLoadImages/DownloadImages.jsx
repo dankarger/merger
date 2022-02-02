@@ -7,13 +7,14 @@ import ActionAreaCard from "../../components/Card/Card";
 
 const DownloadImages = () => {
     const [imageIds, setImageId] = useState([]);
-    const [imageIds2, setImageId2] = useState();
+    const [imageIds2, setImageId2] = useState([]);
 
     const loadImages = async () => {
         try {
             const {data} = await myApi.get('/images');
             // const data =await res.json();
             setImageId(data)
+            // return data.data
             console.log('da', data)
         } catch (e) {
             console.error(e)
@@ -22,6 +23,7 @@ const DownloadImages = () => {
 
     const makeList = () => {
         if (imageIds) {
+
             setImageId2(
                 imageIds.map((imageId, index) => (
                     <Image
@@ -33,18 +35,18 @@ const DownloadImages = () => {
                     />
                 )))
         }
+        console.log('image,',imageIds)
     }
     useEffect(() => {
-        loadImages();
+       const data =  loadImages();
+        setImageId(data.data)
         makeList()
     }, [])
 
 
     return (
-        <HomePageStyled>
-            Download images
             <div>
-                <h1 className='title'>Home3</h1>
+                <h1 className='title'>gallery</h1>
                 {imageIds && imageIds.map((imageId, index) => (
                     <ActionAreaCard image={ <Image
                         key={index}
@@ -54,8 +56,25 @@ const DownloadImages = () => {
                         crop='scale'
                     />}/>
                 ))}
+                {imageIds && imageIds.map((image,index)=>{
+
+                    return (
+
+                       <div>
+
+                        <Image
+                        key={index}
+                        cloudName="meme3"
+                        publicId={image.publicId}
+                        width="300"
+                        crop='scale'
+                    />
+                    <img src={image.secure_url} alt="dd"/>
+                       </div>
+                )
+
+                })}
             </div>
-        </HomePageStyled>
     )
 }
 export default DownloadImages

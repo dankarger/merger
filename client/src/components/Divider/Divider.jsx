@@ -35,10 +35,12 @@ export default function ListDividers() {
                 <ListItemText primary="Sign-Up" />
             </ListItem>
             <Divider light />
+            <Link to={'/gallery'} >
             <ListItem button>
                 <button>butt</button>
                 <ListItemText primary="Gallery" />
             </ListItem>
+            </Link>
         </List>
     );
 }
