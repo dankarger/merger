@@ -48,7 +48,7 @@ const HomePage = () => {
 
             {/*<SimpleAccordion />*/}
             <ListDividers/>
-            <StandardImageList images={imageIds}/>
+            {/*<StandardImageList images={imageIds}/>*/}
             <div>
                 <h1 className='title'>Home3</h1>
                 {imageIds && imageIds.map((imageId, index) => (

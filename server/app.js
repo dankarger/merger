@@ -10,7 +10,7 @@ const bcrypt = require('bcrypt')
 
 const  app = express();
 const PORT = process.env.PORT || 8080 ;
-const route = require('./routes/route');
+const imageRoute = require('./routes/imageRoute');
 const userRoute = require('./routes/userRoute')
 
 let publicPath = path.join(__dirname, '../client/build')
@@ -24,6 +24,8 @@ app.use(express.static(publicPath));
 
 
 app.use('/api/users', userRoute)
+app.use('/api/images', imageRoute )
+
 
 //
 // app.get('/',(req,res)=>{
@@ -32,13 +34,14 @@ app.use('/api/users', userRoute)
 //     res.sendFile(path.resolve(publicPath, 'index.html'));
 //
 // })
-app.get('/api/images', async (req,res)=> {
-    const {resources} = await cloudinary.search.expression().sort_by('public_id', 'desc')
-        .max_results(30)
-        .execute();
-    const publicIds = resources.map( file => file.public_id);
-    res.send(publicIds);
-})
+
+// app.get('/api/images', async (req,res)=> {
+//     const {resources} = await cloudinary.search.expression().sort_by('public_id', 'desc')
+//         .max_results(30)
+//         .execute();
+//     const publicIds = resources.map( file => file.public_id);
+//     res.send(publicIds);
+// })
 
 
 
