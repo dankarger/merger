@@ -23,8 +23,9 @@ app.use(cors());
 app.use(express.static(publicPath));
 
 
-app.use('/api/users', userRoute);
-app.use('api/images',imageRoute);
+app.use('/api/users', userRoute)
+app.use('/api/images', imageRoute )
+
 
 //
 // app.get('/',(req,res)=>{
@@ -33,13 +34,14 @@ app.use('api/images',imageRoute);
 //     res.sendFile(path.resolve(publicPath, 'index.html'));
 //
 // })
-app.get('/api/images', async (req,res)=> {
-    const {resources} = await cloudinary.search.expression().sort_by('public_id', 'desc')
-        .max_results(30)
-        .execute();
-    const publicIds = resources.map( file => file.public_id);
-    res.send(publicIds);
-})
+
+// app.get('/api/images', async (req,res)=> {
+//     const {resources} = await cloudinary.search.expression().sort_by('public_id', 'desc')
+//         .max_results(30)
+//         .execute();
+//     const publicIds = resources.map( file => file.public_id);
+//     res.send(publicIds);
+// })
 
 
 
