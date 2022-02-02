@@ -44,10 +44,23 @@ const HomePage = () => {
 
     return (
         <HomePageStyled>
-            <h1>Welcome to HomePage</h1>
+            HomePage2
+
+            {/*<SimpleAccordion />*/}
             <ListDividers/>
-
-
+            <StandardImageList images={imageIds}/>
+            <div>
+                <h1 className='title'>Home3</h1>
+                {imageIds && imageIds.map((imageId, index) => (
+                    <ActionAreaCard image={ <Image
+                        key={index}
+                        cloudName="meme3"
+                        publicId={imageId}
+                        width="300"
+                        crop='scale'
+                    />}/>
+                ))}
+            </div>
         </HomePageStyled>
     )
 }

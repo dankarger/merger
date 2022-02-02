@@ -1,11 +1,11 @@
 const express = require('express');
-const route = express.Router();
+const imageRoute = express.Router();
 const userController = require('../controller/user.controller')
 
 
-route.get('/', )
+imageRoute.get('/', )
 
 
 
 
-module.exports = route;
+module.exports = imageRoute;

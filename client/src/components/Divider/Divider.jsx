@@ -3,6 +3,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import {Link} from "react-router-dom";
+import {LinkStyled} from "../../styles/Link.styled";
+
 
 const style = {
     width: '100%',
@@ -13,19 +16,27 @@ const style = {
 export default function ListDividers() {
     return (
         <List sx={style} component="nav" aria-label="mailbox folders">
-            <ListItem button>
-                <ListItemText primary="Inbox" />
-            </ListItem>
+             <Link to={'/work'} >
+
+                <ListItem button >
+
+                    <ListItemText primary="WorkPlace"  />
+
+                </ListItem>
+
+            </Link>
+
             <Divider />
             <ListItem button divider>
-                <ListItemText primary="Drafts" />
+                <ListItemText primary="Login" />
             </ListItem>
             <ListItem button>
-                <ListItemText primary="Trash" />
+                <ListItemText primary="Sign-Up" />
             </ListItem>
             <Divider light />
             <ListItem button>
-                <ListItemText primary="Spam" />
+                <button>butt</button>
+                <ListItemText primary="Gallery" />
             </ListItem>
         </List>
     );

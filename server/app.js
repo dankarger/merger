@@ -10,7 +10,7 @@ const bcrypt = require('bcrypt')
 
 const  app = express();
 const PORT = process.env.PORT || 8080 ;
-const route = require('./routes/route');
+const imageRoute = require('./routes/imageRoute');
 const userRoute = require('./routes/userRoute')
 
 let publicPath = path.join(__dirname, '../client/build')
@@ -23,7 +23,8 @@ app.use(cors());
 app.use(express.static(publicPath));
 
 
-app.use('/api/users', userRoute)
+app.use('/api/users', userRoute);
+app.use('api/images',imageRoute);
 
 //
 // app.get('/',(req,res)=>{
