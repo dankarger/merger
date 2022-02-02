@@ -20,7 +20,7 @@ function App() {
             {/*<Navbar2 />*/}
             {/*<Navbar3 />*/}
             <Routes>
-                <Route path='/'  element={<HomePage />} />
+                <Route path='/home'  element={<HomePage />} />
                 <Route path='/work'  element={<WorkSpace />} />
                 <Route path='/gallery'   element={<DownloadImages />} />
                 <Route path='/gallery2'   element={<HomePage2 />} />
