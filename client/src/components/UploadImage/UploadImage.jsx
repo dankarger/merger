@@ -27,13 +27,14 @@ export default function UploadImages() {
         uploadImage(previewSource);
     }
     const uploadImage= async (base64EncodedImage) => {
-        console.log(base64EncodedImage);
+        // console.log(base64EncodedImage);
         try {
             await myApi.post('/images', {
                 // method: 'POST',
                 // body: JSON.stringify({ data: base64EncodedImage }),
                  data: base64EncodedImage ,
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json',
+                            'Access-Control':'Allow-Origin'},
             });
         }catch (error) {
             console.log(error)

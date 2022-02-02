@@ -18,14 +18,8 @@ const getImages = async function (req, res) {
 
 const uploadImage =async (req, res)=> {
     try {
-        const fileStr = req.body.data;
-        console.log('filestr',fileStr)
-        const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-            upload_preset:'workspace'
-        })
-        console.log('up',uploadResponse)
-        res.json('yayayaya')
-        console.log(fileStr)
+      const image = await imageService.uploadImage(req,res)
+      res.status(200).send(image);
     } catch (error) {
         console.error(error)
         res.status(500).json({err:error.message})

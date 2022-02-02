@@ -15,9 +15,18 @@ const getImages = async ()=> {
     // return('users')
 }
 
+const uploadImage = async (req,res)=> {
+    const fileStr = req.body.data;
+    const uploadResponse = await cloudinary.uploader.upload(fileStr, {
+        upload_preset:'workspace'
+    })
+    res.json('file uploaded')
+    return fileStr
 
+}
 
 
 module.exports= {
-    getImages
+    getImages,
+    uploadImage
 }
