@@ -3,6 +3,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import _ from "lodash";
 import {useEffect, useState} from "react";
+import {Image} from "cloudinary-react";
 
 export default function StandardImageList({images}) {
     const[imagesList,setImagesList]=useState()
@@ -15,14 +16,25 @@ export default function StandardImageList({images}) {
     console.log('images',images)
     return (
         <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-            {imagesList && itemData.map((item) => (
+            {imagesList && images.map((item,index) => (
                 <ImageListItem key={item.img}>
                     <img
-                        src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                        srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                        src={`${item.url}?w=164&h=164&fit=crop&auto=format`}
+                        srcSet={`${item.url}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                         alt={item.title}
                         loading="lazy"
                     />
+                    {/*<Image*/}
+                    {/*    // src={`${item.url}?w=164&h=164&fit=crop&auto=format`}*/}
+                    {/*    key={index}*/}
+                    {/*    cloudName="meme3"*/}
+                    {/*    // publicId={item.public_id}*/}
+                    {/*    width="200"*/}
+                    {/*    // height="100"*/}
+                    {/*    crop='scale'*/}
+                    {/*    // loading="lazy"*/}
+
+                    {/*/>*/}
                 </ImageListItem>
             ))}
         </ImageList>

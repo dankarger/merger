@@ -9,13 +9,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
+
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import CropFreeIcon from '@mui/icons-material/CropFree';
+import {Link, Route,Routes} from "react-router-dom";
 
 
-const pages = ['Create', 'Load', 'Blog','Login'];
+const pages = ['Home', 'Work', 'Login','Gallery'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -30,6 +32,8 @@ const ResponsiveAppBar = () => {
     };
 
     const handleCloseNavMenu = () => {
+        // let history = useLocation()
+        // history.push("/home")
         setAnchorElNav(null);
     };
 
@@ -40,6 +44,7 @@ const ResponsiveAppBar = () => {
     return (
         <AppBar position="static">
             <Container maxWidth="xl">
+
                 <Toolbar disableGutters>
                     <Typography
                         variant="h6"
@@ -81,10 +86,21 @@ const ResponsiveAppBar = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
+
+                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                        <Link to={`${page}`}>
+                                        <Typography textAlign="center">{page}</Typography>
+                                        </Link>
+                                    </MenuItem>
+
                             ))}
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                     <Typography textAlign="center">  <Link to='/'>Home</Link></Typography>
+                            </MenuItem>
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <Typography textAlign="center">  <Link to='/work'>Work</Link></Typography>
+                            </MenuItem>
+
                         </Menu>
                     </Box>
                     <Typography
@@ -95,18 +111,24 @@ const ResponsiveAppBar = () => {
                     >
                         LOGO
                     </Typography>
+                    {/*<Link to='/>' >*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
+                        {/*{pages.map((page) => (*/}
+                            // <Link to='/'>
                             <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
+                                // key={page}
+                                // onClick={handleCloseNavMenu}
+
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                {/*{page}*/}
+                                home
+                             </Button>
+                        </Link>
+                            <Button component={Link} to="/">
+                                Click Me
                             </Button>
-                        ))}
                     </Box>
-
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
