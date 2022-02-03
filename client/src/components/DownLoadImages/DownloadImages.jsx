@@ -66,13 +66,14 @@ const DownloadImages = () => {
                 <h1 className='title'>gallery</h1>
 
                         {imageIds && imageIds.map((imageId, index) => (
-                            <ActionAreaCard image={ <Image
+                           <ActionAreaCard image={ <Image
                                 key={index}
                                 cloudName="meme3"
                                 publicId={imageId.public_id}
                                 width="300"
                                 crop='scale'
                             />}/>
+
                         ))}
                     </ContainerStyled>
 

@@ -37,7 +37,7 @@ const HomePage = () => {
         }
     }
     useEffect(() => {
-        // loadImages();
+        loadImages();
         makeList()
     }, [])
 

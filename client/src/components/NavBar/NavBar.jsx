@@ -53,7 +53,7 @@ const ResponsiveAppBar = () => {
                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                     >
                         <CropFreeIcon />
-                        LOGO  <ColorLensIcon />
+                        {/*LOGO  <ColorLensIcon />*/}
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

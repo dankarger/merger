@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import myApi from '../../api/Api';
 
-export default function UploadImages() {
+export default function UploadImages({overlay}) {
     const[fileInputState,setFileInputState]=useState('')
     const[selectedFile,setSelectedFile]=useState('');
     const [previewSource,setPreviewSource]=useState()
+     const[overlayText,setOverlayText] = useState({overlay})
 
     const handleFileInputChane = (e)=>{
         const file = e.target.files[0];
@@ -27,12 +28,12 @@ export default function UploadImages() {
         uploadImage(previewSource);
     }
     const uploadImage= async (base64EncodedImage) => {
-        // console.log(base64EncodedImage);
+        console.log('ggg',overlayText);
         try {
             await myApi.post('/images', {
                 // method: 'POST',
                 // body: JSON.stringify({ data: base64EncodedImage }),
-                 data: base64EncodedImage ,
+                 data: base64EncodedImage ,overlay:{overlayText},
                 headers: { 'Content-Type': 'application/json',
                             'Access-Control-Allow-Origin': '*'}
             });

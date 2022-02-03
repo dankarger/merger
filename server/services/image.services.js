@@ -20,12 +20,23 @@ const getImages = async ()=> {
 
 const uploadImage = async (req,res)=> {
     try {
+        const overlay = req.body.overlay.overlayText.overlay ;
         const fileStr = req.body.data;
-        const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-            upload_preset: 'workspace'
-        })
+        console.log(typeof overlay)
+        // const uploadResponse = await cloudinary.uploader.upload(fileStr, {
+        //     upload_preset: 'workspace'
+        // }, )
 
-        return ('file uploaded')
+        const upLoadResponse2 =await cloudinary.uploader.upload(fileStr, {
+            upload_preset: 'workspace',
+            transformation: [
+                {overlay: {  font_family: "Arial",
+                             font_size: 80,
+                             text:overlay}},
+
+            ]})
+        // console.log('d', upLoadResponse2)
+        return (upLoadResponse2)
     }catch(e) {
         console.log(e.message)
     }
