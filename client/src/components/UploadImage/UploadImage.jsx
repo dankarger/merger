@@ -6,7 +6,7 @@ import {OverlayTextStyled} from "../../styles/OverlayText.styled";
 // import { SketchPicker } from 'react-color'
 import { ColorPicker, createColor } from 'material-ui-color';
 import { ColorPalette } from 'material-ui-color';
-
+import {motion} from 'framer-motion'
 
 const palette = {
     red: '#ff0000',
@@ -106,7 +106,14 @@ export default function UploadImages({overlay}) {
                 {previewSource && (
                     <WorkImageDivStyled  >
                         <img src={previewSource} alt="chosen" style={{height: '100%'}} />
-                        <OverlayTextStyled textShadow={'1px 1px 1px black'} color={color.css.backgroundColor} fontSize={window.innerWidth / 120 +"vw"} > {overlay}</OverlayTextStyled>
+                        <OverlayTextStyled drag
+                                           // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
+                                           dragElastic={111}
+                                           transition={{type:'spring',stiffness:300}}
+                                           textShadow={'1px 1px 1px black'}
+                                           color={color.css.backgroundColor}
+                                           fontSize={window.innerWidth / 120 +"vw"}
+                                            > {overlay}</OverlayTextStyled>
                     </WorkImageDivStyled>
                 )}
                 <Button variant="contained" color="success" onClick={()=>{

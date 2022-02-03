@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import {motion} from  'framer-motion'
 
-export const OverlayTextStyled = styled.div `
+export const OverlayTextStyled = styled(motion.div) `
   //width: 100%;
   //height: 100%;
   color: ${({color})=> color || '#33333'};
@@ -18,5 +19,9 @@ export const OverlayTextStyled = styled.div `
   //justify-content: center;
   //align-items: center;
   //flex-direction: column;
-
+ 
+  &:hover {
+    cursor: grab;
+  }
+  
 `
