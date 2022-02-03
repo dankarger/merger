@@ -20,9 +20,9 @@ const getImages = async ()=> {
 
 const uploadImage = async (req,res)=> {
     try {
-        const overlay = req.body.overlay.overlayText.overlay ;
+        const overlay = req.body.overlay.overlayText   ;
         const fileStr = req.body.data;
-        console.log(typeof overlay)
+        console.log( req.body.overlay.overlayText)
         // const uploadResponse = await cloudinary.uploader.upload(fileStr, {
         //     upload_preset: 'workspace'
         // }, )

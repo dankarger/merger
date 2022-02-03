@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import myApi from '../../api/Api';
 
 export default function UploadImages({overlay}) {
@@ -7,6 +7,11 @@ export default function UploadImages({overlay}) {
     const [previewSource,setPreviewSource]=useState()
      const[overlayText,setOverlayText] = useState({overlay})
 
+
+    useEffect(()=>{
+        setOverlayText(overlay)
+
+    },[overlay])
     const handleFileInputChane = (e)=>{
         const file = e.target.files[0];
         previewFile(file);

@@ -6,7 +6,9 @@ const {upload, upload2} = require('../middlewares/multerUpload')
 
 
 imageRoute.get('/',imageController.getImages )
-imageRoute.post('/',upload2,imageController.uploadImage )
+imageRoute.post('/',imageController.uploadImage )
+
+// imageRoute.post('/',upload2,imageController.uploadImage )
 // imageRoute.post('/' ,imageController.uploadImage )
 
 
