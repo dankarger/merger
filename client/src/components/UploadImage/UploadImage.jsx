@@ -80,6 +80,7 @@ export default function UploadImages({overlay}) {
             fontSize:'80',
             color:color,
             position:[xPos.x,xPos.y],
+            windowSize:[window.innerWidth,window.innerHeight]
             // x:xPos.current.x,
             // y:xPos.current.y
         }

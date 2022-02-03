@@ -25,6 +25,7 @@ const uploadImage = async (req,res)=> {
         const color = req.body.overlay.overlayObject.color.css.backgroundColor
         const  x = req.body.overlay.overlayObject.position[0]
         const  y = req.body.overlay.overlayObject.position[1]
+        const windowSize = req.body.overlay.overlayObject.windowSize
         console.log( 'ff', x,y)
         console.log( 'obj',req.body.overlay)
         // const uploadResponse = await cloudinary.uploader.upload(fileStr, {
@@ -36,8 +37,7 @@ const uploadImage = async (req,res)=> {
             transformation: [
                 {overlay: {  font_family: "Roboto",
                              font_size: 80,
-
-                             text:overlay},color: color,quality: "auto",x:x/1200,y:y/1200},
+                             text:overlay},color: color,quality: "auto",x:x/windowSize[0],y:y/windowSize[1]},
 
             ]},function(error, result) { console.log(result, error) })
         console.log('d', upLoadResponse2)
