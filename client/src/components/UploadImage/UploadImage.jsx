@@ -3,7 +3,26 @@ import myApi from '../../api/Api';
 import Button from "@mui/material/Button";
 import {WorkImageDivStyled} from "../../styles/WorkImageDiv.styled";
 import {OverlayTextStyled} from "../../styles/OverlayText.styled";
-import { HexColorPicker, HexColorInput } from "react-colorful";
+// import { SketchPicker } from 'react-color'
+import { ColorPicker, createColor } from 'material-ui-color';
+import { ColorPalette } from 'material-ui-color';
+
+
+const palette = {
+    red: '#ff0000',
+    blue: '#0000ff',
+    green: '#00ff00',
+    yellow: 'yellow',
+    cyan: 'cyan',
+    lime: 'lime',
+    gray: 'gray',
+    orange: 'orange',
+    purple: 'purple',
+    black: 'black',
+    white: 'white',
+    pink: 'pink',
+    darkblue: 'darkblue',
+};
 
 
 export default function UploadImages({overlay}) {
@@ -12,8 +31,13 @@ export default function UploadImages({overlay}) {
     const [previewSource,setPreviewSource]=useState()
      const[overlayText,setOverlayText] = useState({overlay})
     const[text1,setText1] = useState({overlay})
-    const [color, setColor] = useState("#333333");
+    // const [color, setColor] = useState();
+    const [color, setColor] = useState(createColor("#000"));
 
+    const handleChange = (value) => {
+        console.log("onChange=", value);
+        setColor(value);
+    };
 
     useEffect(()=>{
         setOverlayText(overlay)
@@ -51,7 +75,7 @@ export default function UploadImages({overlay}) {
             await myApi.post('/images', {
                 // method: 'POST',
                 // body: JSON.stringify({ data: base64EncodedImage }),
-                 data: base64EncodedImage ,overlay:{overlayText},
+                 data: base64EncodedImage ,overlay:{overlayObject},
                 headers: { 'Content-Type': 'application/json',
                             'Access-Control-Allow-Origin': '*'}
             });
@@ -75,23 +99,24 @@ export default function UploadImages({overlay}) {
             </form>
             <div>
                 <div>
-                    {/*<HexColorPicker color={color} onChange={()=>setColor(color)} />*/}
-                    {/*<HexColorInput color={color} onChange={setColor} />*/}
+                    {/*<SketchPicker />*/}
                 </div>
             </div>
             <div className="work-space">
                 {previewSource && (
                     <WorkImageDivStyled  >
                         <img src={previewSource} alt="chosen" style={{height: '100%'}} />
-                        <OverlayTextStyled color={color} fontSize={window.innerWidth / 120 +"vw"} > {overlay}</OverlayTextStyled>
+                        <OverlayTextStyled textShadow={'1px 1px 1px black'} color={color.css.backgroundColor} fontSize={window.innerWidth / 120 +"vw"} > {overlay}</OverlayTextStyled>
                     </WorkImageDivStyled>
                 )}
                 <Button variant="contained" color="success" onClick={()=>{
                     setText1({overlay})
                     console.log('t1',text1)
                 }}>Add</Button>
-
-
+                <ColorPicker defaultValue="transparent" value={color} onChange={handleChange}/>
+                <div>
+                    <ColorPalette palette={palette} onSelect={handleChange}/>
+                </div>
             </div>
 
         </div>

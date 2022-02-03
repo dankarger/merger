@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const OverlayTextStyled = styled.div `
   //width: 100%;
   //height: 100%;
-  color: ${({color})=>color || '#33333'};
+  color: ${({color})=> color || '#33333'};
   font-size: ${({fontSize})=>fontSize  || '1em'  };
   font-family: ${({fontFamily})=> fontFamily|| 'Roboto , sans-serif'};
+  text-shadow: ${({textShadow})=>textShadow || '1px 1px 1px black'};
   //transform: translateY(-200px);
   //transform: translate(-50%, -10%);
 

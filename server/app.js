@@ -6,7 +6,7 @@ const {cloudinary} = require('./utils/cloudinary')
 const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt')
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 
 
 const  app = express();
