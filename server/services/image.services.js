@@ -23,8 +23,10 @@ const uploadImage = async (req,res)=> {
         const overlay = req.body.overlay.overlayObject.overlayText   ;
         const fileStr = req.body.data;
         const color = req.body.overlay.overlayObject.color.css.backgroundColor
-        const x = req.body.overlay.overlayObject.x
-        console.log( 'ff', color)
+        const  x = req.body.overlay.overlayObject.position[0]
+        const  y = req.body.overlay.overlayObject.position[1]
+        console.log( 'ff', x,y)
+        console.log( 'obj',req.body.overlay)
         // const uploadResponse = await cloudinary.uploader.upload(fileStr, {
         //     upload_preset: 'workspace'
         // }, )
@@ -35,7 +37,7 @@ const uploadImage = async (req,res)=> {
                 {overlay: {  font_family: "Roboto",
                              font_size: 80,
 
-                             text:overlay},color: color, x:'20',quality: "auto"},
+                             text:overlay},color: color,quality: "auto",x:x/1200,y:y/1200},
 
             ]},function(error, result) { console.log(result, error) })
         console.log('d', upLoadResponse2)

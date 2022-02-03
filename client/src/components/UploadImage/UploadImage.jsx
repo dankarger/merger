@@ -79,8 +79,9 @@ export default function UploadImages({overlay}) {
             overlayText:overlayText,
             fontSize:'80',
             color:color,
-            position:'center',
-            x:'100'
+            position:[xPos.x,xPos.y],
+            // x:xPos.current.x,
+            // y:xPos.current.y
         }
         try {
             await myApi.post('/images', {
