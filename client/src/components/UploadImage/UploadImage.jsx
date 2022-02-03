@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useRef } from "react";
 import myApi from '../../api/Api';
 import Button from "@mui/material/Button";
 import {WorkImageDivStyled} from "../../styles/WorkImageDiv.styled";
@@ -6,7 +6,7 @@ import {OverlayTextStyled} from "../../styles/OverlayText.styled";
 // import { SketchPicker } from 'react-color'
 import { ColorPicker, createColor } from 'material-ui-color';
 import { ColorPalette } from 'material-ui-color';
-import {motion} from 'framer-motion'
+import {motion, useAnimation, useMotionValue} from 'framer-motion'
 
 const palette = {
     red: '#ff0000',
@@ -33,7 +33,17 @@ export default function UploadImages({overlay}) {
     const[text1,setText1] = useState({overlay})
     // const [color, setColor] = useState();
     const [color, setColor] = useState(createColor("#000"));
+    const [position,setPosition] = useState({x:0,y:0})
+    const dragRef = useRef(null);
+    const animation = useAnimation();
+    let xPos = useRef({x:0,y:0});
+    const x = useMotionValue(0);
 
+    const onMouseMove=(e) =>{
+        console.log(e)
+        xPos ={ x: e.x, y: e.y };
+        console.log('p',xPos)
+    }
     const handleChange = (value) => {
         console.log("onChange=", value);
         setColor(value);
@@ -69,7 +79,8 @@ export default function UploadImages({overlay}) {
             overlayText:overlayText,
             fontSize:'80',
             color:color,
-            position:'center'
+            position:'center',
+            x:'100'
         }
         try {
             await myApi.post('/images', {
@@ -113,6 +124,8 @@ export default function UploadImages({overlay}) {
                                            textShadow={'1px 1px 1px black'}
                                            color={color.css.backgroundColor}
                                            fontSize={window.innerWidth / 120 +"vw"}
+
+                                           onDrag={onMouseMove}
                                             > {overlay}</OverlayTextStyled>
                     </WorkImageDivStyled>
                 )}
