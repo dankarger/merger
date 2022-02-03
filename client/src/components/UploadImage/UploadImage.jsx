@@ -20,7 +20,7 @@ export default function UploadImages({overlay}) {
         }
     }
     const handleSubmitFile = (e) => {
-        console.log('sub')
+
         e.preventDefault();
         if(!previewSource) return
         // const reader = new FileReader();
@@ -51,6 +51,7 @@ export default function UploadImages({overlay}) {
                        className='form-input'
                        draggable={true}/>
                 <button className='btn' type='submit'>Submit</button>
+
             </form>
 
             {previewSource && (
