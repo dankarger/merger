@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import myApi from '../../api/Api';
+import Button from "@mui/material/Button";
+import {WorkImageDivStyled} from "../../styles/WorkImageDiv.styled";
 
 export default function UploadImages({overlay}) {
     const[fileInputState,setFileInputState]=useState('')
@@ -55,13 +57,22 @@ export default function UploadImages({overlay}) {
                        value={fileInputState}
                        className='form-input'
                        draggable={true}/>
-                <button className='btn' type='submit'>Submit</button>
+                {/*<button className='btn' type='submit'>Submit</button>*/}
+                <Button variant="contained" type="submit" color="success" onClick={()=>console.log('fg')}>merge</Button>
+
 
             </form>
+            <div>
 
-            {previewSource && (
-                <img src={previewSource} alt="chosen" style={{height: '300px'}} />
-            )}
+            </div>
+            <div className="work-space">
+                {previewSource && (
+                    <WorkImageDivStyled >
+                        <img src={previewSource} alt="chosen" style={{height: '300px'}} />
+                    </WorkImageDivStyled>
+                )}
+            </div>
+
         </div>
     )
 }

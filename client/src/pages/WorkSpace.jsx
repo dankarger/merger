@@ -21,9 +21,10 @@ const WorkSpace =()=> {
             <h1> Workspace</h1>
         <UploadImages overlay={inputText}/>
             <AddText callback={handleInputChange} value={inputText}/>
-            <Button variant="contained" color="success" onClick={()=>console.log(inputText)}>merge</Button>
+            {/*<Button variant="contained" color="success" onClick={()=>console.log(inputText)}>merge</Button>*/}
 
         </div>
+
 
 )
 }
