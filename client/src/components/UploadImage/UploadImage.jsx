@@ -3,6 +3,8 @@ import myApi from '../../api/Api';
 import Button from "@mui/material/Button";
 import {WorkImageDivStyled} from "../../styles/WorkImageDiv.styled";
 import {OverlayTextStyled} from "../../styles/OverlayText.styled";
+import { HexColorPicker, HexColorInput } from "react-colorful";
+
 
 export default function UploadImages({overlay}) {
     const[fileInputState,setFileInputState]=useState('')
@@ -10,6 +12,7 @@ export default function UploadImages({overlay}) {
     const [previewSource,setPreviewSource]=useState()
      const[overlayText,setOverlayText] = useState({overlay})
     const[text1,setText1] = useState({overlay})
+    const [color, setColor] = useState("#333333");
 
 
     useEffect(()=>{
@@ -38,6 +41,12 @@ export default function UploadImages({overlay}) {
     }
     const uploadImage= async (base64EncodedImage) => {
         console.log('ggg',overlayText);
+        let overlayObject = {
+            overlayText:overlayText,
+            fontSize:'80',
+            color:color,
+            position:'center'
+        }
         try {
             await myApi.post('/images', {
                 // method: 'POST',
@@ -65,19 +74,23 @@ export default function UploadImages({overlay}) {
 
             </form>
             <div>
-
+                <div>
+                    {/*<HexColorPicker color={color} onChange={()=>setColor(color)} />*/}
+                    {/*<HexColorInput color={color} onChange={setColor} />*/}
+                </div>
             </div>
             <div className="work-space">
                 {previewSource && (
                     <WorkImageDivStyled  >
                         <img src={previewSource} alt="chosen" style={{height: '100%'}} />
-                        <OverlayTextStyled color={'#333333'} > {overlay}</OverlayTextStyled>
+                        <OverlayTextStyled color={color} fontSize={window.innerWidth / 120 +"vw"} > {overlay}</OverlayTextStyled>
                     </WorkImageDivStyled>
                 )}
                 <Button variant="contained" color="success" onClick={()=>{
                     setText1({overlay})
                     console.log('t1',text1)
                 }}>Add</Button>
+
 
             </div>
 

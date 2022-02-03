@@ -6,7 +6,7 @@ const {cloudinary} = require('./utils/cloudinary')
 const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt')
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 
 const  app = express();
@@ -22,8 +22,8 @@ if(PORT===8080){
 app.use(express.json());
 app.use(cors());
 app.use(express.static(publicPath));
-// app.use(express.bodyParser({limit: '50mb'}));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
 
 app.use('/api/users', userRoute)
 app.use('/api/images', imageRoute )
