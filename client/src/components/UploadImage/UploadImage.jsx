@@ -2,12 +2,14 @@ import React, {useEffect, useState} from "react";
 import myApi from '../../api/Api';
 import Button from "@mui/material/Button";
 import {WorkImageDivStyled} from "../../styles/WorkImageDiv.styled";
+import {OverlayTextStyled} from "../../styles/OverlayText.styled";
 
 export default function UploadImages({overlay}) {
     const[fileInputState,setFileInputState]=useState('')
     const[selectedFile,setSelectedFile]=useState('');
     const [previewSource,setPreviewSource]=useState()
      const[overlayText,setOverlayText] = useState({overlay})
+    const[text1,setText1] = useState({overlay})
 
 
     useEffect(()=>{
@@ -67,10 +69,16 @@ export default function UploadImages({overlay}) {
             </div>
             <div className="work-space">
                 {previewSource && (
-                    <WorkImageDivStyled >
-                        <img src={previewSource} alt="chosen" style={{height: '300px'}} />
+                    <WorkImageDivStyled  >
+                        <img src={previewSource} alt="chosen" style={{height: '100%'}} />
+                        <OverlayTextStyled color={'#333333'} > {overlay}</OverlayTextStyled>
                     </WorkImageDivStyled>
                 )}
+                <Button variant="contained" color="success" onClick={()=>{
+                    setText1({overlay})
+                    console.log('t1',text1)
+                }}>Add</Button>
+
             </div>
 
         </div>

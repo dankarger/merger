@@ -17,7 +17,7 @@ const AddText = ({callback,value})=> {
                        value={value}
 
             />
-            {/*<Button variant="contained" color="success" onClick={()=>console.log(inputText)}>merge</Button>*/}
+            {/*<Button variant="contained" color="success" onClick={()=>console.log()}>Add</Button>*/}
 
         </div>
     )

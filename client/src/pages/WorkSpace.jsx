@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
+    const[overlayColor,setOverlayColor]=useState('')
 
 
     const handleInputChange = (e)=>{
@@ -19,7 +20,7 @@ const WorkSpace =()=> {
     return(
         <div>
             <h1> Workspace</h1>
-        <UploadImages overlay={inputText}/>
+        <UploadImages overlay={inputText} overlayColor={overlayColor}/>
             <AddText callback={handleInputChange} value={inputText}/>
             {/*<Button variant="contained" color="success" onClick={()=>console.log(inputText)}>merge</Button>*/}
 
