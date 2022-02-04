@@ -3,6 +3,7 @@ import myApi from '../../api/Api';
 import Button from "@mui/material/Button";
 import {WorkImageDivStyled} from "../../styles/WorkImageDiv.styled";
 import {OverlayTextStyled} from "../../styles/OverlayText.styled";
+import {ContainerStyled} from "../../styles/Container.styled";
 // import { SketchPicker } from 'react-color'
 import { ColorPicker, createColor } from 'material-ui-color';
 import { ColorPalette } from 'material-ui-color';
@@ -132,11 +133,14 @@ export default function UploadImages({overlay}) {
                                             > {overlay}</OverlayTextStyled>
                     </WorkImageDivStyled>
                 )}
-                <Button variant="contained" color="success" onClick={()=>{
-                    setText1({overlay})
-                    console.log('t1',text1)
-                }}>Add</Button>
-                <ColorPicker defaultValue="transparent" value={color} onChange={handleChange}/>
+                <ContainerStyled>
+                    <ColorPicker defaultValue="transparent" value={color} onChange={handleChange}/>
+
+                    <Button variant="contained" color="success" onClick={()=>{
+                        setText1({overlay})
+                        console.log('t1',text1)
+                    }}>Add</Button>
+                </ContainerStyled>
                 <div>
                     <ColorPalette palette={palette} onSelect={handleChange}/>
                 </div>
