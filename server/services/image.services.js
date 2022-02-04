@@ -37,7 +37,8 @@ const uploadImage = async (req,res)=> {
             transformation: [
                 {overlay: {  font_family: "Roboto",
                              font_size: 80,
-                             text:overlay},color: color,quality: "auto",x: x / windowSize[0] ,y:   y /windowSize[1]},
+                             text:overlay},
+                             color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},
 
             ]},function(error, result) { console.log(result, error) })
         console.log('d', upLoadResponse2)

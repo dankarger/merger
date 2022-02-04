@@ -134,7 +134,7 @@ export default function UploadImages({overlay}) {
                                            transition={{type:'spring',stiffness:300}}
                                            textShadow={'1px 1px 1px black'}
                                            color={color.css.backgroundColor}
-                                           fontSize={window.innerWidth / 15 +"vw"}
+                                           fontSize={window.innerWidth / 65 +"vw"}
                                            dragConstraints={constraintsRef}
                                            onDrag={onMouseMove}
                                             > {overlay}</OverlayTextStyled>
