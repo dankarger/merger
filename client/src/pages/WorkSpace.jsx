@@ -108,7 +108,7 @@ const WorkSpace =()=> {
                                    transition={{type:'spring',stiffness:300}}
                                    textShadow={'1px 1px 1px black'}
                                    color={color.css.backgroundColor}
-                                   fontSize={window.innerWidth / 65 +"vw"}
+                                   fontSize={window.innerWidth / 100 +"vw"}
                                    dragConstraints={constraintsRef}
                                    onDrag={onMouseMove}
                 > {inputText}</OverlayTextStyled>
