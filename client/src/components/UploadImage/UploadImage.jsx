@@ -12,6 +12,7 @@ import Snackbars1 from "../SnackBar/SnackBar1";
 import {UplaodImageDivStyled} from "../../styles/UplaodImageDiv.styled";
 import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
 
+
 const palette = {
     red: '#ff0000',
     blue: '#0000ff',
@@ -84,7 +85,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
         if(!previewSource) return
         // const reader = new FileReader();
         // reader.readAsDataURL(selectedFile)
-         await uploadImage(previewSource);
+        uploadImage(previewSource);
     }
     // const uploadImage= async (base64EncodedImage) => {
     //     console.log('ggg',overlayText);
@@ -109,6 +110,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
     // }
     return (
         <UplaodImageDivStyled>
+            <h1>upload</h1>
             <UploadImageFormStyled action="" onSubmit={handleSubmitFile} className='form'>
                 <input type="file" name='image'
                        onChange={handleFileInputChane}
@@ -118,7 +120,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                 {/*<button className='btn' type='submit'>Submit</button>*/}
                 <Button variant="contained" type="submit" color="success" onClick={()=>console.log('fg')}>merge</Button>
             </UploadImageFormStyled>
-            <div className="work-space">
+            {/*<div className="work-space">*/}
                 {/*{previewSource && (*/}
                 {/*    <WorkImageDivStyled as={motion.div} ref={constraintsRef} >*/}
                 {/*        /!*img*!/*/}
@@ -147,7 +149,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                 {/*    /!*    <ColorPalette palette={palette} onSelect={handleChange}/>*!/*/}
                 {/*    /!*</div>*!/*/}
                 {/*</ContainerStyled>*/}
-            </div>
+            {/*</div>*/}
 
         </UplaodImageDivStyled>
     )

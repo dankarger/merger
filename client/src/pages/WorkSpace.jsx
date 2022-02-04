@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import UploadImages from "../components/UploadImage/UploadImage";
 import AddText from "../components/AddText/AddText";
 import MenuLeft from "../components/Menu/MenuLeft";
@@ -21,6 +21,13 @@ const WorkSpace =()=> {
     const constraintsRef = useRef(null)
 
     let xPos = useRef({x:0,y:0});
+
+
+    useEffect(()=>{
+        setOverlayText(inputText)
+
+    },[inputText])
+
 
     const handleChange = (value) => {
         console.log("onChange=", value);
@@ -82,12 +89,13 @@ const WorkSpace =()=> {
                      color={color}/>
             }
 
-            <ImageDivStyled>
-                <img src={backgroundImage} alt="chosen" style={{height: '100%'}} />
-            </ImageDivStyled>
+
 
 
             <WorkImageDivStyled as={motion.div} ref={constraintsRef} >
+                <ImageDivStyled>
+                    <img src={backgroundImage} alt="chosen" style={{height: '100%'}} />
+                </ImageDivStyled>
                 {/*img*/}
                 {/*<img src={previewSource} alt="chosen" style={{height: '100%'}} />*/}
 
