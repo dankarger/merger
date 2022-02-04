@@ -37,6 +37,7 @@ export default function UploadImages({overlay}) {
     const dragRef = useRef(null);
     const animation = useAnimation();
     let xPos = useRef({x:0,y:0});
+    const constraintsRef = useRef(null)
     const x = useMotionValue(0);
 
     const onMouseMove=(e) =>{
@@ -117,7 +118,7 @@ export default function UploadImages({overlay}) {
             </div>
             <div className="work-space">
                 {previewSource && (
-                    <WorkImageDivStyled  >
+                    <WorkImageDivStyled as={motion.div} ref={constraintsRef} >
                         <img src={previewSource} alt="chosen" style={{height: '100%'}} />
                         <OverlayTextStyled drag
                                            // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
@@ -125,8 +126,8 @@ export default function UploadImages({overlay}) {
                                            transition={{type:'spring',stiffness:300}}
                                            textShadow={'1px 1px 1px black'}
                                            color={color.css.backgroundColor}
-                                           fontSize={window.innerWidth / 120 +"vw"}
-
+                                           fontSize={window.innerWidth / 150 +"vw"}
+                                           dragConstraints={constraintsRef}
                                            onDrag={onMouseMove}
                                             > {overlay}</OverlayTextStyled>
                     </WorkImageDivStyled>
