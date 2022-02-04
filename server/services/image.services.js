@@ -77,12 +77,20 @@ const uploadImage = async (req,res)=> {
 
 }
 
-
+const deleteImage = async (id) => {
+    console.log('deleteservice')
+    const user = await User.findById("61f9950ad7a82d0f4ec11b38")
+    const image = await Image.deleteOne({_id:id});
+    user.images.pull({_id:id})
+    user.save()
+    return (image);
+}
 
 
 module.exports= {
     getImages,
     uploadImage,
     getMongoImages,
-    addImage
+    addImage,
+    deleteImage
 }

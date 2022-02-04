@@ -12,9 +12,6 @@ const getImages = async function (req, res) {
     }
 }
 
-
-
-
 const uploadImage =async (req, res)=> {
     try {
       const image = await imageService.uploadImage(req,res)
@@ -25,7 +22,16 @@ const uploadImage =async (req, res)=> {
     }
 }
 
+const deleteImage = async function (req, res) {
+    try {
+        const deleteImage = await imageService.deleteImage(req.params.id);
+        res.status(200).send(deleteImage);
+    } catch (e) {
+        res.status(400).json({error: e.message})
+    }
+}
 module.exports = {
     getImages,
-    uploadImage
+    uploadImage,
+    deleteImage
 }

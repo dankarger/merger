@@ -34,7 +34,15 @@ const addUser = async function (req, res) {
         res.status(400).send({message: e.message})
     }
 }
-
+//
+// const deleteUser = async function (req, res) {
+//     try {
+//         const deleteUser = await UserService.deleteUser(req.params.id);
+//         res.status(200).send(deleteUser);
+//     } catch (e) {
+//         res.status(400).json({error: e.message})
+//     }
+// }
 
 module.exports = {
     getUsers,
