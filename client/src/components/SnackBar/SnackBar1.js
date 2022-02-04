@@ -16,7 +16,7 @@ export default function Snackbars1({isOpen}) {
         setOpen(true);
     };
     useEffect(()=>{
-        setOpen(isOpen)
+        if(isOpen!==open) {setOpen(isOpen)}
     },[isOpen])
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -33,7 +33,7 @@ export default function Snackbars1({isOpen}) {
             </Button>
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                    This is a success message!
+                    Image Uploaded successfully!
                 </Alert>
             </Snackbar>
             {/*<Alert severity="error">This is an error message!</Alert>*/}

@@ -18,7 +18,9 @@ const WorkSpace =()=> {
     const[backgroundImage,setBackgroundImage]=useState();
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState(createColor("#000"));
-    const constraintsRef = useRef(null)
+    const constraintsRef = useRef(null);
+    const[isSnackbar,setIsSnackBar]=useState(false)
+
 
     let xPos = useRef({x:0,y:0});
 
@@ -57,6 +59,7 @@ const WorkSpace =()=> {
                 headers: { 'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'}
             });
+            setIsSnackBar(!isSnackbar)
         }catch (error) {
             console.log(error)
         }
@@ -111,7 +114,7 @@ const WorkSpace =()=> {
                 > {inputText}</OverlayTextStyled>
             </WorkImageDivStyled>
 
-            <Snackbars1 isOpen={false}/>
+            <Snackbars1 isOpen={isSnackbar}/>
         </div>
 
 

@@ -41,7 +41,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
     const [position,setPosition] = useState({x:0,y:0})
     const dragRef = useRef(null);
     const animation = useAnimation();
-    const[isSnackbar,setIsSnackBar]=useState(false)
+    // const[isSnackbar,setIsSnackBar]=useState(false)
     // let xPos = useRef({x:0,y:0});
     // const constraintsRef = useRef(null)
     const x = useMotionValue(0);
@@ -65,10 +65,10 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
         previewFile(file);
 
     }
-    const handleMessageOpen=()=>{
-        setIsSnackBar(false)
-
-    }
+    // const handleMessageOpen=()=>{
+    //     setIsSnackBar(false)
+    //
+    // }
 
     const previewFile= (file) => {
         const reader = new FileReader();

@@ -69,7 +69,10 @@ const uploadImage = async (req,res)=> {
             dateCreated:Date.now()
         }
         const mongoImage = await Image.create(image)
-        console.log('mong',mongoImage)
+        console.log('mon',mongoImage)
+         user.images.push(mongoImage._id)
+        await user.save()
+        // console.log('mong',mongoImage)
         return (mongoImage)
 
 }
