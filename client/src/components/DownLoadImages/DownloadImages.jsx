@@ -28,9 +28,9 @@ const DownloadImages = () => {
         try {
             const {data} = await myApi.get('/images');
             // const data =await res.json();
-            setImageId(data.resources)
+            setImageId(data)
             // return data.data
-            console.log('da', data.resources)
+            console.log('da', data)
         } catch (e) {
             console.error(e)
         }
@@ -41,14 +41,16 @@ const DownloadImages = () => {
 
             setImageId2(
                 imageIds.map((imageId, index) => (
+
                     // console.log('dd',imageId.public_id)
-                    <Image
-                        key={index}
-                        cloudName="meme3"
-                        publicId={imageId.public_id}
-                        width="300"
-                        crop='scale'
-                    />
+                    // <Image
+                    //     key={index}
+                    //     cloudName="meme3"
+                    //     publicId={imageId.public_id}
+                    //     width="300"
+                    //     crop='scale'
+                    // />
+                    <img key={index} src={imageId.url} alt="hh"/>
                 )))
         }
         console.log('image,',imageIds)
@@ -69,10 +71,12 @@ const DownloadImages = () => {
                            <ActionAreaCard image={ <Image
                                 key={index}
                                 cloudName="meme3"
-                                publicId={imageId.public_id}
+                                publicId={imageId.url}
                                 width="300"
                                 crop='scale'
                             />}/>
+                            // <p>{imageId.url}</p>
+                            // <img key={index} src={imageId.url} alt="hh"/>
 
                         ))}
                     </ContainerStyled>

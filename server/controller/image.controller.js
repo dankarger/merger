@@ -4,12 +4,16 @@ const {cloudinary} = require('../utils/cloudinary')
 
 const getImages = async function (req, res) {
     try {
-        const images = await imageService.getImages()
+        const images = await imageService.getMongoImages()
+        console.log('controlletimages',images)
         res.status(200).send(images);
     } catch (e) {
         res.status(400).json({message: 'Images not found'+ e.message})
     }
 }
+
+
+
 
 const uploadImage =async (req, res)=> {
     try {

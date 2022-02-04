@@ -3,12 +3,12 @@ const User = require("../models/user.model");
 const {cloudinary} = require("../utils/cloudinary");
 
 const getImages = async ()=> {
-    console.log('getImages22')
+    // console.log('getImages22')
     const resources = await cloudinary.search.expression('folder:workspaceop/*').sort_by('public_id', 'desc')
-        .max_results(30)
+        .max_results(50)
         .execute();
     // const publicIds = await resources.map( file => file.public_id);
-    console.log('gg',resources)
+    // console.log('gg',resources)
 
     return resources
     // res.send(publicIds);
@@ -21,6 +21,7 @@ const getImages = async ()=> {
 
 const getMongoImages= async ()=> {
     const images = await Image.find()
+    console.log('mongoimage',images)
     return images
 }
 
@@ -58,10 +59,12 @@ const uploadImage = async (req,res)=> {
 }
 
     const addImage = async (url) => {
+    const user = await User.findById("61f9950ad7a82d0f4ec11b38")
+        console.log('user',user)
         const image = {
             title:"test",
             url:url,
-            createdBy:",",
+            createdBy:user._id,
             dateCreated:Date.now()
         }
         const mongoImage = await Image.create(image)
