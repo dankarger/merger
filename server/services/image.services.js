@@ -18,6 +18,12 @@ const getImages = async ()=> {
     // return('users')
 }
 
+
+const getMongoImages= async ()=> {
+    const images = await Image.find()
+    return images
+}
+
 const uploadImage = async (req,res)=> {
     try {
         const overlay = req.body.overlay.overlayObject.overlayText   ;
@@ -42,14 +48,34 @@ const uploadImage = async (req,res)=> {
 
             ]},function(error, result) { console.log(result, error) })
         console.log('d', upLoadResponse2)
-        return (upLoadResponse2)
+
+        const mongoImage = await addImage(upLoadResponse2.url)
+        return (mongoImage)
+
     }catch(e) {
         console.log(e.message)
     }
 }
 
+    const addImage = async (url) => {
+        const image = {
+            title:"test",
+            url:url,
+            createdBy:",",
+            dateCreated:Date.now()
+        }
+        const mongoImage = await Image.create(image)
+        console.log('mong',mongoImage)
+        return (mongoImage)
+
+}
+
+
+
 
 module.exports= {
     getImages,
-    uploadImage
+    uploadImage,
+    getMongoImages,
+    addImage
 }
