@@ -9,7 +9,7 @@ import { ColorPicker, createColor } from 'material-ui-color';
 import { ColorPalette } from 'material-ui-color';
 import {motion, useAnimation, useMotionValue} from 'framer-motion'
 import Snackbars1 from "../SnackBar/SnackBar1";
- // import IntegrationNotistack from "../SnackBar/SnackBar2";
+import {UplaodImageDivStyled} from "../../styles/UplaodImageDiv.styled";
 
 const palette = {
     red: '#ff0000',
@@ -106,7 +106,7 @@ export default function UploadImages({overlay}) {
         }
     }
     return (
-        <div>
+        <UplaodImageDivStyled>
             <h1>Upload</h1>
             <form action="" onSubmit={handleSubmitFile} className='form'>
                 <input type="file" name='image'
@@ -156,6 +156,6 @@ export default function UploadImages({overlay}) {
                 {/*<IntegrationNotistack />*/}
             </div>
 
-        </div>
+        </UplaodImageDivStyled>
     )
 }
