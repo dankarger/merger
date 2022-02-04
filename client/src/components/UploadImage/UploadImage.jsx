@@ -10,6 +10,7 @@ import { ColorPalette } from 'material-ui-color';
 import {motion, useAnimation, useMotionValue} from 'framer-motion'
 import Snackbars1 from "../SnackBar/SnackBar1";
 import {UplaodImageDivStyled} from "../../styles/UplaodImageDiv.styled";
+import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
 
 const palette = {
     red: '#ff0000',
@@ -28,7 +29,7 @@ const palette = {
 };
 
 
-export default function UploadImages({overlay}) {
+export default function UploadImages({overlay,setBackgroundImage}) {
     const[fileInputState,setFileInputState]=useState('')
     const[selectedFile,setSelectedFile]=useState('');
     const [previewSource,setPreviewSource]=useState()
@@ -72,7 +73,10 @@ export default function UploadImages({overlay}) {
         reader.readAsDataURL(file);
         reader.onloadend = ()=> {
             setPreviewSource(reader.result)
+            setBackgroundImage(reader.result)
         }
+
+
     }
     const handleSubmitFile = (e) => {
 
@@ -90,8 +94,6 @@ export default function UploadImages({overlay}) {
             color:color,
             position:[xPos.x,xPos.y],
             windowSize:[window.innerWidth,window.innerHeight]
-            // x:xPos.current.x,
-            // y:xPos.current.y
         }
         try {
             await myApi.post('/images', {
@@ -107,8 +109,7 @@ export default function UploadImages({overlay}) {
     }
     return (
         <UplaodImageDivStyled>
-            <h1>Upload</h1>
-            <form action="" onSubmit={handleSubmitFile} className='form'>
+            <UploadImageFormStyled action="" onSubmit={handleSubmitFile} className='form'>
                 <input type="file" name='image'
                        onChange={handleFileInputChane}
                        value={fileInputState}
@@ -116,18 +117,13 @@ export default function UploadImages({overlay}) {
                        draggable={true}/>
                 {/*<button className='btn' type='submit'>Submit</button>*/}
                 <Button variant="contained" type="submit" color="success" onClick={()=>console.log('fg')}>merge</Button>
-
-
-            </form>
-            <div>
-                <div>
-                    {/*<SketchPicker />*/}
-                </div>
-            </div>
+            </UploadImageFormStyled>
             <div className="work-space">
                 {previewSource && (
                     <WorkImageDivStyled as={motion.div} ref={constraintsRef} >
-                        <img src={previewSource} alt="chosen" style={{height: '100%'}} />
+                        {/*img*/}
+                        {/*<img src={previewSource} alt="chosen" style={{height: '100%'}} />*/}
+
                         <OverlayTextStyled drag
                                            // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
                                            dragElastic={111}
@@ -147,13 +143,10 @@ export default function UploadImages({overlay}) {
                         setText1({overlay})
                         console.log('t1',text1)
                     }}>Add</Button>
-                    <div>
-                        <ColorPalette palette={palette} onSelect={handleChange}/>
-                    </div>
+                    {/*<div>*/}
+                    {/*    <ColorPalette palette={palette} onSelect={handleChange}/>*/}
+                    {/*</div>*/}
                 </ContainerStyled>
-
-                <Snackbars1 isOpen={false}/>
-                {/*<IntegrationNotistack />*/}
             </div>
 
         </UplaodImageDivStyled>

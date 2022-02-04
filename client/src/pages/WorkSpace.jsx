@@ -1,32 +1,37 @@
 import React, {useState} from "react";
 import UploadImages from "../components/UploadImage/UploadImage";
 import AddText from "../components/AddText/AddText";
-import myApi from '../api/Api'
-import Button from "@mui/material/Button";
 import MenuLeft from "../components/Menu/MenuLeft";
-
+import Snackbars1 from "../components/SnackBar/SnackBar1";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
-    const[overlayColor,setOverlayColor]=useState('')
-
+    const[overlayColor,setOverlayColor]=useState('');
+    const[isImgMenuOpen,setIsImgMenuOpen]=useState(false);
+    const[isTextMenuOpen,setIsTextMenuOpen]=useState(false);
+    const[backgroundImage,setBackgroundImage]=useState();
 
     const handleInputChange = (e)=>{
         setInputText(e.target.value)
 
     }
-    const handleSubmit =()=> {
 
-
-    }
     return(
         <div>
-            <h1> Workspace</h1>
-            <MenuLeft />
-        <UploadImages overlay={inputText} overlayColor={overlayColor}/>
-            <AddText callback={handleInputChange} value={inputText}/>
-            {/*<Button variant="contained" color="success" onClick={()=>console.log(inputText)}>merge</Button>*/}
+            <MenuLeft imageCallback={setIsImgMenuOpen}
+                      isMenuOpen={isImgMenuOpen}
+                      textCallback={setIsTextMenuOpen}
+                      isTextMenuOpen={isTextMenuOpen}
 
+            />
+            {isImgMenuOpen &&
+           <UploadImages overlay={inputText} overlayColor={overlayColor} setBackgroundImage={setBackgroundImage}/>}
+            {isTextMenuOpen &&
+            <AddText callback={handleInputChange} value={inputText}/>
+            }
+            <img src={backgroundImage} alt="chosen" style={{height: '100%'}} />
+
+            <Snackbars1 isOpen={false}/>
         </div>
 
 

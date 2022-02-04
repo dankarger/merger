@@ -5,7 +5,7 @@ import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
-export default function ToolBar() {
+export default function ToolBar({imageCallback,isMenuOpen,textCallback,isTextMenuOpen}) {
     const [view, setView] = React.useState('list');
 
     const handleChange = (event, nextView) => {
@@ -19,14 +19,15 @@ export default function ToolBar() {
             exclusive
             onChange={handleChange}
         >
-            <ToggleButton value="list" aria-label="list">
-              Text
+            <ToggleButton value="list" aria-label="list" onClick={()=>imageCallback(!isMenuOpen)}>
+              Image
             </ToggleButton>
-            <ToggleButton value="module" aria-label="module">
-             Crop
+            <ToggleButton value="module" aria-label="module" onClick={()=>textCallback(!isTextMenuOpen)}>
+             Text
             </ToggleButton>
             <ToggleButton value="quilt" aria-label="quilt">
-                <ViewQuiltIcon />
+                {/*<ViewQuiltIcon />*/}
+                FX
             </ToggleButton>
         </ToggleButtonGroup>
     );

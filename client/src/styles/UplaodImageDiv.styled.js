@@ -9,10 +9,9 @@ export const UplaodImageDivStyled = styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   position: relative;
   font-size: 5vmin;
   overflow: hidden;
   border:1px solid grey;
-
+ 
 `
