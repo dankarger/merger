@@ -15,6 +15,9 @@ const imageSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, ref: 'User'
 
     },
+    nameOfUser:{
+        type:String
+    },
     dateCreated:Date,
 
 });

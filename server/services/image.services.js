@@ -65,6 +65,7 @@ const uploadImage = async (req,res)=> {
             title:"test",
             url:url,
             createdBy:user._id,
+            nameOfUser:user.name,
             dateCreated:Date.now()
         }
         const mongoImage = await Image.create(image)
