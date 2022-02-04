@@ -8,6 +8,8 @@ import {ContainerStyled} from "../../styles/Container.styled";
 import { ColorPicker, createColor } from 'material-ui-color';
 import { ColorPalette } from 'material-ui-color';
 import {motion, useAnimation, useMotionValue} from 'framer-motion'
+import Snackbars1 from "../SnackBar/SnackBar1";
+ // import IntegrationNotistack from "../SnackBar/SnackBar2";
 
 const palette = {
     red: '#ff0000',
@@ -37,6 +39,7 @@ export default function UploadImages({overlay}) {
     const [position,setPosition] = useState({x:0,y:0})
     const dragRef = useRef(null);
     const animation = useAnimation();
+    const[isSnackbar,setIsSnackBar]=useState(false)
     let xPos = useRef({x:0,y:0});
     const constraintsRef = useRef(null)
     const x = useMotionValue(0);
@@ -58,6 +61,10 @@ export default function UploadImages({overlay}) {
     const handleFileInputChane = (e)=>{
         const file = e.target.files[0];
         previewFile(file);
+
+    }
+    const handleMessageOpen=()=>{
+        setIsSnackBar(false)
 
     }
     const previewFile= (file) => {
@@ -127,7 +134,7 @@ export default function UploadImages({overlay}) {
                                            transition={{type:'spring',stiffness:300}}
                                            textShadow={'1px 1px 1px black'}
                                            color={color.css.backgroundColor}
-                                           fontSize={window.innerWidth / 150 +"vw"}
+                                           fontSize={window.innerWidth / 15 +"vw"}
                                            dragConstraints={constraintsRef}
                                            onDrag={onMouseMove}
                                             > {overlay}</OverlayTextStyled>
@@ -140,10 +147,13 @@ export default function UploadImages({overlay}) {
                         setText1({overlay})
                         console.log('t1',text1)
                     }}>Add</Button>
+                    <div>
+                        <ColorPalette palette={palette} onSelect={handleChange}/>
+                    </div>
                 </ContainerStyled>
-                <div>
-                    <ColorPalette palette={palette} onSelect={handleChange}/>
-                </div>
+
+                <Snackbars1 isOpen={false}/>
+                {/*<IntegrationNotistack />*/}
             </div>
 
         </div>
