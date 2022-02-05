@@ -14,7 +14,7 @@ const AddText = ({callback,value,color,handleChange})=> {
     return (
         <AddTextStyled>
             <motion.div
-                variant={MenuLeftVariants}
+                variants={MenuLeftVariants}
                 initial='initial'
                 animate='animate'
             >

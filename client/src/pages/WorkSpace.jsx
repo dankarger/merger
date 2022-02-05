@@ -11,6 +11,7 @@ import {WorkImageDivStyled} from "../styles/WorkImageDiv.styled";
 import {createColor} from "material-ui-color";
 import {WorkPageStyled} from "../styles/WorkPage.styled";
 import {UploadImageDivStyled} from "../styles/UplaodImageDiv.styled";
+import {Skeleton} from "@mui/material";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -120,6 +121,7 @@ const WorkSpace =()=> {
             />
             }
             <WorkImageDivStyled as={motion.div}  >
+                {!backgroundImage && <Skeleton  animation="wave" variant="rectangular" width={510} height={318} />}
                 {backgroundImage &&
                 <ImageDivStyled  >
 

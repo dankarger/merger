@@ -37,13 +37,19 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
     }
 
     return (
-            <UploadImageFormStyled as={motion.div}
+        <>
+
+            <UploadImageFormStyled
                                    action="" onSubmit={handleSubmitFile}
                                    className='form'
-                                   variant={MenuLeftVariants}
-                                   initial='initial'
-                                   animate='animate'
+                                   // as={motion.div}
+
             >
+                <motion.div
+                    variants={MenuLeftVariants}
+                    initial='initial'
+                    animate='animate'
+                >
                 <input type="file" name='image'
                        onChange={handleFileInputChane}
                        value={fileInputState}
@@ -51,6 +57,9 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                        draggable={true}/>
                 {/*<button className='btn' type='submit'>Submit</button>*/}
                 <Button variant="contained" type="submit" color="success" onClick={()=>console.log('fg')}>merge</Button>
+        </motion.div>
             </UploadImageFormStyled>
+
+</>
     )
 }

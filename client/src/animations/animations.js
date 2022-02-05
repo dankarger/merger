@@ -35,7 +35,7 @@ export const MenuLeftVariants = {
     animate:{
       x:0,
         transition:{
-         stiffness:12,duration:.8
+         stiffness:12,duration:.4
         }
     }
 }
