@@ -102,6 +102,8 @@ const deleteAllImagesByUser = async (id) => {
     // await cloudinary.uploader.destroy({},{tags:user.name}, function(error,result)  {console.log(result, error); });
     await cloudinary.api.delete_resources_by_tag(user.name,  function(error,result)  {console.log(result, error)})
     const deletedImages =  await Image.deleteMany({createdBy:id})
+    user.images = [];
+    user.save()
     console.log('dI',deletedImages)
      return deletedImages
 }
