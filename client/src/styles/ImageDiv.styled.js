@@ -13,10 +13,10 @@ export const ImageDivStyled = styled(motion.div) `
   
   img {
     object-fit: contain;
-    max-width:100%;
-    height: auto;
-    border:calc(.2rem + 1vmin) #333333 solid;
-    padding:1rem;
+    max-width:90%;
+    max-height: 90%;
+    border:calc(.2rem + 1vmin) red solid;
+    //padding:1rem;
   }
 
 `

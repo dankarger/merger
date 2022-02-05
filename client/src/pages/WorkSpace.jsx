@@ -10,6 +10,7 @@ import {OverlayTextStyled} from "../styles/OverlayText.styled";
 import {WorkImageDivStyled} from "../styles/WorkImageDiv.styled";
 import {createColor} from "material-ui-color";
 import {WorkPageStyled} from "../styles/WorkPage.styled";
+import {UploadImageDivStyled} from "../styles/UplaodImageDiv.styled";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -69,8 +70,7 @@ const WorkSpace =()=> {
     }
 
     const handleInputChange = (e)=>{
-        setInputText(e.target.value)
-
+        setInputText(e.target.value);
     }
 
     return(
@@ -97,16 +97,15 @@ const WorkSpace =()=> {
                      drag
                      dragElastic={111}
                      dragConstraints={constraintsRefAddText}
-
             />
             }
             <WorkImageDivStyled as={motion.div} ref={constraintsRef} >
                 {backgroundImage &&
                 <ImageDivStyled  >
+
                     <img src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
                     <OverlayTextStyled
                         // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
-
                                          drag
                                        dragElastic={111}
                                        transition={{type:'spring',stiffness:300}}
@@ -118,10 +117,7 @@ const WorkSpace =()=> {
                     > {inputText}</OverlayTextStyled>
                 </ImageDivStyled>
                 }
-                {/*img*/}
-                {/*<img src={previewSource} alt="chosen" style={{height: '100%'}} />*/}
-
-
+                <UploadImageDivStyled image={backgroundImage}/>
             </WorkImageDivStyled>
 
             <Snackbars1 isOpen={isSnackbar}/>

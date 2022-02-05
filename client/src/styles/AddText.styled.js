@@ -12,13 +12,13 @@ export const AddTextStyled = styled(motion.div) `
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   z-index: 10000;
   left: 60px;
-  top: 50px;
+  top: 120px;
   border: 1px solid grey;
   border-radius: 10px;
-  background: rgba(236, 236, 236, 0.86);
+  background: rgba(236, 236, 236, 0.93);
 
   &:hover {
     cursor: grab;

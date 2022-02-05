@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const UplaodImageDivStyled = styled.div `
+export const UploadImageDivStyled = styled.div `
   width: 100%;
   max-width:100%;
   height: auto;
   //height: 90vh;
-  // background-image: ${({image})=>image};
+   background-image: ${({image})=>image};
   //padding: 0 20px;
   //margin:0 auto;
   display: flex;

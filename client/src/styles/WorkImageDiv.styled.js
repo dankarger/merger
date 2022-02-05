@@ -14,7 +14,7 @@ export const WorkImageDivStyled = styled.div `
   position: relative;
   font-size: 5vmin;
   overflow: hidden;
-
+  background-color:#333333 ;
   //img {
   //  width:100%;
   //  height: 100%;

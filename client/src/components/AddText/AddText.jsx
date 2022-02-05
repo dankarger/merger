@@ -9,7 +9,6 @@ import {ColorPickerDivStyled} from "../../styles/ColorPickerDiv.styled";
 const AddText = ({callback,value,color,handleChange})=> {
     // const [inputText,setInputText]=useState('');
 
-
     return (
         <AddTextStyled>
             <TextField id="outlined-basic"
@@ -23,13 +22,9 @@ const AddText = ({callback,value,color,handleChange})=> {
             {/*<ContainerStyled>*/}
             <Button variant="contained" color="success" onClick={()=>{
             }}>Add</Button>
-
             <ColorPickerDivStyled>
                 <ColorPicker defaultValue="transparent" value={color} onChange={handleChange}/>
-
             </ColorPickerDivStyled>
-
-
             {/*</ContainerStyled>*/}
         </AddTextStyled>
     )
