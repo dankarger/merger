@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import {motion} from 'framer-motion'
 
-export const AddTextStyled = styled.div `
+
+export const AddTextStyled = styled(motion.div) `
   //width: 100%;
   //height: 100%;
-  
-   //padding: 0 20px;
+
+  padding: 20px 20px;
   //margin:0 auto;
   display: flex;
   justify-content: center;
@@ -13,7 +15,13 @@ export const AddTextStyled = styled.div `
   position: absolute;
   z-index: 10000;
   left: 100px;
-  top:100px;
-  
+  top: 100px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  background: rgba(236, 236, 236, 0.86);
+
+  &:hover {
+    cursor: grab;
+  }
 
 `

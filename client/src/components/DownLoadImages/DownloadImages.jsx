@@ -41,16 +41,10 @@ const DownloadImages = () => {
 
             setImageId2(
                 imageIds.map((imageId, index) => (
+                    <div  key={index}>
+                        <img src={imageId.url} alt="hh"/>
+                    </div>
 
-                    // console.log('dd',imageId.public_id)
-                    // <Image
-                    //     key={index}
-                    //     cloudName="meme3"
-                    //     publicId={imageId.public_id}
-                    //     width="300"
-                    //     crop='scale'
-                    // />
-                    <img key={index} src={imageId.url} alt="hh"/>
                 )))
         }
         console.log('image,',imageIds)

@@ -21,7 +21,7 @@ const AddText = ({callback,value,color,handleChange})=> {
 
             />
             {/*<Button variant="contained" color="success" onClick={()=>console.log()}>Add</Button>*/}
-            <ContainerStyled>
+            {/*<ContainerStyled>*/}
                 <ColorPicker defaultValue="transparent" value={color} onChange={handleChange}/>
 
                 <Button variant="contained" color="success" onClick={()=>{
@@ -30,7 +30,7 @@ const AddText = ({callback,value,color,handleChange})=> {
                 {/*<div>*/}
                 {/*    <ColorPalette palette={palette} onSelect={handleChange}/>*/}
                 {/*</div>*/}
-            </ContainerStyled>
+            {/*</ContainerStyled>*/}
         </AddTextStyled>
     )
 }

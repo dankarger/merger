@@ -9,6 +9,7 @@ export const MenuLeftStyled = styled.div `
   max-width:200px;
   position: fixed;
   left: 0;
+  top:70px;
   z-index: 20000;
   border-right: 1px grey solid;
   background: whitesmoke;

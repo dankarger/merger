@@ -9,6 +9,7 @@ import {motion} from "framer-motion";
 import {OverlayTextStyled} from "../styles/OverlayText.styled";
 import {WorkImageDivStyled} from "../styles/WorkImageDiv.styled";
 import {createColor} from "material-ui-color";
+import {WorkPageStyled} from "../styles/WorkPage.styled";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -18,8 +19,10 @@ const WorkSpace =()=> {
     const[backgroundImage,setBackgroundImage]=useState();
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState(createColor("#000"));
-    const constraintsRef = useRef(null);
+
     const[isSnackbar,setIsSnackBar]=useState(false)
+    const constraintsRef = useRef(null);
+    const constraintsRefAddText = useRef(null);
 
 
     let xPos = useRef({x:0,y:0});
@@ -71,12 +74,13 @@ const WorkSpace =()=> {
     }
 
     return(
-        <div>
+        <WorkPageStyled ref={constraintsRefAddText}>
             <MenuLeft imageCallback={setIsImgMenuOpen}
                       isMenuOpen={isImgMenuOpen}
                       textCallback={setIsTextMenuOpen}
                       isTextMenuOpen={isTextMenuOpen}
             />
+
             {isImgMenuOpen &&
            <UploadImages overlay={inputText}
                          overlayColor={overlayColor}
@@ -89,7 +93,12 @@ const WorkSpace =()=> {
             <AddText callback={handleInputChange}
                      value={inputText}
                      handleChange={handleChange}
-                     color={color}/>
+                     color={color}
+                     drag
+                     dragElastic={111}
+                     dragConstraints={constraintsRefAddText}
+
+            />
             }
 
 
@@ -97,11 +106,12 @@ const WorkSpace =()=> {
 
             <WorkImageDivStyled as={motion.div} ref={constraintsRef} >
                 {backgroundImage &&
-                <ImageDivStyled>
+                <ImageDivStyled  >
                     <img src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
-
-                    <OverlayTextStyled drag
+                    <OverlayTextStyled
                         // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
+
+                                         drag
                                        dragElastic={111}
                                        transition={{type:'spring',stiffness:300}}
                                        textshadow={'1px 1px 1px black'}
@@ -119,7 +129,7 @@ const WorkSpace =()=> {
             </WorkImageDivStyled>
 
             <Snackbars1 isOpen={isSnackbar}/>
-        </div>
+        </WorkPageStyled>
 
 
 )
