@@ -12,14 +12,14 @@ export const WorkImageDivStyled = styled.div `
   flex-direction: column;
   position: relative;
   font-size: 5vmin;
- overflow: hidden;
+  overflow: hidden;
 
-  img {
-    width:100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: inherit;
-    
-  }
+  //img {
+  //  width:100%;
+  //  height: 100%;
+  //  object-fit: contain;
+  //  object-position: inherit;
+  //  
+  //}
   
 `

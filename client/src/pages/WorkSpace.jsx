@@ -99,21 +99,23 @@ const WorkSpace =()=> {
                 {backgroundImage &&
                 <ImageDivStyled>
                     <img src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
+
+                    <OverlayTextStyled drag
+                        // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
+                                       dragElastic={111}
+                                       transition={{type:'spring',stiffness:300}}
+                                       textshadow={'1px 1px 1px black'}
+                                       color={color.css.backgroundColor}
+                                       fontSize={5 + window.innerWidth / 1000 +"rem"}
+                                       dragConstraints={constraintsRef}
+                                       onDrag={onMouseMove}
+                    > {inputText}</OverlayTextStyled>
                 </ImageDivStyled>
                 }
                 {/*img*/}
                 {/*<img src={previewSource} alt="chosen" style={{height: '100%'}} />*/}
 
-                <OverlayTextStyled drag
-                    // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
-                                   dragElastic={111}
-                                   transition={{type:'spring',stiffness:300}}
-                                   textShadow={'1px 1px 1px black'}
-                                   color={color.css.backgroundColor}
-                                   fontSize={5 + window.innerWidth / 1000 +"rem"}
-                                   dragConstraints={constraintsRef}
-                                   onDrag={onMouseMove}
-                > {inputText}</OverlayTextStyled>
+
             </WorkImageDivStyled>
 
             <Snackbars1 isOpen={isSnackbar}/>
