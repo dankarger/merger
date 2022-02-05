@@ -20,7 +20,7 @@ const WorkSpace =()=> {
     const[backgroundImage,setBackgroundImage]=useState();
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState(createColor("#000"));
-
+    const [cursorPosition,setCursorPosition]=useState({x:0,y:0})
     const[isSnackbar,setIsSnackBar]=useState(false)
     const constraintsRef = useRef(null);
     const constraintsRefAddText = useRef(null);
@@ -39,7 +39,10 @@ const WorkSpace =()=> {
         console.log("onChange=", value);
         setColor(value);
     };
-
+   const _onMouseMove=(e) =>{
+       console.log(e.nativeEvent.offsetX,e.nativeEvent.offsetY)
+        // setCursorPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
+    }
     const onMouseMove=(e) =>{
         console.log(e)
         xPos ={ x: e.x, y: e.y };
@@ -53,7 +56,8 @@ const WorkSpace =()=> {
             fontSize:'80',
             color:color,
             position:[xPos.x,xPos.y],
-            windowSize:[window.innerWidth,window.innerHeight]
+            windowSize:[window.innerWidth,window.innerHeight],
+
         }
         try {
             await myApi.post('/images', {
@@ -99,11 +103,11 @@ const WorkSpace =()=> {
                      dragConstraints={constraintsRefAddText}
             />
             }
-            <WorkImageDivStyled as={motion.div} ref={constraintsRef} >
+            <WorkImageDivStyled as={motion.div}  >
                 {backgroundImage &&
                 <ImageDivStyled  >
 
-                    <img src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
+                    <img ref={constraintsRef} onDragEnd={_onMouseMove} src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
                     <OverlayTextStyled
                         // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
                                          drag
