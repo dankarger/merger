@@ -28,9 +28,9 @@ export default function Snackbars1({isOpen}) {
 
     return (
         <Stack spacing={2} sx={{ width: '100%' }}>
-            <Button variant="outlined" onClick={handleClick}>
-                Open success snackbar
-            </Button>
+            {/*<Button variant="outlined" onClick={handleClick}>*/}
+            {/*    Open success snackbar*/}
+            {/*</Button>*/}
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                     Image Uploaded successfully!

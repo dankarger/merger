@@ -1,14 +1,7 @@
 import React, {useEffect, useState, useRef } from "react";
-import myApi from '../../api/Api';
 import Button from "@mui/material/Button";
-import {WorkImageDivStyled} from "../../styles/WorkImageDiv.styled";
-import {OverlayTextStyled} from "../../styles/OverlayText.styled";
-import {ContainerStyled} from "../../styles/Container.styled";
-// import { SketchPicker } from 'react-color'
-import { ColorPicker, createColor } from 'material-ui-color';
-import { ColorPalette } from 'material-ui-color';
-import {motion, useAnimation, useMotionValue} from 'framer-motion'
-import Snackbars1 from "../SnackBar/SnackBar1";
+import {motion } from 'framer-motion'
+import {MenuLeftVariants} from "../../animations/animations";
 import {UplaodImageDivStyled} from "../../styles/UplaodImageDiv.styled";
 import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
 
@@ -44,7 +37,13 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
     }
 
     return (
-            <UploadImageFormStyled action="" onSubmit={handleSubmitFile} className='form'>
+            <UploadImageFormStyled as={motion.div}
+                                   action="" onSubmit={handleSubmitFile}
+                                   className='form'
+                                   variant={MenuLeftVariants}
+                                   initial='initial'
+                                   animate='animate'
+            >
                 <input type="file" name='image'
                        onChange={handleFileInputChane}
                        value={fileInputState}

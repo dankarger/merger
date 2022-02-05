@@ -5,12 +5,21 @@ import {AddTextStyled} from "../../styles/AddText.styled";
 import {ColorPicker} from "material-ui-color";
 import {ContainerStyled} from "../../styles/Container.styled";
 import {ColorPickerDivStyled} from "../../styles/ColorPickerDiv.styled";
+import {motion} from 'framer-motion'
+import {MenuLeftVariants} from "../../animations/animations";
 
 const AddText = ({callback,value,color,handleChange})=> {
     // const [inputText,setInputText]=useState('');
 
     return (
         <AddTextStyled>
+            <motion.div
+                variant={MenuLeftVariants}
+                initial='initial'
+                animate='animate'
+            >
+
+
             <TextField id="outlined-basic"
                        label="Add Text"
                        variant="outlined"
@@ -26,6 +35,7 @@ const AddText = ({callback,value,color,handleChange})=> {
                 <ColorPicker defaultValue="transparent" value={color} onChange={handleChange}/>
             </ColorPickerDivStyled>
             {/*</ContainerStyled>*/}
+            </motion.div>
         </AddTextStyled>
     )
 }

@@ -9,13 +9,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
 import CropFreeIcon from '@mui/icons-material/CropFree';
-import {Link, Route,Routes} from "react-router-dom";
-
+import {Link} from "react-router-dom";
+import {motion} from 'framer-motion'
+import {navbarVariants} from "../../animations/animations";
 
 const pages = ['Home', 'Work', 'Login','Gallery'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -42,9 +41,12 @@ const ResponsiveAppBar = () => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar  position="static"
+        // variants={navbarVariants}
+        //         initial='initial'
+        //         animate='animate'
+        >
             <Container maxWidth="xl">
-
                 <Toolbar disableGutters>
                     <Typography
                         variant="h6"

@@ -5,7 +5,7 @@ export const MenuLeftStyled = styled.div `
   justify-content: left;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   max-width:200px;
   position: fixed;
   left: 0;

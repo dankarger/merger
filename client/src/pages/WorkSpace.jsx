@@ -52,6 +52,7 @@ const WorkSpace =()=> {
         console.log('obj',obj)
         xPos.current =obj;
         console.log('p',xPos)
+        console.log('c',constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight)
     }
 
     const uploadImage= async (base64EncodedImage) => {
@@ -66,11 +67,12 @@ const WorkSpace =()=> {
                 color:color,
                 // position:[xPos.x,xPos.y],
                 // position:[Math.floor(xPos.current.y), Math.floor(xPos.current.x)],
-                position:[Math.floor(xPos.current.x), Math.floor(xPos.current.y)],
+                position:[Math.floor(xPos.current.x ), Math.floor(xPos.current.y)],
                 // gravity:'center',
                 // position:[cursorPosition.x,cursorPosition.y],
                 // position:[TextOverlayRef.current],
                 windowSize:[window.innerWidth,window.innerHeight],
+                imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
 
             }
             await myApi.post('/images', {
