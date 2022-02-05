@@ -16,6 +16,7 @@ const getImages = async function (req, res) {
 
 const uploadImage =async (req, res)=> {
     try {
+        console.log('wtf')
       const image = await imageService.uploadImage(req,res)
       res.status(200).send(image);
     } catch (error) {

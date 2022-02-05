@@ -30,17 +30,18 @@ const getMongoImages= async ()=> {
 }
 
 const uploadImage = async (req,res)=> {
+    console.log('up')
     try {
         const user = await findUser("61fdbde72601c0ac1f890bbb")
         console.log('uuuuser',user)
         const overlay = req.body.overlay.overlayObject.overlayText   ;
         const fileStr = req.body.data;
-        const color = req.body.overlay.overlayObject.color.css.backgroundColor
-        const  x = Math.floor(req.body.overlay.overlayObject.position[0])
-        const  y = req.body.overlay.overlayObject.position[1]
-        const windowSize = req.body.overlay.overlayObject.windowSize
-        console.log( 'ff', x,y)
-        console.log( 'obj',req.body.overlay)
+        const color = req.body.overlay.overlayObject.color.css.backgroundColor;
+        const  x = Math.floor(req.body.overlay.overlayObject.position[0]);
+        const  y = Math.floor(req.body.overlay.overlayObject.position[1]);
+        const windowSize = req.body.overlay.overlayObject.windowSize;
+        console.log( 'ff', x,y);
+        console.log( 'obj',req.body.overlay);
         // const uploadResponse = await cloudinary.uploader.upload(fileStr, {
         //     upload_preset: 'workspace'
         // }, )
@@ -56,15 +57,16 @@ const uploadImage = async (req,res)=> {
         console.log('d', upLoadResponse2)
 
         const mongoImage = await addImage(upLoadResponse2,user)
+        console.log('1',mongoImage)
         return (mongoImage)
 
     }catch(e) {
-        console.log(e.message)
+        console.log(e)
     }
 }
 
     const addImage = async (response,user) => {
-    // const user = await User.findById("61fdbde72601c0ac1f890bbb");
+
         console.log('user',user)
         const image = {
             title:"test-kyle2",

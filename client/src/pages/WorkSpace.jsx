@@ -45,26 +45,33 @@ const WorkSpace =()=> {
     };
    const _onMouseMove=(e) =>{
        console.log(e.nativeEvent.offsetX,e.nativeEvent.offsetY)
-        // setCursorPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
+        setCursorPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
     }
     const onMouseMove=(e) =>{
-        console.log( 'l', e)
-        xPos ={ x: e.x, y: e.y };
+        const obj = {x:e.x,y:e.y}
+        console.log('obj',obj)
+        xPos.current =obj;
         console.log('p',xPos)
     }
 
     const uploadImage= async (base64EncodedImage) => {
-        console.log('ggg',overlayText);
-        let overlayObject = {
-            overlayText:overlayText,
-            fontSize:'80',
-            color:color,
-            // position:[xPos.x,xPos.y],
-            position:[TextOverlayRef.current],
-            windowSize:[window.innerWidth,window.innerHeight],
+        // console.log('ggg',overlayText);
 
-        }
         try {
+            console.log('curPos',cursorPosition)
+            console.log('xpos',xPos)
+            let overlayObject = {
+                overlayText:overlayText,
+                fontSize:'80',
+                color:color,
+                // position:[xPos.x,xPos.y],
+                position:[xPos.current.y, xPos.current.x],
+                // gravity:'center',
+                // position:[cursorPosition.x,cursorPosition.y],
+                // position:[TextOverlayRef.current],
+                windowSize:[window.innerWidth,window.innerHeight],
+
+            }
             await myApi.post('/images', {
                 // method: 'POST',
                 // body: JSON.stringify({ data: base64EncodedImage }),
@@ -74,6 +81,7 @@ const WorkSpace =()=> {
             });
             setIsSnackBar(!isSnackbar)
         }catch (error) {
+
             console.log(error)
         }
     }
@@ -112,7 +120,7 @@ const WorkSpace =()=> {
                 {backgroundImage &&
                 <ImageDivStyled  >
 
-                    <img ref={constraintsRef} onDragEnd={_onMouseMove} src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
+                    <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
                     <OverlayTextStyled
                         // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
                                          drag
@@ -124,7 +132,7 @@ const WorkSpace =()=> {
                                        dragConstraints={constraintsRef}
                                          ref={TextOverlayRef}
                                        onDrag={onMouseMove}
-                                         onClick={testing}
+                                         onClick={_onMouseMove}
                     > {inputText}</OverlayTextStyled>
                 </ImageDivStyled>
                 }
