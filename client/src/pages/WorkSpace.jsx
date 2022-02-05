@@ -100,10 +100,6 @@ const WorkSpace =()=> {
 
             />
             }
-
-
-
-
             <WorkImageDivStyled as={motion.div} ref={constraintsRef} >
                 {backgroundImage &&
                 <ImageDivStyled  >

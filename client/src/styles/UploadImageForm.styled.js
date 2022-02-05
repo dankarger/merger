@@ -1,18 +1,22 @@
 import styled from "styled-components";
 
 export const UploadImageFormStyled = styled.form `
-  width:100%;
-  border:1px grey dotted;
-  padding:1rem;
+  //width:10%;
+  height: 50px;
+  padding: 0 1rem ;
   position: absolute;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: left;
   //flex-direction: column;
-  left:100px;
+  left:60px;
   top:0;
   z-index: 10000;
   gap:.5rem;
+  border: 1px solid grey;
+  border-radius: 10px;
+  background: rgba(236, 236, 236, 0.86);
+
 
 
 `
