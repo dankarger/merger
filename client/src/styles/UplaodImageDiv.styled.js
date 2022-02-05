@@ -12,6 +12,6 @@ export const UplaodImageDivStyled = styled.div `
   position: absolute;
   font-size: 5vmin;
   overflow: hidden;
-  border:1px solid red;
+  z-index: 1000;
  
 `

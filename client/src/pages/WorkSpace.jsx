@@ -96,9 +96,11 @@ const WorkSpace =()=> {
 
 
             <WorkImageDivStyled as={motion.div} ref={constraintsRef} >
+                {backgroundImage &&
                 <ImageDivStyled>
-                    <img src={backgroundImage} alt="chosen" style={{height: '100%'}} />
+                    <img src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
                 </ImageDivStyled>
+                }
                 {/*img*/}
                 {/*<img src={previewSource} alt="chosen" style={{height: '100%'}} />*/}
 
@@ -108,7 +110,7 @@ const WorkSpace =()=> {
                                    transition={{type:'spring',stiffness:300}}
                                    textShadow={'1px 1px 1px black'}
                                    color={color.css.backgroundColor}
-                                   fontSize={window.innerWidth / 100 +"vw"}
+                                   fontSize={5 + window.innerWidth / 1000 +"rem"}
                                    dragConstraints={constraintsRef}
                                    onDrag={onMouseMove}
                 > {inputText}</OverlayTextStyled>

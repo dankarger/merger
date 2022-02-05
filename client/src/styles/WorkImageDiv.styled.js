@@ -15,7 +15,6 @@ export const WorkImageDivStyled = styled.div `
  overflow: hidden;
 
   img {
-    border:red solid 1px;
     width:100%;
     height: 100%;
     object-fit: contain;
