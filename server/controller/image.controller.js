@@ -2,6 +2,8 @@ const imageService = require('../services/image.services')
 const utils = require('../utils/utils')
 const {cloudinary} = require('../utils/cloudinary')
 
+
+
 const getImages = async function (req, res) {
     try {
         const images = await imageService.getMongoImages()
@@ -30,8 +32,18 @@ const deleteImage = async function (req, res) {
         res.status(400).json({error: e.message})
     }
 }
+
+const deleteAllImagesByUser = async function (req, res) {
+    try {
+        const deleteImage = await imageService.deleteAllImagesByUser(req.params.id);
+        res.status(200).send(deleteImage);
+    } catch (e) {
+        res.status(400).json({error: e.message})
+    }
+}
 module.exports = {
     getImages,
     uploadImage,
-    deleteImage
+    deleteImage,
+    deleteAllImagesByUser
 }
