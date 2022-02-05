@@ -24,7 +24,7 @@ const WorkSpace =()=> {
     const[isSnackbar,setIsSnackBar]=useState(false)
     const constraintsRef = useRef(null);
     const constraintsRefAddText = useRef(null);
-
+    const TextOverlayRef = useRef()
 
     let xPos = useRef({x:0,y:0});
 
@@ -34,6 +34,10 @@ const WorkSpace =()=> {
 
     },[inputText])
 
+    const testing=(e)=> {
+
+        console.log('e',e)
+    }
 
     const handleChange = (value) => {
         console.log("onChange=", value);
@@ -44,7 +48,7 @@ const WorkSpace =()=> {
         // setCursorPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
     }
     const onMouseMove=(e) =>{
-        console.log(e)
+        console.log( 'l', e)
         xPos ={ x: e.x, y: e.y };
         console.log('p',xPos)
     }
@@ -55,7 +59,8 @@ const WorkSpace =()=> {
             overlayText:overlayText,
             fontSize:'80',
             color:color,
-            position:[xPos.x,xPos.y],
+            // position:[xPos.x,xPos.y],
+            position:[TextOverlayRef.current],
             windowSize:[window.innerWidth,window.innerHeight],
 
         }
@@ -115,9 +120,11 @@ const WorkSpace =()=> {
                                        transition={{type:'spring',stiffness:300}}
                                        textshadow={'1px 1px 1px black'}
                                        color={color.css.backgroundColor}
-                                       // fontSize={8 + "rem"}
+                                       // fontSize={8+ "rem"}
                                        dragConstraints={constraintsRef}
+                                         ref={TextOverlayRef}
                                        onDrag={onMouseMove}
+                                         onClick={testing}
                     > {inputText}</OverlayTextStyled>
                 </ImageDivStyled>
                 }
