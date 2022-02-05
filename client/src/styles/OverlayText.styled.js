@@ -5,7 +5,9 @@ export const OverlayTextStyled = styled(motion.div) `
   //width: 100%;
   //height: 100%;
   color: ${({color})=> color || '#33333'};
-  font-size: ${({fontSize})=>fontSize  || '0.5em'  };
+  // font-size: ${({fontSize})=>fontSize  || '1em'  };
+  font-size: calc(1rem + 10vmin);
+  
   font-family: ${({fontFamily})=> fontFamily|| 'Roboto , sans-serif'};
   text-shadow: ${({textShadow})=>textShadow || '1px 1px 1px black'};
   //transform: translateY(-200px);

@@ -4,11 +4,10 @@ import Button from "@mui/material/Button";
 import {AddTextStyled} from "../../styles/AddText.styled";
 import {ColorPicker} from "material-ui-color";
 import {ContainerStyled} from "../../styles/Container.styled";
+import {ColorPickerDivStyled} from "../../styles/ColorPickerDiv.styled";
 
 const AddText = ({callback,value,color,handleChange})=> {
     // const [inputText,setInputText]=useState('');
-
-
 
 
     return (
@@ -22,14 +21,15 @@ const AddText = ({callback,value,color,handleChange})=> {
             />
             {/*<Button variant="contained" color="success" onClick={()=>console.log()}>Add</Button>*/}
             {/*<ContainerStyled>*/}
+            <Button variant="contained" color="success" onClick={()=>{
+            }}>Add</Button>
+
+            <ColorPickerDivStyled>
                 <ColorPicker defaultValue="transparent" value={color} onChange={handleChange}/>
 
-                <Button variant="contained" color="success" onClick={()=>{
-                    // setText1({overlay})
-                }}>Add</Button>
-                {/*<div>*/}
-                {/*    <ColorPalette palette={palette} onSelect={handleChange}/>*/}
-                {/*</div>*/}
+            </ColorPickerDivStyled>
+
+
             {/*</ContainerStyled>*/}
         </AddTextStyled>
     )
