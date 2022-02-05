@@ -85,7 +85,7 @@ const uploadImage = async (req,res)=> {
 
 const deleteImage = async (id) => {
     // TODO:add checks and validations
-    const user = await User.findById("61f9950ad7a82d0f4ec11b38");
+    const user = await User.findById("61fdbde72601c0ac1f890bbb");
     const image = await Image.findOne({_id:id})
     // const image = await Image.deleteOne({_id:id});
     await cloudinary.uploader.destroy(image.public_id, function(error,result) {
@@ -99,9 +99,10 @@ const deleteImage = async (id) => {
 const deleteAllImagesByUser = async (id) => {
      const user = await findUser(id)
     console.log('user',user)
-    // const deletedImages =  await Image.deleteMany({createdBy:id})
-    // console.log('dI',deletedImages)
-    //  return deletedImages
+    await cloudinary.uploader.destroy({tags:user.name}, function(error,result)  {console.log(result, error); });
+    const deletedImages =  await Image.deleteMany({createdBy:id})
+    console.log('dI',deletedImages)
+     return deletedImages
 }
 
 module.exports= {
