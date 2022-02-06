@@ -15,6 +15,7 @@ import {Skeleton} from "@mui/material";
 import SkeletonDiv from "../components/SkeletonDiv/SkeletonDiv";
 import CanvasElement from "../components/CanvasElement/CanvasElement";
 import Canvas from "../components/CanvasElement/Canvas";
+import {convertPositionToCss} from "../utils/utils";
 
 
 const WorkSpace =()=> {
@@ -29,7 +30,8 @@ const WorkSpace =()=> {
     const[isSnackbar,setIsSnackBar]=useState(false)
     const constraintsRef = useRef(null);
     const constraintsRefAddText = useRef(null);
-    const TextOverlayRef = useRef()
+    const TextOverlayRef = useRef();
+    const position = useRef('top')
 
     let xPos = useRef({x:0,y:0});
 
@@ -76,10 +78,13 @@ const WorkSpace =()=> {
                 // gravity:'center',
                 // position:[cursorPosition.x,cursorPosition.y],
                 // position:[TextOverlayRef.current],
+                // canvasElement:,
+                gravity:position.current,
                 windowSize:[window.innerWidth,window.innerHeight],
                 imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
 
             }
+            console.log('h',overlayObject)
             await myApi.post('/images', {
                 // method: 'POST',
                 // body: JSON.stringify({ data: base64EncodedImage }),
@@ -130,6 +135,7 @@ const WorkSpace =()=> {
                      drag
                      dragElastic={111}
                      dragConstraints={constraintsRefAddText}
+                     position={position}
             />
             }
             <WorkImageDivStyled as={motion.div}  >
@@ -150,12 +156,14 @@ const WorkSpace =()=> {
                                          ref={TextOverlayRef}
                                        onDrag={onMouseMove}
                                          onClick={_onMouseMove}
+                                         position={convertPositionToCss(position)}
                     > {inputText}</OverlayTextStyled>
                 </ImageDivStyled>
                 }
                 <UploadImageDivStyled image={backgroundImage}/>
+                {/*<Canvas draw={draw} />*/}
             </WorkImageDivStyled>
-            <Canvas draw={draw} />
+
 
             <Snackbars1 isOpen={isSnackbar}/>
         </WorkPageStyled>

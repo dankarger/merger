@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import {motion} from  'framer-motion'
 
-export const OverlayTextStyled = styled(motion.div) `
+export const CanvasStyled = styled(motion.canvas) `
   //width: 100%;
   //height: 100%;
-  color: ${({color})=> color || '#33333'};
+  //color: ${({color})=> color || '#33333'};
   // font-size: ${({fontSize})=>fontSize  || '1em'  };
   font-size: calc(1rem + 10vw);
   
@@ -14,17 +14,15 @@ export const OverlayTextStyled = styled(motion.div) `
   //transform: translate(-50%, -10%);
 
   position: absolute;
-  top: ${({position})=>position || 100 }
-
+   // left:${({left})=>left || "50%"}
+  top:0
   //padding: 0 20px;
   //margin:0 auto;
   //display: flex;
   //justify-content: center;
   //align-items: center;
   //flex-direction: column;
- 
-  &:hover {
-    cursor: grab;
+  
   }
   
 `

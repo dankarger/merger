@@ -40,13 +40,12 @@ const uploadImage = async (req,res)=> {
         const  x = Math.floor(req.body.overlay.overlayObject.position[0]);
         const  y = Math.floor(req.body.overlay.overlayObject.position[1]);
         const windowSize = req.body.overlay.overlayObject.windowSize;
-        const imageSize = req.body.overlay.overlayObject.imageSize
+        const imageSize = req.body.overlay.overlayObject.imageSize;
+        const gravity = req.body.overlay.overlayObject.gravity;
+        // const canvasElement = req.body.overlayObject.canvasElement
         console.log( 'ff', x,y);
         console.log( 'obj',req.body.overlay);
-        // const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-        //     upload_preset: 'workspace'
-        // }, )
-
+        //try1
         const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,  {
             upload_preset: 'workspace',tags: user.name,
             transformation: [
@@ -55,10 +54,26 @@ const uploadImage = async (req,res)=> {
                              text:overlay},
                              // color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},
                              //   color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },
-                    color: color,quality: "auto",width:"1.0",height:"1.0",gravity:'west',x:imageSize[0] },
+                    color: color,quality: "auto",width:"1.0",height:"1.0",gravity:gravity },
 
 
-    ]},function(error, result) { console.log(result, error) })
+        ]},function(error, result) { console.log(result, error) });
+
+
+        // try2
+        // const test = './test.png'
+        // console.log('test',test)
+        // const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,  {
+        //     upload_preset: 'workspace',tags: user.name,
+        //     transformation: [
+        //
+        //             // color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},
+        //             //   color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },
+        //                 {overlay: test, width: 90, gravity: "center", y: 18, x: -20}
+        //
+        //     ]},function(error, result) { console.log(result, error) });
+        //
+// ----
         console.log('d', upLoadResponse2)
 
         const mongoImage = await addImage(upLoadResponse2,user)

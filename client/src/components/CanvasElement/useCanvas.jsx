@@ -10,6 +10,9 @@ const useCanvas = draw => {
         const context = canvas.getContext('2d')
         let frameCount = 0
         let animationFrameId
+        canvas.width = 612
+        canvas.height = 408
+        canvas.border = 'red'
 
         const render = () => {
             frameCount++

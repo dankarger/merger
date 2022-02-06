@@ -7,8 +7,12 @@ import {ContainerStyled} from "../../styles/Container.styled";
 import {ColorPickerDivStyled} from "../../styles/ColorPickerDiv.styled";
 import {motion} from 'framer-motion'
 import {MenuLeftVariants} from "../../animations/animations";
+import {Checkbox} from "@mui/material";
+import AddPosition from "../AddPosition/AddPosition";
 
-const AddText = ({callback,value,color,handleChange})=> {
+
+
+const AddText = ({callback,value,color,handleChange,position})=> {
     // const [inputText,setInputText]=useState('');
 
     return (
@@ -35,6 +39,7 @@ const AddText = ({callback,value,color,handleChange})=> {
                 <ColorPicker defaultValue="transparent" value={color} onChange={handleChange}/>
             </ColorPickerDivStyled>
             {/*</ContainerStyled>*/}
+                <AddPosition positionProp={position}/>
             </motion.div>
         </AddTextStyled>
     )
