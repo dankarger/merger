@@ -39,3 +39,19 @@ export const MenuLeftVariants = {
         }
     }
 }
+
+export const HomePageMenuVariants = {
+    initial:{
+        y:430,
+        opacity:0, scale:(1.0),
+
+    },
+    animate:{
+        y:0,
+        opacity:1,
+        scale:(1.1),
+        transition:{
+            stiffness:120,mass:10,duration:2
+        }
+    }
+}

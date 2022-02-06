@@ -5,7 +5,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import {Link} from "react-router-dom";
 import {LinkStyled} from "../../styles/Link.styled";
-
+import {motion} from 'framer-motion'
+import {HomePageMenuVariants} from "../../animations/animations";
 
 const style = {
     width: '100%',
@@ -16,6 +17,11 @@ const style = {
 
 export default function ListDividers() {
     return (
+        <motion.div
+            variants={HomePageMenuVariants}
+            initial='initial'
+            animate='animate'
+        >
         <List sx={style} component="nav" aria-label="mailbox folders">
              <Link to={'/work'} >
 
@@ -42,5 +48,6 @@ export default function ListDividers() {
             </ListItem>
             </Link>
         </List>
+        </motion.div>
     );
 }
