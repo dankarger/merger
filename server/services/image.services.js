@@ -43,6 +43,7 @@ const uploadImage = async (req,res)=> {
         const imageSize = req.body.overlay.overlayObject.imageSize;
         const gravity = req.body.overlay.overlayObject.gravity;
         const fontSize = req.body.overlay.overlayObject.fontSize;
+        const imageTitle = req.body.overlay.overlayObject.title;
         // const canvasElement = req.body.overlayObject.canvasElement
         console.log( 'ff', x,y);
         console.log( 'obj',req.body.overlay);
@@ -79,7 +80,7 @@ const uploadImage = async (req,res)=> {
 // ----
         console.log('d', upLoadResponse2)
 
-        const mongoImage = await addImage(upLoadResponse2,user)
+        const mongoImage = await addImage(upLoadResponse2,user,imageTitle)
         console.log('1',mongoImage)
         return (mongoImage)
 
@@ -88,11 +89,11 @@ const uploadImage = async (req,res)=> {
     }
 }
 
-    const addImage = async (response,user) => {
+    const addImage = async (response,user,imageTitle) => {
 
         console.log('user',user)
         const image = {
-            title:"test-kyle2",
+            title:imageTitle,
             url:response.url,
             public_id:response.public_id,
             createdBy:user._id,

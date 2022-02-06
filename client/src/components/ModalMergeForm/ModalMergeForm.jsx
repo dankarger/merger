@@ -6,7 +6,9 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
+import {TextField} from "@mui/material";
+import {ButtonsDivStyled} from "../../styles/ButtonsDiv.styled";
+import {ModalMergeFormStyled} from "../../styles/ModalMergeForm.styled";
 
 const style = {
     position: 'absolute',
@@ -20,7 +22,10 @@ const style = {
     p: 4,
 };
 
-export default function ModalMergeForm({isMergeFormOpen,setIsMergeFormOpen,handleSendMergeForm}) {
+export default function ModalMergeForm({isMergeFormOpen,
+                                           setIsMergeFormOpen,
+                                           handleSendMergeForm,
+                                           imageTitle,setImageTitle}) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -39,14 +44,19 @@ export default function ModalMergeForm({isMergeFormOpen,setIsMergeFormOpen,handl
     },[isMergeFormOpen])
 
     const handleClose2=()=>{
-        handleClose()
-        setIsMergeFormOpen(false)
+        handleClose();
+        setIsMergeFormOpen(false);
+        setImageTitle('');
+
 
     }
     const HandleMergeButton =()=>{
         console.log('gggggg')
         handleSendMergeForm()
         handleClose2()
+    }
+    const handleTitleChange=(e)=>{
+        setImageTitle(e.target.value)
     }
 
     return (
@@ -67,14 +77,25 @@ export default function ModalMergeForm({isMergeFormOpen,setIsMergeFormOpen,handl
 
                 <Fade in={open}>
                     <Box sx={style}>
+                        <ModalMergeFormStyled>
                         <Typography id="transition-modal-title" variant="h6" component="h2">
                           MergeForm
                         </Typography>
                         <Typography id="transition-modal-description" sx={{ mt: 2 }}>
                             This will be the form
-                            <Button variant="contained" type="submit" color="success" onClick={HandleMergeButton}>merge3</Button>
+                            <TextField
+                                id="outlined-Title"
+                                label="Title"
+                                value={imageTitle}
+                                onChange={handleTitleChange}
+                            />
 
                         </Typography>
+                            <ButtonsDivStyled>
+                                <Button variant="contained" type="submit" color="error" onClick={handleClose2}>Cancel</Button>
+                                <Button variant="contained" type="submit" color="success" onClick={HandleMergeButton}>Merge</Button>
+                            </ButtonsDivStyled>
+                            </ModalMergeFormStyled>
                     </Box>
                 </Fade>
             </Modal>

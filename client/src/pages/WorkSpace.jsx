@@ -36,7 +36,9 @@ const WorkSpace =()=> {
     const [positionState,setPositionState]=useState('center');
     const [fontSize,setFontSize]=useState('80');
     const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
-    const[uploadedFile,setUploadedFile] = useState('')
+    const[uploadedFile,setUploadedFile] = useState('');
+    const[imageTile,setImageTitle]=useState('Title');
+
     let xPos = useRef({x:0,y:0});
 
 
@@ -89,9 +91,8 @@ const WorkSpace =()=> {
                 // gravity:'center',
                 // position:[cursorPosition.x,cursorPosition.y],
                 // position:[TextOverlayRef.current],
-                // canvasElement:,
                 gravity:positionState,
-
+                title:imageTile,
                 windowSize:[window.innerWidth,window.innerHeight],
                 imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
 
@@ -195,6 +196,8 @@ const WorkSpace =()=> {
                                                 isMergeFormOpen={isMergeFormOpen}
                                                 setIsMergeFormOpen={setIsMergeFormOpen}
                                                 handleSendMergeForm={handleSendMergeForm}
+                                                setImageTitle={setImageTitle}
+                                                imageTitle={imageTile}
 
             /> }
         </WorkPageStyled>
