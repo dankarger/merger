@@ -69,6 +69,7 @@ const WorkSpace =()=> {
         try {
             console.log('curPos',cursorPosition)
             console.log('xpos',xPos)
+
             let overlayObject = {
                 overlayText:overlayText,
                 fontSize:fontSize,
@@ -80,7 +81,7 @@ const WorkSpace =()=> {
                 // position:[cursorPosition.x,cursorPosition.y],
                 // position:[TextOverlayRef.current],
                 // canvasElement:,
-                gravity:position.current,
+                gravity:positionState,
 
                 windowSize:[window.innerWidth,window.innerHeight],
                 imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
