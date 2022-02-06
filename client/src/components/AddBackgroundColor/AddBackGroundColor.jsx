@@ -16,7 +16,7 @@ const AddBackGroundColor =({backGroundColor,setBackGroundColor })=> {
         >
             <p>Choose the BackGround color</p>
             <ColorPickerDivStyled>
-                <ColorPicker defaultValue="transparent" value={backGroundColor} onChange={setBackGroundColor}/>
+                <ColorPicker  value={backGroundColor} onChange={setBackGroundColor}/>
             </ColorPickerDivStyled>
         </AddBackGroundColorStyled>
     )

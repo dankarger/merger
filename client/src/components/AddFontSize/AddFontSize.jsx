@@ -51,7 +51,7 @@ export default function AddFontSize({fontSize,setFontSize}) {
                 </Grid>
                 <Grid item>
                     <Input
-                        defaultValue='80'
+
                         value={fontSize}
                         size="small"
                         onChange={handleInputChange}

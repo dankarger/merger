@@ -63,9 +63,12 @@ const WorkSpace =()=> {
     }
 
     const handleChange = (value) => {
-        console.log("onChange=", value);
+
         setColor(value);
     };
+    const handleBackgroundChange =(value)=> {
+        setBackGroundColor(value)
+    }
    const _onMouseMove=(e) =>{
        console.log(e.nativeEvent.offsetX,e.nativeEvent.offsetY)
         setCursorPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
@@ -173,7 +176,7 @@ const WorkSpace =()=> {
                      setFontSize={setFontSize}
             />
             }
-            {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={setBackGroundColor}/>}
+            {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={handleBackgroundChange}/>}
             <WorkImageDivStyled as={motion.div}  >
                 {!backgroundImage && <SkeletonDiv />}
                 {backgroundImage &&
