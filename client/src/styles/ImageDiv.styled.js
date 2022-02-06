@@ -13,10 +13,11 @@ export const ImageDivStyled = styled(motion.div) `
   overflow: hidden;
 
   img {
-    object-fit: contain;
+    object-fit: cover;
     max-width: 100%;
     height: auto;
-    border: calc(.2rem + 1vmin) rgba(66, 65, 65, 0.35) solid;
+    border: 3px rgba(66, 65, 65, 0.35) solid;
+    
     //padding:1rem;
   }
 

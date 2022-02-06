@@ -1,18 +1,14 @@
 import React, {useState, useEffect} from "react";
-import {HomePageStyled} from "../../styles/HomePage.styled";
-import {ContainerStyled} from  "../../styles/Container.styled"
 import {Image} from 'cloudinary-react'
 import myApi from '../../api/Api';
-// import SimpleAccordion from "../components/Accordion/Accordion";
 import ActionAreaCard from "../../components/Card/Card";
-import {AdvancedImage} from '@cloudinary/react'
 import {Cloudinary} from "@cloudinary/url-gen";
 import {GalleryItemStyled} from "../../styles/GalleryItem.styled";
+import {GalleryStyled} from "../../styles/Gallery.styled";
 
-const DownloadImages = () => {
+const DownloadImages = ({handleSelectCard}) => {
     const [imageIds, setImageId] = useState([]);
     const [imageIds2, setImageId2] = useState([]);
-
 
     const cld = new Cloudinary({
         cloud: {
@@ -22,7 +18,6 @@ const DownloadImages = () => {
 
     // cld.image returns a CloudinaryImage with the configuration set.
     const myImage = cld.image('sample');
-
 
     const loadImages = async () => {
         try {
@@ -35,7 +30,6 @@ const DownloadImages = () => {
             console.error(e)
         }
     }
-
     const makeList = () => {
         if (imageIds) {
 
@@ -49,6 +43,8 @@ const DownloadImages = () => {
         }
         console.log('image,',imageIds)
     }
+
+
     useEffect(() => {
        const data =  loadImages();
         setImageId(data.data)
@@ -58,29 +54,26 @@ const DownloadImages = () => {
 
     return (
             <div>
-                <ContainerStyled>
+                <GalleryStyled>
                         {imageIds && imageIds.map((imageId, index) => (
                            <ActionAreaCard
                                title ={imageId.title}
                                createdBy={imageId.nameOfUser}
 
-                               image={ <Image
+                               image={ <GalleryItemStyled><Image
                                 key={index}
                                 cloudName="meme3"
                                 publicId={imageId.url}
                                 crop='scale'
                                 title={imageId.title}
-                            />}/>
-                            // <p>{imageId.url}</p>
-                            // <img key={index} src={imageId.url} alt="hh"/>
 
+                                onClick={()=>handleSelectCard(imageId)}
+                               /></GalleryItemStyled>}/>
                         ))}
-                    </ContainerStyled>
-
-
-                <div>
-                    <AdvancedImage cldImg={myImage} />
-                </div>
+                    </GalleryStyled>
+                {/*<div>*/}
+                {/*    <AdvancedImage cldImg={myImage} />*/}
+                {/*</div>*/}
             </div>
     )
 }

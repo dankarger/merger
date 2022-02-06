@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export const GalleryStyled = styled.div `
+  padding:2rem 4rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  border:1px solid red;
+  border: 2px solid #807474;
+  border-radius: 3px;
+  gap:2rem;
 `
