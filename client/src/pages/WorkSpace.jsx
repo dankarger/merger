@@ -121,14 +121,15 @@ const WorkSpace =()=> {
                       isTextMenuOpen={isTextMenuOpen}
             />
 
-            {isImgMenuOpen &&
+            {/*{isImgMenuOpen &&*/}
            <UploadImages overlay={inputText}
                          overlayColor={overlayColor}
                          setBackgroundImage={setBackgroundImage}
                          onMouseMove={onMouseMove}
                          uploadImage={uploadImage}
 
-           />}
+           />
+            {/*}*/}
             {isTextMenuOpen &&
             <AddText callback={handleInputChange}
                      value={inputText}
@@ -148,7 +149,6 @@ const WorkSpace =()=> {
                 {!backgroundImage && <SkeletonDiv />}
                 {backgroundImage &&
                 <ImageDivStyled  >
-
                     <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
                     <OverlayTextStyled
                         // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
@@ -170,8 +170,6 @@ const WorkSpace =()=> {
                 <UploadImageDivStyled image={backgroundImage}/>
                 {/*<Canvas draw={draw} />*/}
             </WorkImageDivStyled>
-
-
             <Snackbars1 isOpen={isSnackbar}/>
         </WorkPageStyled>
 
