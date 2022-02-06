@@ -55,3 +55,17 @@ export const HomePageMenuVariants = {
         }
     }
 }
+
+export const ButtonYoYoVariants = {
+    hover: {
+        scale:( 1.01),
+        color:'rgba(37,112,101,0.71)',
+        // textShadow:" 0px 0px 8px rgb(255,255,255)",
+        // boxShadow:" 0px 0px 8px rgb(255,255,255)",
+        transition:{
+            yoyo :Infinity,type:"spring",
+            stiffness:201,mass:12
+        },
+    }
+
+}

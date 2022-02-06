@@ -6,12 +6,20 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
+import {ButtonYoYoVariants} from "../../animations/animations";
+import {motion} from "framer-motion";
 
 export default function CardDetail({card,handleSelectCard}) {
 
     return (
         <Card sx={{ maxHeight:'80vh' }}>
-            <CancelPresentationIcon sx={{m:1}} onClick={handleSelectCard}/>
+            <motion.div variants={ButtonYoYoVariants}
+            whileHover='hover'
+            >
+                <CancelPresentationIcon  sx={{m:1}} onClick={handleSelectCard}/>
+            </motion.div>
+
+
             <Typography sx={{textAlign:'center'}}center variant="h3" component="h1">
                {card.title}
             </Typography>
