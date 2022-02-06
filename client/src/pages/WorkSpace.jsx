@@ -178,14 +178,14 @@ const WorkSpace =()=> {
             />
             }
             {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={handleBackgroundChange}/>}
-            <WorkImageDivStyled as={motion.div}  >
+            <WorkImageDivStyled as={motion.div}  backGroundColor={backgroundColor.css.backgroundColor}>
                 {!backgroundImage && <SkeletonDiv />}
                 {backgroundImage &&
                 <ImageDivStyled  >
                     <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
                     <OverlayTextDiveStyled
-                    width={constraintsRef.current.naturalWidth}
-                    height={constraintsRef.current.naturalHeight}
+                    width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
+                    height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
                     >
                         <OverlayTextStyled
                             // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
