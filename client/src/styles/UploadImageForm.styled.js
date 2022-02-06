@@ -16,8 +16,5 @@ export const UploadImageFormStyled = styled.form `
   border: 1px solid grey;
   border-radius: 10px;
   background: rgba(236, 236, 236, 0.93);
-  gap:1rem;
-
-
-
+  
 `

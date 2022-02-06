@@ -23,8 +23,8 @@ function App() {
             <Routes>
                 <Route path='/home'  element={<HomePage />} />
                 <Route path='/work'  element={<WorkSpace />} />
-                <Route path='/gallery'   element={<DownloadImages />} />
-                <Route path='/gallery2'   element={<Gallery />} />
+                <Route path='/gallery'  element={<Gallery />} />
+                {/*<Route path='/gallery2'  element={<Gallery />} />*/}
             </Routes>
         </BrowserRouter>
     </div>

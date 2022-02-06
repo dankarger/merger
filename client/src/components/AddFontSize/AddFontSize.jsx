@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
 import MuiInput from '@mui/material/Input';
 import VolumeUp from '@mui/icons-material/VolumeUp';
+import FormatSizeIcon from '@mui/icons-material/FormatSize';
 
 const Input = styled(MuiInput)`
   width: 42px;
@@ -39,7 +40,7 @@ export default function AddFontSize({fontSize,setFontSize}) {
             </Typography>
             <Grid container spacing={2} alignItems="center">
                 <Grid item>
-                    <VolumeUp />
+                    <FormatSizeIcon />
                 </Grid>
                 <Grid item xs>
                     <Slider

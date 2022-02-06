@@ -7,7 +7,7 @@ import myApi from '../../api/Api';
 import ActionAreaCard from "../../components/Card/Card";
 import {AdvancedImage} from '@cloudinary/react'
 import {Cloudinary} from "@cloudinary/url-gen";
-import StandardImageList from "../ImageList/ImageList";
+import {GalleryItemStyled} from "../../styles/GalleryItem.styled";
 
 const DownloadImages = () => {
     const [imageIds, setImageId] = useState([]);
@@ -59,19 +59,15 @@ const DownloadImages = () => {
     return (
             <div>
                 <ContainerStyled>
-                <h1 className='title'>gallery</h1>
-
                         {imageIds && imageIds.map((imageId, index) => (
                            <ActionAreaCard
                                title ={imageId.title}
                                createdBy={imageId.nameOfUser}
+
                                image={ <Image
-
-
                                 key={index}
                                 cloudName="meme3"
                                 publicId={imageId.url}
-                                width="300"
                                 crop='scale'
                                 title={imageId.title}
                             />}/>
@@ -81,9 +77,7 @@ const DownloadImages = () => {
                         ))}
                     </ContainerStyled>
 
-                <h1>list</h1>
-                {/*<StandardImageList images={imageIds} />*/}
-                <h2>hhfff</h2>
+
                 <div>
                     <AdvancedImage cldImg={myImage} />
                 </div>
