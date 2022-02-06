@@ -54,7 +54,9 @@ const uploadImage = async (req,res)=> {
                              font_size: 80,
                              text:overlay},
                              // color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},
-                               color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },
+                             //   color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },
+                    color: color,quality: "auto",width:"1.0",height:"1.0",gravity:'west',x:imageSize[0] },
+
 
     ]},function(error, result) { console.log(result, error) })
         console.log('d', upLoadResponse2)
