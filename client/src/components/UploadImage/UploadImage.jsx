@@ -8,7 +8,7 @@ import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
 
 
 
-export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage,handleMergeButton}) {
+export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage,handleMergeButton,handleCloseMergeForm,setUploadedFile}) {
     const[fileInputState,setFileInputState]=useState('')
     const [previewSource,setPreviewSource]=useState()
     // const [position,setPosition] = useState({x:0,y:0})
@@ -19,6 +19,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
         const file = e.target.files[0];
         previewFile(file);
 
+
     }
 
     const previewFile= (file) => {
@@ -27,6 +28,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
         reader.onloadend = ()=> {
             setPreviewSource(reader.result)
             setBackgroundImage(reader.result)
+            setUploadedFile(reader.result)
         }
 
     }

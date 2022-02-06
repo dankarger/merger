@@ -36,8 +36,15 @@ const WorkSpace =()=> {
     const [positionState,setPositionState]=useState('center');
     const [fontSize,setFontSize]=useState('80');
     const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
+    const[uploadedFile,setUploadedFile] = useState('')
     let xPos = useRef({x:0,y:0});
 
+
+    const handleSendMergeForm = async ()=>{
+        if(uploadedFile) {
+          await  uploadImage(uploadedFile)
+        }
+    }
 
     useEffect(()=>{
         setOverlayText(inputText)
@@ -119,9 +126,11 @@ const WorkSpace =()=> {
     const handleMergeButton =()=>{
        setIsMergeFormOpen(true);
 
+    }
+    const handleCloseMergeForm =()=>{
+        setIsMergeFormOpen(false);
 
     }
-
     return(
         <WorkPageStyled ref={constraintsRefAddText}>
             <MenuLeft imageCallback={setIsImgMenuOpen}
@@ -137,6 +146,8 @@ const WorkSpace =()=> {
                          onMouseMove={onMouseMove}
                          uploadImage={uploadImage}
                          handleMergeButton={handleMergeButton}
+                         handleCloseMergeForm={handleCloseMergeForm}
+                         setUploadedFile={setUploadedFile}
            />
             {/*}*/}
             {isTextMenuOpen &&
@@ -180,7 +191,12 @@ const WorkSpace =()=> {
                 {/*<Canvas draw={draw} />*/}
             </WorkImageDivStyled>
             <Snackbars1 isOpen={isSnackbar}/>
-            {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage} isMergeFormOpen={isMergeFormOpen}/> }
+            {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage}
+                                                isMergeFormOpen={isMergeFormOpen}
+                                                setIsMergeFormOpen={setIsMergeFormOpen}
+                                                handleSendMergeForm={handleSendMergeForm}
+
+            /> }
         </WorkPageStyled>
 
 

@@ -20,7 +20,7 @@ const style = {
     p: 4,
 };
 
-export default function ModalMergeForm({isMergeFormOpen}) {
+export default function ModalMergeForm({isMergeFormOpen,setIsMergeFormOpen,handleSendMergeForm}) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -29,24 +29,42 @@ export default function ModalMergeForm({isMergeFormOpen}) {
     useEffect(()=> {
         if(isMergeFormOpen){
             setOpen(true)
+        }else {
+            handleClose(true)
+        }
+        return ()=>{
+            handleClose(true)
+            setIsMergeFormOpen(false)
         }
     },[isMergeFormOpen])
 
+    const handleClose2=()=>{
+        handleClose()
+        setIsMergeFormOpen(false)
+
+    }
+    const HandleMergeButton =()=>{
+        console.log('gggggg')
+        handleSendMergeForm()
+        handleClose2()
+    }
+
     return (
         <div>
-            hhh
-            <Button onClick={handleOpen}>Open modal</Button>
+            {/*hhh*/}
+            {/*<Button onClick={handleOpen}>Open modal</Button>*/}
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
                 open={open}
-                onClose={handleClose}
+                onClose={handleClose2}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
                 BackdropProps={{
                     timeout: 500,
                 }}
             >
+
                 <Fade in={open}>
                     <Box sx={style}>
                         <Typography id="transition-modal-title" variant="h6" component="h2">
@@ -54,6 +72,8 @@ export default function ModalMergeForm({isMergeFormOpen}) {
                         </Typography>
                         <Typography id="transition-modal-description" sx={{ mt: 2 }}>
                             This will be the form
+                            <Button variant="contained" type="submit" color="success" onClick={HandleMergeButton}>merge3</Button>
+
                         </Typography>
                     </Box>
                 </Fade>
