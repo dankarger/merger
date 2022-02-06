@@ -28,7 +28,7 @@ const WorkSpace =()=> {
     const[backgroundImage,setBackgroundImage]=useState();
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState(createColor("#000"));
-    const[backgroundColor,setBackGroundColor]=useState('#333333');
+    const[backgroundColor,setBackGroundColor]=useState({css:{backgroundColor:'#333333'}});
     const[isBackgroundMenuOpen,setIsBackGroundMenuOpen]=useState()
     const [cursorPosition,setCursorPosition]=useState({x:0,y:0})
     const[isSnackbar,setIsSnackBar]=useState(false)

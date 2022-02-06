@@ -41,7 +41,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
         if(!previewSource) return
         // const reader = new FileReader();
         // reader.readAsDataURL(selectedFile)
-        uploadImage(previewSource);
+        // uploadImage(previewSource);
     }
 
     return (
