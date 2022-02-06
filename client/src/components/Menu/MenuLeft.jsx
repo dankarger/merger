@@ -4,7 +4,12 @@ import {MenuLeftStyled} from "../../styles/MenuLeft.styled";
 import {motion} from 'framer-motion'
 import {MenuLeftVariants} from "../../animations/animations";
 
-const MenuLeft=({imageCallback,isMenuOpen,isTextMenuOpen,textCallback}) => {
+const MenuLeft=({imageCallback,
+                    isMenuOpen,
+                    isTextMenuOpen,
+                    textCallback,
+                    backgroundColor,
+                    setIsBackGroundMenuOpen}) => {
 
 
     return (
@@ -16,7 +21,10 @@ const MenuLeft=({imageCallback,isMenuOpen,isTextMenuOpen,textCallback}) => {
             <ToolBar imageCallback={imageCallback}
                      isMenuOpen={isMenuOpen}
                      textCallback={textCallback}
-                     isTextMenuOpen={isTextMenuOpen}/>
+                     isTextMenuOpen={isTextMenuOpen}
+                     backgroundColor={backgroundColor}
+                     setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
+            />
         </MenuLeftStyled>
     )
 }

@@ -60,10 +60,11 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                        className='form-input'
                        draggable={true}/>
                 {/*<button className='btn' type='submit'>Submit</button>*/}
-                <Button variant="contained" type="submit" color="success" onClick={()=>console.log('fg')}>merge</Button>
+                {/*<Button variant="contained" type="submit" color="success" onClick={()=>console.log('fg')}>merge</Button>*/}
 
                 </motion.div>
-                <div onClick={handleMergeButton}>cllick</div>
+                <Button onClick={handleMergeButton} variant="contained" type="submit" color="success">merge</Button>
+                {/*<div onClick={handleMergeButton}>cllick</div>*/}
             </UploadImageFormStyled>
 
 </>

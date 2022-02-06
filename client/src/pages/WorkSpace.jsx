@@ -11,12 +11,14 @@ import {WorkImageDivStyled} from "../styles/WorkImageDiv.styled";
 import {createColor} from "material-ui-color";
 import {WorkPageStyled} from "../styles/WorkPage.styled";
 import {UploadImageDivStyled} from "../styles/UplaodImageDiv.styled";
+import {OverlayTextDiveStyled} from "../styles/OverlayTextDive.styled";
 import {Skeleton} from "@mui/material";
 import SkeletonDiv from "../components/SkeletonDiv/SkeletonDiv";
 import CanvasElement from "../components/CanvasElement/CanvasElement";
 import Canvas from "../components/CanvasElement/Canvas";
 import {convertPositionToCss} from "../utils/utils";
 import ModalMergeForm from "../components/ModalMergeForm/ModalMergeForm";
+import AddBackGroundColor from "../components/AddBackgroundColor/AddBackGroundColor";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -26,7 +28,8 @@ const WorkSpace =()=> {
     const[backgroundImage,setBackgroundImage]=useState();
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState(createColor("#000"));
-    const[backgroundColor,setBackGrounColor]=useState()
+    const[backgroundColor,setBackGroundColor]=useState('#333333');
+    const[isBackgroundMenuOpen,setIsBackGroundMenuOpen]=useState()
     const [cursorPosition,setCursorPosition]=useState({x:0,y:0})
     const[isSnackbar,setIsSnackBar]=useState(false)
     const constraintsRef = useRef(null);
@@ -44,6 +47,7 @@ const WorkSpace =()=> {
 
     const handleSendMergeForm = async ()=>{
         if(uploadedFile) {
+            console.log('file',uploadedFile)
           await  uploadImage(uploadedFile)
         }
     }
@@ -138,6 +142,8 @@ const WorkSpace =()=> {
                       isMenuOpen={isImgMenuOpen}
                       textCallback={setIsTextMenuOpen}
                       isTextMenuOpen={isTextMenuOpen}
+                      isBackgroundMenuOpen={isBackgroundMenuOpen}
+                      setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
             />
 
             {/*{isImgMenuOpen &&*/}
@@ -149,6 +155,7 @@ const WorkSpace =()=> {
                          handleMergeButton={handleMergeButton}
                          handleCloseMergeForm={handleCloseMergeForm}
                          setUploadedFile={setUploadedFile}
+
            />
             {/*}*/}
             {isTextMenuOpen &&
@@ -166,26 +173,29 @@ const WorkSpace =()=> {
                      setFontSize={setFontSize}
             />
             }
+            {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={setBackGroundColor}/>}
             <WorkImageDivStyled as={motion.div}  >
                 {!backgroundImage && <SkeletonDiv />}
                 {backgroundImage &&
                 <ImageDivStyled  >
                     <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
-                    <OverlayTextStyled
-                        // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
-                                         drag
-                                       dragElastic={111}
-                                       transition={{type:'spring',stiffness:300}}
-                                       textshadow={'1px 1px 1px black'}
-                                       color={color.css.backgroundColor}
-                                       fontSize={fontSize}
-                                       dragConstraints={constraintsRef}
-                                         ref={TextOverlayRef}
-                                       onDrag={onMouseMove}
-                                         onClick={_onMouseMove}
-                                         position={convertPositionToCss(position.current)}
+                    <OverlayTextDiveStyled >
+                        <OverlayTextStyled
+                            // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
+                                             drag
+                                           dragElastic={111}
+                                           transition={{type:'spring',stiffness:300}}
+                                           textshadow={'1px 1px 1px black'}
+                                           color={color.css.backgroundColor}
+                                           fontSize={fontSize}
+                                           dragConstraints={constraintsRef}
+                                             ref={TextOverlayRef}
+                                           onDrag={onMouseMove}
+                                             onClick={_onMouseMove}
+                                             position={convertPositionToCss(position.current)}
 
-                    > {inputText}</OverlayTextStyled>
+                        > {inputText}</OverlayTextStyled>
+                    </OverlayTextDiveStyled >
                 </ImageDivStyled>
                 }
                 <UploadImageDivStyled image={backgroundImage}/>
