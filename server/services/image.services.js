@@ -44,9 +44,10 @@ const uploadImage = async (req,res)=> {
         const gravity = req.body.overlay.overlayObject.gravity;
         const fontSize = req.body.overlay.overlayObject.fontSize;
         const imageTitle = req.body.overlay.overlayObject.title;
+        const backgroundColor = req.body.overlay.overlayObject.backgroundColor.css.backgroundColor;
         // const canvasElement = req.body.overlayObject.canvasElement
         console.log( 'ff', x,y);
-        console.log( 'obj',req.body.overlay);
+        console.log( 'obj',backgroundColor);
         //try1
         const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,  {
             upload_preset: 'workspace',tags: user.name,
@@ -58,7 +59,7 @@ const uploadImage = async (req,res)=> {
                              //   color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },
                     color: color,quality: "auto",width:"1.0",height:"1.0",gravity:gravity  },
                 {underlay:  { font_family: "Roboto",font_size: fontSize,
-                        text:overlay},gravity: "south", width: "1.0", height: "1", flags:"relative", opacity: 80,background:'#333333',color:'#333333' }
+                        text:overlay},gravity: "south", width: "1.0", height: "1", flags:"relative", opacity: 80,background:backgroundColor,color:backgroundColor }
 
 
         ]},function(error, result) { console.log(result, error) });

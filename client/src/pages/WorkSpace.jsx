@@ -83,7 +83,7 @@ const WorkSpace =()=> {
 
     const uploadImage= async (base64EncodedImage) => {
         // console.log('ggg',overlayText);
-
+            console.log('d',constraintsRef.current.naturalWidth,)
         try {
             console.log('curPos',cursorPosition)
             console.log('xpos',xPos)
@@ -92,6 +92,7 @@ const WorkSpace =()=> {
                 overlayText:overlayText,
                 fontSize:fontSize,
                 color:color,
+                backgroundColor:backgroundColor,
                 // position:[xPos.x,xPos.y],
                 // position:[Math.floor(xPos.current.y), Math.floor(xPos.current.x)],
                 position:[Math.floor(xPos.current.x ), Math.floor(xPos.current.y)],
@@ -182,7 +183,10 @@ const WorkSpace =()=> {
                 {backgroundImage &&
                 <ImageDivStyled  >
                     <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
-                    <OverlayTextDiveStyled >
+                    <OverlayTextDiveStyled
+                    width={constraintsRef.current.naturalWidth}
+                    height={constraintsRef.current.naturalHeight}
+                    >
                         <OverlayTextStyled
                             // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
                                              drag

@@ -18,6 +18,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
     const handleFileInputChane = (e)=>{
         const file = e.target.files[0];
         previewFile(file);
+        // console.log('dd',file)
 
 
 
@@ -31,7 +32,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
             setPreviewSource(reader.result)
             setBackgroundImage(reader.result)
             setUploadedFile(reader.result)
-            console.log(reader)
+
         }
 
     }

@@ -2,13 +2,16 @@ import styled from "styled-components";
 import {motion} from  'framer-motion'
 
 export const OverlayTextDiveStyled = styled(motion.div) `
-  width:${({width})=> width|| '100%'};
-  height :${({height})=> height|| '100%'};
+   width:${({width})=> width+'px'|| '100%'};
+
+  //width:fit-content;
+  height :${({height})=> height+'px'|| '100%'};
    
    
   background: ${({background})=> background};
-  position: absolute;
-  ${({position})=> position};
+  position: fixed;
+   border: red solid 11px;
+ 
    
   }
   
