@@ -5,13 +5,14 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 
- function AddPosition({positionProp}) {
+ function AddPosition({positionProp,setPositionState,positionsState}) {
     const [position, setPosition] = React.useState('');
     const [open, setOpen] = React.useState(false);
 
     const handleChange = (event) => {
         setPosition(event.target.value);
         positionProp.current = event.target.value
+        setPositionState(event.target.value)
     };
 
     const handleClose = () => {
@@ -35,7 +36,7 @@ import Button from '@mui/material/Button';
                     open={open}
                     onClose={handleClose}
                     onOpen={handleOpen}
-                    value={position}
+                    value={positionsState}
                     label="Age"
                     onChange={handleChange}
                 >

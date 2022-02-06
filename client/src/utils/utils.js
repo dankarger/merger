@@ -1,8 +1,25 @@
 export const convertPositionToCss=(position)=> {
-    console.log('posp',position)
-    if(position==='north') return ({top: 0})
-    if(position==='west') return ({left:0})
-    if(position==='east') return ({right:0})
-    if(position==='south') return ({bottom:0})
 
+    let positionsObject = {
+        top:'none',
+        left:'none',
+        right:'none',
+        bottom:'none'
+    }
+
+    if(position==='north') {
+         positionsObject.top = 10;
+    }
+    if(position==='west') {
+        positionsObject.left = 10;
+    }
+    if(position==='east') {
+        positionsObject.right = 10;
+    }
+    if(position==='south') {
+        positionsObject.bottom = 10;
+    }
+
+    console.log('posp',positionsObject)
+    return positionsObject
 }

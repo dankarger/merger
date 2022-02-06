@@ -32,7 +32,7 @@ const WorkSpace =()=> {
     const constraintsRefAddText = useRef(null);
     const TextOverlayRef = useRef();
     const position = useRef('top')
-
+    const [positionState,setPositionState]=useState('center')
     let xPos = useRef({x:0,y:0});
 
 
@@ -136,6 +136,8 @@ const WorkSpace =()=> {
                      dragElastic={111}
                      dragConstraints={constraintsRefAddText}
                      position={position}
+                     positionsState={positionState}
+                     setPositionState={setPositionState}
             />
             }
             <WorkImageDivStyled as={motion.div}  >
@@ -156,7 +158,7 @@ const WorkSpace =()=> {
                                          ref={TextOverlayRef}
                                        onDrag={onMouseMove}
                                          onClick={_onMouseMove}
-                                         position={convertPositionToCss(position)}
+                                         position={convertPositionToCss(position.current)}
                     > {inputText}</OverlayTextStyled>
                 </ImageDivStyled>
                 }

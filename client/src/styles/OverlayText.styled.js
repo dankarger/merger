@@ -14,8 +14,7 @@ export const OverlayTextStyled = styled(motion.div) `
   //transform: translate(-50%, -10%);
 
   position: absolute;
-  top: ${({position})=>position || 100 }
-
+  ${({position})=> position};
   //padding: 0 20px;
   //margin:0 auto;
   //display: flex;

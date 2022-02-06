@@ -12,7 +12,7 @@ import AddPosition from "../AddPosition/AddPosition";
 
 
 
-const AddText = ({callback,value,color,handleChange,position})=> {
+const AddText = ({callback,value,color,handleChange,position,positionsState,setPositionState})=> {
     // const [inputText,setInputText]=useState('');
 
     return (
@@ -39,7 +39,7 @@ const AddText = ({callback,value,color,handleChange,position})=> {
                 <ColorPicker defaultValue="transparent" value={color} onChange={handleChange}/>
             </ColorPickerDivStyled>
             {/*</ContainerStyled>*/}
-                <AddPosition positionProp={position}/>
+                <AddPosition positionProp={position} positionsState={positionsState} setPositionState={setPositionState}/>
             </motion.div>
         </AddTextStyled>
     )
