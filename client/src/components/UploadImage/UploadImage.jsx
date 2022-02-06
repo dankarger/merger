@@ -20,15 +20,18 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
         previewFile(file);
 
 
+
     }
 
     const previewFile= (file) => {
         const reader = new FileReader();
+
         reader.readAsDataURL(file);
         reader.onloadend = ()=> {
             setPreviewSource(reader.result)
             setBackgroundImage(reader.result)
             setUploadedFile(reader.result)
+            console.log(reader)
         }
 
     }
