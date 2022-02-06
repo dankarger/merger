@@ -13,6 +13,9 @@ import {WorkPageStyled} from "../styles/WorkPage.styled";
 import {UploadImageDivStyled} from "../styles/UplaodImageDiv.styled";
 import {Skeleton} from "@mui/material";
 import SkeletonDiv from "../components/SkeletonDiv/SkeletonDiv";
+import CanvasElement from "../components/CanvasElement/CanvasElement";
+import Canvas from "../components/CanvasElement/Canvas";
+
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -95,6 +98,14 @@ const WorkSpace =()=> {
         setInputText(e.target.value);
     }
 
+    const draw = (ctx, frameCount) => {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+        ctx.fillStyle = '#000000'
+        ctx.beginPath()
+        ctx.arc(50, 100, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
+        ctx.fill()
+    }
+
     return(
         <WorkPageStyled ref={constraintsRefAddText}>
             <MenuLeft imageCallback={setIsImgMenuOpen}
@@ -144,6 +155,7 @@ const WorkSpace =()=> {
                 }
                 <UploadImageDivStyled image={backgroundImage}/>
             </WorkImageDivStyled>
+            <Canvas draw={draw} />
 
             <Snackbars1 isOpen={isSnackbar}/>
         </WorkPageStyled>
