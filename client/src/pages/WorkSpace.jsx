@@ -16,7 +16,7 @@ import SkeletonDiv from "../components/SkeletonDiv/SkeletonDiv";
 import CanvasElement from "../components/CanvasElement/CanvasElement";
 import Canvas from "../components/CanvasElement/Canvas";
 import {convertPositionToCss} from "../utils/utils";
-
+import ModalMergeForm from "../components/ModalMergeForm/ModalMergeForm";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -26,14 +26,16 @@ const WorkSpace =()=> {
     const[backgroundImage,setBackgroundImage]=useState();
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState(createColor("#000"));
+    const[backgroundColor,setBackGrounColor]=useState()
     const [cursorPosition,setCursorPosition]=useState({x:0,y:0})
     const[isSnackbar,setIsSnackBar]=useState(false)
     const constraintsRef = useRef(null);
     const constraintsRefAddText = useRef(null);
     const TextOverlayRef = useRef();
-    const position = useRef('top')
-    const [positionState,setPositionState]=useState('center')
-    const [fontSize,setFontSize]=useState('80')
+    const position = useRef('top');
+    const [positionState,setPositionState]=useState('center');
+    const [fontSize,setFontSize]=useState('80');
+    const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
     let xPos = useRef({x:0,y:0});
 
 
@@ -106,12 +108,18 @@ const WorkSpace =()=> {
         setInputText(e.target.value);
     }
 
-    const draw = (ctx, frameCount) => {
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-        ctx.fillStyle = '#000000'
-        ctx.beginPath()
-        ctx.arc(50, 100, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
-        ctx.fill()
+    // const draw = (ctx, frameCount) => {
+    //     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+    //     ctx.fillStyle = '#000000'
+    //     ctx.beginPath()
+    //     ctx.arc(50, 100, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
+    //     ctx.fill()
+    // }
+
+    const handleMergeButton =()=>{
+       setIsMergeFormOpen(true);
+
+
     }
 
     return(
@@ -128,7 +136,7 @@ const WorkSpace =()=> {
                          setBackgroundImage={setBackgroundImage}
                          onMouseMove={onMouseMove}
                          uploadImage={uploadImage}
-
+                         handleMergeButton={handleMergeButton}
            />
             {/*}*/}
             {isTextMenuOpen &&
@@ -172,6 +180,7 @@ const WorkSpace =()=> {
                 {/*<Canvas draw={draw} />*/}
             </WorkImageDivStyled>
             <Snackbars1 isOpen={isSnackbar}/>
+            {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage} isMergeFormOpen={isMergeFormOpen}/> }
         </WorkPageStyled>
 
 

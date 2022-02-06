@@ -2,16 +2,18 @@ import React, {useEffect, useState, useRef } from "react";
 import Button from "@mui/material/Button";
 import {motion } from 'framer-motion'
 import {MenuLeftVariants} from "../../animations/animations";
-import {UplaodImageDivStyled} from "../../styles/UplaodImageDiv.styled";
+
 import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
 
 
 
 
-export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage}) {
+export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage,handleMergeButton}) {
     const[fileInputState,setFileInputState]=useState('')
     const [previewSource,setPreviewSource]=useState()
     // const [position,setPosition] = useState({x:0,y:0})
+
+
 
     const handleFileInputChane = (e)=>{
         const file = e.target.files[0];
@@ -57,7 +59,9 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                        draggable={true}/>
                 {/*<button className='btn' type='submit'>Submit</button>*/}
                 <Button variant="contained" type="submit" color="success" onClick={()=>console.log('fg')}>merge</Button>
-        </motion.div>
+
+                </motion.div>
+                <div onClick={handleMergeButton}>cllick</div>
             </UploadImageFormStyled>
 
 </>

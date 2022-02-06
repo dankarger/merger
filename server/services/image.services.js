@@ -55,7 +55,9 @@ const uploadImage = async (req,res)=> {
                              text:overlay},
                              // color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},
                              //   color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },
-                    color: color,quality: "auto",width:"1.0",height:"1.0",gravity:gravity },
+                    color: color,quality: "auto",width:"1.0",height:"1.0",gravity:gravity  },
+                {underlay:  { font_family: "Roboto",font_size: fontSize,
+                        text:overlay},gravity: "south", width: "1.0", height: "1", flags:"relative", opacity: 80,background:'#333333',color:'#333333' }
 
 
         ]},function(error, result) { console.log(result, error) });
