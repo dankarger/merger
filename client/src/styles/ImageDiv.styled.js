@@ -5,7 +5,7 @@ export const ImageDivStyled = styled(motion.div) `
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   max-width: 90vw;
   max-height: 90vh;

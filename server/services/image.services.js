@@ -42,6 +42,7 @@ const uploadImage = async (req,res)=> {
         const windowSize = req.body.overlay.overlayObject.windowSize;
         const imageSize = req.body.overlay.overlayObject.imageSize;
         const gravity = req.body.overlay.overlayObject.gravity;
+        const fontSize = req.body.overlay.overlayObject.fontSize;
         // const canvasElement = req.body.overlayObject.canvasElement
         console.log( 'ff', x,y);
         console.log( 'obj',req.body.overlay);
@@ -50,7 +51,7 @@ const uploadImage = async (req,res)=> {
             upload_preset: 'workspace',tags: user.name,
             transformation: [
                 {overlay: {  font_family: "Roboto",
-                             font_size: 80,
+                             font_size: fontSize,
                              text:overlay},
                              // color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},
                              //   color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },

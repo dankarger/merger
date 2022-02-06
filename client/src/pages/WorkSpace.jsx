@@ -33,6 +33,7 @@ const WorkSpace =()=> {
     const TextOverlayRef = useRef();
     const position = useRef('top')
     const [positionState,setPositionState]=useState('center')
+    const [fontSize,setFontSize]=useState('80')
     let xPos = useRef({x:0,y:0});
 
 
@@ -70,7 +71,7 @@ const WorkSpace =()=> {
             console.log('xpos',xPos)
             let overlayObject = {
                 overlayText:overlayText,
-                fontSize:'80',
+                fontSize:fontSize,
                 color:color,
                 // position:[xPos.x,xPos.y],
                 // position:[Math.floor(xPos.current.y), Math.floor(xPos.current.x)],
@@ -80,6 +81,7 @@ const WorkSpace =()=> {
                 // position:[TextOverlayRef.current],
                 // canvasElement:,
                 gravity:position.current,
+
                 windowSize:[window.innerWidth,window.innerHeight],
                 imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
 
@@ -138,6 +140,8 @@ const WorkSpace =()=> {
                      position={position}
                      positionsState={positionState}
                      setPositionState={setPositionState}
+                     fontSize={fontSize}
+                     setFontSize={setFontSize}
             />
             }
             <WorkImageDivStyled as={motion.div}  >
@@ -153,12 +157,13 @@ const WorkSpace =()=> {
                                        transition={{type:'spring',stiffness:300}}
                                        textshadow={'1px 1px 1px black'}
                                        color={color.css.backgroundColor}
-                                       // fontSize={8+ "rem"}
+                                       fontSize={fontSize}
                                        dragConstraints={constraintsRef}
                                          ref={TextOverlayRef}
                                        onDrag={onMouseMove}
                                          onClick={_onMouseMove}
                                          position={convertPositionToCss(position.current)}
+
                     > {inputText}</OverlayTextStyled>
                 </ImageDivStyled>
                 }
