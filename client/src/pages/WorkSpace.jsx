@@ -119,8 +119,9 @@ const WorkSpace =()=> {
             });
             setIsSnackBar(!isSnackbar);
 
-            downloadLink.current = link.data.url
-            setDownloadLink(link.data.url)
+            downloadLink.current = link.data.secure_url
+            console.log('fuck',downloadLink)
+            setDownloadLink(downloadLink)
             console.log('dddddddddd',downLoadLink)
 
         }catch (error) {
@@ -169,7 +170,7 @@ const WorkSpace =()=> {
                          handleMergeButton={handleMergeButton}
                          handleCloseMergeForm={handleCloseMergeForm}
                          setUploadedFile={setUploadedFile}
-                         downloadLink={downloadLink.current}
+                         downloadLink={downloadLink}
 
            />
             {/*}*/}

@@ -11,6 +11,12 @@ const imageSchema = new mongoose.Schema({
         // unique:[true, 'Email must be unique'],
 
     },
+    secure_url: {
+        type: String,
+        require:true,
+        unique:[true, 'Secure Url must be unique'],
+
+    },
     public_id:String,
     createdBy: {
         type: mongoose.Schema.Types.ObjectId, ref: 'User'

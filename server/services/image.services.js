@@ -50,7 +50,7 @@ const uploadImage = async (req,res)=> {
         console.log( 'obj',backgroundColor);
         //try1
         const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,  {
-            upload_preset: 'workspace',tags: user.name,
+            upload_preset: 'workspace',tags: user.name, sign_url: true,
             transformation: [
                 {overlay: {  font_family: "Roboto",
                              font_size: fontSize,
@@ -65,20 +65,6 @@ const uploadImage = async (req,res)=> {
         ]},function(error, result) { console.log(result, error) });
 
 
-        // try2
-        // const test = './test.png'
-        // console.log('test',test)
-        // const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,  {
-        //     upload_preset: 'workspace',tags: user.name,
-        //     transformation: [
-        //
-        //             // color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},
-        //             //   color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },
-        //                 {overlay: test, width: 90, gravity: "center", y: 18, x: -20}
-        //
-        //     ]},function(error, result) { console.log(result, error) });
-        //
-// ----
         console.log('d', upLoadResponse2)
 
         const mongoImage = await addImage(upLoadResponse2,user,imageTitle)
@@ -96,6 +82,7 @@ const uploadImage = async (req,res)=> {
         const image = {
             title:imageTitle,
             url:response.url,
+            secure_url:response.secure_url,
             public_id:response.public_id,
             createdBy:user._id,
             nameOfUser:user.name,

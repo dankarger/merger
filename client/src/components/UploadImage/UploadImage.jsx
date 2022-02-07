@@ -72,7 +72,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                variants = {DownloadButtonVariants}
                whileHove='hover'
                >
-                   <AtagStyled href={downloadLink}
+                   <AtagStyled href={downloadLink.current}
                                variants = {DownloadButtonVariants}
                                whileHove='hover'
 
@@ -80,9 +80,9 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
 
                </DownloadButtonStyled
                >
-                <AtagStyled href={downloadLink}
+                <AtagStyled href={downloadLink.current}
 
-
+                secure
                 >DownloadImage</AtagStyled>
                 {/*<div onClick={handleMergeButton}>cllick</div>*/}
             </UploadImageFormStyled>
