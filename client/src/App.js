@@ -10,12 +10,13 @@ import Navbar3 from "./components/NavBar/Navbar3";
 import Gallery from "./components/Gallery/Gallery";
 import DownloadImages from "./components/DownLoadImages/DownloadImages";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Global from "./styles/Global";
 
 function App() {
 
   return (
     <div className="App">
-
+    {/*<Global>*/}
         <BrowserRouter>
             <NavBar />
             {/*<Navbar2 />*/}
@@ -27,6 +28,7 @@ function App() {
                 {/*<Route path='/gallery2'  element={<Gallery />} />*/}
             </Routes>
         </BrowserRouter>
+    {/*</Global>*/}
     </div>
   );
 }

@@ -1,11 +1,11 @@
-import React, {useEffect, useState, useRef } from "react";
+import React, { useState   } from "react";
 import Button from "@mui/material/Button";
 import {motion } from 'framer-motion'
 import {MenuLeftVariants} from "../../animations/animations";
-
+import {DownloadButtonStyled} from "../../styles/DownloadButton.styled";
 import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
-
-
+import {DownloadButtonVariants} from "../../animations/animations";
+import {AtagStyled} from "../../styles/Atag.styled";
 
 
 export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage,handleMergeButton,handleCloseMergeForm,setUploadedFile,downloadLink}) {
@@ -68,8 +68,22 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
 
                 </motion.div>
                 <Button onClick={handleMergeButton} variant="contained" type="submit" color="success">merge</Button>
-                <a href={downloadLink}>DownloadImage</a>
+               <DownloadButtonStyled
+               variants = {DownloadButtonVariants}
+               whileHove='hover'
+               >
+                   <AtagStyled href={downloadLink}
+                               variants = {DownloadButtonVariants}
+                               whileHove='hover'
 
+                   >DownloadImage</AtagStyled>
+
+               </DownloadButtonStyled
+               >
+                <AtagStyled href={downloadLink}
+
+
+                >DownloadImage</AtagStyled>
                 {/*<div onClick={handleMergeButton}>cllick</div>*/}
             </UploadImageFormStyled>
 

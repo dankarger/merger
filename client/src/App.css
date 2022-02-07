@@ -20,3 +20,9 @@ font-size: 100%;
   color: white;
 }
 
+a {
+  text-decoration: none  ;
+  color:inherit  ;
+}
+
+
