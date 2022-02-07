@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import {motion} from 'framer-motion'
 
-export const GalleryContainerStyled = styled.div `
+export const GalleryContainerStyled = styled(motion.div) `
   padding: 2rem 4rem;
   display: flex;
   justify-content: space-around;

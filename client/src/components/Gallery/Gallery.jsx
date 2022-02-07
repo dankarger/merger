@@ -4,6 +4,8 @@ import DownloadImages from "../DownLoadImages/DownloadImages";
 import {GalleryStyled} from "../../styles/Gallery.styled";
 import DetailCard from "../DetaileCard/DetaileCard";
 import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
+import MenuLeft from "../Menu/MenuLeft";
+import {GalleryContainerVariants, GalleryStyleVariants} from "../../animations/animations";
 
 const Gallery = () => {
     const [imageIds, setImageId] = useState([]);
@@ -17,8 +19,17 @@ const Gallery = () => {
      }
 
     return (
-        <GalleryContainerStyled>
-            <GalleryStyled>
+        <GalleryContainerStyled
+        variants={GalleryContainerVariants}
+        initial='initial'
+        animate='animate'
+        >
+            {/*<MenuLeft />*/}
+            <GalleryStyled
+                variants={GalleryStyleVariants}
+                initial='initial'
+                animate='animate'
+            >
              <h1>Gallery</h1>
                 <DownloadImages handleSelectCard={handleSelectCard} />
                 {isDetailCardOpen &&

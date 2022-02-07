@@ -106,3 +106,30 @@ export const pathVariants = {
             ease: "easeInOut"}
     }
 }
+export const GalleryContainerVariants = {
+    initial:{
+        x:'-20vw',
+        opacity:0,
+        scale:(0.8)
+    },
+    animate:{
+        x:0,
+        scale:(1),
+        opacity:1,
+        transition:{
+            stiffness:124,duration:1,delay:0.5
+        }
+    }
+}
+export const GalleryStyleVariants = {
+    initial:{
+        opacity:0,
+    },
+    animate:{
+        x:0,
+        opacity:1,
+        transition:{
+            stiffness:124,duration:1,delay:1.5
+        }
+    }
+}

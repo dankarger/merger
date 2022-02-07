@@ -17,7 +17,7 @@ export default function Snackbars1({isOpen}) {
     };
     useEffect(()=>{
         if(isOpen!==open) {setOpen(isOpen)}
-    },[isOpen])
+    },[open])
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;
