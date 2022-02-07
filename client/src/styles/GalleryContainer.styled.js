@@ -11,5 +11,6 @@ export const GalleryContainerStyled = styled.div `
   gap: 2rem;
   background: #374242;
   background: rgba(164, 168, 168, 0.49);
+  background: #E4EBF1;
 
 `
