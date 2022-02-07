@@ -87,6 +87,7 @@ const WorkSpace =()=> {
         try {
             console.log('curPos',cursorPosition)
             console.log('xpos',xPos)
+            console.log('bcColor',backgroundColor)
 
             let overlayObject = {
                 overlayText:overlayText,

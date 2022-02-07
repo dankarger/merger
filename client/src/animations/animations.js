@@ -69,3 +69,40 @@ export const ButtonYoYoVariants = {
     }
 
 }
+
+export const HomeMenuButtonsVariants = {
+    hover: {
+        scale:( 1.1),
+         // backgroundColor:'rgba(66,152,149,0.6)',
+        // textShadow:" 0px 0px 8px rgb(255,255,255)",
+        boxShadow:" 1px 1px 1px 1px rgb(0,0,0)",
+        transition:{
+            type:"spring",
+            stiffness:121,mass:1
+        },
+    }
+
+}
+
+export const svgVariants = {
+    initial: {rotate: -10},
+    animate: {
+        scale:(1.3),
+        fontsize:50,
+        rotate: 0,
+        transition: {
+            duration: 1,stiffness:10,mass:100
+        }
+    }
+}
+export const pathVariants = {
+    initial: {
+        opacity:0,
+        pathLength:0.2
+    },
+    animate:{opacity: 1,
+        pathLength: 1,
+        transition: {duration: 1,
+            ease: "easeInOut"}
+    }
+}

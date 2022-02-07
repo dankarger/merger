@@ -44,7 +44,7 @@ const uploadImage = async (req,res)=> {
         const gravity = req.body.overlay.overlayObject.gravity;
         const fontSize = req.body.overlay.overlayObject.fontSize;
         const imageTitle = req.body.overlay.overlayObject.title;
-        const backgroundColor = req.body.overlay.overlayObject.backgroundColor.css.backgroundColor;
+        const backgroundColor = req.body.overlay.overlayObject.backgroundColor.css.backgroundColor ;
         // const canvasElement = req.body.overlayObject.canvasElement
         console.log( 'ff', x,y);
         console.log( 'obj',backgroundColor);
