@@ -24,6 +24,13 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
 
     }
 
+    function download () {
+        const a = document.createElement('a');
+        a.href = downloadLink.current
+        a.click()
+    }
+
+
     const previewFile= (file) => {
         const reader = new FileReader();
 
@@ -76,14 +83,13 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                                variants = {DownloadButtonVariants}
                                whileHove='hover'
 
-                   >DownloadImage</AtagStyled>
+                   >DownloadImage22</AtagStyled>
 
                </DownloadButtonStyled
                >
-                <AtagStyled href={downloadLink.current}
+                <button onClick={download}>Download Image</button>
 
-                secure
-                >DownloadImage</AtagStyled>
+
                 {/*<div onClick={handleMergeButton}>cllick</div>*/}
             </UploadImageFormStyled>
 
