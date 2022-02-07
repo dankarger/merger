@@ -76,6 +76,9 @@ const uploadImage = async (req,res)=> {
     }
 }
 
+
+
+
     const addImage = async (response,user,imageTitle) => {
 
         console.log('user',user)
@@ -122,6 +125,17 @@ const deleteAllImagesByUser = async (id) => {
      return deletedImages
 }
 
+const filterImages = async (id)=> {
+    const user = await User.findById(id)
+
+    console.log('filter images user',user);
+    const images = user.images
+    console.log(images)
+    return images
+
+}
+
+
 
 module.exports= {
     getImages,
@@ -129,5 +143,6 @@ module.exports= {
     getMongoImages,
     addImage,
     deleteImage,
-    deleteAllImagesByUser
+    deleteAllImagesByUser,
+    filterImages
 }

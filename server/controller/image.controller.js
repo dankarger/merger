@@ -1,6 +1,7 @@
 const imageService = require('../services/image.services')
 const utils = require('../utils/utils')
 const {cloudinary} = require('../utils/cloudinary')
+const userService = require("../services/user.services");
 
 
 
@@ -42,9 +43,24 @@ const deleteAllImagesByUser = async function (req, res) {
         res.status(400).json({error: e.message})
     }
 }
+
+
+const filterImages= async (req,res)=> {
+    try {
+        const images = await imageService.filterImages(req.body.id);
+        res.status(200).send(images);
+    } catch (e) {
+        console.log('filter',e)
+        res.status(400).send({message:e.message})
+    }
+
+}
+
+
 module.exports = {
     getImages,
     uploadImage,
     deleteImage,
-    deleteAllImagesByUser
+    deleteAllImagesByUser,
+    filterImages
 }

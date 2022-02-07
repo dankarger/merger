@@ -1,7 +1,7 @@
 const User = require("../models/user.model");
 const bcrypt = require('bcrypt');
 const jwt=require('jsonwebtoken');
-
+const auth = require('../middlewares/auth')
 
 
 
@@ -17,7 +17,7 @@ const getUsers = async ()=> {
 
 const findUser = async (email) => {
     const user = await User.findOne({email:email}).lean()
-    console.log('fuckingmongo',user)
+
     return(user)
 }
 
@@ -51,27 +51,31 @@ const loginUser = async (req,res)=> {
        throw new Error('Cannot find user ')
     }
      if(await bcrypt.compare(password, user.password)) {
-            const accessToken = createToken(user)
+            const accessToken = auth.createToken(user)
          return({accessToken: accessToken})
         }else {
             throw new Error('password incorrect ')
             }
 }
+//
+// const createToken= (user) => {
+//     const username = user.name;
+//     const userToken = {name:username}
+//     return jwt.sign(userToken, process.env.ACCESS_TOKEN_SECRET)
+//
+// }
+//
+//  const authenticateToken =(req, res , nex) => {
+//
+// }
 
-const createToken= (user) => {
-    const username = user.name;
-    const userToken = {name:username}
-    return jwt.sign(userToken, process.env.ACCESS_TOKEN_SECRET)
 
-}
-
-export const authenticateToken =(req, res , nex) => {
-
-}
 module.exports={
     getUsers,
     addUser,
     findUser,
     loginUser,
+    // createToken,
+    // authenticateToken
 
 }
