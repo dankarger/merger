@@ -6,6 +6,7 @@ import DetailCard from "../DetaileCard/DetaileCard";
 import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
 import MenuLeft from "../Menu/MenuLeft";
 import {GalleryContainerVariants, GalleryStyleVariants} from "../../animations/animations";
+import {AnimatePresence} from "framer-motion";
 
 const Gallery = () => {
     const [imageIds, setImageId] = useState([]);
@@ -19,6 +20,7 @@ const Gallery = () => {
      }
 
     return (
+        <AnimatePresence>
         <GalleryContainerStyled
         variants={GalleryContainerVariants}
         initial='initial'
@@ -37,6 +39,7 @@ const Gallery = () => {
             </GalleryStyled>
 
         </GalleryContainerStyled>
+        </AnimatePresence>
     )
 }
 export default Gallery

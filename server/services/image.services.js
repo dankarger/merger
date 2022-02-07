@@ -52,7 +52,7 @@ const uploadImage = async (req,res)=> {
         const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,  {
             upload_preset: 'workspace',tags: user.name,
             transformation: [
-                {overlay: {  font_family: "Roboto",
+                {overlay: {  font_family: "Roboto",flags:"attachment",
                              font_size: fontSize,
                              text:overlay},
                              // color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},

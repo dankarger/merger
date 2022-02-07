@@ -89,7 +89,7 @@ export const svgVariants = {
     animate: {
         scale:(1.3),
         fontsize:50,
-        rotate: 0,
+        rotate:0,
         transition: {
             duration: 1,stiffness:10,mass:100
         }
@@ -131,5 +131,24 @@ export const GalleryStyleVariants = {
         transition:{
             stiffness:124,duration:1,delay:1.5
         }
+    }
+}
+
+export const DetailCardStyleVariants = {
+    initial:{
+        opacity:0,
+        scale:0
+    },
+    animate:{
+        scale:(1.1),
+        x:0,
+        opacity:1,
+        transition:{
+            stiffness:124,duration:.2,delay:.5
+        }
+    },
+    exit:{
+        opacity:0,
+        scale:0
     }
 }
