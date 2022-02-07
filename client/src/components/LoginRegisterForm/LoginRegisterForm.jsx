@@ -24,14 +24,15 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                                                   variant="filled"
                                                   onChange={handleFormInputs}
                                                   name='name'
-                                                  value={type==='login'?null: formData.name}
+                                                  value={formData.name}
                 />}
 
                 <TextField id="filled-basic" label="Email"
                            variant="filled"
                            onChange={handleFormInputs}
                            name='email'
-                           value={formData.email}/>
+                           value={formData.email}
+                />
 
                 <TextField
                     id="filled-password-input"

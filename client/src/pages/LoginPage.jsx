@@ -10,7 +10,7 @@ import myApi from "../api/Api";
 
 const LoginPage =()=> {
         const [currentUser,setCurrentUser]= useContext(UserContext)
-        const[formData,setFormData]= useState({name:'guest',email:'guest',password:'guest'});
+        const[formData,setFormData]= useState({});
 
     const handleSubmitLogin = async ()=>{
         try {

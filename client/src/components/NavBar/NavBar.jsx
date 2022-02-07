@@ -15,7 +15,6 @@ import CropFreeIcon from '@mui/icons-material/CropFree';
 import {Link} from "react-router-dom";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import {UserContext} from "../../App";
-
 import {motion} from 'framer-motion'
 import {navbarVariants} from "../../animations/animations";
 import {useContext} from "react";
@@ -26,9 +25,10 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const user = useContext(UserContext)
+    const [currentUser,setCurrentUser]= useContext(UserContext)
 
-    console.log('navbar',user)
+
+
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -53,6 +53,7 @@ const ResponsiveAppBar = () => {
         //         animate='animate'
         >
             <Container maxWidth="xl">
+
                 <Toolbar disableGutters>
                     <Typography
                         variant="h6"
@@ -119,7 +120,7 @@ const ResponsiveAppBar = () => {
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
                         LOGO
-                        {user.name}
+                        {currentUser.name}
                     </Typography>
                     {/*<Link to='/>' >*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -173,6 +174,7 @@ const ResponsiveAppBar = () => {
                     </Box>
                 </Toolbar>
             </Container>
+
         </AppBar>
     );
 };

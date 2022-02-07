@@ -7,9 +7,10 @@ import Gallery from "./components/Gallery/Gallery";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import {GreetingStyled} from "./styles/Greeting.styled";
 
 
-export const UserContext = React.createContext();
+export const UserContext = React.createContext({name:'guest',email:'guest',password:'guest',_id:"620191159f3c315c33ae4d44"});
 
 
 function App() {
@@ -21,6 +22,10 @@ function App() {
         <UserContext.Provider value={[currentUser, setCurrentUser]}>
         <BrowserRouter>
             <NavBar />
+            <GreetingStyled>
+              Hello <span> {currentUser.name}</span>
+            </GreetingStyled>
+
             <Routes>
                 <Route path='/home'  element={<HomePage />} />
                 <Route path='/work'  element={<WorkSpace />} />

@@ -11,7 +11,7 @@ import myApi from "../api/Api";
 
 const RegisterPage =()=> {
     const [currentUser,setCurrentUser]= useContext(UserContext)
-    const[formData,setFormData]= useState({});
+    const[formData,setFormData]= useState({name:'guest',email:'guest',password:'guest'});
 
 
     const handleSubmitLogin = async ()=>{
