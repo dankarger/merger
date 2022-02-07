@@ -1,6 +1,6 @@
 const User = require("../models/user.model");
 const bcrypt = require('bcrypt');
-
+const jwt=require('jsonwebtoken');
 
 
 
@@ -50,14 +50,24 @@ const loginUser = async (req,res)=> {
     if(!user) {
        throw new Error('Cannot find user ')
     }
-
-        if(await bcrypt.compare(password, user.password)) {
-            return (user)
+     if(await bcrypt.compare(password, user.password)) {
+            const accessToken = createToken(user)
+         return({accessToken: accessToken})
         }else {
             throw new Error('password incorrect ')
             }
 }
 
+const createToken= (user) => {
+    const username = user.name;
+    const userToken = {name:username}
+    return jwt.sign(userToken, process.env.ACCESS_TOKEN_SECRET)
+
+}
+
+export const authenticateToken =(req, res , nex) => {
+
+}
 module.exports={
     getUsers,
     addUser,
