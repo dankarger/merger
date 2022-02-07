@@ -96,10 +96,6 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
 
                </DownloadButtonStyled
                >
-                {/*<button onClick={download}>Download Image</button>*/}
-
-
-                {/*<div onClick={handleMergeButton}>cllick</div>*/}
             </UploadImageFormStyled>
 
 

@@ -230,7 +230,6 @@ const WorkSpace =()=> {
                                                 imageTitle={imageTile}
 
             /> }
-            <a href={downloadLink.current} download>link</a>
         </WorkPageStyled>
 
 
