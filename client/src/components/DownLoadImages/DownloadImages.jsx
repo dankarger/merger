@@ -5,6 +5,7 @@ import ActionAreaCard from "../../components/Card/Card";
 import {Cloudinary} from "@cloudinary/url-gen";
 import {GalleryItemStyled} from "../../styles/GalleryItem.styled";
 import {GalleryStyled} from "../../styles/Gallery.styled";
+import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
 
 const DownloadImages = ({handleSelectCard}) => {
     const [imageIds, setImageId] = useState([]);
@@ -53,8 +54,8 @@ const DownloadImages = ({handleSelectCard}) => {
 
 
     return (
-            <div>
-                <GalleryStyled>
+
+                <GalleryContainerStyled>
                         {imageIds && imageIds.map((imageId, index) => (
                            <ActionAreaCard
                                title ={imageId.title}
@@ -70,11 +71,8 @@ const DownloadImages = ({handleSelectCard}) => {
                                 onClick={()=>handleSelectCard(imageId)}
                                /></GalleryItemStyled>}/>
                         ))}
-                    </GalleryStyled>
-                {/*<div>*/}
-                {/*    <AdvancedImage cldImg={myImage} />*/}
-                {/*</div>*/}
-            </div>
+                    </GalleryContainerStyled>
+
     )
 }
 export default DownloadImages

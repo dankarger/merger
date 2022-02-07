@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const GalleryStyled = styled.div `
+export const GalleryContainerStyled = styled.div `
   padding: 2rem 4rem;
   display: flex;
   justify-content: space-around;
@@ -9,5 +9,7 @@ export const GalleryStyled = styled.div `
   border: 2px solid #807474;
   border-radius: 3px;
   gap: 2rem;
-  background: #4e5e5e;
+  background: #374242;
+  background: rgba(164, 168, 168, 0.49);
+
 `

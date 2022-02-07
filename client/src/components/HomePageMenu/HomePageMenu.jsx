@@ -16,20 +16,32 @@ export default function HomePageMenu() {
     return (
         <Box sx={{ '& > :not(style)': { m: 1 }, display:"flex",gap:'2rem' }}>
             <HomepageMenuStyled>
-                <Fab as={motion.button}  variants={HomeMenuButtonsVariants} whilehover='hover' variant="extended"  color="primary">
+                <motion.div variants={HomeMenuButtonsVariants}
+                            whileHover='hover'
+                >
+                <Fab variant="extended"  color="primary">
+
                     <NavigationIcon sx={{ mr: 1 }} />
                     Create
                 </Fab>
+            </motion.div>
+                <motion.div variants={HomeMenuButtonsVariants}
+                            whileHover='hover'
+                >
                 <Fab variant="extended" variants={HomeMenuButtonsVariants} whilehover='hover'>
                     <NavigationIcon sx={{ mr: 1 }} />
                     Navigate
                 </Fab>
-
+                </motion.div>
+                <motion.div variants={HomeMenuButtonsVariants}
+                            whileHover='hover'
+                >
                 <Fab variant="extended" variants={HomeMenuButtonsVariants} whilehover='hover'>
 
                     <NavigationIcon sx={{ mr: 1 }} />
                     Navigate
                 </Fab>
+                </motion.div>
             <Fab color="primary" aria-label="add" variants={HomeMenuButtonsVariants} whilehover='hover'>
                 <AddIcon />
             </Fab>

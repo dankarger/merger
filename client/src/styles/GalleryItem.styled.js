@@ -6,5 +6,5 @@ export const GalleryItemStyled = styled.div `
   align-items: center;
   max-width: 200px;
   max-height: 100px;
-  border: 1px solid #5475d0;
+  //border: 1px solid #242a3b;
 `

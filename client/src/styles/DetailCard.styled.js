@@ -12,11 +12,12 @@ export const DetailCardStyled = styled.div `
   flex-direction: column;
   flex-wrap: wrap;
   position: absolute;
-  top:50vh;
- 
+  top: 50vh;
+
   z-index: 30000;
   padding: 1rem 2rem;
-  background: rgba(172, 189, 213, 0.68);
+  background: rgba(1, 17, 35, 0.68);
+  border:5px solid #333333;
 
 
 `

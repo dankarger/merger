@@ -3,6 +3,7 @@ import {ContainerStyled} from  "../../styles/Container.styled"
 import DownloadImages from "../DownLoadImages/DownloadImages";
 import {GalleryStyled} from "../../styles/Gallery.styled";
 import DetailCard from "../DetaileCard/DetaileCard";
+import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
 
 const Gallery = () => {
     const [imageIds, setImageId] = useState([]);
@@ -16,15 +17,15 @@ const Gallery = () => {
      }
 
     return (
-        <GalleryStyled>
-            <ContainerStyled>
+        <GalleryContainerStyled>
+            <GalleryStyled>
              <h1>Gallery</h1>
                 <DownloadImages handleSelectCard={handleSelectCard} />
                 {isDetailCardOpen &&
                 <DetailCard card={selectedCard} handleSelectCard={handleSelectCard}/> }
-            </ContainerStyled>
+            </GalleryStyled>
 
-        </GalleryStyled>
+        </GalleryContainerStyled>
     )
 }
 export default Gallery

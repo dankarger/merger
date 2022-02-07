@@ -74,8 +74,8 @@ export const HomeMenuButtonsVariants = {
     hover: {
         scale:( 1.1),
          // backgroundColor:'rgba(66,152,149,0.6)',
-        // textShadow:" 0px 0px 8px rgb(255,255,255)",
-        boxShadow:" 1px 1px 1px 1px rgb(0,0,0)",
+        textShadow:" 0px 0px 8px rgb(255,255,255)",
+        // boxShadow:" 1px 1px 1px 1px rgb(0,0,0)",
         transition:{
             type:"spring",
             stiffness:121,mass:1
