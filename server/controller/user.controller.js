@@ -40,7 +40,7 @@ const loginUser =async (req,res)=>{
         utils.checkBodyRequest(req);
 
         const user = await userService.addUser(req, res);
-        res.status(200).send(users);
+        res.status(200).send(user);
     } catch (e) {
         console.log('e',e)
         if(e.message.includes('E11000')){

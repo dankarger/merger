@@ -15,37 +15,47 @@ const getUsers = async ()=> {
 }
 
 
-const getUser = async (email,password) => {
-    // const user = await User.findOne({passId: passId})
-    // return (user)
-    return('find-user')
+const findUser = async (email) => {
+    const user = User.findOne({email:email})
+    return(user)
 }
 
-const checkIfUserExist = async (email) => {
-  if (await User.find({email:email})) {
-          throw new Error('User with the same Email all ready Exist')
+  const checkIfUserExist = async (email) => {
+  const user = await User.findOne({email:email})
+  if(user) {
+      throw new Error('User with the same Email all ready Exist')
   }
 }
 
 const addUser = async (req, res) => {
-
         await checkIfUserExist(req.body.email)
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
         const userObject = {
             name:req.body.name,
             email:req.body.email,
             password:hashedPassword,
         }
     const user = await User.create(userObject)
-    // const addedUser = await User.create(user)
     return (user)
+}
 
+const loginUser = async (req,res)=> {
+    const user = findUser(req.email);
+    if(user === null) {
+       return new Error('Cannot find user ')
+    }
+        if(await bcrypt.compare(req.body.password, user.password)) {
+            return ('Success')
+        }else {
+            return new Error('password incorrect ')
+            }
 }
 
 module.exports={
     getUsers,
     addUser,
-    getUser
+    findUser,
+    loginUser,
+
 }
