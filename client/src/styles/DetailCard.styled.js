@@ -14,9 +14,9 @@ export const DetailCardStyled = styled(motion.div) `
   //position: absolute;
   //top: 50vh;
   //margin-top:-10%;
-  position: absolute;
-  //left: 50%;
-  //top: 50%;
+  position: fixed;
+  left: calc(50vw - 50%);
+  top:calc(50vh - 50%);;
   //transform: translate(-50%, -50%);
   z-index: 30000;
   //padding: 1rem 2rem;
