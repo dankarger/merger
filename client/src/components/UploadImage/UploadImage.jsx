@@ -6,19 +6,19 @@ import {DownloadButtonStyled} from "../../styles/DownloadButton.styled";
 import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
 import {DownloadButtonVariants} from "../../animations/animations";
 import {AtagStyled} from "../../styles/Atag.styled";
-
+import {AddFileInputStyled} from "../../styles/AddFileInput.styled";
+import {AddFileLabelStyled} from "../../styles/AddFileLabel.styled";
 
 export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage,handleMergeButton,handleCloseMergeForm,setUploadedFile,downloadLink}) {
     const[fileInputState,setFileInputState]=useState('')
     const [previewSource,setPreviewSource]=useState()
-    // const [position,setPosition] = useState({x:0,y:0})
+    const[fileName,setFileName] = useState('')
 
 
-    console.log('link',downloadLink)
     const handleFileInputChane = (e)=>{
         const file = e.target.files[0];
         previewFile(file);
-        // console.log('dd',file)
+        setFileName(file.name);
 
 
 
@@ -65,29 +65,33 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                     initial='initial'
                     animate='animate'
                 >
-                <input type="file" name='image'
+                <AddFileInputStyled
+                    type="file" name='image'
+                    id='files'
                        onChange={handleFileInputChane}
                        value={fileInputState}
                        className='form-input'
-                       draggable={true}/>
+                    // style={{opacity:0}}
+                      />
+                    <AddFileLabelStyled htmlFor="files">{fileName || 'Upload image'} </AddFileLabelStyled>
                 {/*<button className='btn' type='submit'>Submit</button>*/}
                 {/*<Button variant="contained" type="submit" color="success" onClick={()=>console.log('fg')}>merge</Button>*/}
-
+                <div></div>
                 </motion.div>
                 <Button onClick={handleMergeButton} variant="contained" type="submit" color="success">merge</Button>
                <DownloadButtonStyled
                variants = {DownloadButtonVariants}
-               whileHove='hover'
+               whileHover='hover'
                >
                    <AtagStyled href={downloadLink.current}
                                variants = {DownloadButtonVariants}
-                               whileHove='hover'
+                               whileHover='hover'
 
-                   >DownloadImage22</AtagStyled>
+                   >Download Image</AtagStyled>
 
                </DownloadButtonStyled
                >
-                <button onClick={download}>Download Image</button>
+                {/*<button onClick={download}>Download Image</button>*/}
 
 
                 {/*<div onClick={handleMergeButton}>cllick</div>*/}

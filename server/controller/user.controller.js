@@ -37,17 +37,17 @@ const addUser = async function (req, res) {
 
 const loginUser =async (req,res)=>{
     try {
-        utils.checkBodyRequest(req);
+        // utils.checkBodyRequest(req);
 
-        const user = await userService.addUser(req, res);
+        const user = await userService.loginUser(req, res);
         res.status(200).send(user);
     } catch (e) {
         console.log('e',e)
-        if(e.message.includes('E11000')){
-            res.status(400).send({message:'Error - passPort ID all ready exist in the bank '})
+
+            res.status(400).send({message:e.message})
         }
-        res.status(400).send({message: e.message})
-    }
+
+
 
 }
 

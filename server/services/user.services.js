@@ -1,6 +1,6 @@
 const User = require("../models/user.model");
 const bcrypt = require('bcrypt');
-const {checkBodyRequest} = require("../utils/utils");
+
 
 
 
@@ -16,15 +16,14 @@ const getUsers = async ()=> {
 
 
 const findUser = async (email) => {
-    const user = User.findOne({email:email})
+    const user = await User.findOne({email:email}).lean()
+    console.log('fuckingmongo',user)
     return(user)
 }
 
   const checkIfUserExist = async (email) => {
-  const user = await User.findOne({email:email})
-  if(user) {
-      throw new Error('User with the same Email all ready Exist')
-  }
+  return  await User.exists({email:email})
+
 }
 
 const addUser = async (req, res) => {
@@ -41,14 +40,21 @@ const addUser = async (req, res) => {
 }
 
 const loginUser = async (req,res)=> {
-    const user = findUser(req.email);
-    if(user === null) {
-       return new Error('Cannot find user ')
+    const {email, password} = req.body
+    // await checkIfUserExist(email)
+    if(await checkIfUserExist(email)===false){
+        throw new Error('Cannot find user ')
     }
-        if(await bcrypt.compare(req.body.password, user.password)) {
-            return ('Success')
+    const user = await findUser(email);
+    console.log('uuussususs', user)
+    if(!user) {
+       throw new Error('Cannot find user ')
+    }
+
+        if(await bcrypt.compare(password, user.password)) {
+            return (user)
         }else {
-            return new Error('password incorrect ')
+            throw new Error('password incorrect ')
             }
 }
 
