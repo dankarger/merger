@@ -13,6 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import CropFreeIcon from '@mui/icons-material/CropFree';
 import {Link} from "react-router-dom";
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+
 import {motion} from 'framer-motion'
 import {navbarVariants} from "../../animations/animations";
 
@@ -54,7 +56,8 @@ const ResponsiveAppBar = () => {
                         component="div"
                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                     >
-                        <CropFreeIcon />
+
+                        <AddPhotoAlternateIcon />
                         {/*LOGO  <ColorLensIcon />*/}
                     </Typography>
 
@@ -135,6 +138,7 @@ const ResponsiveAppBar = () => {
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -156,6 +160,7 @@ const ResponsiveAppBar = () => {
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                                     <Typography textAlign="center">{setting}</Typography>
+
                                 </MenuItem>
                             ))}
                         </Menu>
