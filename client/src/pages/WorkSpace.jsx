@@ -19,6 +19,7 @@ import Canvas from "../components/CanvasElement/Canvas";
 import {convertPositionToCss} from "../utils/utils";
 import ModalMergeForm from "../components/ModalMergeForm/ModalMergeForm";
 import AddBackGroundColor from "../components/AddBackgroundColor/AddBackGroundColor";
+import {Link} from "react-router-dom";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -41,6 +42,8 @@ const WorkSpace =()=> {
     const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
     const[uploadedFile,setUploadedFile] = useState('');
     const[imageTile,setImageTitle]=useState('Title');
+    const downloadLink = useRef('')
+    const[downLoadLink,setDownloadLink]=useState('')
 
     let xPos = useRef({x:0,y:0});
 
@@ -107,14 +110,19 @@ const WorkSpace =()=> {
 
             }
             console.log('h',overlayObject)
-            await myApi.post('/images', {
+            const link = await myApi.post('/images', {
                 // method: 'POST',
                 // body: JSON.stringify({ data: base64EncodedImage }),
                 data: base64EncodedImage ,overlay:{overlayObject},
                 headers: { 'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'}
             });
-            setIsSnackBar(!isSnackbar)
+            setIsSnackBar(!isSnackbar);
+
+            downloadLink.current = link.data.url
+            setDownloadLink(link.data.url)
+            console.log('dddddddddd',downLoadLink)
+
         }catch (error) {
 
             console.log(error)
@@ -143,6 +151,7 @@ const WorkSpace =()=> {
     }
     return(
         <WorkPageStyled ref={constraintsRefAddText}>
+
             <MenuLeft imageCallback={setIsImgMenuOpen}
                       isMenuOpen={isImgMenuOpen}
                       textCallback={setIsTextMenuOpen}
@@ -160,6 +169,7 @@ const WorkSpace =()=> {
                          handleMergeButton={handleMergeButton}
                          handleCloseMergeForm={handleCloseMergeForm}
                          setUploadedFile={setUploadedFile}
+                         downloadLink={downloadLink.current}
 
            />
             {/*}*/}
@@ -209,6 +219,7 @@ const WorkSpace =()=> {
                 <UploadImageDivStyled image={backgroundImage}/>
                 {/*<Canvas draw={draw} />*/}
             </WorkImageDivStyled>
+
             <Snackbars1 isOpen={isSnackbar}/>
             {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage}
                                                 isMergeFormOpen={isMergeFormOpen}
@@ -218,6 +229,7 @@ const WorkSpace =()=> {
                                                 imageTitle={imageTile}
 
             /> }
+            <a href={downloadLink.current} download>link</a>
         </WorkPageStyled>
 
 

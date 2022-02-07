@@ -8,13 +8,13 @@ import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
 
 
 
-export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage,handleMergeButton,handleCloseMergeForm,setUploadedFile}) {
+export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage,handleMergeButton,handleCloseMergeForm,setUploadedFile,downloadLink}) {
     const[fileInputState,setFileInputState]=useState('')
     const [previewSource,setPreviewSource]=useState()
     // const [position,setPosition] = useState({x:0,y:0})
 
 
-
+    console.log('link',downloadLink)
     const handleFileInputChane = (e)=>{
         const file = e.target.files[0];
         previewFile(file);
@@ -68,9 +68,12 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
 
                 </motion.div>
                 <Button onClick={handleMergeButton} variant="contained" type="submit" color="success">merge</Button>
+                <a href={downloadLink}>DownloadImage</a>
+
                 {/*<div onClick={handleMergeButton}>cllick</div>*/}
             </UploadImageFormStyled>
 
-</>
+
+        </>
     )
 }

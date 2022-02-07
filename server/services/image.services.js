@@ -52,9 +52,9 @@ const uploadImage = async (req,res)=> {
         const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,  {
             upload_preset: 'workspace',tags: user.name,
             transformation: [
-                {overlay: {  font_family: "Roboto",flags:"attachment",
+                {overlay: {  font_family: "Roboto",
                              font_size: fontSize,
-                             text:overlay},
+                             text:overlay}, flags:`attachment:${imageTitle}` ,
                              // color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},
                              //   color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },
                     color: color,quality: "auto",width:"1.0",height:"1.0",gravity:gravity  },
