@@ -1,4 +1,6 @@
 const User = require("../models/user.model");
+const bcrypt = require('bcrypt');
+const {checkBodyRequest} = require("../utils/utils");
 
 
 
@@ -19,19 +21,27 @@ const getUser = async (email,password) => {
     return('find-user')
 }
 
-
+const checkIfUserExist = async (email) => {
+  if (await User.find({email:email})) {
+          throw new Error('User with the same Email all ready Exist')
+  }
+}
 
 const addUser = async (req, res) => {
-    // const user = {
-    //     name:"testy",
-    //     email:"tttt@gmail.com",
-    //     password:"asdas23rsdfsdfw4rsfg"
-    // }
-    const user = await User.create(req.body)
+
+        await checkIfUserExist(req.body.email)
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+        const userObject = {
+            name:req.body.name,
+            email:req.body.email,
+            password:hashedPassword,
+        }
+    const user = await User.create(userObject)
     // const addedUser = await User.create(user)
     return (user)
-    // console.log('add user')
-    // return('add-user')
+
 }
 
 module.exports={
