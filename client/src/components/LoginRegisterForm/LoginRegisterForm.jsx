@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 
-export default function LoginRegisterForm({type,handleFormInputs}) {
+export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLogin,formData,handleSubmitLoginGuest}) {
 
     return (
 
@@ -20,9 +20,18 @@ export default function LoginRegisterForm({type,handleFormInputs}) {
             >
             <LoginFormStyled>
 
-                {type==='login'? null: <TextField id="filled-basic" label="Name" variant="filled" onChange={handleFormInputs} name='name'/>}
+                {type==='login'? null: <TextField id="filled-basic" label="Name"
+                                                  variant="filled"
+                                                  onChange={handleFormInputs}
+                                                  name='name'
+                                                  value={type==='login'?null: formData.name}
+                />}
 
-                <TextField id="filled-basic" label="Email" variant="filled" onChange={handleFormInputs} name='email'/>
+                <TextField id="filled-basic" label="Email"
+                           variant="filled"
+                           onChange={handleFormInputs}
+                           name='email'
+                           value={formData.email}/>
 
                 <TextField
                     id="filled-password-input"
@@ -32,13 +41,14 @@ export default function LoginRegisterForm({type,handleFormInputs}) {
                     variant="filled"
                     onChange={handleFormInputs}
                     name='password'
+                    value={formData.password}
                 />
                 <Stack direction="column" spacing={2}>
                     {/*<Button variant="outlined">Primary</Button>*/}
-                    <Button variant="contained"  color='info'>
+                    <Button variant="contained"  color='info' onClick={()=>handleSubmitLogin()}>
                         Submit
                     </Button>
-                    <Button variant="outlined" href="#outlined-buttons">
+                    <Button variant="outlined" href="#outlined-buttons" onClick={()=>handleSubmitLoginGuest()}>
                        Continue as GUEST
                     </Button>
                 </Stack>

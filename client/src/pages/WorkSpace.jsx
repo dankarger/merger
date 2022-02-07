@@ -85,12 +85,12 @@ const WorkSpace =()=> {
     }
 
     const uploadImage= async (base64EncodedImage) => {
-        // console.log('ggg',overlayText);
-            console.log('d',constraintsRef.current.naturalWidth,)
+
+            // console.log('d',constraintsRef.current.naturalWidth,)
         try {
-            console.log('curPos',cursorPosition)
-            console.log('xpos',xPos)
-            console.log('bcColor',backgroundColor)
+            // console.log('curPos',cursorPosition)
+            // console.log('xpos',xPos)
+            // console.log('bcColor',backgroundColor)
 
             let overlayObject = {
                 overlayText:overlayText,

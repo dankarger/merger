@@ -52,7 +52,7 @@ const loginUser = async (req,res)=> {
     }
      if(await bcrypt.compare(password, user.password)) {
             const accessToken = auth.createToken(user)
-         return({accessToken: accessToken})
+         return({accessToken: accessToken,user:{name:user.name,id:user._id,images:user.images}})
         }else {
             throw new Error('password incorrect ')
             }
