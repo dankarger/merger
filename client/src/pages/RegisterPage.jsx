@@ -6,41 +6,32 @@ import {Link} from 'react-router-dom'
 import {NotRegisterTextStyled} from "../styles/NotRegisterText.styled";
 import {UserContext} from "../App";
 
-const LoginPage =()=> {
-        const [currentUser,setCurrentUser]= useContext(UserContext)
-        const[formData,setFormData]= useState({});
 
-    const handleSubmitLogin = async ()=>{
-        try {
 
-        }
-        catch (e) {
-
-        }
-
-    }
+const RegisterPage =()=> {
+    const [currentUser,setCurrentUser]= useContext(UserContext)
+    const[formData,setFormData]= useState({});
 
 
     const handleFormInputs = (e) => {
-        console.log(e.target.name, e.target.value);
+
         let newFormData = formData
         newFormData[e.target.name] = e.target.value
         setFormData(newFormData)
-        console.log('fff',formData)
-    }
 
+    }
 
     return (
         <LoginPageStyled>
             <LoginFormStyled>
-                <h1>Login</h1>
-               <LoginRegisterForm type={'login'} handleFormInputs={handleFormInputs} value/>
-             <NotRegisterTextStyled>
-               Not Register ? <Link to='/register'><span> click here </span> </Link>  to Register
-             </NotRegisterTextStyled>
+                <h1>Register</h1>
+                <LoginRegisterForm type={'register'}  handleFormInputs={handleFormInputs} />
+                <NotRegisterTextStyled>
+                    all ready Register ? <Link to='/login'><span> click here </span> </Link>  to Login
+                </NotRegisterTextStyled>
             </LoginFormStyled>
 
         </LoginPageStyled>
     )
 }
-export default LoginPage
+export default RegisterPage

@@ -8,6 +8,7 @@ import NavigationIcon from '@mui/icons-material/Navigation';
 import {HomepageMenuStyled} from "../../styles/HomepageMenu.styled";
 import {motion} from "framer-motion";
 import {HomeMenuButtonsVariants} from "../../animations/animations";
+import {Link} from 'react-router-dom'
 
 const hover = '&:hover { transform:scale(1.2) '
 
@@ -19,19 +20,23 @@ export default function HomePageMenu() {
                 <motion.div variants={HomeMenuButtonsVariants}
                             whileHover='hover'
                 >
-                <Fab variant="extended"  color="primary">
+                <Link to='/work' >
+                    <Fab variant="extended"  color="primary">
 
-                    <NavigationIcon sx={{ mr: 1 }} />
-                    Create
-                </Fab>
+                        <NavigationIcon sx={{ mr: 1 }} />
+                        Create
+                    </Fab>
+                </Link>
             </motion.div>
                 <motion.div variants={HomeMenuButtonsVariants}
                             whileHover='hover'
                 >
-                <Fab variant="extended" variants={HomeMenuButtonsVariants} whilehover='hover'>
-                    <NavigationIcon sx={{ mr: 1 }} />
-                    Navigate
-                </Fab>
+                <Link to='/Login' >
+                    <Fab variant="extended" variants={HomeMenuButtonsVariants} whilehover='hover'>
+                        <NavigationIcon sx={{ mr: 1 }} />
+                        Login
+                    </Fab>
+                </Link>
                 </motion.div>
                 <motion.div variants={HomeMenuButtonsVariants}
                             whileHover='hover'

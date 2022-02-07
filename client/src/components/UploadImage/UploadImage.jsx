@@ -8,6 +8,8 @@ import {DownloadButtonVariants} from "../../animations/animations";
 import {AtagStyled} from "../../styles/Atag.styled";
 import {AddFileInputStyled} from "../../styles/AddFileInput.styled";
 import {AddFileLabelStyled} from "../../styles/AddFileLabel.styled";
+import Tooltip from '@mui/material/Tooltip';
+
 
 export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage,handleMergeButton,handleCloseMergeForm,setUploadedFile,downloadLink}) {
     const[fileInputState,setFileInputState]=useState('')
@@ -83,11 +85,14 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                variants = {DownloadButtonVariants}
                whileHover='hover'
                >
-                   <AtagStyled href={downloadLink.current}
-                               variants = {DownloadButtonVariants}
-                               whileHover='hover'
+                   {/*<Tooltip sx={{zIndex:111000,background:'red'}} title="Upload an Image">*/}
 
-                   >Download Image</AtagStyled>
+                       <AtagStyled href={downloadLink.current}
+                                   variants = {DownloadButtonVariants}
+                                   whileHover='hover'
+
+                       >Download Image</AtagStyled>
+                   {/*</Tooltip>*/}
 
                </DownloadButtonStyled
                >

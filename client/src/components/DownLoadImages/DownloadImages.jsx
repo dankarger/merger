@@ -6,11 +6,11 @@ import {Cloudinary} from "@cloudinary/url-gen";
 import {GalleryItemStyled} from "../../styles/GalleryItem.styled";
 import {GalleryStyled} from "../../styles/Gallery.styled";
 import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
+import Loader from "../Loader/Loader";
 
 const DownloadImages = ({handleSelectCard}) => {
     const [imageIds, setImageId] = useState([]);
-    const [imageIds2, setImageId2] = useState([]);
-
+    const [isLoading, setIsLoading] = useState(false);
     const cld = new Cloudinary({
         cloud: {
             cloudName: 'meme3'
@@ -22,40 +22,31 @@ const DownloadImages = ({handleSelectCard}) => {
 
     const loadImages = async () => {
         try {
+
             const {data} = await myApi.get('/images');
             // const data =await res.json();
             setImageId(data)
+
             // return data.data
             console.log('da', data)
         } catch (e) {
             console.error(e)
         }
     }
-    const makeList = () => {
-        if (imageIds) {
-
-            setImageId2(
-                imageIds.map((imageId, index) => (
-                    <div  key={index}>
-                        <img src={imageId.url} alt="hh"/>
-                    </div>
-
-                )))
-        }
-        console.log('image,',imageIds)
-    }
-
 
     useEffect(() => {
+        setIsLoading(true)
        const data =  loadImages();
         setImageId(data.data)
-        makeList()
+        setIsLoading(false)
+
     }, [])
 
 
     return (
 
                 <GalleryContainerStyled>
+                    {isLoading && <Loader />}
                         {imageIds && imageIds.map((imageId, index) => (
                            <ActionAreaCard
                                title ={imageId.title}

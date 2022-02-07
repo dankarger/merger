@@ -1,34 +1,37 @@
-import React from "react";
+import React, {useState} from "react";
 import './App.css';
 import HomePage from "./pages/HomePage";
-import HomePage2 from "./pages/HomePage2";
 import WorkSpace from "./pages/WorkSpace";
-import myApi from './api/Api';
 import NavBar from "./components/NavBar/NavBar";
-import Navbar2 from "./components/NavBar/NavBar2"
-import Navbar3 from "./components/NavBar/Navbar3";
 import Gallery from "./components/Gallery/Gallery";
-import DownloadImages from "./components/DownLoadImages/DownloadImages";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Global from "./styles/Global";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+
+
+export const UserContext = React.createContext();
+
 
 function App() {
+    const[currentUser,setCurrentUser] = useState({name:'guest',email:'guest',password:'guest',_id:"620191159f3c315c33ae4d44"})
 
   return (
     <div className="App">
     {/*<Global>*/}
+        <UserContext.Provider value={[currentUser, setCurrentUser]}>
         <BrowserRouter>
             <NavBar />
-            {/*<Navbar2 />*/}
-            {/*<Navbar3 />*/}
             <Routes>
                 <Route path='/home'  element={<HomePage />} />
                 <Route path='/work'  element={<WorkSpace />} />
                 <Route path='/gallery'  element={<Gallery />} />
+                <Route path='/login'  element={<LoginPage />} />
+                <Route path='/register'  element={<RegisterPage />} />
                 {/*<Route path='/gallery2'  element={<Gallery />} />*/}
             </Routes>
         </BrowserRouter>
     {/*</Global>*/}
+        </UserContext.Provider>
     </div>
   );
 }

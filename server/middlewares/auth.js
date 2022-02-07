@@ -4,7 +4,8 @@ const createToken= (user) => {
     const username = user.name;
     const userToken = {name:username}
     const accessToken = generateAccessToken(userToken);
-    const refresh
+    const refreshToken = jwt.sign(userToken, process.env.REFRESH_TOKEN_SECRET)
+    return ({accessToken:accessToken, refreshToken:refreshToken})
 
 }
 
