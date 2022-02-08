@@ -31,9 +31,9 @@ const getMongoImages= async ()=> {
 
 const uploadImage = async (req,res)=> {
     console.log('up')
-    try {
+    // try {
         console.log('ggggggggg',req.body.user)
-        const user = await findUser(req.body.user.currentUser.id)
+        const user = await findUser(req.body.user._id)
         console.log('uuuuser',user)
         const overlay = req.body.overlay.overlayObject.overlayText   ;
         const fileStr = req.body.data;
@@ -46,42 +46,39 @@ const uploadImage = async (req,res)=> {
         const fontSize = req.body.overlay.overlayObject.fontSize;
         const imageTitle = req.body.overlay.overlayObject.title;
         const backgroundColor = req.body.overlay.overlayObject.backgroundColor.css.backgroundColor ;
-        // const canvasElement = req.body.overlayObject.canvasElement
-        console.log( 'ff', x,y);
-        console.log( 'obj',backgroundColor);
         //try1
-        const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,  {
-            upload_preset: 'workspace',tags: user.name, sign_url: true,
-            transformation: [
-                {overlay: {  font_family: "Roboto",
-                             font_size: fontSize,
-                             text:overlay}, flags:`attachment:${imageTitle}` ,
-                             // color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},
-                             //   color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },
-                    color: color,quality: "auto",width:"1.0",height:"1.0",gravity:gravity  },
-                {underlay:  { font_family: "Roboto",font_size: fontSize,
-                        text:overlay},gravity: "south", width: "1.0", height: "1", flags:"relative", opacity: 80,background:backgroundColor,color:backgroundColor }
+        // const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,  {
+        //     upload_preset: 'workspace',tags: user.name, sign_url: true,
+        //     transformation: [
+        //         {overlay: {  font_family: "Roboto",
+        //                      font_size: fontSize,
+        //                      text:overlay}, flags:`attachment:${imageTitle}` ,
+        //                      // color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},
+        //                      //   color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },
+        //             color: color,quality: "auto",width:"1.0",height:"1.0",gravity:gravity  },
+        //         {underlay:  { font_family: "Roboto",font_size: fontSize,
+        //                 text:overlay},gravity: "south", width: "1.0", height: "1", flags:"relative", opacity: 80,background:backgroundColor,color:backgroundColor }
+        //
+        //
+        // ]},function(error, result) { console.log(result, error) });
 
-
-        ]},function(error, result) { console.log(result, error) });
-
-
+        const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,{ upload_preset: 'workspace',tags: user.name, sign_url: true,},function (error, result){ console.log(result, error) })
         console.log('d', upLoadResponse2)
 
         const mongoImage = await addImage(upLoadResponse2,user,imageTitle)
         console.log('1',mongoImage)
         return (mongoImage)
 
-    }catch(e) {
-        console.log(e)
-    }
+    // }
+    // catch(e) {
+    //     console.log(e)
+    // }
 }
 
 
 
 
     const addImage = async (response,user,imageTitle) => {
-
         console.log('user',user)
         const image = {
             title:imageTitle,
@@ -128,7 +125,6 @@ const deleteAllImagesByUser = async (id) => {
 
 const filterImages = async (id)=> {
     const user = await User.findById(id)
-
     console.log('filter images user',user);
     const images = user.images
     console.log(images)

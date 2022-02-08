@@ -92,7 +92,8 @@ const WorkSpace =()=> {
 
          try {
 
-            const combinedLayers = await captureHtmlToJpg()
+            const combinedLayers =  await captureHtmlToJpg()
+             console.log('ddsdasdasdasdasdasddddsa',combinedLayers)
             let overlayObject = {
                 overlayText:overlayText,
                 fontSize:fontSize,
@@ -108,7 +109,7 @@ const WorkSpace =()=> {
                 imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
 
             }
-            console.log('h',overlayObject)
+            // console.log('h',overlayObject)
             // const link = await myApi.post('/images', {
             //     // method: 'POST',
             //     // body: JSON.stringify({ data: base64EncodedImage }),
@@ -116,10 +117,22 @@ const WorkSpace =()=> {
             //     headers: { 'Content-Type': 'application/json',
             //         'Access-Control-Allow-Origin': '*'}
             // });
-            const link = await myApi.post('/images', {
+                console.log('combine',combinedLayers)
+             // const reader = new FileReader();
+             // reader.readAsDataURL(combinedLayers);
+             // reader.onloadend = ()=> {
+             //     console.log('reader',reader.result)
+             //     setBackgroundImage(reader.result)
+             //     setUploadedFile(reader.result)
+             // }
+
+
+
+
+             const link = await myApi.post('/images', {
                 // method: 'POST',
                 // body: JSON.stringify({ data: overlayDivRef }),
-                data: combinedLayers ,overlay:{overlayObject},user:{currentUser},
+                data: combinedLayers ,overlay:{overlayObject},user:currentUser,
                 headers: { 'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'}
             });
@@ -158,13 +171,15 @@ const WorkSpace =()=> {
     }
 
     const captureHtmlToJpg =async ()=> {
-        console.log(overlayDivRef.current)
-       const res = await  html2canvas(overlayDivRef.current).then(function (canvas) {
-        console.log(canvas.toDataURL("image/jpeg", 0.9))
+
+       const response = await  html2canvas(overlayDivRef.current).then(function (canvas) {
+       return canvas.toDataURL("image/jpeg", 0.9)
+
 
     })
-       return res
-
+    console.log('res',response)
+        // return response
+    return response
     }
 
     return(
