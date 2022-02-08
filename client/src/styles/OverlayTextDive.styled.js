@@ -8,10 +8,10 @@ export const OverlayTextDiveStyled = styled(motion.div) `
   height :${({height})=> height+'px'|| '10px'};
    
    
-  // background: ${({background})=> background || 'transparent'};
-   background: rgba(red, green, blue, alpha);
+   // background: ${({background})=> background || 'transparent'};
+  // background: rgba(red, green, blue, alpha);
    position: absolute;
-   border: red solid 11px;
+   //border: red solid 11px;
  
    
   }

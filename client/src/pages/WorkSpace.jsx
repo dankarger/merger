@@ -196,12 +196,17 @@ const WorkSpace =()=> {
 
                 {!backgroundImage && <SkeletonDiv />}
                 {backgroundImage &&
-                    <ResizeDiv2 >
+
                 <ImageDivStyled
                     drag
                     dragConstraints={overlayDivRef}
+                ><ResizeDiv2
+                    Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
+                    Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
+                    drag
                 >
                     <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
+                </ResizeDiv2>
                     <OverlayTextDiveStyled
                     width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
                     height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
@@ -222,7 +227,7 @@ const WorkSpace =()=> {
                         > {inputText}</OverlayTextStyled>
                     </OverlayTextDiveStyled >
                 </ImageDivStyled>
-                    </ResizeDiv2>
+
                 }
                 <UploadImageDivStyled image={backgroundImage}/>
                 {/*<Canvas draw={draw} />*/}

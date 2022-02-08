@@ -6,14 +6,14 @@ export const ImageDivStyled = styled(motion.div) `
   justify-content: center;
   align-items: center;
   width: fit-content;
-  height: auto;
+  height: fit-content;
   //max-width: 90vw;
   max-height: 90vh;
   border: grey 1px solid;
  
 
   img {
-    object-fit: cover;
+    object-fit: contain;
     max-width: 100%;
     height: auto;
     border: 3px rgba(66, 65, 65, 0.35) solid;
