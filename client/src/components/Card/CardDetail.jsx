@@ -15,24 +15,19 @@ export default function CardDetail({card,handleSelectCard}) {
 
     return (
     // <DetailCardStyled>
-        <Card sx={{ maxHeight:'80vh' }}>
-
+        <Card sx={{ maxHeight:'80vh' }} onClick={handleSelectCard}>
             <motion.div variants={ButtonYoYoVariants}
             whileHover='hover'
             >
                 <CancelPresentationIcon  sx={{m:1,fontSize:50}} onClick={handleSelectCard}/>
             </motion.div>
-
-
             <Typography sx={{textAlign:'center'}}center variant="h3" component="h1">
                {card.title}
             </Typography>
             <CardMedia  sx={{border:'1px solid #333333'}}
                 component="img"
                 alt="green iguana"
-
                 image={card.url}
-
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
@@ -47,7 +42,6 @@ export default function CardDetail({card,handleSelectCard}) {
                 <Button size="small">Share</Button>
                 <Button size="small">Learn More</Button>
             </CardActions>
-
         </Card>
   // </DetailCardStyled>
 

@@ -12,7 +12,7 @@ const steps = [
 
 export default function TopMenuBar() {
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '80%' }}>
             <Stepper activeStep={1} alternativeLabel>
                 {steps.map((label) => (
                     <Step key={label}>

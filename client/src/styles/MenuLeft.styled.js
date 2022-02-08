@@ -7,9 +7,9 @@ export const MenuLeftStyled = styled.div `
   flex-direction: column;
   height: 100%;
   max-width:200px;
-  position: fixed;
+  position: absolute;
   left: 0;
-  top:150px;
+  top:0;
   z-index: 20000;
   border-right: 1px grey solid;
   background: whitesmoke;

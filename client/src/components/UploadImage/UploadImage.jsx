@@ -9,6 +9,7 @@ import {AtagStyled} from "../../styles/Atag.styled";
 import {AddFileInputStyled} from "../../styles/AddFileInput.styled";
 import {AddFileLabelStyled} from "../../styles/AddFileLabel.styled";
 import Tooltip from '@mui/material/Tooltip';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
 
 export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage,handleMergeButton,handleCloseMergeForm,setUploadedFile,downloadLink}) {
@@ -63,9 +64,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
 
             >
                 <motion.div
-                    variants={MenuLeftVariants}
-                    initial='initial'
-                    animate='animate'
+
                 >
                 <AddFileInputStyled
                     type="file" name='image'
@@ -75,12 +74,12 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                        className='form-input'
                     // style={{opacity:0}}
                       />
-                    <AddFileLabelStyled htmlFor="files">{fileName || 'Upload image'} </AddFileLabelStyled>
+                        <AddFileLabelStyled htmlFor="files">{fileName.substring(0,14) || 'Upload image' }<PhotoCamera /> </AddFileLabelStyled>
                 {/*<button className='btn' type='submit'>Submit</button>*/}
                 {/*<Button variant="contained" type="submit" color="success" onClick={()=>console.log('fg')}>merge</Button>*/}
-                <div></div>
+
                 </motion.div>
-                <Button onClick={handleMergeButton} variant="contained" type="submit" color="success">merge</Button>
+                <Button onClick={handleMergeButton} color="inherit" variant="outlined" type="submit" size='large' >merge</Button>
                <DownloadButtonStyled
                variants = {DownloadButtonVariants}
                whileHover='hover'
@@ -88,8 +87,8 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                    {/*<Tooltip sx={{zIndex:111000,background:'red'}} title="Upload an Image">*/}
 
                        <AtagStyled href={downloadLink.current}
-                                   variants = {DownloadButtonVariants}
-                                   whileHover='hover'
+                                   // variants = {DownloadButtonVariants}
+                                   // whileHover='hover'
 
                        >Download Image</AtagStyled>
                    {/*</Tooltip>*/}

@@ -94,10 +94,10 @@ export const DownloadButtonVariants = {
         // boxShadow:" 1px 1px 1px 1px rgb(0,0,0)",
         transition:{
             type:"spring",
-            stiffness:121,mass:1,
+            stiffness:110,mass:121,
             backgroundColor:'red'
         },
-        color:'blue',
+        color:'#333333',
     }
 
 }
