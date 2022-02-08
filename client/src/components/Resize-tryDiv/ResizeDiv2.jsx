@@ -5,22 +5,17 @@ import {ResizeDivStyled} from "../../styles/ResizeDiv.styled";
 import {motion} from 'framer-motion'
 
 const style = {
-    border:"none"
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     // border: "solid 1px #ddd",
 }
 
 const ResizeDiv2 = ({children,imageWidth,imageHeight}) => {
-    const [width, setWidth] = React.useState(300);
-    const [height, setHeight] = React.useState(300);
+    const [width, setWidth] = React.useState('fit-content');
+    const [height, setHeight] = React.useState('fit-content');
     return (
         <Resizable as={motion.div}
-                   height={520}
-                   width={370}
-                   minConstraints={[300, 500]}
-                   maxConstraints={[Infinity, Infinity]}
             minWidth={imageWidth}
             // style={style}
             size={{ width, height }}

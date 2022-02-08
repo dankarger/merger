@@ -23,7 +23,7 @@ import {Link} from "react-router-dom";
 import {UserContext} from "../App";
 import html2canvas from 'html2canvas';
 import ResizeDiv2 from "../components/Resize-tryDiv/ResizeDiv2";
-
+import Example from "../components/Resize-tryDiv/ResizeDiv3";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -188,6 +188,11 @@ const WorkSpace =()=> {
                      setFontSize={setFontSize}
             />
             }
+            ><ResizeDiv2
+            Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
+            Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
+            drag
+        >
             {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={handleBackgroundChange}/>}
             <WorkImageDivStyled as={motion.div}
                                 backGroundColor={backgroundColor.css.backgroundColor}
@@ -245,6 +250,7 @@ const WorkSpace =()=> {
 
 
             </WorkImageDivStyled>
+            </ResizeDiv2>
             <Snackbars1 isOpen={isSnackbar}/>
             {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage}
                                                 isMergeFormOpen={isMergeFormOpen}
