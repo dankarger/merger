@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef, useState} from "react";
+import React, {createRef, useContext, useEffect, useRef, useState} from "react";
 import UploadImages from "../components/UploadImage/UploadImage";
 import AddText from "../components/AddText/AddText";
 import MenuLeft from "../components/Menu/MenuLeft";
@@ -21,6 +21,7 @@ import ModalMergeForm from "../components/ModalMergeForm/ModalMergeForm";
 import AddBackGroundColor from "../components/AddBackgroundColor/AddBackGroundColor";
 import {Link} from "react-router-dom";
 import {UserContext} from "../App";
+import html2canvas from 'html2canvas';
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -48,6 +49,7 @@ const WorkSpace =()=> {
 
     const [currentUser,setCurrentUser]= useContext(UserContext)
     let xPos = useRef({x:0,y:0});
+    const overlayDivRef = useRef(null)
 
 
     const handleSendMergeForm = async ()=>{
@@ -152,6 +154,16 @@ const WorkSpace =()=> {
         setIsMergeFormOpen(false);
 
     }
+
+    const captureHtmlToJpg =async ()=> {
+        console.log(overlayDivRef.current)
+       const res = await  html2canvas(overlayDivRef.current).then(function (canvas) {
+        console.log(canvas.toDataURL("image/jpeg", 0.9))
+
+    })
+        console.log('ddddddd', res)
+
+    }
     return(
         <WorkPageStyled ref={constraintsRefAddText}>
 
@@ -162,8 +174,8 @@ const WorkSpace =()=> {
                       isBackgroundMenuOpen={isBackgroundMenuOpen}
                       setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
             />
-
             {/*{isImgMenuOpen &&*/}
+
            <UploadImages overlay={inputText}
                          overlayColor={overlayColor}
                          setBackgroundImage={setBackgroundImage}
@@ -193,14 +205,20 @@ const WorkSpace =()=> {
             }
             {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={handleBackgroundChange}/>}
             <WorkImageDivStyled as={motion.div}  backGroundColor={backgroundColor.css.backgroundColor}>
+                <button onClick={captureHtmlToJpg}>capture</button>
+
                 {!backgroundImage && <SkeletonDiv />}
                 {backgroundImage &&
-                <ImageDivStyled  >
+
+                <ImageDivStyled   >
                     <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
                     <OverlayTextDiveStyled
                     width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
                     height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
+                    ref={overlayDivRef}
+
                     >
+
                         <OverlayTextStyled
                             // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
                                              drag
@@ -232,6 +250,7 @@ const WorkSpace =()=> {
                                                 imageTitle={imageTile}
 
             /> }
+
         </WorkPageStyled>
 
 
