@@ -21,7 +21,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
     const handleFileInputChane = (e)=>{
         const file = e.target.files[0];
         previewFile(file);
-        setFileName(file.name);
+        if(file.name.length>0) setFileName(file.name);
 
 
 

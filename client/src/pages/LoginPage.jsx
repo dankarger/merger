@@ -39,7 +39,6 @@ const handleSubmitLoginGuest= async ()=> {
         }catch(e) {
             console.log(e.message)
         }
-
 }
 
     const handleFormInputs = (e) => {

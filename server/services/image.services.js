@@ -32,7 +32,8 @@ const getMongoImages= async ()=> {
 const uploadImage = async (req,res)=> {
     console.log('up')
     try {
-        const user = await findUser("61fdbde72601c0ac1f890bbb")
+        console.log('ggggggggg',req.body.user)
+        const user = await findUser(req.body.user.currentUser._id)
         console.log('uuuuser',user)
         const overlay = req.body.overlay.overlayObject.overlayText   ;
         const fileStr = req.body.data;

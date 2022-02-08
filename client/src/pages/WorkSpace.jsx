@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import UploadImages from "../components/UploadImage/UploadImage";
 import AddText from "../components/AddText/AddText";
 import MenuLeft from "../components/Menu/MenuLeft";
@@ -20,6 +20,7 @@ import {convertPositionToCss} from "../utils/utils";
 import ModalMergeForm from "../components/ModalMergeForm/ModalMergeForm";
 import AddBackGroundColor from "../components/AddBackgroundColor/AddBackGroundColor";
 import {Link} from "react-router-dom";
+import {UserContext} from "../App";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -45,6 +46,7 @@ const WorkSpace =()=> {
     const downloadLink = useRef('')
     const[downLoadLink,setDownloadLink]=useState('')
 
+    const [currentUser,setCurrentUser]= useContext(UserContext)
     let xPos = useRef({x:0,y:0});
 
 
@@ -113,7 +115,7 @@ const WorkSpace =()=> {
             const link = await myApi.post('/images', {
                 // method: 'POST',
                 // body: JSON.stringify({ data: base64EncodedImage }),
-                data: base64EncodedImage ,overlay:{overlayObject},
+                data: base64EncodedImage ,overlay:{overlayObject},user:{currentUser},
                 headers: { 'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'}
             });

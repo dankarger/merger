@@ -9,7 +9,7 @@ export const OverlayTextDiveStyled = styled(motion.div) `
    
    
   background: ${({background})=> background};
-  position: fixed;
+  position: absolute;
    border: red solid 11px;
  
    
