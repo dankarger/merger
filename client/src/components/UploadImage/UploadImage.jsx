@@ -81,6 +81,8 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                 {/*<Button variant="contained" type="submit" color="success" onClick={()=>console.log('fg')}>merge</Button>*/}
 
                 </motion.div>
+                <Button onClick={handleMergeButton} color="inherit" variant="outlined" type="submit" size='large' >Add Text</Button>
+
                 <Button onClick={handleMergeButton} color="inherit" variant="outlined" type="submit" size='large' >merge</Button>
                <DownloadButtonStyled
                variants = {DownloadButtonVariants}
