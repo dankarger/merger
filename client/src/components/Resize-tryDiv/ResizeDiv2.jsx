@@ -1,20 +1,22 @@
 import * as React from "react";
 import { render } from "react-dom";
 import { Resizable } from "re-resizable";
+import {ResizeDivStyled} from "../../styles/ResizeDiv.styled";
+import {motion} from 'framer-motion'
 
-// const style = {
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     border: "solid 1px #ddd",
-//     background: "#f0f0f0"
-// } as const;
+const style = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    border: "solid 1px #ddd",
+}
 
-const App = () => {
+const ResizeDiv2 = ({children}) => {
     const [width, setWidth] = React.useState(300);
     const [height, setHeight] = React.useState(200);
     return (
-        <Resizable
+        <Resizable as={motion.div}
+
             style={style}
             size={{ width, height }}
             onResizeStop={(e, direction, ref, d) => {
@@ -22,9 +24,9 @@ const App = () => {
                 setHeight(height + d.height);
             }}
         >
-            Sample with size
+            {children}
         </Resizable>
     );
 };
 
-render(<App />, document.getElementById("root"));
+export default ResizeDiv2

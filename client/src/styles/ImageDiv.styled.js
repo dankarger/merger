@@ -20,5 +20,8 @@ export const ImageDivStyled = styled(motion.div) `
     
     //padding:1rem;
   }
+  img:hover{
+    cursor: grab;
+  }
 
 `

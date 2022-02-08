@@ -22,7 +22,7 @@ import AddBackGroundColor from "../components/AddBackgroundColor/AddBackGroundCo
 import {Link} from "react-router-dom";
 import {UserContext} from "../App";
 import html2canvas from 'html2canvas';
-import ResizeDiv from "../components/Resize-tryDiv/ResizeDiv";
+import ResizeDiv2 from "../components/Resize-tryDiv/ResizeDiv2";
 
 
 const WorkSpace =()=> {
@@ -196,6 +196,7 @@ const WorkSpace =()=> {
 
                 {!backgroundImage && <SkeletonDiv />}
                 {backgroundImage &&
+                    <ResizeDiv2 >
                 <ImageDivStyled
                     drag
                     dragConstraints={overlayDivRef}
@@ -221,12 +222,23 @@ const WorkSpace =()=> {
                         > {inputText}</OverlayTextStyled>
                     </OverlayTextDiveStyled >
                 </ImageDivStyled>
+                    </ResizeDiv2>
                 }
                 <UploadImageDivStyled image={backgroundImage}/>
                 {/*<Canvas draw={draw} />*/}
-                <ResizeDiv >
-                    <h1>hfhhff</h1>
-                </ResizeDiv>
+
+                    {/*<ResizeDiv2*/}
+                    {/*    drag*/}
+                    {/*    dragConstraints={overlayDivRef}*/}
+                    {/*>*/}
+                    {/*    <motion.div*/}
+                    {/*        drag*/}
+                    {/*    >*/}
+                    {/*    <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}} />*/}
+                    {/*    </motion.div>*/}
+                    {/*</ResizeDiv2>*/}
+
+
             </WorkImageDivStyled>
             <Snackbars1 isOpen={isSnackbar}/>
             {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage}
