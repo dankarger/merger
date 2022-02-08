@@ -25,7 +25,9 @@ function App() {
 
             <GreetingStyled>
                 <TopMenuBar/>
-              Hello <span> {currentUser.name}</span>
+                <div>
+                    Welcome <span> {currentUser.name}</span>
+                </div>
             </GreetingStyled>
 
 

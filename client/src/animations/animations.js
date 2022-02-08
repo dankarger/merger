@@ -160,13 +160,13 @@ export const DownloadButtonVariants = {
 
 
 export const svgVariants = {
-    initial: {rotate: -10},
+    initial: {rotate: [-350]},
     animate: {
-        scale:(1.3),x:[0,50,80,40],y:[10,50, 80,-40,30],
+        scale:(1.3),x:[-100,40],y:[10,50, 80,-40,30,80],
         fontsize:50,
-        rotate:0,
+        rotate:[50,0],
         transition: {
-            duration: 3,stiffness:10,mass:100
+            duration: 1,stiffness:10,mass:100
         }
     }
 }
