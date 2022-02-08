@@ -10,7 +10,7 @@ import {MenuLeftVariants} from "../../animations/animations";
 import {Checkbox} from "@mui/material";
 import AddPosition from "../AddPosition/AddPosition";
 import AddFontSize from "../AddFontSize/AddFontSize";
-
+import {AddTextHeadingStyled} from "../../styles/AddTextHeading.styled";
 
 const AddText = ({callback,
                      value,
@@ -21,12 +21,19 @@ const AddText = ({callback,
     // const [inputText,setInputText]=useState('');
 
     return (
-        <AddTextStyled>
-            <motion.div
-                variants={MenuLeftVariants}
-                initial='initial'
-                animate='animate'
-            >
+        // <>
+        // <motion.div
+        //     variants={MenuLeftVariants}
+        //     initial='initial'
+        //     animate='animate'
+        // >
+
+        <AddTextStyled
+            variants={MenuLeftVariants}
+            initial='initial'
+            animate='animate'
+        >
+
             <TextField id="outlined-basic"
                        label="Add Text"
                        variant="outlined"
@@ -35,16 +42,20 @@ const AddText = ({callback,
             />
             {/*<Button variant="contained" color="success" onClick={()=>console.log()}>Add</Button>*/}
             {/*<ContainerStyled>*/}
-            <Button variant="contained" color="success" onClick={()=>{
-            }}>Add</Button>
+            {/*<Button variant="contained" color="success" onClick={()=>{*/}
+            {/*}}>Add</Button>*/}
                 <AddFontSize fontSize={fontSize} setFontSize={setFontSize}/>
+
                 <AddPosition positionProp={position} positionsState={positionsState} setPositionState={setPositionState}/>
             <ColorPickerDivStyled>
+                <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
                 <ColorPicker   value={color} onChange={handleChange}/>
             </ColorPickerDivStyled>
             {/*</ContainerStyled>*/}
-            </motion.div>
+
         </AddTextStyled>
+        // </motion.div>
+        // </>
     )
 }
 

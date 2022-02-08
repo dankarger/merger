@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ColorPickerDivStyled = styled.div `
   width: 100%;
-  height: 100%;
+  height: fit-content;
   transform: translateY(20px);
   //padding: 0 20px;
   //margin:0 auto;
