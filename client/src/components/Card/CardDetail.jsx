@@ -18,6 +18,7 @@ export default function CardDetail({card,handleSelectCard}) {
         <Card  sx={{minHeight:"50vh", minWidth:'50vw'}} onClick={handleSelectCard}>
             <motion.div variants={ButtonYoYoVariants}
             whileHover='hover'
+                        drag
             >
                 <CancelPresentationIcon  sx={{m:1,fontSize:50}} onClick={handleSelectCard}/>
             </motion.div>

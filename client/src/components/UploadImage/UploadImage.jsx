@@ -71,6 +71,8 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                 <AddFileInputStyled
                     type="file" name='image'
                     id='files'
+
+
                        onChange={handleFileInputChane}
                        value={fileInputState}
                        className='form-input'

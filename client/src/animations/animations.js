@@ -174,11 +174,12 @@ export const DetailCardStyleVariants = {
         x:0,
         opacity:1,
         transition:{
-            stiffness:112,duration:.2
+            stiffness:112, ease: "easeInOut"
         }
     },
     exit:{
         opacity:0,
-        scale:0
+        scale:(0),
+        x:200
     }
 }
