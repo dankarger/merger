@@ -52,21 +52,66 @@ export const MenuLeftVariants = {
 }
 
 export const HomePageMenuVariants = {
-    initial:{
-        y:430,
-        opacity:0, scale:(1.0),
+    initial: {
+        x: 430,
+        opacity: 0, scale: (0.5),
 
     },
-    animate:{
-        y:0,
-        opacity:1,
-        scale:(1.1),
-        transition:{
-            stiffness:120,mass:10,duration:2
-        }
-    }
-}
+    initial2: {
+        x: 0,
+        opacity: 0, scale: (0.5),
 
+    },
+    animate: {
+        x: 0,
+        opacity: 1,
+        scale: (1),
+        transition: {
+            stiffness: 120, mass: 10, duration: 2
+        }
+    }, animate1: {
+        x: 0,
+        opacity: 1,
+        scale: (1),
+        transition: {
+            stiffness: 120, mass: 10, duration: 2, delay: .2,
+        }
+    }, animate2: {
+        x: 0,
+        opacity: 1,
+        scale: (1),
+        transition: {
+            stiffness: 100, mass: 15, duration: 2, delay: 1,
+        }
+    },
+    animate3: {
+        x: 0,
+        opacity: 1,
+        scale: (1),
+        transition: {
+            stiffness: 55, mass: 15, duration: 1.7, delay: 1.5,
+        },
+    },
+        animate4: {
+            x: 0,
+            opacity: 1,
+            scale: (1),
+            transition: {
+                stiffness: 100, mass: 15, duration: 2, delay: 2,
+            },
+            hover: {
+                scale: (1.1),
+                // backgroundColor:'rgba(66,152,149,0.6)',
+                textShadow: " 0px 0px 8px rgb(255,255,255)",
+                // boxShadow:" 1px 1px 1px 1px rgb(0,0,0)",
+                transition: {
+                    type: "spring",
+                    stiffness: 121, mass: 1
+                }
+            }
+        }
+
+}
 // Buttons
 
 export const ButtonYoYoVariants = {

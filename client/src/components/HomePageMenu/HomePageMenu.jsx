@@ -15,55 +15,75 @@ const hover = '&:hover { transform:scale(1.2) '
 
 export default function HomePageMenu() {
     return (
-        <Box sx={{ '& > :not(style)': { m: 1 }, display:"flex",gap:'2rem' }}>
+        <Box sx={{'& > :not(style)': {m: 1}, display: "flex", gap: '2rem'}}>
             <HomepageMenuStyled
-                variants={HomePageMenuVariants}
-                initial='initial'
-                animate='animate'
+
             >
-                <motion.div variants={HomeMenuButtonsVariants}
+                <motion.div variants={HomePageMenuVariants}
                             whileHover='hover'
+                            animate='animate'
+                            initial='initial'
                 >
-                <Link to='/work' >
-                    <Fab variant="extended"  color="primary">
+                    <Link to='/Login'>
+                        <Fab variant="extended" color="primary">
+                            <AddIcon sx={{mr: 1}}/>
+                            Login
+                        </Fab>
+                    </Link>
+                </motion.div>
+                <motion.div variants={HomePageMenuVariants}
+                            whileHover='hover'
+                            animate='animate2'
+                            initial='initial'
+                >
 
-                        <EditIcon  sx={{ mr: 1 }} />
-                        Create
-                    </Fab>
-                </Link>
-            </motion.div>
-                <motion.div variants={HomeMenuButtonsVariants}
+                    <Link to='/work'>
+                        <Fab variant="extended">
+
+                            <EditIcon sx={{mr: 1}}/>
+                            Create
+                        </Fab>
+                    </Link>
+                </motion.div>
+                <motion.div variants={HomePageMenuVariants}
                             whileHover='hover'
+                            animate='animate3'
+                            initial='initial'
                 >
-                <Link to='/Login' >
-                    <Fab variant="extended" variants={HomeMenuButtonsVariants} whilehover='hover'>
-                        <AddIcon   sx={{ mr: 1 }} />
-                        Login
+                    {/*<Fab variant="extended" variants={HomeMenuButtonsVariants} whilehover='hover'>*/}
+
+                    {/*    <NavigationIcon sx={{ mr: 1 }} />*/}
+                    {/*    Navigate*/}
+                    {/*</Fab>*/}
+
+                    {/*<Fab color="primary" aria-label="add" variants={HomeMenuButtonsVariants} whilehover='hover'>*/}
+                    {/*    <AddIcon />*/}
+                    {/*</Fab>*/}
+                    {/*<Fab color="secondary" aria-label="edit" variants={HomeMenuButtonsVariants} whilehover='hover'>*/}
+                    {/*    <EditIcon />*/}
+                    {/*</Fab>*/}
+                </motion.div>
+                <motion.div variants={HomePageMenuVariants}
+                            whileHover='hover'
+                            animate='animate3'
+                            initial='initial'
+                >
+                <Link to='/gallery'>
+                    <Fab variant="extended">
+                        <NavigationIcon sx={{mr: 1}}/>
+                        Gallery
                     </Fab>
                 </Link>
                 </motion.div>
-                <motion.div variants={HomeMenuButtonsVariants}
+                <motion.div variants={HomePageMenuVariants}
                             whileHover='hover'
+                            animate='animate4'
+                            initial='initial2'
                 >
-                {/*<Fab variant="extended" variants={HomeMenuButtonsVariants} whilehover='hover'>*/}
-
-                {/*    <NavigationIcon sx={{ mr: 1 }} />*/}
-                {/*    Navigate*/}
-                {/*</Fab>*/}
+                    <Fab disabled aria-label="like">
+                        <FavoriteIcon/>
+                    </Fab>
                 </motion.div>
-            {/*<Fab color="primary" aria-label="add" variants={HomeMenuButtonsVariants} whilehover='hover'>*/}
-            {/*    <AddIcon />*/}
-            {/*</Fab>*/}
-            {/*<Fab color="secondary" aria-label="edit" variants={HomeMenuButtonsVariants} whilehover='hover'>*/}
-            {/*    <EditIcon />*/}
-            {/*</Fab>*/}
-            <Fab variant="extended" variants={HomeMenuButtonsVariants} whilehover='hover'>
-                <NavigationIcon sx={{ mr: 1 }} />
-                Gallery
-            </Fab>
-            <Fab disabled aria-label="like">
-                <FavoriteIcon />
-            </Fab>
             </HomepageMenuStyled>
         </Box>
     );
