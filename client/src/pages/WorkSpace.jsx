@@ -90,12 +90,9 @@ const WorkSpace =()=> {
 
     const uploadImage= async (base64EncodedImage) => {
 
-            // console.log('d',constraintsRef.current.naturalWidth,)
-        try {
-            // console.log('curPos',cursorPosition)
-            // console.log('xpos',xPos)
-            // console.log('bcColor',backgroundColor)
+         try {
 
+            const combinedLayers = await captureHtmlToJpg()
             let overlayObject = {
                 overlayText:overlayText,
                 fontSize:fontSize,
@@ -104,9 +101,7 @@ const WorkSpace =()=> {
                 // position:[xPos.x,xPos.y],
                 // position:[Math.floor(xPos.current.y), Math.floor(xPos.current.x)],
                 position:[Math.floor(xPos.current.x ), Math.floor(xPos.current.y)],
-                // gravity:'center',
-                // position:[cursorPosition.x,cursorPosition.y],
-                // position:[TextOverlayRef.current],
+
                 gravity:positionState,
                 title:imageTile,
                 windowSize:[window.innerWidth,window.innerHeight],
@@ -114,10 +109,17 @@ const WorkSpace =()=> {
 
             }
             console.log('h',overlayObject)
+            // const link = await myApi.post('/images', {
+            //     // method: 'POST',
+            //     // body: JSON.stringify({ data: base64EncodedImage }),
+            //     data: base64EncodedImage ,overlay:{overlayObject},user:{currentUser},
+            //     headers: { 'Content-Type': 'application/json',
+            //         'Access-Control-Allow-Origin': '*'}
+            // });
             const link = await myApi.post('/images', {
                 // method: 'POST',
-                // body: JSON.stringify({ data: base64EncodedImage }),
-                data: base64EncodedImage ,overlay:{overlayObject},user:{currentUser},
+                // body: JSON.stringify({ data: overlayDivRef }),
+                data: combinedLayers ,overlay:{overlayObject},user:{currentUser},
                 headers: { 'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'}
             });
@@ -161,9 +163,10 @@ const WorkSpace =()=> {
         console.log(canvas.toDataURL("image/jpeg", 0.9))
 
     })
-        console.log('ddddddd', res)
+       return res
 
     }
+
     return(
         <WorkPageStyled ref={constraintsRefAddText}>
 
@@ -204,7 +207,10 @@ const WorkSpace =()=> {
             />
             }
             {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={handleBackgroundChange}/>}
-            <WorkImageDivStyled as={motion.div}  backGroundColor={backgroundColor.css.backgroundColor}>
+            <WorkImageDivStyled as={motion.div}
+                                backGroundColor={backgroundColor.css.backgroundColor}
+                                    ref={overlayDivRef}
+            >
                 <button onClick={captureHtmlToJpg}>capture</button>
 
                 {!backgroundImage && <SkeletonDiv />}
@@ -215,7 +221,7 @@ const WorkSpace =()=> {
                     <OverlayTextDiveStyled
                     width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
                     height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
-                    ref={overlayDivRef}
+
 
                     >
 
