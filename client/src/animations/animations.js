@@ -74,14 +74,14 @@ export const HomePageMenuVariants = {
         opacity: 1,
         scale: (1),
         transition: {
-            stiffness: 120, mass: 10, duration: 2, delay: .2,
+            stiffness: 120, mass: 10, duration: 1.8, delay: .2,
         }
     }, animate2: {
         x: 0,
         opacity: 1,
         scale: (1),
         transition: {
-            stiffness: 100, mass: 15, duration: 2, delay: 1,
+            stiffness: 100, mass: 15, duration: 1.5, delay: 0.8,
         }
     },
     animate3: {
@@ -89,7 +89,7 @@ export const HomePageMenuVariants = {
         opacity: 1,
         scale: (1),
         transition: {
-            stiffness: 55, mass: 15, duration: 1.7, delay: 1.5,
+            stiffness: 55, mass: 15, duration: 1.5, delay: 1.2,
         },
     },
         animate4: {
@@ -97,7 +97,7 @@ export const HomePageMenuVariants = {
             opacity: 1,
             scale: (1),
             transition: {
-                stiffness: 100, mass: 15, duration: 2, delay: 2,
+                stiffness: 100, mass: 15, duration: 2, delay: 1.7,
             },
             hover: {
                 scale: (1.1),

@@ -3,16 +3,17 @@ import styled from "styled-components";
 export const UploadImageFormStyled = styled.form `
   width: 100%;
   height: 50px;
-  padding: 0 1rem;
+   
   position: absolute;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: left;
   //flex-direction: column;
   left: 60px;
   top: 0;
   z-index: 10000;
-  gap: .5rem;
+  gap: calc(.5rem + 3vw);
+  padding-left:50px;
   border: 1px solid grey;
   border-radius: 10px;
   //background: rgba(42, 52, 56, 0.93);
