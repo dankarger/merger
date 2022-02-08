@@ -22,6 +22,8 @@ import AddBackGroundColor from "../components/AddBackgroundColor/AddBackGroundCo
 import {Link} from "react-router-dom";
 import {UserContext} from "../App";
 import html2canvas from 'html2canvas';
+import ResizeDiv from "../components/Resize-tryDiv/ResizeDiv";
+
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -89,11 +91,8 @@ const WorkSpace =()=> {
     }
 
     const uploadImage= async () => {
-
          try {
-
             const combinedLayers =  await captureHtmlToJpg()
-             console.log('ddsdasdasdasdasdasddddsa',combinedLayers)
             let overlayObject = {
                 overlayText:overlayText,
                 fontSize:fontSize,
@@ -107,27 +106,7 @@ const WorkSpace =()=> {
                 title:imageTile,
                 windowSize:[window.innerWidth,window.innerHeight],
                 imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
-
             }
-            // console.log('h',overlayObject)
-            // const link = await myApi.post('/images', {
-            //     // method: 'POST',
-            //     // body: JSON.stringify({ data: base64EncodedImage }),
-            //     data: base64EncodedImage ,overlay:{overlayObject},user:{currentUser},
-            //     headers: { 'Content-Type': 'application/json',
-            //         'Access-Control-Allow-Origin': '*'}
-            // });
-                console.log('combine',combinedLayers)
-             // const reader = new FileReader();
-             // reader.readAsDataURL(combinedLayers);
-             // reader.onloadend = ()=> {
-             //     console.log('reader',reader.result)
-             //     setBackgroundImage(reader.result)
-             //     setUploadedFile(reader.result)
-             // }
-
-
-
 
              const link = await myApi.post('/images', {
                 // method: 'POST',
@@ -142,9 +121,7 @@ const WorkSpace =()=> {
             console.log('fuck',downloadLink)
             setDownloadLink(downloadLink)
             console.log('dddddddddd',downLoadLink)
-
         }catch (error) {
-
             console.log(error)
         }
     }
@@ -163,28 +140,20 @@ const WorkSpace =()=> {
 
     const handleMergeButton =()=>{
        setIsMergeFormOpen(true);
-
     }
     const handleCloseMergeForm =()=>{
         setIsMergeFormOpen(false);
-
     }
 
     const captureHtmlToJpg =async ()=> {
-
        const response = await  html2canvas(overlayDivRef.current).then(function (canvas) {
        return canvas.toDataURL("image/jpeg", 0.9)
-
-
     })
-    console.log('res',response)
-        // return response
     return response
     }
 
     return(
         <WorkPageStyled ref={constraintsRefAddText}>
-
             <MenuLeft imageCallback={setIsImgMenuOpen}
                       isMenuOpen={isImgMenuOpen}
                       textCallback={setIsTextMenuOpen}
@@ -193,7 +162,6 @@ const WorkSpace =()=> {
                       setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
             />
             {/*{isImgMenuOpen &&*/}
-
            <UploadImages overlay={inputText}
                          overlayColor={overlayColor}
                          setBackgroundImage={setBackgroundImage}
@@ -203,7 +171,6 @@ const WorkSpace =()=> {
                          handleCloseMergeForm={handleCloseMergeForm}
                          setUploadedFile={setUploadedFile}
                          downloadLink={downloadLink}
-
            />
             {/*}*/}
             {isTextMenuOpen &&
@@ -229,20 +196,15 @@ const WorkSpace =()=> {
 
                 {!backgroundImage && <SkeletonDiv />}
                 {backgroundImage &&
-
                 <ImageDivStyled
                     drag
                     dragConstraints={overlayDivRef}
-
                 >
                     <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
                     <OverlayTextDiveStyled
                     width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
                     height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
-
-
                     >
-
                         <OverlayTextStyled
                             // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
                                              drag
@@ -256,15 +218,16 @@ const WorkSpace =()=> {
                                            onDrag={onMouseMove}
                                              onClick={_onMouseMove}
                                              position={convertPositionToCss(position.current)}
-
                         > {inputText}</OverlayTextStyled>
                     </OverlayTextDiveStyled >
                 </ImageDivStyled>
                 }
                 <UploadImageDivStyled image={backgroundImage}/>
                 {/*<Canvas draw={draw} />*/}
+                <ResizeDiv >
+                    <h1>hfhhff</h1>
+                </ResizeDiv>
             </WorkImageDivStyled>
-
             <Snackbars1 isOpen={isSnackbar}/>
             {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage}
                                                 isMergeFormOpen={isMergeFormOpen}
