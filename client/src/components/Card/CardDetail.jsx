@@ -15,7 +15,7 @@ export default function CardDetail({card,handleSelectCard}) {
 
     return (
     // <DetailCardStyled>
-        <Card sx={{ maxHeight:'80vh' }} onClick={handleSelectCard}>
+        <Card  sx={{minHeight:"50vh", minWidth:'50vw'}} onClick={handleSelectCard}>
             <motion.div variants={ButtonYoYoVariants}
             whileHover='hover'
             >
@@ -30,12 +30,12 @@ export default function CardDetail({card,handleSelectCard}) {
                 image={card.url}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" color='text.info'>
                     {card.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                <Typography variant="body2" color="text.primary">
+                    Created by: <span>{card.nameOfUser}</span>
+                    Created at: {card.dateCreated.substring(0,10)}
                 </Typography>
             </CardContent>
             <CardActions>

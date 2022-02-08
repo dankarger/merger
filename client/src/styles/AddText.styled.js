@@ -6,12 +6,12 @@ export const AddTextStyled = styled(motion.div) `
   //width: 100%;
   height: 100%;
 
-  padding: 70px 20px;
+  padding: 70px  15px 0 25px  ;
   //margin:0 auto;
   display: flex;
   justify-content: start;
-  gap: 4rem;
-  align-items: center;
+  gap: 4rem;  
+  align-items: start;
   flex-direction: column;
   position: absolute;
   z-index: 150;

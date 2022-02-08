@@ -7,26 +7,22 @@ import { CardActionArea } from '@mui/material';
 import {StrongStyled} from "../../styles/Strong.styled";
 import {ImageDivStyled} from "../../styles/ImageDiv.styled";
 
+
 export default function ActionAreaCard({image,title,createdBy}) {
     return (
         <Card sx={{ maxWidth: 345 }}>
 
             <CardActionArea>
-                {/*<CardMedia*/}
-                {/*    component="img"*/}
-                {/*    height="140"*/}
-                {/*    // image={image}*/}
-                {/*    alt="green iguana"*/}
-                {/*/>*/}
-                <ImageDivStyled>
+
+                <ImageDivStyled sx={{minHeight:'500px'}}>
                     {image}
                 </ImageDivStyled>
 
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {title}
+                    <Typography gutterBottom variant="p" component="div">
+                     {title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="p" component="p"color="text.secondary">
                        Created by <StrongStyled> {createdBy} </StrongStyled>
                     </Typography>
                 </CardContent>

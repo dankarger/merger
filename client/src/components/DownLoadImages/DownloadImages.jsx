@@ -7,6 +7,7 @@ import {GalleryItemStyled} from "../../styles/GalleryItem.styled";
 import {GalleryStyled} from "../../styles/Gallery.styled";
 import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
 import Loader from "../Loader/Loader";
+import {CardGalleryStyled} from "../../styles/CardGallery.styled";
 
 const DownloadImages = ({handleSelectCard}) => {
     const [imageIds, setImageId] = useState([]);
@@ -48,12 +49,13 @@ const DownloadImages = ({handleSelectCard}) => {
                 <GalleryContainerStyled>
                     {isLoading && <Loader />}
                         {imageIds && imageIds.map((imageId, index) => (
+                            <CardGalleryStyled  key={imageId._id}>
                            <ActionAreaCard
                                title ={imageId.title}
                                createdBy={imageId.nameOfUser}
 
                                image={ <GalleryItemStyled><Image
-                                key={index}
+
                                 cloudName="meme3"
                                 publicId={imageId.url}
                                 crop='scale'
@@ -61,7 +63,9 @@ const DownloadImages = ({handleSelectCard}) => {
 
                                 onClick={()=>handleSelectCard(imageId)}
                                /></GalleryItemStyled>}/>
+                            </CardGalleryStyled>
                         ))}
+
                     </GalleryContainerStyled>
 
     )

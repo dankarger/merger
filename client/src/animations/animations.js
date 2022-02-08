@@ -72,7 +72,7 @@ export const HomePageMenuVariants = {
 export const ButtonYoYoVariants = {
     hover: {
         scale:( 1.01),
-        color:'rgba(37,112,101,0.71)',
+
         // textShadow:" 0px 0px 8px rgb(255,255,255)",
         // boxShadow:" 0px 0px 8px rgb(255,255,255)",
         transition:{
@@ -108,7 +108,7 @@ export const DownloadButtonVariants = {
             stiffness:110,mass:121,
             backgroundColor:'red'
         },
-        color:'#333333',
+
     }
 
 }
@@ -117,11 +117,11 @@ export const DownloadButtonVariants = {
 export const svgVariants = {
     initial: {rotate: -10},
     animate: {
-        scale:(1.3),x:[0,50,80,40],y:[10,50,-80,-40],
+        scale:(1.3),x:[0,50,80,40],y:[10,50, 80,-40,60],
         fontsize:50,
         rotate:0,
         transition: {
-            duration: 10,stiffness:10,mass:100
+            duration: 3,stiffness:10,mass:100
         }
     }
 }
@@ -167,14 +167,14 @@ export const GalleryStyleVariants = {
 export const DetailCardStyleVariants = {
     initial:{
         opacity:0,
-        scale:0
+        scale:(0)
     },
     animate:{
-        scale:(1.1),
+        scale:(1),
         x:0,
         opacity:1,
         transition:{
-            stiffness:124,duration:.2,delay:.5
+            stiffness:112,duration:.2
         }
     },
     exit:{
