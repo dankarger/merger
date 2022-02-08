@@ -33,9 +33,9 @@ export default function CardDetail({card,handleSelectCard}) {
                 <Typography gutterBottom variant="h5" component="div" color='text.info'>
                     {card.title}
                 </Typography>
-                <Typography variant="body2" color="text.primary">
-                    Created by: <span>{card.nameOfUser}</span>
-                    Created at: {card.dateCreated.substring(0,10)}
+                <Typography variant="body2" color="text.primary" >
+                    Created by: <span sx={{color:'blue'}}>{card.nameOfUser}</span>
+                   at: <span> {card.dateCreated.substring(0,10)}</span>
                 </Typography>
             </CardContent>
             <CardActions>
