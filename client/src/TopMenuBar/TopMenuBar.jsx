@@ -22,7 +22,7 @@ export default function TopMenuBar() {
         //         ))}
         //     </Stepper>
         // </Box>
-    <Box sx={{ width: '70%',maxWidth:'1000px' }}>
+    <Box sx={{ width: '70%',maxWidth:'1000px', whiteSpace:'nowrap' }}>
         <Stepper activeStep={0} alternativeLabel  >
                 <Step>
                     <Tooltip title="Click on Image Button" placement="bottom">
