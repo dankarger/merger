@@ -55,7 +55,7 @@ const WorkSpace =()=> {
     const handleSendMergeForm = async ()=>{
         if(uploadedFile) {
             console.log('file',uploadedFile)
-          await  uploadImage(uploadedFile)
+          await  uploadImage()
         }
     }
 
@@ -88,7 +88,7 @@ const WorkSpace =()=> {
         console.log('c',constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight)
     }
 
-    const uploadImage= async (base64EncodedImage) => {
+    const uploadImage= async () => {
 
          try {
 
@@ -226,12 +226,15 @@ const WorkSpace =()=> {
                                 backGroundColor={backgroundColor.css.backgroundColor}
                                     ref={overlayDivRef}
             >
-                <button onClick={captureHtmlToJpg}>capture</button>
 
                 {!backgroundImage && <SkeletonDiv />}
                 {backgroundImage &&
 
-                <ImageDivStyled   >
+                <ImageDivStyled
+                    drag
+                    dragConstraints={overlayDivRef}
+
+                >
                     <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
                     <OverlayTextDiveStyled
                     width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
@@ -248,7 +251,7 @@ const WorkSpace =()=> {
                                            textshadow={'1px 1px 1px black'}
                                            color={color.css.backgroundColor}
                                            fontSize={fontSize}
-                                           dragConstraints={constraintsRef}
+                                           dragConstraints={overlayDivRef}
                                              ref={TextOverlayRef}
                                            onDrag={onMouseMove}
                                              onClick={_onMouseMove}
