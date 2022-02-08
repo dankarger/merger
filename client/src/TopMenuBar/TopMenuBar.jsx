@@ -6,7 +6,7 @@ import StepLabel from '@mui/material/StepLabel';
 
 const steps = [
     'Upload an Image',
-    'Add an overlay Text',
+    'Add Text and Merge',
     'Download Image',
 ];
 

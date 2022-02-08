@@ -10,7 +10,7 @@ export const UploadImageFormStyled = styled.form `
   justify-content: space-around;
   //flex-direction: column;
   left: 60px;
-  top: 70px;
+  top: 150px;
   z-index: 10000;
   gap: .5rem;
   border: 1px solid grey;

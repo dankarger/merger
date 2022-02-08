@@ -18,7 +18,7 @@ const HomePage = () => {
             animate='animate         '
             >Welcome to PhotoBasta</HeadingH1Styled>
             <HomePageMenu />
-            <ListDividers/>
+            {/*<ListDividers/>*/}
 
 
         </HomePageStyled>

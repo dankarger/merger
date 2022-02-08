@@ -15,7 +15,7 @@ export const AddTextStyled = styled(motion.div) `
   position: fixed;
   z-index: 100;
   left: 60px;
-  top: 120px;
+  top: 200px;
   border: 1px solid grey;
   border-radius: 10px;
   background: rgba(236, 236, 236, 0.93);
