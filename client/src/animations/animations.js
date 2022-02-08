@@ -13,6 +13,17 @@ export const navbarVariants = {
     }
 }
 
+export const fadeIn ={
+    initial:{
+        opacity:0,
+    },
+    animate:{
+        opacity: 1,
+        transition:{
+            duration:0.4,stiffness:12
+        }
+    }
+}
 
 export const HeadingH1Variants = {
     initial:{

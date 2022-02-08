@@ -10,7 +10,7 @@ import {AddFileInputStyled} from "../../styles/AddFileInput.styled";
 import {AddFileLabelStyled} from "../../styles/AddFileLabel.styled";
 import Tooltip from '@mui/material/Tooltip';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
-
+import {fadeIn} from "../../animations/animations";
 
 export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage,handleMergeButton,handleCloseMergeForm,setUploadedFile,downloadLink}) {
     const[fileInputState,setFileInputState]=useState('')
@@ -64,7 +64,9 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
 
             >
                 <motion.div
-
+                    variants={fadeIn}
+                    initial='initial'
+                    animate='animate'
                 >
                 <AddFileInputStyled
                     type="file" name='image'
