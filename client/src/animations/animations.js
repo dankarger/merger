@@ -117,11 +117,11 @@ export const DownloadButtonVariants = {
 export const svgVariants = {
     initial: {rotate: -10},
     animate: {
-        scale:(1.3),
+        scale:(1.3),x:[0,50,80,40],y:[10,50,-80,-40],
         fontsize:50,
         rotate:0,
         transition: {
-            duration: 1,stiffness:10,mass:100
+            duration: 10,stiffness:10,mass:100
         }
     }
 }
