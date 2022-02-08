@@ -35,6 +35,7 @@ const handleSubmitLoginGuest= async ()=> {
         try {
             const response = await myApi.post('/users/login',{email:'guest',password:'guest'})
             console.log('login-Guest',response)
+            setCurrentUser(response.data.user)
         }catch(e) {
             console.log(e.message)
         }

@@ -9,5 +9,9 @@ export const NotRegisterTextStyled = styled.div `
   span {
     color: #0d72d0;
     font-weight: bold;
+    transition: 200ms ease-in-out;
+  }
+  span:hover {
+    transform: scale(1.1);
   }
 `

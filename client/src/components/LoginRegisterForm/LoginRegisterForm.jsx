@@ -24,7 +24,7 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                                                   variant="filled"
                                                   onChange={handleFormInputs}
                                                   name='name'
-                                                  value={formData.name}
+                                                  // value={formData.name||''}
                 />}
 
                 <TextField id="filled-basic" label="Email"
