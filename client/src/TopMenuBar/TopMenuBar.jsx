@@ -11,7 +11,7 @@ const steps = [
     'Download Image',
 ];
 
-export default function TopMenuBar() {
+export default function TopMenuBar({step=0}) {
     return (
         // <Box sx={{ width: '80%' }}>
         //     <Stepper activeStep={1} alternativeLabel>
@@ -23,7 +23,7 @@ export default function TopMenuBar() {
         //     </Stepper>
         // </Box>
     <Box sx={{ width: '70%',maxWidth:'1000px', whiteSpace:'nowrap' }}>
-        <Stepper activeStep={0} alternativeLabel  >
+        <Stepper activeStep={step} alternativeLabel  >
                 <Step>
                     <Tooltip title="Click on Image Button" placement="bottom">
                     <StepLabel>Upload an Image</StepLabel>

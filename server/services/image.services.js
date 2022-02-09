@@ -33,7 +33,7 @@ const uploadImage = async (req,res)=> {
     console.log('up')
     // try {
         console.log('ggggggggg',req.body.user)
-        const user = await findUser(req.body.user._id)
+        const user = await findUser(req.body.user._id||req.body.user.id)
         console.log('uuuuser',user)
         const overlay = req.body.overlay.overlayObject.overlayText   ;
         const fileStr = req.body.data;

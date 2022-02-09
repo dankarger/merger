@@ -8,9 +8,8 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import {GreetingStyled} from "./styles/Greeting.styled";
-import TopMenuBar from "./TopMenuBar/TopMenuBar";
-
-export const UserContext = React.createContext({name:'guest',email:'guest',password:'guest',_id:"620191159f3c315c33ae4d44"});
+import Footer from "./components/Footer/Footer";
+ export const UserContext = React.createContext({name:'guest',email:'guest',password:'guest',_id:"620191159f3c315c33ae4d44"});
 
 
 function App() {
@@ -19,12 +18,13 @@ function App() {
   return (
     <div className="App">
     {/*<Global>*/}
+
         <UserContext.Provider value={[currentUser, setCurrentUser]}>
         <BrowserRouter>
             <NavBar />
 
             <GreetingStyled>
-                <TopMenuBar/>
+
                 <div>
                     Welcome <span> {currentUser.name}</span>
                 </div>
