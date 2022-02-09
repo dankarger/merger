@@ -33,9 +33,10 @@ function App() {
                 {/*<Route path='/gallery2'  element={<Gallery />} />*/}
             </Routes>
         </BrowserRouter>
-            <Footer />
+
     {/*</Global>*/}
         </UserContext.Provider>
+        <Footer />
     </div>
   );
 }

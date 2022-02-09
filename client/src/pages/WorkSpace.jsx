@@ -25,6 +25,7 @@ import html2canvas from 'html2canvas';
 import ResizeDiv2 from "../components/Resize-tryDiv/ResizeDiv2";
 import Example from "../components/Resize-tryDiv/ResizeDiv3";
 import {GreetingStyled} from "../styles/Greeting.styled";
+import Footer from "../components/Footer/Footer";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -193,7 +194,7 @@ const WorkSpace =()=> {
                      setFontSize={setFontSize}
             />
             }
-            ><ResizeDiv2
+           <ResizeDiv2
             Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
             Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
             drag
@@ -265,7 +266,7 @@ const WorkSpace =()=> {
                                                 imageTitle={imageTile}
 
             /> }
-
+            {/*<Footer />*/}
         </WorkPageStyled>
 
 

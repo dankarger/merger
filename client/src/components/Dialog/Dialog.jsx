@@ -70,9 +70,7 @@ export default function CustomizedDialogs({isDialogueOpen,modalInfo}) {
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Open dialog
-            </Button>
+
             <BootstrapDialog
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"

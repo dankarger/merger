@@ -7,8 +7,8 @@ export const WorkImageDivStyled = styled.div `
   max-width: 1280px;
   max-height: 720px;
   background-image: ${({image})=>image};
-  padding: 0 20px;
-  margin:20px auto;
+  //padding: 0 20px;
+  // margin:20px auto;
   display: flex;
   justify-content: center;
   align-items: center;
