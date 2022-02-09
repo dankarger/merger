@@ -4,7 +4,7 @@ import DownloadImages from "../DownLoadImages/DownloadImages";
 import {GalleryStyled} from "../../styles/Gallery.styled";
 import DetailCard from "../DetaileCard/DetaileCard";
 import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
-import MenuLeft from "../Menu/MenuLeft";
+import ModalCardDetail from "../ModalCardDetail/ModalCardDetail";
 import {GalleryContainerVariants, GalleryStyleVariants} from "../../animations/animations";
 import {AnimatePresence} from "framer-motion";
 
@@ -21,7 +21,9 @@ const Gallery = () => {
      }
 
     return (
+
         <AnimatePresence>
+
         <GalleryContainerStyled
         variants={GalleryContainerVariants}
         initial='initial'
@@ -36,7 +38,9 @@ const Gallery = () => {
              <h1>Gallery</h1>
                 <DownloadImages handleSelectCard={handleSelectCard} />
                 {isDetailCardOpen &&
-                <DetailCard card={selectedCard} handleSelectCard={handleSelectCard}/> }
+                // <DetailCard card={selectedCard} handleSelectCard={handleSelectCard}/>
+                <ModalCardDetail isDetaileCardOpen={isDetailCardOpen} card={selectedCard} handleSelectCard={handleSelectCard} />
+                }
             </GalleryStyled>
 
         </GalleryContainerStyled>

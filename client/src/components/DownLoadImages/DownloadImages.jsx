@@ -8,6 +8,7 @@ import {GalleryStyled} from "../../styles/Gallery.styled";
 import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
 import Loader from "../Loader/Loader";
 import {CardGalleryStyled} from "../../styles/CardGallery.styled";
+import Cards2 from "../Card/Card2";
 
 const DownloadImages = ({handleSelectCard}) => {
     const [imageIds, setImageId] = useState([]);
@@ -64,9 +65,11 @@ const DownloadImages = ({handleSelectCard}) => {
 
                                 onClick={()=>handleSelectCard(imageId,cardRef)}
                                /></GalleryItemStyled>}/>
-                            </CardGalleryStyled>
-                        ))}
 
+                            </CardGalleryStyled>
+
+                        ))}
+                    {imageIds &&  <Cards2 images={imageIds}/>}
                     </GalleryContainerStyled>
 
     )

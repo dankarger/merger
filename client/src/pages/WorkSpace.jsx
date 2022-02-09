@@ -25,6 +25,7 @@ import html2canvas from 'html2canvas';
 import ResizeDiv2 from "../components/Resize-tryDiv/ResizeDiv2";
 import MenuLeftPlaceHolder from "../components/Menu/MenuLeftPlaceHolder";
 import {WorkingDivBounderiesStyled} from "../styles/WorkingDivBounderies.styled";
+import {fadeIn} from "../animations/animations";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -151,6 +152,9 @@ const WorkSpace =()=> {
                       isTextMenuOpen={isTextMenuOpen}
                       isBackgroundMenuOpen={isBackgroundMenuOpen}
                       setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
+                      variants={fadeIn}
+                      initial='initial'
+                      animate='animate'
             />
             {isImgMenuOpen &&
            <UploadImages
