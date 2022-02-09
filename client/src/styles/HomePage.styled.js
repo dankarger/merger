@@ -10,5 +10,6 @@ export const HomePageStyled = styled.div `
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 
 `

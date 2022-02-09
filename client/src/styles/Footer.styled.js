@@ -3,7 +3,7 @@ import {motion} from 'framer-motion'
 
 export const FooterStyled = styled(motion.footer) `
   margin-top: 10vh;
-  width: 100%;
+  //width: 100%;
   max-height: 60px;
   min-height: 50px;
   padding: 2rem 4rem;
