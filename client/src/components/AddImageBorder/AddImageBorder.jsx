@@ -5,6 +5,7 @@ import SlideImageBorder from "./SlideImageBorder";
 import {ColorPicker} from "material-ui-color";
 import {ColorPickerDivStyled} from "../../styles/ColorPickerDiv.styled";
 import FormatColorTextIcon from "@mui/icons-material/FormatColorText";
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 const AddImageBorder = ({ setImageBorderWidth,
                             imageBorderWidth,
@@ -14,16 +15,17 @@ const AddImageBorder = ({ setImageBorderWidth,
                             imageBorderColor  }) => {
 
 const handleColorChange=(e)=>{
-    setImageBorderColor(e.target.value)
+    setImageBorderColor(e.css.backgroundColor)
 }
 
     return (
         <AddImageBorderStyled>
             <CustomSwitch /> <span>Border</span>
-            <ColorPicker onChange={handleColorChange} value={imageBorderColor}/>
+         {/*<ColorPicker onChange={handleColorChange} value={imageBorderColor}/>*/}
+         {/*   <span><BorderColorIcon/></span> */}
             <ColorPickerDivStyled>
-                < FormatColorTextIcon />
-                <ColorPicker   value={imageBorderColor} onChange={handleColorChange}/>
+                {/*< FormatColorTextIcon />*/}
+               <span><BorderColorIcon/></span> <ColorPicker    onChange={handleColorChange}/>
             </ColorPickerDivStyled>
         <SlideImageBorder  setImageBorderWidth={ setImageBorderWidth}
                            imageBorderWidth={imageBorderWidth}
