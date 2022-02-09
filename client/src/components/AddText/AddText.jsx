@@ -13,6 +13,7 @@ import AddFontSize from "../AddFontSize/AddFontSize";
 import {AddTextHeadingStyled} from "../../styles/AddTextHeading.styled";
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
 import ChooseTextDecoration from "../../styles/ChooseTextDecoration/ChooseTextDecoration";
+import {border} from "@cloudinary/url-gen/qualifiers/background";
 
 const AddText = ({callback,
                      value,
@@ -38,9 +39,10 @@ const AddText = ({callback,
                        value={value}
             />
 
+
                 <AddFontSize fontSize={fontSize} setFontSize={setFontSize}/>
 
-                <AddPosition positionProp={position} positionsState={positionsState} setPositionState={setPositionState}/>
+                {/*<AddPosition positionProp={position} positionsState={positionsState} setPositionState={setPositionState}/>*/}
 
             <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
             <ColorPickerDivStyled>

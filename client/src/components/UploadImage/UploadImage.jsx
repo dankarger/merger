@@ -1,23 +1,28 @@
 import React, { useState   } from "react";
 import Button from "@mui/material/Button";
 import {motion } from 'framer-motion'
-import {MenuLeftVariants} from "../../animations/animations";
 import {DownloadButtonStyled} from "../../styles/DownloadButton.styled";
 import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
 import {DownloadButtonVariants} from "../../animations/animations";
 import {AtagStyled} from "../../styles/Atag.styled";
 import {AddFileInputStyled} from "../../styles/AddFileInput.styled";
 import {AddFileLabelStyled} from "../../styles/AddFileLabel.styled";
-import Tooltip from '@mui/material/Tooltip';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import {fadeIn} from "../../animations/animations";
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import AddImageBorder from "../AddImageBorder/AddImageBorder";
+import CustomSwitch from "../Switch/Switch";
 
 export default function UploadImages({setBackgroundImage,
                                          handleMergeButton,
                                          setUploadedFile,
-                                         downloadLink}) {
+                                         downloadLink,
+                                         imageBorderWidth,
+                                         setImageBorderWidth,
+                                         setImageBorderRadius,
+                                         imageBorderRadius,
+                                         setImageBorderColor,
+                                         imageBorderColor
+}) {
     const[fileInputState,setFileInputState]=useState('')
     const [previewSource,setPreviewSource]=useState()
     const[fileName,setFileName] = useState('')
@@ -96,10 +101,15 @@ export default function UploadImages({setBackgroundImage,
                         whileHover='hover'
                     ><PhotoCamera
                     /> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>
-
-
                 </motion.div>
                 Image -border
+                <AddImageBorder  imageBorderWidth={ imageBorderWidth}
+                                 setImageBorderWidth={ setImageBorderWidth}
+                                 setImageBorderRadius={setImageBorderRadius}
+                                 imageBorderRadius={imageBorderRadius}
+                                 setImageBorderColor={setImageBorderColor}
+                                 imageBorderColor={imageBorderColor}
+                />
                 <Button onClick={handleMergeButton} color="inherit" variant="outlined" type="submit" size='large' >merge</Button>
                 {/*<ArrowForwardIcon />*/}
                <DownloadButtonStyled
@@ -107,24 +117,17 @@ export default function UploadImages({setBackgroundImage,
                whileHover='hover'
                >
                    {/*<Tooltip sx={{zIndex:111000,background:'red'}} title="Upload an Image">*/}
-
                        <AtagStyled
                            // href={downloadLink.current}
                            //         variants = {DownloadButtonVariants}
                            //         whileHover='hover'
                            // // download={downloadLink.current} target="_blank"
                            //  download
-
                            onClick={download}
-
                        >Download Image</AtagStyled>
-                   {/*</Tooltip>*/}
-
                </DownloadButtonStyled
                >
             </UploadImageFormStyled>
-
-
         </>
     )
 }

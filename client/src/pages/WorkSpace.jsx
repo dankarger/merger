@@ -28,11 +28,18 @@ import {WorkingDivBounderiesStyled} from "../styles/WorkingDivBounderies.styled"
 import {fadeIn} from "../animations/animations";
 
 const WorkSpace =()=> {
+    //image const
+    const[isImgMenuOpen,setIsImgMenuOpen]=useState(true);
+    const[backgroundImage,setBackgroundImage]=useState();
+    const[imageTile,setImageTitle]=useState('Title');
+    const[imageBorderWidth,setImageBorderWidth]=useState(20);
+    const[imageBorderRadius,setImageBorderRadius]=useState(0);
+    const[imageBorderColor,setImageBorderColor]=useState();
+
+
     const[inputText,setInputText]=useState('');
     const[overlayColor,setOverlayColor]=useState('');
-    const[isImgMenuOpen,setIsImgMenuOpen]=useState(false);
     const[isTextMenuOpen,setIsTextMenuOpen]=useState(false);
-    const[backgroundImage,setBackgroundImage]=useState();
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState(createColor("#000"));
     const[backgroundColor,setBackGroundColor]=useState({css:{backgroundColor:'#333333'}});
@@ -47,7 +54,6 @@ const WorkSpace =()=> {
     const [fontSize,setFontSize]=useState('80');
     const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
     const[uploadedFile,setUploadedFile] = useState('');
-    const[imageTile,setImageTitle]=useState('Title');
     const downloadLink = useRef('')
     const[downLoadLink,setDownloadLink]=useState('')
 
@@ -162,6 +168,12 @@ const WorkSpace =()=> {
                          handleMergeButton={handleMergeButton}
                          setUploadedFile={setUploadedFile}
                          downloadLink={downloadLink}
+                         setImageBorderWidth={setImageBorderWidth}
+                         imageBorderWidth={imageBorderWidth}
+                         imageBorderRadius={imageBorderRadius}
+                         setImageBorderRadius={setImageBorderRadius}
+                         imageBorderColor={imageBorderColor}
+                         setImageBorderColor={setImageBorderColor}
            />
             }
             {isTextMenuOpen &&
@@ -201,6 +213,9 @@ const WorkSpace =()=> {
                 <ImageDivStyled
                     drag
                     dragConstraints={overlayDivRef}
+                    color={imageBorderColor}
+                    width={imageBorderWidth}
+                    radius={imageBorderRadius}
                 >
                     {backgroundImage &&
                     <ResizeDiv2

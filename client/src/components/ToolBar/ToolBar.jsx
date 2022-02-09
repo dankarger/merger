@@ -26,7 +26,7 @@ export default function ToolBar({imageCallback,
             sx={{width:'100%',display:'flex',justifyContent:'left',marginLeft:'1rem' }}
         >
             <ToggleButton sx={{padding:'0 1rem '}} value="list" aria-label="list" onClick={()=>{
-                imageCallback(menu=>!menu)
+                imageCallback(true)
                 textCallback(false)
                 setIsBackGroundMenuOpen(false)
             }}>
@@ -36,7 +36,7 @@ export default function ToolBar({imageCallback,
 
                 <ToggleButton value="module" aria-label="module"
                               onClick={()=>{
-                                    textCallback(!isTextMenuOpen)
+                                    textCallback(true)
                                     imageCallback(false)
                                     setIsBackGroundMenuOpen(false)
 
@@ -46,7 +46,7 @@ export default function ToolBar({imageCallback,
             {/*</Tooltip>*/}
             <ToggleButton value="quilt" aria-label="quilt"
                           onClick={()=>{
-                setIsBackGroundMenuOpen(state=>!state)
+                setIsBackGroundMenuOpen(true)
                 textCallback(false)
                 imageCallback(false)
 

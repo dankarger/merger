@@ -9,19 +9,22 @@ export const ImageDivStyled = styled(motion.div) `
   height: auto;
   //max-width: 90vw;
   max-height: 90vh;
-  border: grey 1px solid;
+  //border: grey 1px solid;
  
 
   img {
     object-fit: cover;
     max-width: 100%;
     height: auto;
-    border: 3px rgba(66, 65, 65, 0.35) solid;
-    
+    //border:  3px rgba(66, 65, 65, 0.35) solid;
+    border-color: '#'+ ${({color})=> color || '#333333'};
+    border-width: ${({width})=> width +'px'|| '0px'};
+    border-style: solid;
+    border-radius: ${({radius})=> radius +'px'|| '0%'}; ;
     //padding:1rem;
   }
-  img:hover{
-    cursor: grab;
-  }
+  //img:hover{
+  //  cursor: pointer;
+  //}
 
 `
