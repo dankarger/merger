@@ -9,6 +9,7 @@ import myApi from "../api/Api";
 import CustomizedDialogs from "../components/Dialog/Dialog";
 import {loggedInGuestMessage, loggedInUserMessage} from "./Info/Info";
 
+
 const LoginPage =()=> {
         const [currentUser,setCurrentUser]= useContext(UserContext)
         const[formData,setFormData]= useState({});
@@ -26,7 +27,7 @@ const LoginPage =()=> {
                 console.log('yes',response.data)
                 setCurrentUser(response.data.user)
                  console.log('u',currentUser)
-                handleDialogueMessage('user',response.data.user)
+                handleDialogueMessage('user',response.data.user,'success')
             }
         }
 
@@ -39,7 +40,7 @@ const handleSubmitLoginGuest= async ()=> {
         try {
             const response = await myApi.post('/users/login',{email:'guest',password:'guest'})
             console.log('login-Guest',response)
-            handleDialogueMessage('guest')
+            handleDialogueMessage('guest','guest','green')
         }catch(e) {
             console.log(e.message)
         }
@@ -50,14 +51,14 @@ const handleSubmitLoginGuest= async ()=> {
         setFormData(newFormData)
     }
 
-    const handleDialogueMessage=(type,user)=>{
+    const handleDialogueMessage=(type,user,titleColor='green')=>{
             if(type==='guest'){
                 const{title,message,message2,navigate}=loggedInGuestMessage
-                 setModalInfo({title:title,message:message,message2:message2,navigate:navigate})
+                 setModalInfo({title:title,message:message,message2:message2,navigate:navigate,titleColor:titleColor})
             }
             else if(type==='user'){
                 const{title,message,message2,navigate}=loggedInUserMessage
-                setModalInfo({title:title,message:`${message} ${user.name}`,message2:message2,navigate:navigate})
+                setModalInfo({title:title,message:`${message} ${user.name}`,message2:message2,navigate:navigate,titleColor:titleColor})
             }
         setIsDialogueOpen(true);
     }
@@ -76,7 +77,7 @@ const handleSubmitLoginGuest= async ()=> {
                Not Register ? <Link to='/register'><span> click here </span> </Link>  to Register
              </NotRegisterTextStyled>
             </LoginFormStyled>
-        <CustomizedDialogs isDialogueOpen={isDialogueOpen} modalInfo={modalInfo}/>
+        <CustomizedDialogs isDialogueOpen={isDialogueOpen} modalInfo={modalInfo} />
         </LoginPageStyled>
     )
 }

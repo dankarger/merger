@@ -78,7 +78,7 @@ export default function CustomizedDialogs({isDialogueOpen,modalInfo}) {
                 aria-labelledby="customized-dialog-title"
                 open={open}
             >
-                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
+                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose} color='green'>
                     {modalInfo.title}
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
