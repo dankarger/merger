@@ -209,7 +209,7 @@ const WorkSpace =()=> {
                     drag
                 >
 
-                    <img ref={constraintsRef}   src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
+                    <motion.img drag ref={constraintsRef}   src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
                 </ResizeDiv2>
                         }
                     <OverlayTextDiveStyled

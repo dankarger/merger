@@ -44,7 +44,8 @@ export default function ToolBar({imageCallback,
                  Text
                 </ToggleButton>
             {/*</Tooltip>*/}
-            <ToggleButton value="quilt" aria-label="quilt" onClick={()=>{
+            <ToggleButton value="quilt" aria-label="quilt"
+                          onClick={()=>{
                 setIsBackGroundMenuOpen(state=>!state)
                 textCallback(false)
                 imageCallback(false)
@@ -52,8 +53,25 @@ export default function ToolBar({imageCallback,
             }}>
                 Color
             </ToggleButton>
-            <ToggleButton value="quilt2" aria-label="quilt2">
+            <ToggleButton value="fx" aria-label="fx"
+                          onClick={()=>{
+                              setIsBackGroundMenuOpen(false)
+                              textCallback(false)
+                              imageCallback(false)
+
+                          }}
+            >
                 FX
+            </ToggleButton>
+            <ToggleButton value="export" aria-label="export"
+                          onClick={()=>{
+                              setIsBackGroundMenuOpen(false)
+                              textCallback(false)
+                              imageCallback(false)
+
+                          }}
+            >
+              MERGE
             </ToggleButton>
         </ToggleButtonGroup>
     );

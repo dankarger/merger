@@ -78,15 +78,12 @@ export default function UploadImages({setBackgroundImage,
                             whileTap="tap"
                             whileHover='hover'
                         ><PhotoCamera
-
                         /> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>
 
                 </motion.div>
-                <ArrowForwardIcon />
-                <Button onClick={handleMergeButton} color="inherit" variant="outlined" type="submit" size='large' >Add Text</Button>
-                <ArrowForwardIcon color='warning'/>
+                Image -border
                 <Button onClick={handleMergeButton} color="inherit" variant="outlined" type="submit" size='large' >merge</Button>
-                <ArrowForwardIcon />
+                {/*<ArrowForwardIcon />*/}
                <DownloadButtonStyled
                variants = {DownloadButtonVariants}
                whileHover='hover'
