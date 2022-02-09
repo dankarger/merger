@@ -7,23 +7,28 @@ import {NotRegisterTextStyled} from "../styles/NotRegisterText.styled";
 import {UserContext} from "../App";
 import myApi from "../api/Api";
 import CustomizedDialogs from "../components/Dialog/Dialog";
+import {loggedInGuestMessage, loggedInUserMessage} from "./Info/Info";
 
 const LoginPage =()=> {
         const [currentUser,setCurrentUser]= useContext(UserContext)
         const[formData,setFormData]= useState({});
         const navigate = useNavigate();
         const[isDialogueOpen,setIsDialogueOpen] = useState(false)
-    const[modalInfo,setModalInfo]=useState({title:'Login Successfull',message:'You are loged in as Guest',navigate:'/work'})
+    const[modalInfo,setModalInfo]=useState({})
     const handleSubmitLogin = async ()=>{
         try {
             const email = formData.email
             const password = formData.password
            const response = await myApi.post('/users/login',{email:email,password:password})
-            console.log('login',response)
-            if(response.status===200) {
+             if(response.status===200) {
                 console.log('yes',response.data)
-                setCurrentUser(response.data.user)
-                navigate(`/work`);
+
+               setCurrentUser(response.data.user)
+                 console.log('u',currentUser)
+                handleDialogueMessage('user',response.data.user)
+                // const{title,message,message2,navigate}=loggedInUserMessage
+                // setModalInfo({title:title,message:`${message} ${currentUser.name}`,message2:message2,navigate:navigate})
+                // setIsDialogueOpen(true);
             }
         }
 
@@ -37,8 +42,11 @@ const handleSubmitLoginGuest= async ()=> {
             const response = await myApi.post('/users/login',{email:'guest',password:'guest'})
             console.log('login-Guest',response)
             setCurrentUser(response.data.user);
+            // const{title,message,message2,navigate}=loggedInGuestMessage
+            // // setModalInfo({title:title,message:message,message2:message2,navigate:navigate})
+            handleDialogueMessage('guest')
 
-            setIsDialogueOpen(true);
+            // setIsDialogueOpen(true);
             // navigate(`/work`);
         }catch(e) {
             console.log(e.message)
@@ -49,6 +57,19 @@ const handleSubmitLoginGuest= async ()=> {
         newFormData[e.target.name] = e.target.value
         setFormData(newFormData)
     }
+
+    const handleDialogueMessage=(type,user)=>{
+            if(type==='guest'){
+                const{title,message,message2,navigate}=loggedInGuestMessage
+                 setModalInfo({title:title,message:message,message2:message2,navigate:navigate})
+            }
+            else if(type==='user'){
+                const{title,message,message2,navigate}=loggedInUserMessage
+                setModalInfo({title:title,message:`${message} ${user.name}`,message2:message2,navigate:navigate})
+            }
+        setIsDialogueOpen(true);
+    }
+
 
     return (
         <LoginPageStyled>

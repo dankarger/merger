@@ -86,13 +86,12 @@ export default function CustomizedDialogs({isDialogueOpen,modalInfo}) {
                         {modalInfo.message}
                     </Typography>
                     <Typography gutterBottom>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                        {modalInfo.message2}
                     </Typography>
                     <Typography gutterBottom>
-                        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-                        magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-                        ullamcorper nulla non metus auctor fringilla.
+                        {/*Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus*/}
+                        {/*magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec*/}
+                        {/*ullamcorper nulla non metus auctor fringilla.*/}
                     </Typography>
                 </DialogContent>
                 <DialogActions>
