@@ -5,6 +5,8 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Tooltip from "@mui/material/Tooltip";
 import {TopMenuStyled} from "../styles/TopMenu.styled";
+import {motion} from "framer-motion";
+import {fadeIn} from "../animations/animations";
 
 const steps = [
     'Upload an Image',
@@ -14,16 +16,11 @@ const steps = [
 
 export default function TopMenuBar({step=0}) {
     return (
-        // <Box sx={{ width: '80%' }}>
-        //     <Stepper activeStep={1} alternativeLabel>
-        //         {steps.map((label) => (
-        //             <Step key={label}>
-        //                 <StepLabel>{label}</StepLabel>
-        //             </Step>
-        //         ))}
-        //     </Stepper>
-        // </Box>
-        <TopMenuStyled>
+        <TopMenuStyled as={motion.div}
+                       variants={fadeIn}
+                       initial='initial'
+                       animate='animate2'
+        >
         <Box sx={{ width: '70%',maxWidth:'1000px', whiteSpace:'nowrap' }}>
             <Stepper activeStep={step} alternativeLabel  >
                     <Step>

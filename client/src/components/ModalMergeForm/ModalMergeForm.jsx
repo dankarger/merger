@@ -51,7 +51,7 @@ export default function ModalMergeForm({isMergeFormOpen,
 
     }
     const HandleMergeButton =()=>{
-        console.log('gggggg')
+
         handleSendMergeForm()
         handleClose2()
     }

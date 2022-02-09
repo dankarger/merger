@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import {LoginPageStyled} from "../styles/LoginPage.styled";
 import LoginRegisterForm from "../components/LoginRegisterForm/LoginRegisterForm";
 import {LoginFormStyled} from "../styles/LoginForm.styled";
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {NotRegisterTextStyled} from "../styles/NotRegisterText.styled";
 import {UserContext} from "../App";
 import myApi from "../api/Api";
@@ -11,6 +11,7 @@ import myApi from "../api/Api";
 const RegisterPage =()=> {
     const [currentUser,setCurrentUser]= useContext(UserContext)
     const[formData,setFormData]= useState({});
+    const navigate = useNavigate();
 
 
     const handleSubmitRegister2 = async ()=>{
@@ -23,7 +24,9 @@ const RegisterPage =()=> {
             console.log('register',response)
             if(response.status===200) {
                 console.log('yes',response.data)
-                setCurrentUser(response.data)
+                setCurrentUser(response.data);
+                navigate(`/work`);
+
             }
         }
         catch (e) {
@@ -36,6 +39,8 @@ const RegisterPage =()=> {
             const response = await myApi.post('/users/login',{name:'guest',email:'guest',password:'guest'})
             console.log('login-Guest',response.data.user)
             setCurrentUser(response.data)
+            navigate(`/work`);
+
         }catch(e) {
             console.log(e.message)
         }

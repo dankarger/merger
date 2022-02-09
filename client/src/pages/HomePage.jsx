@@ -3,12 +3,13 @@ import {HomePageStyled} from "../styles/HomePage.styled";
 import {Image} from 'cloudinary-react'
 import ListDividers from "../components/Divider/Divider";
 import {HeadingH1Styled} from "../styles/HeadingH1.styled";
-import {HeadingH1Variants} from "../animations/animations";
+import {HeadingH1Variants, MenuLeftVariants} from "../animations/animations";
 import HomePageContent from "../components/HomePageContent/HomePageContent";
 import HomePageMenu from "../components/HomePageMenu/HomePageMenu";
 import TopMenuBar from "../TopMenuBar/TopMenuBar";
 import {GreetingStyled} from "../styles/Greeting.styled";
 import {motion} from "framer-motion";
+import {fadeIn,HomePageMenuVariants} from "../animations/animations";
 
 const xVariants = {
     initial:{x:0},
@@ -46,15 +47,19 @@ const HomePage = () => {
             >Welcome to PhotoBasta</HeadingH1Styled>
 
             <HomePageMenu />
-            {/*<GreetingStyled>*/}
-                <TopMenuBar as={motion.div} step={stepCounter}
-                 variants={xVariants}
-                initial={'initial'}
-                            animate='animate'
-                />
-            {/*</GreetingStyled>*/}
+                {/*<motion.div*/}
+                {/*    variants={fadeIn}*/}
+                {/*    initial='initial'*/}
+                {/*    animate='animate'*/}
+                {/*>*/}
+                    <TopMenuBar as={motion.div}
+                                step={stepCounter}
+                //                 variants={MenuLeftVariants}
+                // initial='initial'
+                // animate='animate'
+                    />
+                {/*</motion.div>*/}
 
-            {/*<ListDividers/>*/}
 
 
         </HomePageStyled>

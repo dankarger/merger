@@ -22,6 +22,11 @@ export const fadeIn ={
         transition:{
             duration:0.4,stiffness:12
         }
+    },animate2:{
+        opacity: 1,
+        transition:{
+            duration:2,stiffness:12,delay:1
+        }
     }
 }
 
@@ -113,7 +118,6 @@ export const HomePageMenuVariants = {
 
 }
 // Buttons
-
 export const ButtonYoYoVariants = {
     hover: {
         scale:( 1.01),
@@ -125,7 +129,6 @@ export const ButtonYoYoVariants = {
             stiffness:201,mass:12
         },
     }
-
 }
 
 export const HomeMenuButtonsVariants = {
@@ -153,23 +156,22 @@ export const DownloadButtonVariants = {
             stiffness:110,mass:121,
             backgroundColor:'red'
         },
-
     }
-
 }
 
-
 export const svgVariants = {
-    initial: {rotate: [-350]},
+    initial: {rotate: [-250],scale:(0),rotateZ:11,opacity:0 },
     animate: {
-        scale:(1.3),x:[-100,40],y:[10,50, 80,-40,30,80],
+        opacity:[0,0.1,0.2,0.3],
+        scale:(1.3),x:[-100,40],rotateZ:0,
         fontsize:50,
-        rotate:[50,0],
+        rotate:0,
         transition: {
             duration: 1,stiffness:10,mass:100
         }
     }
 }
+
 export const pathVariants = {
     initial: {
         opacity:0,
@@ -228,3 +230,4 @@ export const DetailCardStyleVariants = {
         x:200
     }
 }
+
