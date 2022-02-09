@@ -13,7 +13,7 @@ export const UploadImageFormStyled = styled.form `
   top: 0;
   z-index: 10000;
   gap: calc(.5rem + 3vw);
-  padding-left:25%;
+  padding-left:150px;
   border: 1px solid grey;
   border-radius: 10px;
   //background: rgba(42, 52, 56, 0.93);

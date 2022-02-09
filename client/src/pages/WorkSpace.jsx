@@ -200,7 +200,7 @@ const WorkSpace =()=> {
             >
 
                 {!backgroundImage && <SkeletonDiv />}
-                {backgroundImage &&
+                {/*{backgroundImage &&*/}
 
                 <ImageDivStyled
                     drag
@@ -233,7 +233,7 @@ const WorkSpace =()=> {
                     </OverlayTextDiveStyled >
                 </ImageDivStyled>
 
-                }
+                {/*}*/}
                 <UploadImageDivStyled image={backgroundImage}/>
                 {/*<Canvas draw={draw} />*/}
 

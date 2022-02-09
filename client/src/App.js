@@ -25,9 +25,9 @@ function App() {
 
             <GreetingStyled>
 
-                <div>
+
                     Welcome <span> {currentUser.name}</span>
-                </div>
+
             </GreetingStyled>
 
 
@@ -40,6 +40,7 @@ function App() {
                 {/*<Route path='/gallery2'  element={<Gallery />} />*/}
             </Routes>
         </BrowserRouter>
+            <Footer />
     {/*</Global>*/}
         </UserContext.Provider>
     </div>

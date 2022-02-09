@@ -22,7 +22,7 @@ export default function ToolBar({imageCallback,
             value={view}
             exclusive
             onChange={handleChange}
-            sx={{overflow:"visible"}}
+            sx={{width:'100%'}}
         >
             <ToggleButton value="list" aria-label="list" onClick={()=>imageCallback(!isMenuOpen)}>
               Image

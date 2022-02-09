@@ -28,8 +28,8 @@ export default function AddFontSize({fontSize,setFontSize}) {
     const handleBlur = () => {
         if (value < 0) {
             setValue(0);
-        } else if (value > 100) {
-            setValue(100);
+        } else if (value > 150) {
+            setValue(150);
         }
     };
 
@@ -59,7 +59,7 @@ export default function AddFontSize({fontSize,setFontSize}) {
                         inputProps={{
                             step: 1,
                             min: 0,
-                            max: 100,
+                            max: 150,
                             type: 'number',
                             'aria-labelledby': 'input-slider',
                         }}

@@ -6,7 +6,8 @@ export const MenuLeftStyled = styled.div `
   align-items: center;
   flex-direction: column;
   height: 100%;
-  max-width: 200px;
+  //max-width: 200px;
+  width: 100px;
   position: absolute;
   left: 0;
   top: 0;

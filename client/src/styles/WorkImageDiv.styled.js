@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const WorkImageDivStyled = styled.div `
  
-  width: 90vw;
-  height: 90vh;
+  width: 80vw;
+  height: 80vh;
+  max-width: 1280px;
+  max-height: 720px;
   background-image: ${({image})=>image};
   padding: 0 20px;
-  margin:0 auto;
+  margin:20px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +17,7 @@ export const WorkImageDivStyled = styled.div `
   top:50px;
   font-size: 5vmin;
   overflow: hidden;
+ 
   background-color:${({backGroundColor})=>backGroundColor||'#333333'} ;
   //img {
   //  width:100%;

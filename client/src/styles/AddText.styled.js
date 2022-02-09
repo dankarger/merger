@@ -15,7 +15,7 @@ export const AddTextStyled = styled(motion.div) `
   flex-direction: column;
   position: absolute;
   z-index: 150;
-  left: 60px;
+  left: 100px;
   top: 0;
   border: 1px solid grey;
   border-radius: 10px;
