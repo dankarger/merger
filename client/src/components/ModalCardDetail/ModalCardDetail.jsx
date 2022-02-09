@@ -2,7 +2,9 @@ import * as React from 'react';
 import { styled, Box } from '@mui/system';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import {useEffect} from "react";
-
+import ActionAreaCard from "../Card/Card";
+import {GalleryItemStyled} from "../../styles/GalleryItem.styled";
+import {Image} from 'cloudinary-react'
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
   z-index: 1300;
@@ -63,8 +65,24 @@ export default function ModalCardDetail({card,handleSelectCard,isDetaileCardOpen
             >
                 <Box sx={style}>
                     <h2 id="unstyled-modal-title">{card.title}</h2>
-                    <p id="unstyled-modal-description">Aliquid amet deserunt earum!</p>
+                    {/*<img src={card.secure_url} alt=""/>*/}
+                    {/*<p id="unstyled-modal-description">By: {card.createdBy}</p>*/}
 
+
+                    <ActionAreaCard
+                        // ref={cardRef}
+                        title ={card.title}
+                        createdBy={card.nameOfUser}
+
+                        image={ <GalleryItemStyled><Image
+                            cloudName="meme3"
+                            publicId={card.url}
+                            crop='scale'
+                            title={card.title}
+
+                            onClick={()=>handleSelectCard(card)}
+                        /></GalleryItemStyled>
+}  />
 
                 </Box>
             </StyledModal>

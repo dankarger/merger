@@ -60,13 +60,13 @@ const RegisterPage =()=> {
 
     const handleDialogueMessage=(type,user) => {
         if(type==='guest'){
-            const{title,message,message2,navigate}=loggedInGuestMessage
-            setModalInfo({title:title,message:message,message2:message2,navigate:navigate})
+            const{title,message,message2,navigate,titleColor}=loggedInGuestMessage
+            setModalInfo({title:title,message:message,message2:message2,navigate:navigate,titleColor: 'green'})
         }
 
         else if(type==='user') {
             const{title,message,message2,navigate}=SignInUserMessage
-            setModalInfo({title:title,message:`${message} ${user.name}`,message2:message2,navigate:navigate})
+            setModalInfo({title:title,message:`${message} ${user.name}`,message2:message2,navigate:navigate,titleColor: 'green'})
         }
         setIsDialogueOpen(true);
     }
