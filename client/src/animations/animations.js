@@ -149,15 +149,20 @@ export const HomeMenuButtonsVariants = {
 
 export const DownloadButtonVariants = {
     hover: {
-        scale:( 1.2),
+        scale:( 0.95),
         // backgroundColor:'rgba(66,152,149,0.6)',
-        textShadow:" 0px 0px 8px rgb(255,255,255)",
+        // textShadow:" 0px 0px 8px rgb(255,255,255)",
         // boxShadow:" 1px 1px 1px 1px rgb(0,0,0)",
         transition:{
-            type:"spring",
-            stiffness:110,mass:121,
-            backgroundColor:'red'
+            type:"spring",ease:"easeInOut",
+            // stiffness:11,mass:12,
+            backgroundColor:'blue'
         },
+    },
+    tap:{
+        scale:(0.85),
+        color:'#2CBEDF',
+        backgroundColor:'#21107E'
     }
 }
 

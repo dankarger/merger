@@ -72,9 +72,14 @@ export default function UploadImages({setBackgroundImage,
                        className='form-input'
                     // style={{opacity:0}}
                       />
-                        <AddFileLabelStyled htmlFor="files">{fileName.substring(0,14) || 'Upload image' }<PhotoCamera /> </AddFileLabelStyled>
-                {/*<button className='btn' type='submit'>Submit</button>*/}
-                {/*<Button variant="contained" type="submit" color="success" onClick={()=>console.log('fg')}>merge</Button>*/}
+                        <AddFileLabelStyled
+                            htmlFor="files"
+                            variants={DownloadButtonVariants}
+                            whileTap="tap"
+                            whileHover='hover'
+                        ><PhotoCamera
+
+                        /> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>
 
                 </motion.div>
                 <ArrowForwardIcon />

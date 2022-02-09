@@ -24,7 +24,7 @@ export const UploadImageFormStyled = styled.form `
   //box-shadow: rgba(44, 43, 43, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0  0  3px;
   height: calc(100% - 150px);
   width: 200px;
-  padding: 70px 15px 0 25px;
+  padding: 20px 15px 0 25px;
   //margin:0 auto;
   display: flex;
   justify-content: start;
