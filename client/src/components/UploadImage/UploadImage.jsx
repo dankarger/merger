@@ -72,6 +72,7 @@ export default function UploadImages({setBackgroundImage,
                        className='form-input'
                     // style={{opacity:0}}
                       />
+                    {/*//button2*/}
                         <AddFileLabelStyled
                             htmlFor="files"
                             variants={DownloadButtonVariants}
@@ -79,6 +80,23 @@ export default function UploadImages({setBackgroundImage,
                             whileHover='hover'
                         ><PhotoCamera
                         /> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>
+                    <AddFileInputStyled
+                        type="file" name='image'
+                        id='files'
+
+                        onChange={handleFileInputChane}
+                        value={fileInputState}
+                        className='form-input'
+                        // style={{opacity:0}}
+                    />
+                    <AddFileLabelStyled
+                        htmlFor="files"
+                        variants={DownloadButtonVariants}
+                        whileTap="tap"
+                        whileHover='hover'
+                    ><PhotoCamera
+                    /> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>
+
 
                 </motion.div>
                 Image -border
