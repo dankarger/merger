@@ -14,21 +14,19 @@ const LoginPage =()=> {
         const[formData,setFormData]= useState({});
         const navigate = useNavigate();
         const[isDialogueOpen,setIsDialogueOpen] = useState(false)
-    const[modalInfo,setModalInfo]=useState({})
-    const handleSubmitLogin = async ()=>{
+        const[modalInfo,setModalInfo]=useState({})
+
+
+        const handleSubmitLogin = async ()=>{
         try {
             const email = formData.email
             const password = formData.password
            const response = await myApi.post('/users/login',{email:email,password:password})
              if(response.status===200) {
                 console.log('yes',response.data)
-
-               setCurrentUser(response.data.user)
+                setCurrentUser(response.data.user)
                  console.log('u',currentUser)
                 handleDialogueMessage('user',response.data.user)
-                // const{title,message,message2,navigate}=loggedInUserMessage
-                // setModalInfo({title:title,message:`${message} ${currentUser.name}`,message2:message2,navigate:navigate})
-                // setIsDialogueOpen(true);
             }
         }
 
@@ -41,13 +39,7 @@ const handleSubmitLoginGuest= async ()=> {
         try {
             const response = await myApi.post('/users/login',{email:'guest',password:'guest'})
             console.log('login-Guest',response)
-            setCurrentUser(response.data.user);
-            // const{title,message,message2,navigate}=loggedInGuestMessage
-            // // setModalInfo({title:title,message:message,message2:message2,navigate:navigate})
             handleDialogueMessage('guest')
-
-            // setIsDialogueOpen(true);
-            // navigate(`/work`);
         }catch(e) {
             console.log(e.message)
         }
