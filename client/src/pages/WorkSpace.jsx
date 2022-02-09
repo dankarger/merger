@@ -23,9 +23,7 @@ import {Link} from "react-router-dom";
 import {UserContext} from "../App";
 import html2canvas from 'html2canvas';
 import ResizeDiv2 from "../components/Resize-tryDiv/ResizeDiv2";
-import Example from "../components/Resize-tryDiv/ResizeDiv3";
-import {GreetingStyled} from "../styles/Greeting.styled";
-import Footer from "../components/Footer/Footer";
+import MenuLeftPlaceHolder from "../components/Menu/MenuLeftPlaceHolder";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -65,16 +63,9 @@ const WorkSpace =()=> {
 
     useEffect(()=>{
         setOverlayText(inputText)
-
     },[inputText])
 
-    const testing=(e)=> {
-
-        console.log('e',e)
-    }
-
     const handleChange = (value) => {
-
         setColor(value);
     };
     const handleBackgroundChange =(value)=> {
@@ -109,7 +100,6 @@ const WorkSpace =()=> {
                 windowSize:[window.innerWidth,window.innerHeight],
                 imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
             }
-
              const link = await myApi.post('/images', {
                 // method: 'POST',
                 // body: JSON.stringify({ data: overlayDivRef }),
@@ -118,7 +108,6 @@ const WorkSpace =()=> {
                     'Access-Control-Allow-Origin': '*'}
             });
             setIsSnackBar(!isSnackbar);
-
             downloadLink.current = link.data.secure_url
             console.log('fuck',downloadLink)
             setDownloadLink(downloadLink)
@@ -127,7 +116,6 @@ const WorkSpace =()=> {
             console.log(error)
         }
     }
-
     const handleInputChange = (e)=>{
         setInputText(e.target.value);
     }

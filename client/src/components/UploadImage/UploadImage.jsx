@@ -27,8 +27,10 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
     }
 
     function download () {
+        alert('down')
         const a = document.createElement('a');
-        a.href = downloadLink.current
+        a.download = downloadLink.current
+        a.target='_blank'
         a.click()
     }
 
@@ -86,9 +88,14 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
                >
                    {/*<Tooltip sx={{zIndex:111000,background:'red'}} title="Upload an Image">*/}
 
-                       <AtagStyled href={downloadLink.current}
-                                   // variants = {DownloadButtonVariants}
-                                   // whileHover='hover'
+                       <AtagStyled
+                           // href={downloadLink.current}
+                           //         variants = {DownloadButtonVariants}
+                           //         whileHover='hover'
+                           // // download={downloadLink.current} target="_blank"
+                           //  download
+
+                           onClick={download}
 
                        >Download Image</AtagStyled>
                    {/*</Tooltip>*/}

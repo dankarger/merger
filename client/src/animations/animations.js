@@ -58,7 +58,7 @@ export const MenuLeftVariants = {
 
 export const HomePageMenuVariants = {
     initial: {
-        x: 430,
+        // x: 430,
         opacity: 0, scale: (0.5),
 
     },

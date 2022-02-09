@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {LoginFormStyled} from "../../styles/LoginForm.styled";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -19,7 +19,6 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                 autoComplete="off"
             >
             <LoginFormStyled>
-
                 {type==='login'? null: <TextField id="filled-basic-name" label="Name"
                                                   variant="filled"
                                                   onChange={handleFormInputs}

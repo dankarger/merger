@@ -25,11 +25,9 @@ const RegisterPage =()=> {
             const password = formData.password
             // const{name, email, password} = formData
             const response = await myApi.post('/users/register',{name:name,email:email,password:password})
-            console.log('register',response)
+
             if(response.status===200) {
-                console.log('yes',response.data)
                 setCurrentUser(response.data);
-                console.log('fffuck',currentUser)
                 handleDialogueMessage('user',response.data)
 
                 // navigate(`/work`);
@@ -47,35 +45,33 @@ const RegisterPage =()=> {
             console.log('login-Guest',response.data.user)
             setCurrentUser(response.data)
             handleDialogueMessage('guest')
-
             // navigate(`/work`);
-
         }catch(e) {
             console.log(e.message)
         }
-
     }
 
     const handleFormInputs = (e) => {
         let newFormData = formData
         newFormData[e.target.name] = e.target.value
-        setFormData(newFormData)
-        console.log('form',formData)
-
+        setFormData(newFormData);
+        console.log('form',formData);
     }
 
-    const handleDialogueMessage=(type,user)=>{
+    const handleDialogueMessage=(type,user) => {
         if(type==='guest'){
             const{title,message,message2,navigate}=loggedInGuestMessage
             setModalInfo({title:title,message:message,message2:message2,navigate:navigate})
         }
-        else if(type==='user'){
+
+        else if(type==='user') {
             const{title,message,message2,navigate}=loggedInUserMessage
             setModalInfo({title:title,message:`${message} ${user.name}`,message2:message2,navigate:navigate})
         }
         setIsDialogueOpen(true);
     }
     return (
+
         <LoginPageStyled>
             <LoginFormStyled>
                 <h1>Register</h1>
@@ -89,7 +85,6 @@ const RegisterPage =()=> {
                 </NotRegisterTextStyled>
             </LoginFormStyled>
             <CustomizedDialogs isDialogueOpen={isDialogueOpen} modalInfo={modalInfo}/>
-
         </LoginPageStyled>
     )
 }
