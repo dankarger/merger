@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, {useEffect, useRef} from "react";
 import {LoginFormStyled} from "../../styles/LoginForm.styled";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -7,6 +7,17 @@ import TextField from '@mui/material/TextField';
 
 
 export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLogin,formData,handleSubmitLoginGuest}) {
+    const nameInputRef = useRef(null)
+    const emailInputRef = useRef(null)
+
+    useEffect(()=>{
+
+        if(nameInputRef.current!==null){
+            nameInputRef.current.focus();
+        }else {
+            emailInputRef.current.focus();
+        }
+    },[])
 
     return (
 
@@ -25,6 +36,8 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                                                   name='name'
                                                   value={formData.name}
                                                   autoComplete="current-name"
+                                                  ref={nameInputRef}
+                                                  autoFocus={type!=='login'}
                 />}
 
                 <TextField id="filled-basic-email" label="Email"
@@ -33,6 +46,8 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                            name='email'
                            value={formData.email}
                            autoComplete="current-email"
+                           ref={emailInputRef}
+                           autoFocus={type==='login' }
 
                 />
 
