@@ -9,7 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import {GreetingStyled} from "./styles/Greeting.styled";
 import Footer from "./components/Footer/Footer";
- export const UserContext = React.createContext({name:'guest',email:'guest',password:'guest',_id:"620191159f3c315c33ae4d44"});
+ export const UserContext = React.createContext({});
 
 
 function App() {
@@ -22,13 +22,6 @@ function App() {
         <UserContext.Provider value={[currentUser, setCurrentUser]}>
         <BrowserRouter>
             <NavBar />
-
-            <GreetingStyled>
-
-
-                    Welcome <span> {currentUser.name}</span>
-
-            </GreetingStyled>
 
 
             <Routes>

@@ -4,6 +4,7 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Tooltip from "@mui/material/Tooltip";
+import {TopMenuStyled} from "../styles/TopMenu.styled";
 
 const steps = [
     'Upload an Image',
@@ -22,23 +23,25 @@ export default function TopMenuBar({step=0}) {
         //         ))}
         //     </Stepper>
         // </Box>
-    <Box sx={{ width: '70%',maxWidth:'1000px', whiteSpace:'nowrap' }}>
-        <Stepper activeStep={step} alternativeLabel  >
+        <TopMenuStyled>
+        <Box sx={{ width: '70%',maxWidth:'1000px', whiteSpace:'nowrap' }}>
+            <Stepper activeStep={step} alternativeLabel  >
+                    <Step>
+                        <Tooltip title="Click on Image Button" placement="bottom">
+                        <StepLabel>Upload an Image</StepLabel>
+                            </Tooltip >
+                    </Step>
                 <Step>
-                    <Tooltip title="Click on Image Button" placement="bottom">
-                    <StepLabel>Upload an Image</StepLabel>
-                        </Tooltip >
+                    <StepLabel>Add Text</StepLabel>
                 </Step>
-            <Step>
-                <StepLabel>Add Text</StepLabel>
-            </Step>
-            <Step>
-                <StepLabel>Merge</StepLabel>
-            </Step>
-            <Step>
-                <StepLabel>Download</StepLabel>
-            </Step>
-        </Stepper>
-    </Box>
+                <Step>
+                    <StepLabel>Merge</StepLabel>
+                </Step>
+                <Step>
+                    <StepLabel>Download</StepLabel>
+                </Step>
+            </Stepper>
+        </Box>
+        </TopMenuStyled>
     );
 }

@@ -18,8 +18,12 @@ import {UserContext} from "../../App";
 import {motion} from 'framer-motion'
 import {navbarVariants} from "../../animations/animations";
 import {useContext} from "react";
+import {GreetingStyled} from "../../styles/Greeting.styled";
+import PersonOutlineTwoToneIcon from '@mui/icons-material/PersonOutlineTwoTone';
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
 const pages = ['Home', 'Work', 'Login','Gallery'];
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -120,7 +124,7 @@ const ResponsiveAppBar = () => {
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
                         LOGO
-                        {currentUser.name}
+
                     </Typography>
                     {/*<Link to='/>' >*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -136,14 +140,21 @@ const ResponsiveAppBar = () => {
                              </Button>
                         </Link>
                         ))}
-                            <Button component={Link} to="/">
-                                Click Me
-                            </Button>
+                            {/*<Button component={Link} to="/">*/}
+                            {/*    Click Me*/}
+                            {/*</Button>*/}
                     </Box>
+
+
+
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                {/*<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />*/}
+                                <GreetingStyled>
+                                    <span> {currentUser ? currentUser.name :'Guest'}</span>
+                                </GreetingStyled>
+                                <AccountCircleRoundedIcon fontSize="large"/>
 
                             </IconButton>
                         </Tooltip>

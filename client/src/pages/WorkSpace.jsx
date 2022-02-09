@@ -24,6 +24,7 @@ import {UserContext} from "../App";
 import html2canvas from 'html2canvas';
 import ResizeDiv2 from "../components/Resize-tryDiv/ResizeDiv2";
 import Example from "../components/Resize-tryDiv/ResizeDiv3";
+import {GreetingStyled} from "../styles/Greeting.styled";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -161,6 +162,10 @@ const WorkSpace =()=> {
                       isBackgroundMenuOpen={isBackgroundMenuOpen}
                       setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
             />
+
+            {/*<GreetingStyled>*/}
+            {/*    Welcome <span> {currentUser.name}</span>*/}
+            {/*</GreetingStyled>*/}
             {/*{isImgMenuOpen &&*/}
            <UploadImages overlay={inputText}
                          overlayColor={overlayColor}

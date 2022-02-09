@@ -46,13 +46,13 @@ const HomePage = () => {
             >Welcome to PhotoBasta</HeadingH1Styled>
 
             <HomePageMenu />
-            <GreetingStyled>
+            {/*<GreetingStyled>*/}
                 <TopMenuBar as={motion.div} step={stepCounter}
                  variants={xVariants}
                 initial={'initial'}
                             animate='animate'
                 />
-            </GreetingStyled>
+            {/*</GreetingStyled>*/}
 
             {/*<ListDividers/>*/}
 

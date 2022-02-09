@@ -13,17 +13,17 @@ const RegisterPage =()=> {
     const[formData,setFormData]= useState({});
 
 
-    const handleSubmitRegister = async ()=>{
+    const handleSubmitRegister2 = async ()=>{
         try {
-            // const name = formData.name
-            // const email = formData.email
-            // const password = formData.password
-            const{name, email, password} = formData
+            const name = formData.name
+            const email = formData.email
+            const password = formData.password
+            // const{name, email, password} = formData
             const response = await myApi.post('/users/register',{name:name,email:email,password:password})
             console.log('register',response)
             if(response.status===200) {
                 console.log('yes',response.data)
-                setCurrentUser(response.data.user)
+                setCurrentUser(response.data)
             }
         }
         catch (e) {
@@ -33,9 +33,9 @@ const RegisterPage =()=> {
 
     const handleSubmitLoginGuest= async ()=> {
         try {
-            const response = await myApi.post('/users/login',{email:'guest',password:'guest'})
-            console.log('login-Guest',response)
-            setCurrentUser(response.data.user)
+            const response = await myApi.post('/users/login',{name:'guest',email:'guest',password:'guest'})
+            console.log('login-Guest',response.data.user)
+            setCurrentUser(response.data)
         }catch(e) {
             console.log(e.message)
         }
@@ -46,6 +46,7 @@ const RegisterPage =()=> {
         let newFormData = formData
         newFormData[e.target.name] = e.target.value
         setFormData(newFormData)
+        console.log('form',formData)
 
     }
 
@@ -56,7 +57,7 @@ const RegisterPage =()=> {
                 <LoginRegisterForm type={'register'}
                                    handleFormInputs={handleFormInputs}
                                    formData={formData}
-                                   handleSubmitLogin={handleSubmitRegister}
+                                   handleSubmitLogin={handleSubmitRegister2}
                                    handleSubmitLoginGuest={handleSubmitLoginGuest}/>
                 <NotRegisterTextStyled>
                     all ready Register ? <Link to='/login'><span> click here </span> </Link>  to Login

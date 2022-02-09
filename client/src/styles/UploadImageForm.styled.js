@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 export const UploadImageFormStyled = styled.form `
-  width: 100%;
-  height: 50px;
-   
+  width: 70%;
+  height: 80px;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: left;
   //flex-direction: column;
-  left: 60px;
+  left: 0;
   top: 0;
   z-index: 10000;
   gap: calc(.5rem + 3vw);
@@ -17,9 +16,12 @@ export const UploadImageFormStyled = styled.form `
   border: 1px solid grey;
   border-radius: 10px;
   //background: rgba(42, 52, 56, 0.93);
-  background: rgba(225, 225, 241, 0.35);
+  border-left: 8px rgba(44, 41, 41, 0.99) solid;
+  border-top: 1px #333333 solid;
+  background: rgba(236, 236, 236, 0.93);
 
   box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(44, 43, 43, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0  0  3px;
 
 
 `

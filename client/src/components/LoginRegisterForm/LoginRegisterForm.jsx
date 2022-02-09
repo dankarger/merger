@@ -20,18 +20,21 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
             >
             <LoginFormStyled>
 
-                {type==='login'? null: <TextField id="filled-basic" label="Name"
+                {type==='login'? null: <TextField id="filled-basic-name" label="Name"
                                                   variant="filled"
                                                   onChange={handleFormInputs}
                                                   name='name'
                                                   value={formData.name}
+                                                  autoComplete="current-name"
                 />}
 
-                <TextField id="filled-basic" label="Email"
+                <TextField id="filled-basic-email" label="Email"
                            variant="filled"
                            onChange={handleFormInputs}
                            name='email'
                            value={formData.email}
+                           autoComplete="current-email"
+
                 />
 
                 <TextField

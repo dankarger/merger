@@ -5,7 +5,7 @@ export const WorkPageStyled = styled(motion.div) `
   width:100%;
   height:100%;
   text-decoration: none;
-  position: relative;
+  position: absolute;
   display: flex;
   
   flex-direction: column;
