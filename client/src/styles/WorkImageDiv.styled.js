@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const WorkImageDivStyled = styled.div `
  
-  width: 60vw;
-  height: 60vh;
-  max-width: 1280px;
-  max-height: 720px;
+  width: 90vmin;
+  height: 70vmin;
+  //max-width: 1280px;
+  //max-height: 720px;
   background-image: ${({image})=>image};
   //padding: 0 20px;
   // margin:20px auto;

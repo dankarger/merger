@@ -23,8 +23,8 @@ export const UploadImageFormStyled = styled.form `
   //box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   //box-shadow: rgba(44, 43, 43, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0  0  3px;
   height: calc(100% - 150px);
-
-  padding: 70px  15px 0 25px  ;
+  width: 200px;
+  padding: 70px 15px 0 25px;
   //margin:0 auto;
   display: flex;
   justify-content: start;
@@ -37,6 +37,6 @@ export const UploadImageFormStyled = styled.form `
   top: 150px;
   border: 1px solid grey;
   border-radius: 10px;
-  background: rgba(236, 236, 236, 0.93);
+  background: rgb(236, 236, 236);
 
 `

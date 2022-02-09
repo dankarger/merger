@@ -22,21 +22,37 @@ export default function ToolBar({imageCallback,
             value={view}
             exclusive
             onChange={handleChange}
+            color='info'
             sx={{width:'100%',display:'flex',justifyContent:'left',marginLeft:'1rem' }}
         >
-            <ToggleButton sx={{padding:'0 1rem '}} value="list" aria-label="list" onClick={()=>imageCallback(!isMenuOpen)}>
+            <ToggleButton sx={{padding:'0 1rem '}} value="list" aria-label="list" onClick={()=>{
+                imageCallback(menu=>!menu)
+                textCallback(false)
+                setIsBackGroundMenuOpen(false)
+            }}>
               Image
             </ToggleButton>
             {/*<Tooltip sx={{zIndex:11000}} title="Text Overlay">*/}
 
-                <ToggleButton value="module" aria-label="module" onClick={()=>textCallback(!isTextMenuOpen)}>
+                <ToggleButton value="module" aria-label="module"
+                              onClick={()=>{
+                                    textCallback(!isTextMenuOpen)
+                                    imageCallback(false)
+                                    setIsBackGroundMenuOpen(false)
+
+                              }}>
                  Text
                 </ToggleButton>
             {/*</Tooltip>*/}
-            <ToggleButton value="background" aria-label="quilt" onClick={()=>setIsBackGroundMenuOpen(state=>!state)}>
+            <ToggleButton value="quilt" aria-label="quilt" onClick={()=>{
+                setIsBackGroundMenuOpen(state=>!state)
+                textCallback(false)
+                imageCallback(false)
+
+            }}>
                 Color
             </ToggleButton>
-            <ToggleButton value="quilt" aria-label="quilt">
+            <ToggleButton value="quilt2" aria-label="quilt2">
                 FX
             </ToggleButton>
         </ToggleButtonGroup>

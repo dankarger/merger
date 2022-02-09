@@ -3,24 +3,23 @@ import {motion} from 'framer-motion'
 
 
 export const AddBackGroundColorStyled = styled(motion.div) `
-  //padding: 40px 20px;
+ width: 200px;
+  height: calc(100% - 150px);
+
+  padding: 70px 15px 0 25px;
   //margin:0 auto;
-  width:20%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  gap: 4rem;
+  align-items: start;
   flex-direction: column;
-  position: fixed;
-  z-index: 11000;
-  left: 60px;
+  position: absolute;
+  z-index: 150;
+  left: 0;
   top: 150px;
   border: 1px solid grey;
   border-radius: 10px;
-  background: rgba(236, 236, 236, 0.93);
+  background: rgb(236, 236, 236);
 
-  &:hover {
-    cursor: grab;
-  }
-  
 
 `

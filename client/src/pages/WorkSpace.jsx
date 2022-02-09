@@ -158,7 +158,8 @@ const WorkSpace =()=> {
                          handleMergeButton={handleMergeButton}
                          setUploadedFile={setUploadedFile}
                          downloadLink={downloadLink}
-           />}
+           />
+            }
             {isTextMenuOpen &&
             <AddText callback={handleInputChange}
                      value={inputText}
@@ -175,6 +176,8 @@ const WorkSpace =()=> {
             />
             }
             <MenuLeftPlaceHolder />
+            {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={handleBackgroundChange}/>}
+
             <WorkingDivBounderiesStyled>
 
            <ResizeDiv2
@@ -182,7 +185,6 @@ const WorkSpace =()=> {
             Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
             drag
         >
-            {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={handleBackgroundChange}/>}
             <WorkImageDivStyled as={motion.div}
                                 backGroundColor={backgroundColor.css.backgroundColor}
                                     ref={overlayDivRef}
@@ -196,7 +198,16 @@ const WorkSpace =()=> {
                     drag
                     dragConstraints={overlayDivRef}
                 >
+                    {backgroundImage &&
+                    <ResizeDiv2
+                    Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
+                    Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
+                    drag
+                >
 
+                    <img ref={constraintsRef}   src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
+                </ResizeDiv2>
+                        }
                     <OverlayTextDiveStyled
                     width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
                     height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}

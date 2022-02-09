@@ -14,9 +14,10 @@ const Gallery = () => {
     const [isDetailCardOpen, setIsDetailCardOpen]=useState(false);
     const [selectedCard,setSelectedCard]=useState({});
 
-     const handleSelectCard=(card)=>{
+     const handleSelectCard=(card,cardRef)=>{
          setIsDetailCardOpen(!isDetailCardOpen);
          setSelectedCard(card)
+
      }
 
     return (

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import {DetailCardStyled} from "../../styles/DetailCard.styled";
 import CardDetail from "../Card/CardDetail";
 import {DetailCardStyleVariants} from "../../animations/animations";

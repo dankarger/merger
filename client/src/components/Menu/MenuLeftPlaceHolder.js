@@ -6,7 +6,7 @@ const MenuLeftPlaceHolder=()=>{
 
     return(
         <MenuLeftPlaceHolderStyled>
-dd
+
         </MenuLeftPlaceHolderStyled>
     )
 }

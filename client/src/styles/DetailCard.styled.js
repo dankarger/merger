@@ -12,9 +12,10 @@ export const DetailCardStyled = styled(motion.div) `
   align-items: center;
   //flex-direction: column;
   //position: absolute;
-  //top: 50vh;
+  //top: 50%;
+  //left:50%;
   //margin-top:-10%;
-  position: absolute;
+  position: fixed;
   left: calc(50vw - 50%);
   top: calc(50vh - 50%);;
   //transform: translate(-50%, -50%);

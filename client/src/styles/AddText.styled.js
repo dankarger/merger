@@ -3,14 +3,14 @@ import {motion} from 'framer-motion'
 
 
 export const AddTextStyled = styled(motion.div) `
-  //width: 100%;
+  max-width: 250px;
   height: calc(100% - 150px);
 
-  padding: 70px  15px 0 25px  ;
+  padding:  0px 15px 0 15px;
   //margin:0 auto;
   display: flex;
   justify-content: start;
-  gap: 4rem;  
+  gap: 1.5rem;
   align-items: start;
   flex-direction: column;
   position: absolute;
@@ -19,7 +19,10 @@ export const AddTextStyled = styled(motion.div) `
   top: 150px;
   border: 1px solid grey;
   border-radius: 10px;
-  background: rgba(236, 236, 236, 0.93);
+  background: rgb(236, 236, 236);
 
-   
+  #chooseText {
+    padding:0;
+  }
+
 `

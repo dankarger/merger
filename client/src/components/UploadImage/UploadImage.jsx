@@ -16,7 +16,8 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function UploadImages({setBackgroundImage,
                                          handleMergeButton,
-                                         setUploadedFile,downloadLink}) {
+                                         setUploadedFile,
+                                         downloadLink}) {
     const[fileInputState,setFileInputState]=useState('')
     const [previewSource,setPreviewSource]=useState()
     const[fileName,setFileName] = useState('')

@@ -12,6 +12,7 @@ import AddPosition from "../AddPosition/AddPosition";
 import AddFontSize from "../AddFontSize/AddFontSize";
 import {AddTextHeadingStyled} from "../../styles/AddTextHeading.styled";
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
+import ChooseTextDecoration from "../../styles/ChooseTextDecoration/ChooseTextDecoration";
 
 const AddText = ({callback,
                      value,
@@ -29,7 +30,7 @@ const AddText = ({callback,
             initial='initial'
             animate='animate'
         >
-
+<ChooseTextDecoration id={'chooseText'}/>
             <TextField id="outlined-basic"
                        label="Add Text"
                        variant="outlined"
@@ -40,6 +41,7 @@ const AddText = ({callback,
                 <AddFontSize fontSize={fontSize} setFontSize={setFontSize}/>
 
                 <AddPosition positionProp={position} positionsState={positionsState} setPositionState={setPositionState}/>
+
             <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
             <ColorPickerDivStyled>
                          < FormatColorTextIcon />

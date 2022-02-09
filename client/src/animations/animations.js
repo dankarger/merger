@@ -46,12 +46,14 @@ export const HeadingH1Variants = {
 
 export const MenuLeftVariants = {
     initial:{
-        x:'-100vw'
+        // x:'-400px',
+        opacity:0
     },
     animate:{
       x:0,
+        opacity:1,
         transition:{
-         stiffness:12,duration:.4
+         stiffness:12,duration:.3
         }
     }
 }

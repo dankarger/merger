@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect,useRef} from "react";
 import {Image} from 'cloudinary-react'
 import myApi from '../../api/Api';
 import ActionAreaCard from "../../components/Card/Card";
@@ -12,6 +12,7 @@ import {CardGalleryStyled} from "../../styles/CardGallery.styled";
 const DownloadImages = ({handleSelectCard}) => {
     const [imageIds, setImageId] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const cardRef=useRef(null)
     const cld = new Cloudinary({
         cloud: {
             cloudName: 'meme3'
@@ -51,17 +52,17 @@ const DownloadImages = ({handleSelectCard}) => {
                         {imageIds && imageIds.map((imageId, index) => (
                             <CardGalleryStyled  key={imageId._id}>
                            <ActionAreaCard
+                               ref={cardRef}
                                title ={imageId.title}
                                createdBy={imageId.nameOfUser}
 
                                image={ <GalleryItemStyled><Image
-
-                                cloudName="meme3"
+                                   cloudName="meme3"
                                 publicId={imageId.url}
                                 crop='scale'
                                 title={imageId.title}
 
-                                onClick={()=>handleSelectCard(imageId)}
+                                onClick={()=>handleSelectCard(imageId,cardRef)}
                                /></GalleryItemStyled>}/>
                             </CardGalleryStyled>
                         ))}
