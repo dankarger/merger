@@ -22,7 +22,7 @@ export default function ActionAreaCard({image,title,createdBy}) {
                     <Typography gutterBottom variant="p" component="div">
                      {title}
                     </Typography>
-                    <Typography variant="p" component="p"color="text.secondary">
+                    <Typography variant="p" component="p" color="text.secondary">
                        Created by <StrongStyled> {createdBy} </StrongStyled>
                     </Typography>
                 </CardContent>

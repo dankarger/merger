@@ -22,7 +22,7 @@ export default function CardDetail({card,handleSelectCard}) {
             >
                 <CancelPresentationIcon  sx={{m:1,fontSize:50}} onClick={handleSelectCard}/>
             </motion.div>
-            <Typography sx={{textAlign:'center'}}center variant="h3" component="h1">
+            <Typography   center variant="h3" component="h1">
                {card.title}
             </Typography>
             <CardMedia  sx={{border:'1px solid #333333'}}

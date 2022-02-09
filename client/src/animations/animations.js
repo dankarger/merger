@@ -125,7 +125,7 @@ export const ButtonYoYoVariants = {
         // textShadow:" 0px 0px 8px rgb(255,255,255)",
         // boxShadow:" 0px 0px 8px rgb(255,255,255)",
         transition:{
-            yoyo :Infinity,type:"spring",
+            repeat :Infinity,type:"spring",
             stiffness:201,mass:12
         },
     }

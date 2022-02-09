@@ -3,7 +3,7 @@ import {motion} from 'framer-motion'
 
 
 export const MenuLeftPlaceHolderStyled = styled(motion.div) `
-  width: 100px;
+  width: 200px;
   height: calc(100% - 150px);
 
   padding: 70px  15px 0 25px  ;
@@ -14,7 +14,7 @@ export const MenuLeftPlaceHolderStyled = styled(motion.div) `
   align-items: start;
   flex-direction: column;
   position: absolute;
-  z-index: 150;
+  z-index: 0;
   left: 0;
   top: 150px;
   border: 1px solid grey;

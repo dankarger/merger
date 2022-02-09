@@ -20,7 +20,7 @@ const HomePageContent=()=> {
         {/*animate='visible'*/}
         {/*>*/}
 
-            <AddPhotoAlternateIcon sx={{fontSize:'34vw'}}
+            <AddPhotoAlternateIcon sx={{fontSize:'55vw'}}
                                    variants={pathVariants}
                                    initial='hidden'
                                    animate='visible'/>

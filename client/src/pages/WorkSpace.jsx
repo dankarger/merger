@@ -24,6 +24,7 @@ import {UserContext} from "../App";
 import html2canvas from 'html2canvas';
 import ResizeDiv2 from "../components/Resize-tryDiv/ResizeDiv2";
 import MenuLeftPlaceHolder from "../components/Menu/MenuLeftPlaceHolder";
+import {WorkingDivBounderiesStyled} from "../styles/WorkingDivBounderies.styled";
 
 const WorkSpace =()=> {
     const[inputText,setInputText]=useState('');
@@ -107,7 +108,7 @@ const WorkSpace =()=> {
                 headers: { 'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'}
             });
-            setIsSnackBar(!isSnackbar);
+            setIsSnackBar(snack=>!snack);
             downloadLink.current = link.data.secure_url
             console.log('fuck',downloadLink)
             setDownloadLink(downloadLink)
@@ -152,10 +153,6 @@ const WorkSpace =()=> {
                       setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
             />
 
-            {/*<GreetingStyled>*/}
-            {/*    Welcome <span> {currentUser.name}</span>*/}
-            {/*</GreetingStyled>*/}
-            {/*{isImgMenuOpen &&*/}
            <UploadImages overlay={inputText}
                          overlayColor={overlayColor}
                          setBackgroundImage={setBackgroundImage}
@@ -166,7 +163,6 @@ const WorkSpace =()=> {
                          setUploadedFile={setUploadedFile}
                          downloadLink={downloadLink}
            />
-            {/*}*/}
             {isTextMenuOpen &&
             <AddText callback={handleInputChange}
                      value={inputText}
@@ -182,6 +178,9 @@ const WorkSpace =()=> {
                      setFontSize={setFontSize}
             />
             }
+            <MenuLeftPlaceHolder />
+            <WorkingDivBounderiesStyled>
+
            <ResizeDiv2
             Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
             Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
@@ -244,8 +243,9 @@ const WorkSpace =()=> {
                     {/*</ResizeDiv2>*/}
 
 
-            </WorkImageDivStyled>
-            </ResizeDiv2>
+                 </WorkImageDivStyled>
+               </ResizeDiv2>
+            </WorkingDivBounderiesStyled>
             <Snackbars1 isOpen={isSnackbar}/>
             {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage}
                                                 isMergeFormOpen={isMergeFormOpen}

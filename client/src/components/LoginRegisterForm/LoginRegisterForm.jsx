@@ -7,17 +7,7 @@ import TextField from '@mui/material/TextField';
 
 
 export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLogin,formData,handleSubmitLoginGuest}) {
-    const nameInputRef = useRef(null)
-    const emailInputRef = useRef(null)
-
-    useEffect(()=>{
-
-        if(nameInputRef.current!==null){
-            nameInputRef.current.focus();
-        }else {
-            emailInputRef.current.focus();
-        }
-    },[])
+   
 
     return (
 
@@ -36,7 +26,6 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                                                   name='name'
                                                   value={formData.name}
                                                   autoComplete="current-name"
-                                                  ref={nameInputRef}
                                                   autoFocus={type!=='login'}
                 />}
 
@@ -46,7 +35,6 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                            name='email'
                            value={formData.email}
                            autoComplete="current-email"
-                           ref={emailInputRef}
                            autoFocus={type==='login' }
 
                 />
