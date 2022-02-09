@@ -21,3 +21,19 @@ export const loggedInUserMessage = {
     titleColor:'green',
 
 }
+
+export const SignInUserMessage = {
+    title:'Sign-Up Successfully',
+    message:'You Sign-up as ',
+    message2: 'Welcome to Merger ,your Image merging app, We are Happy You Joined, You can Create your own merges , view others works, and download, Have Fun :)  ',
+    navigate:'/work',
+    titleColor:'green',
+}
+
+export const ErrorUserMessage = {
+    title: 'Error',
+    message: 'failure ',
+    message2: 'the operation failed :( ',
+    navigate: '/login',
+    titleColor: 'red',
+}

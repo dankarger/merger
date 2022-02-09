@@ -63,9 +63,9 @@ export default function CustomizedDialogs({isDialogueOpen,modalInfo}) {
     };
     useEffect(()=>{
         setOpen(isDialogueOpen)
-        return ()=>{
-            setOpen(false)
-        }
+        // return ()=>{
+        //     setOpen(false)
+        // }
     },[isDialogueOpen])
 
     return (
@@ -76,7 +76,7 @@ export default function CustomizedDialogs({isDialogueOpen,modalInfo}) {
                 aria-labelledby="customized-dialog-title"
                 open={open}
             >
-                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose} color='green'>
+                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose} color={modalInfo.titleColor}>
                     {modalInfo.title}
                 </BootstrapDialogTitle>
                 <DialogContent dividers>

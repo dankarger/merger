@@ -199,13 +199,8 @@ const WorkSpace =()=> {
                 <ImageDivStyled
                     drag
                     dragConstraints={overlayDivRef}
-                ><ResizeDiv2
-                    Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
-                    Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
-                    drag
                 >
-                    <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}}/>
-                </ResizeDiv2>
+
                     <OverlayTextDiveStyled
                     width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
                     height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
@@ -229,18 +224,6 @@ const WorkSpace =()=> {
 
                 {/*}*/}
                 <UploadImageDivStyled image={backgroundImage}/>
-                {/*<Canvas draw={draw} />*/}
-
-                    {/*<ResizeDiv2*/}
-                    {/*    drag*/}
-                    {/*    dragConstraints={overlayDivRef}*/}
-                    {/*>*/}
-                    {/*    <motion.div*/}
-                    {/*        drag*/}
-                    {/*    >*/}
-                    {/*    <img ref={constraintsRef}   src={backgroundImage} alt="chosen" style={{height: '100%'}} />*/}
-                    {/*    </motion.div>*/}
-                    {/*</ResizeDiv2>*/}
 
 
                  </WorkImageDivStyled>

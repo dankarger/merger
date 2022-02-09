@@ -6,7 +6,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import {NotRegisterTextStyled} from "../styles/NotRegisterText.styled";
 import {UserContext} from "../App";
 import myApi from "../api/Api";
-import {loggedInGuestMessage, loggedInUserMessage} from "./Info/Info";
+import {SignInUserMessage, loggedInGuestMessage} from "./Info/Info";
 import CustomizedDialogs from "../components/Dialog/Dialog";
 
 
@@ -65,7 +65,7 @@ const RegisterPage =()=> {
         }
 
         else if(type==='user') {
-            const{title,message,message2,navigate}=loggedInUserMessage
+            const{title,message,message2,navigate}=SignInUserMessage
             setModalInfo({title:title,message:`${message} ${user.name}`,message2:message2,navigate:navigate})
         }
         setIsDialogueOpen(true);
