@@ -9,7 +9,7 @@ export const ColorPickerDivStyled = styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  //flex-direction: column;
   border: #333030 1px solid;
   background: #e3dcdc;
   box-shadow: rgba(81, 81, 101, 0.25) 0 30px 60px -12px inset,

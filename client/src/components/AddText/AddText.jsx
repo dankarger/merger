@@ -11,6 +11,7 @@ import {Checkbox} from "@mui/material";
 import AddPosition from "../AddPosition/AddPosition";
 import AddFontSize from "../AddFontSize/AddFontSize";
 import {AddTextHeadingStyled} from "../../styles/AddTextHeading.styled";
+import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
 
 const AddText = ({callback,
                      value,
@@ -21,12 +22,7 @@ const AddText = ({callback,
     // const [inputText,setInputText]=useState('');
 
     return (
-        // <>
-        // <motion.div
-        //     variants={MenuLeftVariants}
-        //     initial='initial'
-        //     animate='animate'
-        // >
+
 
         <AddTextStyled
             variants={MenuLeftVariants}
@@ -40,16 +36,14 @@ const AddText = ({callback,
                        onChange={callback}
                        value={value}
             />
-            {/*<Button variant="contained" color="success" onClick={()=>console.log()}>Add</Button>*/}
-            {/*<ContainerStyled>*/}
-            {/*<Button variant="contained" color="success" onClick={()=>{*/}
-            {/*}}>Add</Button>*/}
+
                 <AddFontSize fontSize={fontSize} setFontSize={setFontSize}/>
 
                 <AddPosition positionProp={position} positionsState={positionsState} setPositionState={setPositionState}/>
+            <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
             <ColorPickerDivStyled>
-                <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
-                <ColorPicker   value={color} onChange={handleChange}/>
+                         < FormatColorTextIcon />
+                    <ColorPicker   value={color} onChange={handleChange}/>
             </ColorPickerDivStyled>
             {/*</ContainerStyled>*/}
 

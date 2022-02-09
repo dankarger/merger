@@ -152,17 +152,13 @@ const WorkSpace =()=> {
                       isBackgroundMenuOpen={isBackgroundMenuOpen}
                       setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
             />
-
-           <UploadImages overlay={inputText}
-                         overlayColor={overlayColor}
+            {isImgMenuOpen &&
+           <UploadImages
                          setBackgroundImage={setBackgroundImage}
-                         onMouseMove={onMouseMove}
-                         uploadImage={uploadImage}
                          handleMergeButton={handleMergeButton}
-                         handleCloseMergeForm={handleCloseMergeForm}
                          setUploadedFile={setUploadedFile}
                          downloadLink={downloadLink}
-           />
+           />}
             {isTextMenuOpen &&
             <AddText callback={handleInputChange}
                      value={inputText}

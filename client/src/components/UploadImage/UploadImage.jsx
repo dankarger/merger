@@ -14,7 +14,9 @@ import {fadeIn} from "../../animations/animations";
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-export default function UploadImages({overlay,setBackgroundImage,onMouseMove,uploadImage,handleMergeButton,handleCloseMergeForm,setUploadedFile,downloadLink}) {
+export default function UploadImages({setBackgroundImage,
+                                         handleMergeButton,
+                                         setUploadedFile,downloadLink}) {
     const[fileInputState,setFileInputState]=useState('')
     const [previewSource,setPreviewSource]=useState()
     const[fileName,setFileName] = useState('')
@@ -23,9 +25,7 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
         const file = e.target.files[0];
         previewFile(file);
         if(file.name.length>0) setFileName(file.name);
-
     }
-
     function download () {
         alert('down')
         const a = document.createElement('a');
@@ -56,7 +56,6 @@ export default function UploadImages({overlay,setBackgroundImage,onMouseMove,upl
             <UploadImageFormStyled
                                    action="" onSubmit={handleSubmitFile}
                                    className='form'
-                                   // as={motion.div}
             >
                 <motion.div
                     variants={fadeIn}
