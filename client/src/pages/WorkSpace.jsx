@@ -203,6 +203,7 @@ const WorkSpace =()=> {
             <WorkImageDivStyled as={motion.div}
                                 backGroundColor={backgroundColor.css.backgroundColor}
                                     ref={overlayDivRef}
+                                drag
             >
 
                 {!backgroundImage && <SkeletonDiv />}

@@ -8,7 +8,7 @@ export const WorkPageStyled = styled(motion.div) `
   text-decoration: none;
   //position: absolute;
   display: flex;
-  //padding-top: 4rem;
+   margin-top:80px;
   //padding-bottom:14rem;
   flex-direction: column;
   align-items: center;

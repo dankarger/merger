@@ -8,8 +8,8 @@ export const UploadImageFormStyled = styled.form `
   align-items: center;
   justify-content: left;
   //flex-direction: column;
-  left: 0;
-  top: 0;
+  left: 20%;
+  top: 110px;
   z-index: 10000;
   gap: calc(.5rem + 3vw);
   padding-left:150px;

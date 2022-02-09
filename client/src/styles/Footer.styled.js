@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {motion} from 'framer-motion'
 
 export const FooterStyled = styled(motion.footer) `
-  margin-top: 90vh;
+  margin-top: 10vh;
   width: 100%;
   max-height: 60px;
   min-height: 50px;

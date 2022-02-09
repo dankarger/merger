@@ -18,13 +18,13 @@ export default function ToolBar({imageCallback,
 
     return (
         <ToggleButtonGroup
-            orientation="vertical"
+            orientation="horizontal"
             value={view}
             exclusive
             onChange={handleChange}
-            sx={{width:'100%'}}
+            sx={{width:'100%',display:'flex',justifyContent:'left',marginLeft:'1rem' }}
         >
-            <ToggleButton value="list" aria-label="list" onClick={()=>imageCallback(!isMenuOpen)}>
+            <ToggleButton sx={{padding:'0 1rem '}} value="list" aria-label="list" onClick={()=>imageCallback(!isMenuOpen)}>
               Image
             </ToggleButton>
             {/*<Tooltip sx={{zIndex:11000}} title="Text Overlay">*/}
