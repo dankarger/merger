@@ -63,7 +63,7 @@ const WorkSpace =()=> {
     const[uploadedFile,setUploadedFile] = useState();
     const[downLoadLink,setDownloadLink]=useState()
     const[isDownloadLinkReady,setIsDownloadLinkReady]=useState(false);
-    const[imageFormat,setImageFormat]=useState('png')
+    const[imageFormat,setImageFormat]=useState('JPG')
     const downloadLinkRef = useRef(null)
 
     //Reff
@@ -208,10 +208,12 @@ const WorkSpace =()=> {
                  <ResizeDiv2
                 Imagewidth={uploadedFile ? exportRef.current.naturalWidth: '100px'}
                 Imageheight={uploadedFile? exportRef.current.naturalHeight : '100px'}
+                drag
                 >
 
             <WorkImageDivStyled as={motion.div}
                                 // backgroundColor={backgroundColor}
+                drag
                               color={backgroundColor}
                                 ref={exportRef}
                                 >

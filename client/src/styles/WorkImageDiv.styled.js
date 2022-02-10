@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const WorkImageDivStyled = styled.div `
- 
+   
   width: 90vmin;
   height: 70vmin;
   //max-width: 1280px;

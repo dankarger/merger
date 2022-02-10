@@ -34,7 +34,7 @@ export default function AddFontSize({fontSize,setFontSize}) {
     };
 
     return (
-        <Box sx={{ width: 250 }}>
+        <Box sx={{ width: 220 }}>
             <Typography id="input-slider" gutterBottom>
                 Font Size:
             </Typography>
