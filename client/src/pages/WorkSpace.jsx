@@ -79,6 +79,7 @@ const WorkSpace =()=> {
           await  uploadImage()
         }
     }
+
      const download2= async ()=>{
 
         console.log('gggggdfgdfgdfgd',imageTitle)
@@ -99,10 +100,6 @@ const WorkSpace =()=> {
     useEffect(()=>{
         setOverlayText(inputText)
     },[inputText])
-
-    // const handleChange = (value) => {
-    //     setColor(value);
-    // };
     const handleBackgroundChange =(value)=> {
         setBackGroundColor(value)
     }
@@ -110,14 +107,6 @@ const WorkSpace =()=> {
        console.log(e.nativeEvent.offsetX,e.nativeEvent.offsetY)
         setCursorPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
     }
-
-    // const onMouseMove=(e) =>{
-    //     const obj = {x:e.x,y:e.y}
-    //     console.log('obj',obj)
-    //     xPos.current =obj;
-    //     console.log('p',xPos)
-    //     console.log('c',constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight)
-    // }
 
     const uploadImage= async () => {
 
@@ -189,9 +178,11 @@ const WorkSpace =()=> {
                       isTextMenuOpen={isTextMenuOpen}
                       isBackgroundMenuOpen={isBackgroundMenuOpen}
                       setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
+                      downLoadLink={downLoadLink}
                       variants={fadeIn}
                       initial='initial'
                       animate='animate'
+
             />
 
             {isImgMenuOpen &&
@@ -287,7 +278,7 @@ const WorkSpace =()=> {
                                                 imageTitle={imageTitle}
 
             /> }
-          <button onClick={download2} >dooooownload mother fucker</button>
+          <button onClick={download2} >dooooownload </button>
             {/*<Footer />*/}
         </WorkPageStyled>
 

@@ -2,21 +2,35 @@ import * as React from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Tooltip from '@mui/material/Tooltip';
-
+import {Link} from 'react-router-dom'
+import {useEffect, useState} from "react";
 
 export default function ToolBar({imageCallback,
                                     isMenuOpen,
                                     textCallback,
                                     isTextMenuOpen,
-                                    setIsBackGroundMenuOpen
+                                    setIsBackGroundMenuOpen,
+                                    downLoadLink
                                 }) {
     const [view, setView] = React.useState('list');
-
+    const[isDownloadLink,setIsDownloadLink]=useState(null)
     const handleChange = (event, nextView) => {
         setView(nextView);
     };
 
+    useEffect(()=>{
+        if(downLoadLink){
+            setIsDownloadLink(downLoadLink)
+        }
+    },[downLoadLink])
+
+    const generateDownloadButton = ()=>{
+        if(isDownloadLink) {
+            return <Link to={{pathname: downLoadLink}} target='_blank' download type={'image/png'}>Download Image</Link>
+        }
+    }
     return (
+        <div>
         <ToggleButtonGroup
             orientation="horizontal"
             value={view}
@@ -32,8 +46,6 @@ export default function ToolBar({imageCallback,
             }}>
               Image
             </ToggleButton>
-            {/*<Tooltip sx={{zIndex:11000}} title="Text Overlay">*/}
-
                 <ToggleButton value="module" aria-label="module"
                               onClick={()=>{
                                     textCallback(menu=>!menu)
@@ -43,7 +55,6 @@ export default function ToolBar({imageCallback,
                               }}>
                  Text
                 </ToggleButton>
-            {/*</Tooltip>*/}
             <ToggleButton value="quilt" aria-label="quilt"
                           onClick={()=>{
                 setIsBackGroundMenuOpen(menu=>!menu)
@@ -73,6 +84,10 @@ export default function ToolBar({imageCallback,
             >
               MERGE
             </ToggleButton>
+            {isDownloadLink && <Link to={{pathname: downLoadLink}} target='_blank' download type={'image/png'}>Download Image</Link>}
+
         </ToggleButtonGroup>
+            {/*{generateDownloadButton}*/}
+            </div>
     );
 }

@@ -22,19 +22,21 @@ const HomePage = () => {
     const[stepCounter,setStepCounter]=useState(0)
 
 
-    useEffect(()=>{
-
-
-          setInterval(()=>{
-              if(stepCounter<=3) {
-                  setStepCounter(prev => prev + 1)
-              }else {
-                  setStepCounter(0)
-              }
-
-          },2000)
-
-    },[])
+    // useEffect(()=>{
+    //
+    //
+    //       setInterval(()=>{
+    //           if(stepCounter<=3) {
+    //               setStepCounter(prev => prev + 1)
+    //           }else {
+    //               setStepCounter(0)
+    //           }
+    //
+    //       },2000)
+    //     return ()=> {
+    //
+    //     }
+    // },[stepCounter])
 
 
     return (

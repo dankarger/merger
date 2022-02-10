@@ -126,20 +126,7 @@ export default function UploadImages({setBackgroundImage,
                variants = {DownloadButtonVariants}
                whileHover='hover'
                >
-                   {downloadLink &&<Link to={{pathname:downloadLink}}  target='_blank' download type={'image/png'} >dd}
-
-                   {/*<Tooltip sx={{zIndex:111000,background:'red'}} title="Upload an Image">*/}
-                       <AtagStyled
-                           // href={downloadLink}
-                           //         variants = {DownloadButtonVariants}
-                           //         whileHover='hover'
-                          // target="_blank"
-                          //   // download={downloadLink}
-                           onClick={download}
-                       >Download Image</AtagStyled>
-                   </Link>}
                </DownloadButtonStyled>
-
         </UploadImageFormStyled>
         </>
     )
