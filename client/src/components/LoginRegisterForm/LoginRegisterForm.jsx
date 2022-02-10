@@ -30,11 +30,12 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                 />}
 
                 <TextField id="filled-basic-email" label="Email"
+                           type="email"
                            variant="filled"
                            onChange={handleFormInputs}
                            name='email'
                            value={formData.email}
-                           autoComplete="current-email"
+                           // autoComplete="current-email"
                            autoFocus={type==='login' }
 
                 />

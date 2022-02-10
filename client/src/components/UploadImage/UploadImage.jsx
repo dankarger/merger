@@ -11,6 +11,7 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import {fadeIn} from "../../animations/animations";
 import AddImageBorder from "../AddImageBorder/AddImageBorder";
 import CustomSwitch from "../Switch/Switch";
+import {Link} from "react-router-dom";
 
 export default function UploadImages({setBackgroundImage,
                                          handleMergeButton,
@@ -38,7 +39,8 @@ export default function UploadImages({setBackgroundImage,
         const a = document.createElement('a');
         a.download = downloadLink
         a.target='_blank'
-        a.click()
+        a.type='file'
+        // a.click()
         console.log(a)
     }
 
@@ -119,18 +121,21 @@ export default function UploadImages({setBackgroundImage,
                variants = {DownloadButtonVariants}
                whileHover='hover'
                >
+                   {downloadLink &&<Link to={{pathname:downloadLink}}  target='_blank' download type={'image/png'} >dd}
+
                    {/*<Tooltip sx={{zIndex:111000,background:'red'}} title="Upload an Image">*/}
                        <AtagStyled
                            // href={downloadLink}
                            //         variants = {DownloadButtonVariants}
                            //         whileHover='hover'
-                          target="_blank"
-                            download={downloadLink}
+                          // target="_blank"
+                          //   // download={downloadLink}
                            onClick={download}
                        >Download Image</AtagStyled>
-               </DownloadButtonStyled
-               >
-            </UploadImageFormStyled>
+                   </Link>}
+               </DownloadButtonStyled>
+
+        </UploadImageFormStyled>
         </>
     )
 }
