@@ -175,6 +175,8 @@ const WorkSpace =()=> {
                       initial='initial'
                       animate='animate'
                       download={download2}
+                      handleMergeButton={handleMergeButton}
+                      backgroundImage={backgroundImage}
 
             />
 

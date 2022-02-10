@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom'
 import {useEffect, useState} from "react";
 import Button from "@mui/material/Button";
 import {ToolBarMenuStyled} from "../../styles/ToolBarMenu.styled";
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import MergeIcon from '@mui/icons-material/Merge';
 
 export default function ToolBar({imageCallback,
                                     isMenuOpen,
@@ -14,7 +16,9 @@ export default function ToolBar({imageCallback,
                                     setIsBackGroundMenuOpen,
                                     downLoadLink,
                                     isDownloadLinkReady,
-                                     download
+                                     download,
+                                    handleMergeButton,
+                                    backgroundImage
                                 }) {
     const [view, setView] = React.useState('list');
     const[isDownloadLink,setIsDownloadLink]=useState(false)
@@ -39,9 +43,9 @@ export default function ToolBar({imageCallback,
             exclusive
             onChange={handleChange}
             color='info'
-            sx={{width:'100%',display:'flex',justifyContent:'center',marginLeft:'1rem',gap:'2rem' }}
+            sx={{width:'100%',display:'flex',justifyContent:'left',marginLeft:'5%'  }}
         >
-            <div>
+
             <ToggleButton sx={{padding:'0 1rem '}} value="list" aria-label="list" onClick={()=>{
                 imageCallback(menu=>!menu)
                 textCallback(false)
@@ -87,10 +91,11 @@ export default function ToolBar({imageCallback,
             >
               MERGE
             </ToggleButton>
-            </div>
 
 
-            <Button onClick={download} variant="contained" color={'success'} disabled={!isDownloadLinkReady} >Download Image</Button>
+            <Button style={{justifySelf:'center'}} onClick={handleMergeButton} variant={backgroundImage?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
+
+            <Button style={{justifySelf:'center'}} onClick={download} variant="contained" color={'success'} disabled={!isDownloadLinkReady}> <FileDownloadIcon /> Download Image</Button>
 
 
         </ToggleButtonGroup>

@@ -9,7 +9,11 @@ const MenuLeft=({imageCallback,
                     isTextMenuOpen,
                     textCallback,
                     backgroundColor,
-                    setIsBackGroundMenuOpen,download,isDownloadLinkReady}) => {
+                    setIsBackGroundMenuOpen,
+                    download,
+                    isDownloadLinkReady,
+                    handleMergeButton,
+                    backgroundImage}) => {
 
 
     return (
@@ -26,6 +30,8 @@ const MenuLeft=({imageCallback,
                      setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
                      download={download}
                      isDownloadLinkReady={isDownloadLinkReady}
+                     handleMergeButton={handleMergeButton}
+                     backgroundImage={backgroundImage}
             />
         </MenuLeftStyled>
     )
