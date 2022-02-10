@@ -33,7 +33,8 @@ export default function UploadImages({setBackgroundImage,
         if(file.name.length>0) setFileName(file.name);
     }
     function download () {
-        alert('down')
+        alert(downloadLink)
+        console.log('d',downloadLink)
         const a = document.createElement('a');
         a.download = downloadLink
         a.target='_blank'

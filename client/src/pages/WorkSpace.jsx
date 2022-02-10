@@ -92,17 +92,18 @@ const WorkSpace =()=> {
         setCursorPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
     }
 
-    const onMouseMove=(e) =>{
-        const obj = {x:e.x,y:e.y}
-        console.log('obj',obj)
-        xPos.current =obj;
-        console.log('p',xPos)
-        console.log('c',constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight)
-    }
+    // const onMouseMove=(e) =>{
+    //     const obj = {x:e.x,y:e.y}
+    //     console.log('obj',obj)
+    //     xPos.current =obj;
+    //     console.log('p',xPos)
+    //     console.log('c',constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight)
+    // }
 
     const uploadImage= async () => {
          try {
-            const combinedLayers =  await captureHtmlToJpg()
+            const combinedLayers =  await captureHtmlToJpg();
+            console.log('com',combinedLayers)
             let overlayObject = {
                 overlayText:overlayText,
                 fontSize:fontSize,
