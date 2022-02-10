@@ -9,7 +9,6 @@ import FormatColorTextIcon from "@mui/icons-material/FormatColorText";
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 const AddImageBorder = ({ setImageBorderWidth,
-
                             imageBorderWidth,
                             setImageBorderRadius,
                             imageBorderRadius,
@@ -17,8 +16,7 @@ const AddImageBorder = ({ setImageBorderWidth,
                             imageBorderColor  }) => {
 
 const handleColorChange=(e)=>{
-    setImageBorderColor(e.css.backgroundColor)
-    console.log('color',imageBorderColor)
+    setImageBorderColor(e.target.value)
 }
 
     return (

@@ -9,6 +9,11 @@ import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
 const AddBackGroundColor =({backGroundColor,setBackGroundColor })=> {
 
 
+    const handleChange=(e)=>{
+        setBackGroundColor(e.target.value)
+    }
+
+
     return (
         <AddBackGroundColorStyled
             variants={MenuLeftVariants}

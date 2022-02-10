@@ -19,7 +19,10 @@ const AddText = ({callback,
                      position,positionsState,
                      setPositionState,setFontSize,fontSize})=> {
     // const [inputText,setInputText]=useState('');
+const handleColorChange=(e)=> {
 
+    handleChange(e.target.value)
+}
 
 
     return (
@@ -46,7 +49,7 @@ const AddText = ({callback,
             <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
             <ColorPickerDivStyled>
                          {/*< FormatColorTextIcon />*/}
-                <ColorPickerHtml color={color} onChange={handleChange} label={'Text Color'} icon={ <FormatColorTextIcon/>}/>
+                <ColorPickerHtml value={color} setColor={handleChange} label={'Text Color'} icon={ <FormatColorTextIcon/>}/>
             </ColorPickerDivStyled>
 
         </AddTextStyled>

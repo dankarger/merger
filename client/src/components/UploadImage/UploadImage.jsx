@@ -103,6 +103,7 @@ export default function UploadImages({setBackgroundImage,
                     /> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>
                 </motion.div>
                 Image -border
+
                 <AddImageBorder  imageBorderWidth={ imageBorderWidth}
                                  setImageBorderWidth={ setImageBorderWidth}
                                  setImageBorderRadius={setImageBorderRadius}

@@ -34,24 +34,31 @@ const WorkSpace =()=> {
     const[imageTile,setImageTitle]=useState('Title');
     const[imageBorderWidth,setImageBorderWidth]=useState(20);
     const[imageBorderRadius,setImageBorderRadius]=useState(0);
-    const[imageBorderColor,setImageBorderColor]=useState();
+    const[imageBorderColor,setImageBorderColor]=useState('#6e6868');
 
-
+    //Text
     const[inputText,setInputText]=useState('');
     const[overlayColor,setOverlayColor]=useState('');
     const[isTextMenuOpen,setIsTextMenuOpen]=useState(false);
     const[overlayText,setOverlayText] = useState({inputText})
-    const [color, setColor] = useState(createColor("#000"));
-    const[backgroundColor,setBackGroundColor]=useState({css:{backgroundColor:'#333333'}});
+    const [color, setColor] = useState("#000000");
+    const TextOverlayRef = useRef();
+    const [fontSize,setFontSize]=useState('80');
+
+    //Background
+    const[backgroundColor,setBackGroundColor]=useState('#333333');
     const[isBackgroundMenuOpen,setIsBackGroundMenuOpen]=useState()
-    const [cursorPosition,setCursorPosition]=useState({x:0,y:0})
+
+    //Positions
+    const [cursorPosition,setCursorPosition]=useState({x:0,y:0});
+    const position = useRef('top');
+    const [positionState,setPositionState]=useState('center');
+
+    //Utils
     const[isSnackbar,setIsSnackBar]=useState(false)
     const constraintsRef = useRef(null);
     const constraintsRefAddText = useRef(null);
-    const TextOverlayRef = useRef();
-    const position = useRef('top');
-    const [positionState,setPositionState]=useState('center');
-    const [fontSize,setFontSize]=useState('80');
+
     const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
     const[uploadedFile,setUploadedFile] = useState('');
     const downloadLink = useRef('')
@@ -73,9 +80,9 @@ const WorkSpace =()=> {
         setOverlayText(inputText)
     },[inputText])
 
-    const handleChange = (value) => {
-        setColor(value);
-    };
+    // const handleChange = (value) => {
+    //     setColor(value);
+    // };
     const handleBackgroundChange =(value)=> {
         setBackGroundColor(value)
     }
@@ -99,10 +106,7 @@ const WorkSpace =()=> {
                 fontSize:fontSize,
                 color:color,
                 backgroundColor:backgroundColor,
-                // position:[xPos.x,xPos.y],
-                // position:[Math.floor(xPos.current.y), Math.floor(xPos.current.x)],
                 position:[Math.floor(xPos.current.x ), Math.floor(xPos.current.y)],
-
                 gravity:positionState,
                 title:imageTile,
                 windowSize:[window.innerWidth,window.innerHeight],
@@ -179,14 +183,11 @@ const WorkSpace =()=> {
             {isTextMenuOpen &&
             <AddText callback={handleInputChange}
                      value={inputText}
-                     handleChange={handleChange}
+                     handleChange={setColor}
                      color={color}
                      drag
                      dragElastic={111}
                      dragConstraints={constraintsRefAddText}
-                     position={position}
-                     positionsState={positionState}
-                     setPositionState={setPositionState}
                      fontSize={fontSize}
                      setFontSize={setFontSize}
             />
@@ -199,13 +200,12 @@ const WorkSpace =()=> {
            <ResizeDiv2
             Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
             Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
-            drag
-        >
+            drag>
+
             <WorkImageDivStyled as={motion.div}
-                                backGroundColor={backgroundColor.css.backgroundColor}
+                                backGroundColor={backgroundColor}
                                 ref={overlayDivRef}
-                                drag
-            >
+                                drag>
 
                 {!backgroundImage && <SkeletonDiv />}
                 {/*{backgroundImage &&*/}
@@ -224,10 +224,11 @@ const WorkSpace =()=> {
 
                 >
 
-                    <motion.img ref={constraintsRef}   src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
+                    <motion.img drag ref={constraintsRef}   src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
                 </ResizeDiv2>
                         }
                     <OverlayTextDiveStyled
+                        drag
                     width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
                     height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
                     >
@@ -237,13 +238,10 @@ const WorkSpace =()=> {
                                            dragElastic={111}
                                            transition={{type:'spring',stiffness:300}}
                                            textshadow={'1px 1px 1px black'}
-                                           color={color.css.backgroundColor}
+                                           color={color}
                                            fontSize={fontSize}
                                            dragConstraints={overlayDivRef}
                                              ref={TextOverlayRef}
-                                           onDrag={onMouseMove}
-                                             onClick={_onMouseMove}
-                                             position={convertPositionToCss(position.current)}
                         > {inputText}</OverlayTextStyled>
                     </OverlayTextDiveStyled >
                 </ImageDivStyled>
