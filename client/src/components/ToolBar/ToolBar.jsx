@@ -1,13 +1,14 @@
 import * as React from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import Tooltip from '@mui/material/Tooltip';
-import {Link} from 'react-router-dom'
 import {useEffect, useState} from "react";
 import Button from "@mui/material/Button";
 import {ToolBarMenuStyled} from "../../styles/ToolBarMenu.styled";
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import MergeIcon from '@mui/icons-material/Merge';
+import LooksOneIcon from '@mui/icons-material/LooksOne';
+import LooksTwoIcon from '@mui/icons-material/LooksTwo';
+import {AddTextSecondStyled} from "../../styles/AddTextDivider.styled";
 
 export default function ToolBar({imageCallback,
                                     isMenuOpen,
@@ -19,7 +20,8 @@ export default function ToolBar({imageCallback,
                                      download,
                                     handleMergeButton,
                                     backgroundImage,
-                                    overlayText
+                                    overlayText,
+                                    textCallbackSecond
                                 }) {
     const [view, setView] = React.useState('list');
     const[isDownloadLink,setIsDownloadLink]=useState(false)
@@ -46,10 +48,10 @@ export default function ToolBar({imageCallback,
             color='info'
             sx={{width:'100%',display:'flex',justifyContent:'left',marginLeft:'5%'  }}
         >
-
             <ToggleButton sx={{padding:'0 1rem '}} value="list" aria-label="list" onClick={()=>{
                 imageCallback(menu=>!menu)
                 textCallback(false)
+                textCallbackSecond(false)
                 setIsBackGroundMenuOpen(false)
             }}>
               Image
@@ -57,17 +59,29 @@ export default function ToolBar({imageCallback,
                 <ToggleButton value="module" aria-label="module"
                               onClick={()=>{
                                     textCallback(menu=>!menu)
-                                    imageCallback(false)
+                                  textCallbackSecond(false)
+                                  imageCallback(false)
                                     setIsBackGroundMenuOpen(false)
 
                               }}>
-                 Text
+              Text   <LooksOneIcon/>
                 </ToggleButton>
+            <ToggleButton value="module2" aria-label="module2"
+                          onClick={()=>{
+                              textCallbackSecond(menu=>!menu)
+                              textCallback(false)
+                              imageCallback(false)
+                              setIsBackGroundMenuOpen(false)
+
+                          }}>
+                Text <LooksTwoIcon />
+            </ToggleButton>
             <ToggleButton value="quilt" aria-label="quilt"
                           onClick={()=>{
                 setIsBackGroundMenuOpen(menu=>!menu)
-                textCallback(false)
-                imageCallback(false)
+                              textCallbackSecond(false)
+                              textCallback(false)
+                              imageCallback(false)
 
             }}>
                 Color
@@ -75,32 +89,17 @@ export default function ToolBar({imageCallback,
             <ToggleButton value="fx" aria-label="fx"
                           onClick={()=>{
                               setIsBackGroundMenuOpen(false)
+                              textCallbackSecond(false)
                               textCallback(false)
                               imageCallback(false)
-
                           }}
             >
                 FX
             </ToggleButton>
-            <ToggleButton value="export" aria-label="export"
-                          onClick={()=>{
-                              setIsBackGroundMenuOpen(false)
-                              textCallback(false)
-                              imageCallback(false)
-
-                          }}
-            >
-              MERGE
-            </ToggleButton>
-
 
             <Button style={{justifySelf:'center'}} onClick={handleMergeButton} variant={(backgroundImage||overlayText)?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
-
             <Button style={{justifySelf:'center'}} onClick={download} variant="contained" color={'success'} disabled={!isDownloadLinkReady}> <FileDownloadIcon /> Download Image</Button>
-
-
         </ToggleButtonGroup>
-
             // </ToolBarMenuStyled>
     );
 }

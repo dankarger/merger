@@ -1,6 +1,7 @@
 import React, {createRef, useContext, useEffect, useRef, useState} from "react";
 import UploadImages from "../components/UploadImage/UploadImage";
 import AddText from "../components/AddText/AddText";
+import {AddTextSecondStyled} from "../styles/AddTextSecond.styled";
 import MenuLeft from "../components/Menu/MenuLeft";
 import Snackbars1 from "../components/SnackBar/SnackBar1";
 import {ImageDivStyled} from "../styles/ImageDiv.styled";
@@ -26,6 +27,7 @@ import MenuLeftPlaceHolder from "../components/Menu/MenuLeftPlaceHolder";
 import {WorkingDivBounderiesStyled} from "../styles/WorkingDivBounderies.styled";
 import {fadeIn} from "../animations/animations";
 import axios from 'axios'
+import AddTextSecond from "../components/AddTextSecond/AddTextSecond";
 
 const WorkSpace =()=> {
     //image const
@@ -40,6 +42,7 @@ const WorkSpace =()=> {
     const[inputText,setInputText]=useState(String);
     // const[overlayColor,setOverlayColor]=useState('#000000');
     const[isTextMenuOpen,setIsTextMenuOpen]=useState(false);
+    const[isTextMenuSecondOpen,setIsTextMenuSecondOpen]=useState(false)
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState("#000000");
     const TextOverlayRef = useRef();
@@ -143,11 +146,8 @@ const WorkSpace =()=> {
     }
 
     const captureHtmlToJpg =async ()=> {
-        console.log('ref',exportRef)
          const response = await  html2canvas(exportRef.current).then(function (canvas) {
           return (canvas.toDataURL("image/jpeg", 0.9))
-           // const response = await  html2canvas(overlayDivRef.current).then(function (canvas) {
-           //     return canvas.toDataURL("image/jpeg", 0.9)
     })
           return  response
 
@@ -158,6 +158,7 @@ const WorkSpace =()=> {
             <MenuLeft imageCallback={setIsImgMenuOpen}
                       isMenuOpen={isImgMenuOpen}
                       textCallback={setIsTextMenuOpen}
+                      textCallbackSecond={setIsTextMenuSecondOpen}
                       isTextMenuOpen={isTextMenuOpen}
                       isBackgroundMenuOpen={isBackgroundMenuOpen}
                       setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
@@ -171,7 +172,6 @@ const WorkSpace =()=> {
                       overlayText={overlayText}
 
             />
-
             {isImgMenuOpen &&
             <UploadImages
                          setBackgroundImage={setBackgroundImage}
@@ -199,6 +199,18 @@ const WorkSpace =()=> {
                      setFontSize={setFontSize}
             />
             }
+          {isTextMenuSecondOpen &&
+          <AddTextSecond callback={handleInputChange}
+                   value={inputText}
+                   handleChange={setColor}
+                   color={color}
+                   drag
+                   dragElastic={111}
+              // dragConstraints={constraintsRefAddText}
+                   fontSize={fontSize}
+                   setFontSize={setFontSize}
+          />
+          }
             <MenuLeftPlaceHolder />
             {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={handleBackgroundChange}/>}
             <WorkingDivBounderiesStyled

@@ -14,7 +14,7 @@ export const WorkImageDivStyled = styled.div `
   align-items: center;
   flex-direction: column;
   position: relative;
-  top:50px;
+  //top:50px;
   font-size: 5vmin;
   overflow: hidden;
  

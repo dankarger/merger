@@ -6,22 +6,20 @@ export const OverlayTextStyled = styled(motion.div) `
   //height: 100%;
   color: ${({color})=> color || '#33333'};
    font-size: ${({fontSize})=>fontSize +'px' || '80px'  };
-  //font-size: calc(1rem + 10vw);
-  
   font-family: ${({fontFamily})=> fontFamily|| 'Roboto , sans-serif'};
   text-shadow: ${({textShadow})=>textShadow || '1px 1px 1px black'};
   //transform: translateY(-200px);
-  //transform: translate(-50%, -10%);
-
+  //transform: translate(-50%, -50%);
   position: absolute;
   ${({position})=> position};
+   
   //padding: 0 20px;
   //margin:0 auto;
   //display: flex;
   //justify-content: center;
   //align-items: center;
   //flex-direction: column;
- 
+  //
   &:hover {
     cursor: grab;
   }

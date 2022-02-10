@@ -11,49 +11,49 @@ import {AddTextHeadingStyled} from "../../styles/AddTextHeading.styled";
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
 import ChooseTextDecoration from "../../styles/ChooseTextDecoration/ChooseTextDecoration";
 import ColorPickerHtml from "../ColorPickerHtml/ColorPickerHtml";
-import {AddTextSecondStyled} from "../../styles/AddTextDivider.styled";
+import {AddTextSecondStyled} from "../../styles/AddTextSecond.styled";
 
-const AddText = ({callback,
+const AddTextSecond = ({callback,
                      value,
                      color,
                      handleChange,
                      setFontSize,fontSize})=> {
 
-const handleColorChange=(e)=> {
+    const handleColorChange=(e)=> {
 
-    handleChange(e.target.value)
-}
+        handleChange(e.target.value)
+    }
 
 
     return (
-        <AddTextStyled
+        <AddTextSecondStyled
             variants={MenuLeftVariants}
             initial='initial'
             animate='animate'
         >
-<ChooseTextDecoration id={'chooseText'}/>
+            <ChooseTextDecoration id={'chooseText'}/>
             <TextField id="outlined-basic"
                        label="Add Text"
                        variant="outlined"
                        onChange={callback}
                        value={value}
             />
-                <AddFontSize fontSize={fontSize} setFontSize={setFontSize}/>
+            <AddFontSize fontSize={fontSize} setFontSize={setFontSize}/>
             <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
             <ColorPickerDivStyled>
-                         {/*< FormatColorTextIcon />*/}
+                {/*< FormatColorTextIcon />*/}
                 <ColorPickerHtml value={color} setColor={handleChange} label={'Text Color'} icon={ <FormatColorTextIcon/>}/>
             </ColorPickerDivStyled>
 
             <hr/>
 
-        </AddTextStyled>
+        </AddTextSecondStyled>
 
 
     )
 }
 
-export default AddText
+export default AddTextSecond
 
 
 
