@@ -7,19 +7,10 @@ const findUser= async (id)=>{
 }
 
 const getImages = async ()=> {
-    // console.log('getImages22')
-    const resources = await cloudinary.search.expression('folder:workspaceop/*').sort_by('public_id', 'desc')
+    return await cloudinary.search.expression('folder:workspaceop/*').sort_by('public_id', 'desc')
         .max_results(50)
         .execute();
-    // const publicIds = await resources.map( file => file.public_id);
-    // console.log('gg',resources)
 
-    return resources
-    // res.send(publicIds);
-    // return (data)
-    // return resources
-    // console.log('get users')
-    // return('users')
 }
 
 
@@ -30,41 +21,13 @@ const getMongoImages= async ()=> {
 }
 
 const uploadImage = async (req,res)=> {
-
         const user = await findUser(req.body.user._id||req.body.user.id)
         const fileStr = req.body.data;
-        const imageTitle = req.body.overlay.overlayObject.title;
-        //try1
-        // const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,  {
-        //     upload_preset: 'workspace',tags: user.name, sign_url: true,
-        //     transformation: [
-        //         {overlay: {  font_family: "Roboto",
-        //                      font_size: fontSize,
-        //                      text:overlay}, flags:`attachment:${imageTitle}` ,
-        //                      // color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:( x-300) / windowSize[0] ,y:(y-300)/ windowSize[1]},
-        //                      //   color: color,quality: "auto",width:"1.0",height:"1.0",gravity:"center", x:x-imageSize[0], y:y-imageSize[1] },
-        //             color: color,quality: "auto",width:"1.0",height:"1.0",gravity:gravity  },
-        //         {underlay:  { font_family: "Roboto",font_size: fontSize,
-        //                 text:overlay},gravity: "south", width: "1.0", height: "1", flags:"relative", opacity: 80,background:backgroundColor,color:backgroundColor }
-        //
-        //
-        // ]},function(error, result) { console.log(result, error) });
-
+        const imageTitle = req.body.title;
         const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,{ upload_preset: 'workspace',tags: user.name, sign_url: true,},function (error, result){ console.log(result, error) })
-        console.log('d', upLoadResponse2)
-
         const mongoImage = await addImage(upLoadResponse2,user,imageTitle)
-        console.log('1',mongoImage)
         return (mongoImage)
-
-    // }
-    // catch(e) {
-    //     console.log(e)
-    // }
 }
-
-
-
 
     const addImage = async (response,user,imageTitle) => {
         console.log('user',user)
@@ -77,20 +40,18 @@ const uploadImage = async (req,res)=> {
             nameOfUser:user.name,
             dateCreated:Date.now()
         }
+
         const mongoImage = await Image.create(image)
         console.log('mon',mongoImage)
          user.images.push(mongoImage._id)
         await user.save()
-        // console.log('mong',mongoImage)
         return (mongoImage)
-
 }
 
 const deleteImage = async (id) => {
     // TODO:add checks and validations
     const user = await User.findById("61fdbde72601c0ac1f890bbb");
     const image = await Image.findOne({_id:id})
-    // const image = await Image.deleteOne({_id:id});
     await cloudinary.uploader.destroy(image.public_id, function(error,result) {
         console.log(result, error) });
     await image.delete()

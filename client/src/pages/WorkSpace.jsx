@@ -19,7 +19,6 @@ import Canvas from "../components/CanvasElement/Canvas";
 import {convertPositionToCss} from "../utils/utils";
 import ModalMergeForm from "../components/ModalMergeForm/ModalMergeForm";
 import AddBackGroundColor from "../components/AddBackgroundColor/AddBackGroundColor";
-import {Link} from "react-router-dom";
 import {UserContext} from "../App";
 import html2canvas from 'html2canvas';
 import ResizeDiv2 from "../components/Resize-tryDiv/ResizeDiv2";
@@ -39,7 +38,7 @@ const WorkSpace =()=> {
 
     //Text
     const[inputText,setInputText]=useState(String);
-    const[overlayColor,setOverlayColor]=useState('#000000');
+    // const[overlayColor,setOverlayColor]=useState('#000000');
     const[isTextMenuOpen,setIsTextMenuOpen]=useState(false);
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState("#000000");
@@ -51,9 +50,9 @@ const WorkSpace =()=> {
     const[isBackgroundMenuOpen,setIsBackGroundMenuOpen]=useState()
 
     //Positions
-    const [cursorPosition,setCursorPosition]=useState({x:0,y:0});
-    const position = useRef('top');
-    const [positionState,setPositionState]=useState('center');
+    // const [cursorPosition,setCursorPosition]=useState({x:0,y:0});
+    // const position = useRef('top');
+    // const [positionState,setPositionState]=useState('center');
 
     //Utils
     const[isSnackbar,setIsSnackBar]=useState(false);
@@ -71,8 +70,8 @@ const WorkSpace =()=> {
 
 
     const [currentUser,setCurrentUser]= useContext(UserContext)
-    let xPos = useRef({x:0,y:0});
-    const overlayDivRef = useRef(null)
+    // let xPos = useRef({x:0,y:0});
+    // const overlayDivRef = useRef(null)
 
     const handleSendMergeForm = async ()=>{
         if(uploadedFile) {
@@ -105,27 +104,29 @@ const WorkSpace =()=> {
 
          try {
             const combinedLayers =  await captureHtmlToJpg();
-            let overlayObject = {
-                overlayText:overlayText,
-                fontSize:fontSize,
-                color:color,
-                backgroundColor:backgroundColor,
-                position:[Math.floor(xPos.current.x ), Math.floor(xPos.current.y)],
-                gravity:positionState,
-                title:imageTitle,
-                windowSize:[window.innerWidth,window.innerHeight],
-                imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
-            }
+            // let overlayObject = {
+            //     overlayText:overlayText,
+            //     fontSize:fontSize,
+            //     color:color,
+            //     backgroundColor:backgroundColor,
+            //     position:[Math.floor(xPos.current.x ), Math.floor(xPos.current.y)],
+            //     gravity:positionState,
+            //     title:imageTitle,
+            //     windowSize:[window.innerWidth,window.innerHeight],
+            //     imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
+            // }
              const link = await myApi.post('/images', {
-                data: combinedLayers ,overlay:{overlayObject},user:currentUser,
+                data: combinedLayers ,
+                 // overlay:{overlayObject},
+                 user:currentUser,
+                 title:imageTitle,
                 headers: { 'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'}
             });
             setIsSnackBar(true);
             downloadLinkRef.current = link.data.secure_url
-            console.log('fuck',downloadLinkRef)
             setDownloadLink(downloadLinkRef.current)
-           setIsDownloadLinkReady(true)
+            setIsDownloadLinkReady(true)
         }catch (error) {
             console.log(error)
         }
