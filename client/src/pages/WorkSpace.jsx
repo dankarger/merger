@@ -101,6 +101,7 @@ const WorkSpace =()=> {
     // }
 
     const uploadImage= async () => {
+
          try {
             const combinedLayers =  await captureHtmlToJpg();
             console.log('com',combinedLayers)
@@ -151,10 +152,15 @@ const WorkSpace =()=> {
     }
 
     const captureHtmlToJpg =async ()=> {
-       const response = await  html2canvas(overlayDivRef.current).then(function (canvas) {
-       return canvas.toDataURL("image/jpeg", 0.9)
+
+       const response = await  html2canvas(constraintsRef.current).then(function (canvas) {
+       return   canvas.toDataURL("image/jpeg", 0.9)
+           // const response = await  html2canvas(overlayDivRef.current).then(function (canvas) {
+           //     return canvas.toDataURL("image/jpeg", 0.9)
     })
-    return response
+        // console.log('sss',response)
+        // return response
+
     }
 
     return(
@@ -208,7 +214,8 @@ const WorkSpace =()=> {
                 >
 
             <WorkImageDivStyled as={motion.div}
-                                backGroundColor={backgroundColor}
+                                // backgroundColor={backgroundColor}
+                              color={backgroundColor}
                                 ref={constraintsRef}
                                 >
 

@@ -18,7 +18,7 @@ export const WorkImageDivStyled = styled.div `
   font-size: 5vmin;
   overflow: hidden;
  
-  background-color:${({backGroundColor})=>backGroundColor||'#333333'} ;
+  background-color:${({color})=>color||'#333333'} ;
   //img {
   //  width:100%;
   //  height: 100%;
