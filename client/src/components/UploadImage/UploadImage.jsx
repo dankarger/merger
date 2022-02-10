@@ -35,9 +35,10 @@ export default function UploadImages({setBackgroundImage,
     function download () {
         alert('down')
         const a = document.createElement('a');
-        a.download = downloadLink.current
+        a.download = downloadLink
         a.target='_blank'
         a.click()
+        console.log(a)
     }
 
     const previewFile= (file) => {
@@ -119,11 +120,11 @@ export default function UploadImages({setBackgroundImage,
                >
                    {/*<Tooltip sx={{zIndex:111000,background:'red'}} title="Upload an Image">*/}
                        <AtagStyled
-                           // href={downloadLink.current}
+                           // href={downloadLink}
                            //         variants = {DownloadButtonVariants}
                            //         whileHover='hover'
-                           // // download={downloadLink.current} target="_blank"
-                           //  download
+                          target="_blank"
+                            download={downloadLink}
                            onClick={download}
                        >Download Image</AtagStyled>
                </DownloadButtonStyled

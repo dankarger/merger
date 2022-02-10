@@ -32,13 +32,13 @@ const WorkSpace =()=> {
     const[isImgMenuOpen,setIsImgMenuOpen]=useState(true);
     const[backgroundImage,setBackgroundImage]=useState();
     const[imageTile,setImageTitle]=useState('Title');
-    const[imageBorderWidth,setImageBorderWidth]=useState(20);
+    const[imageBorderWidth,setImageBorderWidth]=useState(5);
     const[imageBorderRadius,setImageBorderRadius]=useState(0);
-    const[imageBorderColor,setImageBorderColor]=useState('#6e6868');
+    const[imageBorderColor,setImageBorderColor]=useState('#000000');
 
     //Text
-    const[inputText,setInputText]=useState('');
-    const[overlayColor,setOverlayColor]=useState('');
+    const[inputText,setInputText]=useState(String);
+    const[overlayColor,setOverlayColor]=useState('#000000');
     const[isTextMenuOpen,setIsTextMenuOpen]=useState(false);
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState("#000000");
@@ -58,16 +58,17 @@ const WorkSpace =()=> {
     const[isSnackbar,setIsSnackBar]=useState(false)
     const constraintsRef = useRef(null);
     const constraintsRefAddText = useRef(null);
+    const dragConstraints = useRef(null);
 
     const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
     const[uploadedFile,setUploadedFile] = useState('');
-    const downloadLink = useRef('')
+
     const[downLoadLink,setDownloadLink]=useState('')
+    const downloadLinkRef = useRef('')
 
     const [currentUser,setCurrentUser]= useContext(UserContext)
     let xPos = useRef({x:0,y:0});
     const overlayDivRef = useRef(null)
-
 
     const handleSendMergeForm = async ()=>{
         if(uploadedFile) {
@@ -90,6 +91,7 @@ const WorkSpace =()=> {
        console.log(e.nativeEvent.offsetX,e.nativeEvent.offsetY)
         setCursorPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
     }
+
     const onMouseMove=(e) =>{
         const obj = {x:e.x,y:e.y}
         console.log('obj',obj)
@@ -120,9 +122,9 @@ const WorkSpace =()=> {
                     'Access-Control-Allow-Origin': '*'}
             });
             setIsSnackBar(snack=>!snack);
-            downloadLink.current = link.data.secure_url
-            console.log('fuck',downloadLink)
-            setDownloadLink(downloadLink)
+            downloadLinkRef.current = link.data.secure_url
+            console.log('fuck',downloadLinkRef)
+            setDownloadLink(downloadLinkRef.current)
             console.log('dddddddddd',downLoadLink)
         }catch (error) {
             console.log(error)
@@ -155,7 +157,7 @@ const WorkSpace =()=> {
     }
 
     return(
-        <WorkPageStyled ref={constraintsRefAddText}>
+      <WorkPageStyled ref={constraintsRefAddText}>
             <MenuLeft imageCallback={setIsImgMenuOpen}
                       isMenuOpen={isImgMenuOpen}
                       textCallback={setIsTextMenuOpen}
@@ -166,12 +168,13 @@ const WorkSpace =()=> {
                       initial='initial'
                       animate='animate'
             />
+
             {isImgMenuOpen &&
-           <UploadImages
+            <UploadImages
                          setBackgroundImage={setBackgroundImage}
                          handleMergeButton={handleMergeButton}
                          setUploadedFile={setUploadedFile}
-                         downloadLink={downloadLink}
+                         downloadLink={downLoadLink}
                          setImageBorderWidth={setImageBorderWidth}
                          imageBorderWidth={imageBorderWidth}
                          imageBorderRadius={imageBorderRadius}
@@ -194,25 +197,26 @@ const WorkSpace =()=> {
             }
             <MenuLeftPlaceHolder />
             {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={handleBackgroundChange}/>}
+            <WorkingDivBounderiesStyled
+                ref={dragConstraints}
+            >
 
-            <WorkingDivBounderiesStyled>
-
-           <ResizeDiv2
-            Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
-            Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
-            drag>
+                 <ResizeDiv2
+                Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
+                Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
+                >
 
             <WorkImageDivStyled as={motion.div}
                                 backGroundColor={backgroundColor}
-                                ref={overlayDivRef}
-                                drag>
+                                ref={constraintsRef}
+                                >
 
                 {!backgroundImage && <SkeletonDiv />}
                 {/*{backgroundImage &&*/}
 
                 <ImageDivStyled
                     drag
-                    dragConstraints={overlayDivRef}
+                    dragConstraints={dragConstraints}
                     color={imageBorderColor}
                     width={imageBorderWidth}
                     radius={imageBorderRadius}
@@ -221,10 +225,9 @@ const WorkSpace =()=> {
                     <ResizeDiv2
                     Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
                     Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
-
                 >
 
-                    <motion.img drag ref={constraintsRef}   src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
+                    <motion.img drag dragConstraints={dragConstraints} ref={constraintsRef}   src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
                 </ResizeDiv2>
                         }
                     <OverlayTextDiveStyled
@@ -234,22 +237,18 @@ const WorkSpace =()=> {
                     >
                         <OverlayTextStyled
                             // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
-                                             drag
+                                           drag
                                            dragElastic={111}
                                            transition={{type:'spring',stiffness:300}}
                                            textshadow={'1px 1px 1px black'}
                                            color={color}
                                            fontSize={fontSize}
-                                           dragConstraints={overlayDivRef}
+                                           dragConstraints={dragConstraints}
                                              ref={TextOverlayRef}
                         > {inputText}</OverlayTextStyled>
                     </OverlayTextDiveStyled >
                 </ImageDivStyled>
-
-                {/*}*/}
                 <UploadImageDivStyled image={backgroundImage}/>
-
-
                  </WorkImageDivStyled>
                </ResizeDiv2>
             </WorkingDivBounderiesStyled>

@@ -30,22 +30,10 @@ const getMongoImages= async ()=> {
 }
 
 const uploadImage = async (req,res)=> {
-    console.log('up')
-    // try {
-        console.log('ggggggggg',req.body.user)
+
         const user = await findUser(req.body.user._id||req.body.user.id)
-        console.log('uuuuser',user)
-        const overlay = req.body.overlay.overlayObject.overlayText   ;
         const fileStr = req.body.data;
-        const color = req.body.overlay.overlayObject.color.css.backgroundColor;
-        const  x = Math.floor(req.body.overlay.overlayObject.position[0]);
-        const  y = Math.floor(req.body.overlay.overlayObject.position[1]);
-        const windowSize = req.body.overlay.overlayObject.windowSize;
-        const imageSize = req.body.overlay.overlayObject.imageSize;
-        const gravity = req.body.overlay.overlayObject.gravity;
-        const fontSize = req.body.overlay.overlayObject.fontSize;
         const imageTitle = req.body.overlay.overlayObject.title;
-        const backgroundColor = req.body.overlay.overlayObject.backgroundColor.css.backgroundColor ;
         //try1
         // const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,  {
         //     upload_preset: 'workspace',tags: user.name, sign_url: true,
