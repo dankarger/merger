@@ -26,12 +26,13 @@ import ResizeDiv2 from "../components/Resize-tryDiv/ResizeDiv2";
 import MenuLeftPlaceHolder from "../components/Menu/MenuLeftPlaceHolder";
 import {WorkingDivBounderiesStyled} from "../styles/WorkingDivBounderies.styled";
 import {fadeIn} from "../animations/animations";
+import axios from 'axios'
 
 const WorkSpace =()=> {
     //image const
     const[isImgMenuOpen,setIsImgMenuOpen]=useState(true);
     const[backgroundImage,setBackgroundImage]=useState();
-    const[imageTile,setImageTitle]=useState('Title');
+    const[imageTitle,setImageTitle]=useState('Title');
     const[imageBorderWidth,setImageBorderWidth]=useState(5);
     const[imageBorderRadius,setImageBorderRadius]=useState(0);
     const[imageBorderColor,setImageBorderColor]=useState('#000000');
@@ -78,7 +79,23 @@ const WorkSpace =()=> {
           await  uploadImage()
         }
     }
+     const download2= async ()=>{
 
+        console.log('gggggdfgdfgdfgd',imageTitle)
+       await axios({
+            url: downLoadLink, //your url
+            method: 'GET',
+            responseType: 'blob', // important
+        }).then((response) => {
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            console.log('ddd',imageTitle)
+            link.setAttribute('download', `${imageTitle}.jpg`); //or any other extension
+            document.body.appendChild(link);
+            link.click();
+        });
+    }
     useEffect(()=>{
         setOverlayText(inputText)
     },[inputText])
@@ -114,7 +131,7 @@ const WorkSpace =()=> {
                 backgroundColor:backgroundColor,
                 position:[Math.floor(xPos.current.x ), Math.floor(xPos.current.y)],
                 gravity:positionState,
-                title:imageTile,
+                title:imageTitle,
                 windowSize:[window.innerWidth,window.innerHeight],
                 imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
             }
@@ -267,9 +284,10 @@ const WorkSpace =()=> {
                                                 setIsMergeFormOpen={setIsMergeFormOpen}
                                                 handleSendMergeForm={handleSendMergeForm}
                                                 setImageTitle={setImageTitle}
-                                                imageTitle={imageTile}
+                                                imageTitle={imageTitle}
 
             /> }
+          <button onClick={download2} >dooooownload mother fucker</button>
             {/*<Footer />*/}
         </WorkPageStyled>
 

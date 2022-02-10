@@ -46,7 +46,7 @@ export default function ModalMergeForm({isMergeFormOpen,
     const handleClose2=()=>{
         handleClose();
         setIsMergeFormOpen(false);
-        setImageTitle('');
+        // setImageTitle('');
 
 
     }
@@ -56,6 +56,7 @@ export default function ModalMergeForm({isMergeFormOpen,
         handleClose2()
     }
     const handleTitleChange=(e)=>{
+
         setImageTitle(e.target.value)
     }
 

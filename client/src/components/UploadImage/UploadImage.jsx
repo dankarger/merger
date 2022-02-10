@@ -34,14 +34,19 @@ export default function UploadImages({setBackgroundImage,
         if(file.name.length>0) setFileName(file.name);
     }
     function download () {
-        alert(downloadLink)
+
         console.log('d',downloadLink)
         const a = document.createElement('a');
-        a.download = downloadLink
+       const url = downloadLink.substring(8)
+        console.log(url)
+        a.href=downloadLink
+        a.download = "test.jpg"
         a.target='_blank'
-        a.type='file'
-        // a.click()
+        a.type='image/jpg'
+        a.click()
         console.log(a)
+
+
     }
 
     const previewFile= (file) => {
