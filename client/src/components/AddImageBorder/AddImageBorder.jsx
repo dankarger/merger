@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import CustomSwitch from "../Switch/Switch";
+import ColorPickerHtml from "../ColorPickerHtml/ColorPickerHtml";
 import {AddImageBorderStyled} from "../../styles/AddImageBorder.styled";
 import SlideImageBorder from "./SlideImageBorder";
 import {ColorPicker} from "material-ui-color";
@@ -21,17 +22,19 @@ const handleColorChange=(e)=>{
 
     return (
         <AddImageBorderStyled>
-            {/*<CustomSwitch /> <span>Border</span>*/}
+            <CustomSwitch /> <span>Border</span>
             {/*<ColorPicker onChange={handleColorChange} value={imageBorderColor}/>*/}
-            {/*<ColorPickerDivStyled>*/}
+            <ColorPickerDivStyled>
             {/*    < FormatColorTextIcon />*/}
+                <ColorPickerHtml imageBorderColor={imageBorderColor} setImageBorderColor={setImageBorderColor}/>
                 {/*<ColorPicker    onChange={handleColorChange}/>*/}
-            {/*</ColorPickerDivStyled>*/}
-        {/*<SlideImageBorder  setImageBorderWidth={ setImageBorderWidth}*/}
-        {/*                   imageBorderWidth={imageBorderWidth}*/}
-        {/*                   setImageBorderRadius={setImageBorderRadius}*/}
-        {/*                     imageBorderRadius={imageBorderRadius}*/}
-        {/*/>*/}
+            </ColorPickerDivStyled>
+
+        <SlideImageBorder  setImageBorderWidth={ setImageBorderWidth}
+                           imageBorderWidth={imageBorderWidth}
+                           setImageBorderRadius={setImageBorderRadius}
+                             imageBorderRadius={imageBorderRadius}
+        />
         </AddImageBorderStyled>
     )
 }
