@@ -70,11 +70,7 @@ const WorkSpace =()=> {
     const constraintsRefAddText = useRef(null);
     const dragConstraints = useRef(null);
     const exportRef = useRef(null)
-
-
     const [currentUser,setCurrentUser]= useContext(UserContext)
-    // let xPos = useRef({x:0,y:0});
-    // const overlayDivRef = useRef(null)
 
     const handleSendMergeForm = async ()=>{
         if(uploadedFile) {
@@ -104,20 +100,9 @@ const WorkSpace =()=> {
     }
 
     const uploadImage= async () => {
-
          try {
-            const combinedLayers =  await captureHtmlToJpg();
-            // let overlayObject = {
-            //     overlayText:overlayText,
-            //     fontSize:fontSize,
-            //     color:color,
-            //     backgroundColor:backgroundColor,
-            //     position:[Math.floor(xPos.current.x ), Math.floor(xPos.current.y)],
-            //     gravity:positionState,
-            //     title:imageTitle,
-            //     windowSize:[window.innerWidth,window.innerHeight],
-            //     imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
-            // }
+             const combinedLayers =  await captureHtmlToJpg();
+             setIsDownloadLinkReady(false)
              const link = await myApi.post('/images', {
                 data: combinedLayers ,
                  // overlay:{overlayObject},
