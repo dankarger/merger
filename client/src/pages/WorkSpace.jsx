@@ -55,16 +55,18 @@ const WorkSpace =()=> {
     const [positionState,setPositionState]=useState('center');
 
     //Utils
-    const[isSnackbar,setIsSnackBar]=useState(false)
+    const[isSnackbar,setIsSnackBar]=useState(false);
+    const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
+    const[uploadedFile,setUploadedFile] = useState();
+    const[downLoadLink,setDownloadLink]=useState()
+    const downloadLinkRef = useRef(null)
+
+    //Reff
     const constraintsRef = useRef(null);
     const constraintsRefAddText = useRef(null);
     const dragConstraints = useRef(null);
+    const exportRef = useRef(null)
 
-    const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
-    const[uploadedFile,setUploadedFile] = useState('');
-
-    const[downLoadLink,setDownloadLink]=useState('')
-    const downloadLinkRef = useRef('')
 
     const [currentUser,setCurrentUser]= useContext(UserContext)
     let xPos = useRef({x:0,y:0});
@@ -123,7 +125,7 @@ const WorkSpace =()=> {
                 headers: { 'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'}
             });
-            setIsSnackBar(snack=>!snack);
+            setIsSnackBar(true);
             downloadLinkRef.current = link.data.secure_url
             console.log('fuck',downloadLinkRef)
             setDownloadLink(downloadLinkRef.current)
@@ -152,14 +154,13 @@ const WorkSpace =()=> {
     }
 
     const captureHtmlToJpg =async ()=> {
-
-       const response = await  html2canvas(constraintsRef.current).then(function (canvas) {
-       return   canvas.toDataURL("image/jpeg", 0.9)
+        console.log('ref',exportRef)
+         const response = await  html2canvas(exportRef.current).then(function (canvas) {
+          return (canvas.toDataURL("image/jpeg", 0.9))
            // const response = await  html2canvas(overlayDivRef.current).then(function (canvas) {
            //     return canvas.toDataURL("image/jpeg", 0.9)
     })
-        // console.log('sss',response)
-        // return response
+          return  response
 
     }
 
@@ -197,7 +198,7 @@ const WorkSpace =()=> {
                      color={color}
                      drag
                      dragElastic={111}
-                     dragConstraints={constraintsRefAddText}
+                     // dragConstraints={constraintsRefAddText}
                      fontSize={fontSize}
                      setFontSize={setFontSize}
             />
@@ -209,14 +210,14 @@ const WorkSpace =()=> {
             >
 
                  <ResizeDiv2
-                Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
-                Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
+                Imagewidth={uploadedFile ? exportRef.current.naturalWidth: '100px'}
+                Imageheight={uploadedFile? exportRef.current.naturalHeight : '100px'}
                 >
 
             <WorkImageDivStyled as={motion.div}
                                 // backgroundColor={backgroundColor}
                               color={backgroundColor}
-                                ref={constraintsRef}
+                                ref={exportRef}
                                 >
 
                 {!backgroundImage && <SkeletonDiv />}
