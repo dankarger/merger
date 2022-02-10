@@ -4,7 +4,8 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-
+import {fadeIn} from "../../animations/animations";
+import {motion} from 'framer-motion'
 
 export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLogin,formData,handleSubmitLoginGuest}) {
    
@@ -12,6 +13,10 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
     return (
 
             <Box
+                as={motion.div}
+                variants={fadeIn}
+                initial='initial'
+                animate='animate'
                 component="form"
                 sx={{
                     '& > :not(style)': { m: 1, width: '25ch' },
@@ -19,6 +24,7 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                 noValidate
                 autoComplete="off"
             >
+
             <LoginFormStyled>
                 {type==='login'? null: <TextField id="filled-basic-name" label="Name"
                                                   variant="filled"

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const HomePageStyled = styled.div `
- 
-  height:70vh;
+ width:100vw;
+  height:130vh;
   max-width:100%;
   padding: 0 20px;
   margin:0 auto;

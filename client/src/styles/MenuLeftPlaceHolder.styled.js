@@ -3,11 +3,11 @@ import {motion} from 'framer-motion'
 
 
 export const MenuLeftPlaceHolderStyled = styled(motion.div) `
-  width: 200px;
-  height: calc(100% - 320px);
+  width: 215px;
+  height: calc(100% - 150px);
 
   padding: 70px 15px 0 25px;
-  margin-left: 10px;
+  //margin-left: 10px;
   display: flex;
   justify-content: start;
   gap: 4rem;
@@ -16,9 +16,11 @@ export const MenuLeftPlaceHolderStyled = styled(motion.div) `
   position: absolute;
   z-index: 0;
   left: 0;
-  top: 198px;
+  top: 170px;
   //border: 1px solid grey;
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
   //background: rgb(236, 236, 236);
   background-color: rgba(124,168,186,0.29);
 

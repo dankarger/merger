@@ -9,7 +9,7 @@ export const WorkPageStyled = styled(motion.div) `
   //position: absolute;
   display: flex;
    margin-top:80px;
-  //padding-bottom:14rem;
+  padding-top:2rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;

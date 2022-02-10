@@ -16,7 +16,7 @@ export const FooterStyled = styled(motion.footer) `
   color: whitesmoke;
   border-radius: 3px;
   gap: 2rem;
-  position: relative;
+  position: static;
   bottom: 0;
   z-index: 1000;
   //background: #4e5e5e;
