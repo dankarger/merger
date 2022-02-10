@@ -12,7 +12,7 @@ export const FooterStyled = styled(motion.footer) `
   align-items: center;
   flex-wrap: wrap;
   border: 2px solid #807474;
-  background-color: rgb(17, 38, 44);
+  background-color: rgb(60, 91, 94);
   color: whitesmoke;
   border-radius: 3px;
   gap: 2rem;

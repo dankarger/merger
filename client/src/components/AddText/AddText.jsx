@@ -42,7 +42,7 @@ const AddText = ({callback,
 
                 <AddFontSize fontSize={fontSize} setFontSize={setFontSize}/>
 
-                {/*<AddPosition positionProp={position} positionsState={positionsState} setPositionState={setPositionState}/>*/}
+                <AddPosition positionProp={position} positionsState={positionsState} setPositionState={setPositionState}/>
 
             <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
             <ColorPickerDivStyled>
