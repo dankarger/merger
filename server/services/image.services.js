@@ -24,7 +24,16 @@ const uploadImage = async (req,res)=> {
         const user = await findUser(req.body.user._id||req.body.user.id)
         const fileStr = req.body.data;
         const imageTitle = req.body.title;
-        const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,{ upload_preset: 'workspace',tags: user.name, sign_url: true,},function (error, result){ console.log(result, error) })
+        const imageFormat = req.body.format;
+        console.log('formaty',imageFormat)
+
+        const vectorize=(imageFormat==='SVG'?"vectorize:detail:1.0:corners:40:colors:3":'')
+        const upLoadResponse2 =await cloudinary.uploader.upload(fileStr,{ upload_preset: 'workspace',
+                                                                                tags: user.name,
+                                                                                sign_url: true,format:imageFormat,
+                                                                                effect:vectorize
+                                                                                            },
+                                                                                function (error, result){ console.log(result, error) })
         const mongoImage = await addImage(upLoadResponse2,user,imageTitle)
         return (mongoImage)
 }

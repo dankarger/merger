@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import {TextField} from "@mui/material";
 import {ButtonsDivStyled} from "../../styles/ButtonsDiv.styled";
 import {ModalMergeFormStyled} from "../../styles/ModalMergeForm.styled";
+import SelectimageFormat from "../SelectImageFormat/SelectimageFormat";
 
 const style = {
     position: 'absolute',
@@ -25,7 +26,10 @@ const style = {
 export default function ModalMergeForm({isMergeFormOpen,
                                            setIsMergeFormOpen,
                                            handleSendMergeForm,
-                                           imageTitle,setImageTitle}) {
+                                           imageTitle,
+                                           imageFormat,
+                                           setImageFormat,
+                                           setImageTitle}) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -78,14 +82,15 @@ export default function ModalMergeForm({isMergeFormOpen,
                           MergeForm
                         </Typography>
                         <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                            This will be the form
+                            Enter a Title for the Image
                             <TextField
                                 id="outlined-Title"
-                                label="Title"
+                                // label="Title"
                                 value={imageTitle}
                                 onChange={handleTitleChange}
                             />
                         </Typography>
+                            <SelectimageFormat setImageFormat={setImageFormat} imageFormat={imageFormat}/>
                             <ButtonsDivStyled>
                                 <Button variant="contained" type="submit" color="error" onClick={handleClose2}>Cancel</Button>
                                 <Button variant="contained" type="submit" color="success" onClick={HandleMergeButton}>Merge</Button>

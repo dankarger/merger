@@ -62,7 +62,8 @@ const WorkSpace =()=> {
     const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
     const[uploadedFile,setUploadedFile] = useState();
     const[downLoadLink,setDownloadLink]=useState()
-    const[isDownloadLinkReady,setIsDownloadLinkReady]=useState(false)
+    const[isDownloadLinkReady,setIsDownloadLinkReady]=useState(false);
+    const[imageFormat,setImageFormat]=useState('png')
     const downloadLinkRef = useRef(null)
 
     //Reff
@@ -86,8 +87,9 @@ const WorkSpace =()=> {
         }).then((response) => {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
+            const format = downloadLinkRef.current.substring(downloadLinkRef.current.length-3)
             link.href = url;
-            link.setAttribute('download', `${imageTitle}.jpg`); //or any other extension
+            link.setAttribute('download', `${imageTitle}.${format}`); //or any other extension
             document.body.appendChild(link);
             link.click();
         });
@@ -108,10 +110,11 @@ const WorkSpace =()=> {
                  // overlay:{overlayObject},
                  user:currentUser,
                  title:imageTitle,
-                headers: { 'Content-Type': 'application/json',
+                 format:imageFormat,
+                 headers: { 'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'}
             });
-            setIsSnackBar(true);
+            setIsSnackBar(snack=>!snack);
             downloadLinkRef.current = link.data.secure_url
             setDownloadLink(downloadLinkRef.current)
             setIsDownloadLinkReady(true)
@@ -261,6 +264,9 @@ const WorkSpace =()=> {
                                                 handleSendMergeForm={handleSendMergeForm}
                                                 setImageTitle={setImageTitle}
                                                 imageTitle={imageTitle}
+                                                setImageFormat={setImageFormat}
+                                                imageFormat={imageFormat}
+
 
             /> }
         </WorkPageStyled>
