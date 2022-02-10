@@ -9,9 +9,9 @@ export const MenuLeftPlaceHolderStyled = styled(motion.div) `
   padding: 70px 15px 0 25px;
   //margin-left: 10px;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   gap: 4rem;
-  align-items: start;
+  align-items: center;
   flex-direction: column;
   position: absolute;
   z-index: 0;
@@ -23,6 +23,7 @@ export const MenuLeftPlaceHolderStyled = styled(motion.div) `
 
   //background: rgb(236, 236, 236);
   background-color: rgba(124,168,186,0.29);
+  overflow: hidden;
 
 
 

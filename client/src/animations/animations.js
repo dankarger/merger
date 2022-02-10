@@ -53,7 +53,7 @@ export const MenuLeftVariants = {
       x:0,
         opacity:1,
         transition:{
-         stiffness:12,duration:.3
+         stiffness:12,duration:.1
         }
     }
 }

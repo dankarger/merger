@@ -47,23 +47,18 @@ export default function ModalMergeForm({isMergeFormOpen,
         handleClose();
         setIsMergeFormOpen(false);
         // setImageTitle('');
-
-
     }
-    const HandleMergeButton =()=>{
 
+    const HandleMergeButton =()=>{
         handleSendMergeForm()
         handleClose2()
     }
     const handleTitleChange=(e)=>{
-
         setImageTitle(e.target.value)
     }
 
     return (
         <div>
-            {/*hhh*/}
-            {/*<Button onClick={handleOpen}>Open modal</Button>*/}
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -90,7 +85,6 @@ export default function ModalMergeForm({isMergeFormOpen,
                                 value={imageTitle}
                                 onChange={handleTitleChange}
                             />
-
                         </Typography>
                             <ButtonsDivStyled>
                                 <Button variant="contained" type="submit" color="error" onClick={handleClose2}>Cancel</Button>
