@@ -1,4 +1,5 @@
 import React from "react";
+import {ColorPickerDivStyled} from "../../styles/ColorPickerDiv.styled";
 
 const ColorPickerHtml=({setImageBorderColor,imageBorderColor})=> {
 
@@ -8,10 +9,10 @@ const ColorPickerHtml=({setImageBorderColor,imageBorderColor})=> {
 
 
     return (
-        <div>
+        <ColorPickerDivStyled>
             <label htmlFor="favcolor">Border Color:</label>
             <input type="color" id="favcolor" name="favcolor" value={imageBorderColor} onChange={ChooseColor}/>
-        </div>
+        </ColorPickerDivStyled>
     )
 }
 export default ColorPickerHtml
