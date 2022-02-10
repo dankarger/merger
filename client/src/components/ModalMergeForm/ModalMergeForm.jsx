@@ -41,7 +41,7 @@ export default function ModalMergeForm({isMergeFormOpen,
             handleClose(true)
             setIsMergeFormOpen(false)
         }
-    },[isMergeFormOpen])
+    },[isMergeFormOpen,setIsMergeFormOpen])
 
     const handleClose2=()=>{
         handleClose();

@@ -18,7 +18,8 @@ export default function ToolBar({imageCallback,
                                     isDownloadLinkReady,
                                      download,
                                     handleMergeButton,
-                                    backgroundImage
+                                    backgroundImage,
+                                    overlayText
                                 }) {
     const [view, setView] = React.useState('list');
     const[isDownloadLink,setIsDownloadLink]=useState(false)
@@ -93,7 +94,7 @@ export default function ToolBar({imageCallback,
             </ToggleButton>
 
 
-            <Button style={{justifySelf:'center'}} onClick={handleMergeButton} variant={backgroundImage?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
+            <Button style={{justifySelf:'center'}} onClick={handleMergeButton} variant={(backgroundImage||overlayText)?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
 
             <Button style={{justifySelf:'center'}} onClick={download} variant="contained" color={'success'} disabled={!isDownloadLinkReady}> <FileDownloadIcon /> Download Image</Button>
 

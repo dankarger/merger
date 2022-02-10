@@ -12,6 +12,7 @@ import {fadeIn} from "../../animations/animations";
 import AddImageBorder from "../AddImageBorder/AddImageBorder";
 import CustomSwitch from "../Switch/Switch";
 import {Link} from "react-router-dom";
+import MergeIcon from "@mui/icons-material/Merge";
 
 export default function UploadImages({setBackgroundImage,
                                          handleMergeButton,
@@ -22,7 +23,8 @@ export default function UploadImages({setBackgroundImage,
                                          setImageBorderRadius,
                                          imageBorderRadius,
                                          setImageBorderColor,
-                                         imageBorderColor
+                                         imageBorderColor,
+                                         backgroundImage
 }) {
     const[fileInputState,setFileInputState]=useState('')
     const [previewSource,setPreviewSource]=useState()
@@ -120,13 +122,8 @@ export default function UploadImages({setBackgroundImage,
                                  setImageBorderColor={setImageBorderColor}
                                  imageBorderColor={imageBorderColor}
                 />
-                <Button onClick={handleMergeButton} color="inherit" variant="outlined" type="submit" size='large' >merge</Button>
-                {/*<ArrowForwardIcon />*/}
-               <DownloadButtonStyled
-               variants = {DownloadButtonVariants}
-               whileHover='hover'
-               >
-               </DownloadButtonStyled>
+                <Button style={{justifySelf:'center'}} onClick={handleMergeButton} variant={backgroundImage?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
+
         </UploadImageFormStyled>
         </>
     )

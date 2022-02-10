@@ -117,8 +117,6 @@ const WorkSpace =()=> {
                 imageSize:[constraintsRef.current.naturalWidth,constraintsRef.current.naturalHeight]
             }
              const link = await myApi.post('/images', {
-                // method: 'POST',
-                // body: JSON.stringify({ data: overlayDivRef }),
                 data: combinedLayers ,overlay:{overlayObject},user:currentUser,
                 headers: { 'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'}
@@ -135,14 +133,6 @@ const WorkSpace =()=> {
     const handleInputChange = (e)=>{
         setInputText(e.target.value);
     }
-
-    // const draw = (ctx, frameCount) => {
-    //     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    //     ctx.fillStyle = '#000000'
-    //     ctx.beginPath()
-    //     ctx.arc(50, 100, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
-    //     ctx.fill()
-    // }
 
     const handleMergeButton =()=>{
        setIsMergeFormOpen(true);
@@ -177,6 +167,7 @@ const WorkSpace =()=> {
                       download={download2}
                       handleMergeButton={handleMergeButton}
                       backgroundImage={backgroundImage}
+                      overlayText={overlayText}
 
             />
 
@@ -192,6 +183,7 @@ const WorkSpace =()=> {
                          setImageBorderRadius={setImageBorderRadius}
                          imageBorderColor={imageBorderColor}
                          setImageBorderColor={setImageBorderColor}
+                         backgroundImage={backgroundImage}
            />
             }
             {isTextMenuOpen &&
@@ -273,8 +265,6 @@ const WorkSpace =()=> {
                                                 imageTitle={imageTitle}
 
             /> }
-          <button onClick={download2} >dooooownload </button>
-            {/*<Footer />*/}
         </WorkPageStyled>
 
 
