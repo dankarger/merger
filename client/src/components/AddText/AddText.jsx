@@ -3,17 +3,14 @@ import {TextField} from "@mui/material";
 import Button from "@mui/material/Button";
 import {AddTextStyled} from "../../styles/AddText.styled";
 import {ColorPicker} from "material-ui-color";
-import {ContainerStyled} from "../../styles/Container.styled";
 import {ColorPickerDivStyled} from "../../styles/ColorPickerDiv.styled";
-import {motion} from 'framer-motion'
 import {MenuLeftVariants} from "../../animations/animations";
-import {Checkbox} from "@mui/material";
 import AddPosition from "../AddPosition/AddPosition";
 import AddFontSize from "../AddFontSize/AddFontSize";
 import {AddTextHeadingStyled} from "../../styles/AddTextHeading.styled";
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
 import ChooseTextDecoration from "../../styles/ChooseTextDecoration/ChooseTextDecoration";
-import {border} from "@cloudinary/url-gen/qualifiers/background";
+import ColorPickerHtml from "../ColorPickerHtml/ColorPickerHtml";
 
 const AddText = ({callback,
                      value,
@@ -22,6 +19,8 @@ const AddText = ({callback,
                      position,positionsState,
                      setPositionState,setFontSize,fontSize})=> {
     // const [inputText,setInputText]=useState('');
+
+
 
     return (
 
@@ -46,10 +45,9 @@ const AddText = ({callback,
 
             <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
             <ColorPickerDivStyled>
-                         < FormatColorTextIcon />
-                    <ColorPicker   value={color} onChange={handleChange}/>
+                         {/*< FormatColorTextIcon />*/}
+                <ColorPickerHtml color={color} onChange={handleChange} label={'Text Color'} icon={ <FormatColorTextIcon/>}/>
             </ColorPickerDivStyled>
-            {/*</ContainerStyled>*/}
 
         </AddTextStyled>
         // </motion.div>

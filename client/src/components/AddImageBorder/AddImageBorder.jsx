@@ -9,6 +9,7 @@ import FormatColorTextIcon from "@mui/icons-material/FormatColorText";
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 const AddImageBorder = ({ setImageBorderWidth,
+
                             imageBorderWidth,
                             setImageBorderRadius,
                             imageBorderRadius,
@@ -26,7 +27,11 @@ const handleColorChange=(e)=>{
             {/*<ColorPicker onChange={handleColorChange} value={imageBorderColor}/>*/}
             <ColorPickerDivStyled>
             {/*    < FormatColorTextIcon />*/}
-                <ColorPickerHtml imageBorderColor={imageBorderColor} setImageBorderColor={setImageBorderColor}/>
+                <ColorPickerHtml color={imageBorderColor}
+                                 setColor={setImageBorderColor}
+                                label={'Border Color:'}
+                                 icon={<BorderColorIcon/>}
+                />
                 {/*<ColorPicker    onChange={handleColorChange}/>*/}
             </ColorPickerDivStyled>
 
