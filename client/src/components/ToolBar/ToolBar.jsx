@@ -4,41 +4,44 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Tooltip from '@mui/material/Tooltip';
 import {Link} from 'react-router-dom'
 import {useEffect, useState} from "react";
+import Button from "@mui/material/Button";
+import {ToolBarMenuStyled} from "../../styles/ToolBarMenu.styled";
 
 export default function ToolBar({imageCallback,
                                     isMenuOpen,
                                     textCallback,
                                     isTextMenuOpen,
                                     setIsBackGroundMenuOpen,
-                                    downLoadLink
+                                    downLoadLink,
+                                    isDownloadLinkReady,
+                                     download
                                 }) {
     const [view, setView] = React.useState('list');
-    const[isDownloadLink,setIsDownloadLink]=useState(null)
+    const[isDownloadLink,setIsDownloadLink]=useState(false)
     const handleChange = (event, nextView) => {
         setView(nextView);
     };
 
     useEffect(()=>{
+        console.log('ggfg',isDownloadLinkReady)
         if(downLoadLink){
-            setIsDownloadLink(downLoadLink)
+            setIsDownloadLink(true)
         }
+
     },[downLoadLink])
 
-    const generateDownloadButton = ()=>{
-        if(isDownloadLink) {
-            return <Link to={{pathname: downLoadLink}} target='_blank' download type={'image/png'}>Download Image</Link>
-        }
-    }
+
     return (
-        <div>
+        // <ToolBarMenuStyled>
         <ToggleButtonGroup
             orientation="horizontal"
             value={view}
             exclusive
             onChange={handleChange}
             color='info'
-            sx={{width:'100%',display:'flex',justifyContent:'left',marginLeft:'1rem' }}
+            sx={{width:'100%',display:'flex',justifyContent:'center',marginLeft:'1rem',gap:'2rem' }}
         >
+            <div>
             <ToggleButton sx={{padding:'0 1rem '}} value="list" aria-label="list" onClick={()=>{
                 imageCallback(menu=>!menu)
                 textCallback(false)
@@ -84,10 +87,14 @@ export default function ToolBar({imageCallback,
             >
               MERGE
             </ToggleButton>
-            {isDownloadLink && <Link to={{pathname: downLoadLink}} target='_blank' download type={'image/png'}>Download Image</Link>}
+            </div>
+
+
+            <Button onClick={download} variant="contained" color={'success'} disabled={!isDownloadLinkReady} >Download Image</Button>
+
 
         </ToggleButtonGroup>
-            {/*{generateDownloadButton}*/}
-            </div>
+
+            // </ToolBarMenuStyled>
     );
 }

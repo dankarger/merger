@@ -60,6 +60,7 @@ const WorkSpace =()=> {
     const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
     const[uploadedFile,setUploadedFile] = useState();
     const[downLoadLink,setDownloadLink]=useState()
+    const[isDownloadLinkReady,setIsDownloadLinkReady]=useState(false)
     const downloadLinkRef = useRef(null)
 
     //Reff
@@ -75,15 +76,12 @@ const WorkSpace =()=> {
 
     const handleSendMergeForm = async ()=>{
         if(uploadedFile) {
-            console.log('file',uploadedFile)
           await  uploadImage()
         }
     }
 
      const download2= async ()=>{
-
-        console.log('gggggdfgdfgdfgd',imageTitle)
-       await axios({
+        await axios({
             url: downLoadLink, //your url
             method: 'GET',
             responseType: 'blob', // important
@@ -91,7 +89,6 @@ const WorkSpace =()=> {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
-            console.log('ddd',imageTitle)
             link.setAttribute('download', `${imageTitle}.jpg`); //or any other extension
             document.body.appendChild(link);
             link.click();
@@ -103,16 +100,11 @@ const WorkSpace =()=> {
     const handleBackgroundChange =(value)=> {
         setBackGroundColor(value)
     }
-   const _onMouseMove=(e) =>{
-       console.log(e.nativeEvent.offsetX,e.nativeEvent.offsetY)
-        setCursorPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
-    }
 
     const uploadImage= async () => {
 
          try {
             const combinedLayers =  await captureHtmlToJpg();
-            console.log('com',combinedLayers)
             let overlayObject = {
                 overlayText:overlayText,
                 fontSize:fontSize,
@@ -135,7 +127,7 @@ const WorkSpace =()=> {
             downloadLinkRef.current = link.data.secure_url
             console.log('fuck',downloadLinkRef)
             setDownloadLink(downloadLinkRef.current)
-            console.log('dddddddddd',downLoadLink)
+           setIsDownloadLinkReady(true)
         }catch (error) {
             console.log(error)
         }
@@ -178,10 +170,11 @@ const WorkSpace =()=> {
                       isTextMenuOpen={isTextMenuOpen}
                       isBackgroundMenuOpen={isBackgroundMenuOpen}
                       setIsBackGroundMenuOpen={setIsBackGroundMenuOpen}
-                      downLoadLink={downLoadLink}
+                      isDownloadLinkReady={isDownloadLinkReady}
                       variants={fadeIn}
                       initial='initial'
                       animate='animate'
+                      download={download2}
 
             />
 
