@@ -13,7 +13,7 @@ const ColorPickerHtml=({setColor,color,label,icon})=> {
 
             {icon}
             <input   type="color" id="favcolor" name="favcolor" value={color} onChange={ChooseColor}/>
-            <p> <label htmlFor="favcolor">{label}</label></p>
+           <label htmlFor="favcolor">{label}</label>
 
         </ColorPickerDivStyled>
     )

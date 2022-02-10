@@ -69,8 +69,6 @@ export default function CustomizedDialogs({isDialogueOpen,modalInfo}) {
     },[isDialogueOpen])
 
     return (
-        <div>
-
             <BootstrapDialog
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
@@ -98,6 +96,6 @@ export default function CustomizedDialogs({isDialogueOpen,modalInfo}) {
                     </Button>
                 </DialogActions>
             </BootstrapDialog>
-        </div>
+
     );
 }
