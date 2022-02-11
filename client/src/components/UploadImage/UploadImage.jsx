@@ -89,9 +89,11 @@ export default function UploadImages({setBackgroundImage,
                             whileHover='hover'
                         ><PhotoCamera
                         /> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>
+                    <br/>
                     <hr/>
+                    <br/>
                     <Button style={{justifySelf:'center'}} onClick={handleMergeButton} variant={backgroundImage?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
-
+               <hr/>
                     {/*<AddFileInputStyled*/}
                     {/*    type="file" name='image'*/}
                     {/*    id='files'*/}
