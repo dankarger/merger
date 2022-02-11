@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {LoginPageStyled} from "../styles/LoginPage.styled";
 import LoginRegisterForm from "../components/LoginRegisterForm/LoginRegisterForm";
 import {LoginFormStyled} from "../styles/LoginForm.styled";
@@ -8,6 +8,7 @@ import {UserContext} from "../App";
 import myApi from "../api/Api";
 import {SignInUserMessage, loggedInGuestMessage} from "./Info/Info";
 import CustomizedDialogs from "../components/Dialog/Dialog";
+import AlertCostum from "../components/Alert/Alert";
 
 
 const RegisterPage =()=> {
@@ -17,10 +18,27 @@ const RegisterPage =()=> {
     const[modalInfo,setModalInfo]=useState({})
     const[isDialogueOpen,setIsDialogueOpen] = useState(false)
 
+    const[errorMessage,setErrorMessage] = useState(null)
+    const[isErrorMessage,setIsErrorMessage]=useState(false)
+
+
+    useEffect(()=>{
+
+
+    })
+    const resetInputFields=()=>{
+        // let newFormData = formData
+        // let newFormData = {name:'',email:'',password:''}
+        // newFormData[e.target.name] = e.target.value
+        // setFormData(newFormData);
+        setFormData({})
+
+
+    }
 
     const handleSubmitRegister2 = async ()=>{
         try {
-            const name = formData.name || 'test'
+            const name = formData.name
             const email = formData.email
             const password = formData.password
             // const{name, email, password} = formData
@@ -28,14 +46,19 @@ const RegisterPage =()=> {
 
             if(response.status===200) {
                 setCurrentUser(response.data);
-                handleDialogueMessage('user',response.data)
-
-                // navigate(`/work`);
-
+               return handleDialogueMessage('user',response.data)
             }
         }
-        catch (e) {
-            console.log('login;',e.message)
+        catch (error) {
+            console.log(error.response.request.response)
+            setErrorMessage(error.response.data.message)
+            if(error.response.data.message.includes('E11000')){
+                setErrorMessage("Email already exist, please register with another Email")
+                resetInputFields()
+            }
+            setIsErrorMessage(true)
+            console.log('loginEE;',error.response);
+            // setFormData(null)
         }
     }
 
@@ -46,8 +69,11 @@ const RegisterPage =()=> {
             setCurrentUser(response.data)
             handleDialogueMessage('guest')
             // navigate(`/work`);
-        }catch(e) {
-            console.log(e.message)
+        }catch (error) {
+            setErrorMessage(error.response.data.message)
+            setIsErrorMessage(true)
+            console.log('loginEE;',error.response);
+
         }
     }
 
@@ -73,6 +99,13 @@ const RegisterPage =()=> {
     return (
 
         <LoginPageStyled>
+            <AlertCostum
+                errorMessage={errorMessage}
+                severity={'error'}
+                setErrorMessage={setErrorMessage}
+                isErrorMessage={isErrorMessage}
+                setIsErrorMessage={setIsErrorMessage}
+            />
             <LoginFormStyled>
                 <h1>Register</h1>
                 <LoginRegisterForm type={'register'}

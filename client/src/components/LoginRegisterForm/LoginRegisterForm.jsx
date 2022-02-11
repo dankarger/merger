@@ -9,7 +9,10 @@ import {motion} from 'framer-motion'
 import { FormControl } from '@mui/material';
 
 export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLogin,formData,handleSubmitLoginGuest}) {
-   
+
+    useEffect(()=>{
+
+    },[formData])
 
     return (
         <FormControl>

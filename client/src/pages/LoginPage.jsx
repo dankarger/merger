@@ -46,7 +46,7 @@ const LoginPage =()=> {
             setErrorMessage(error.response.data.message)
             setIsErrorMessage(true)
             console.log('loginEE;',error.response);
-            setFormData({})
+            // setFormData({formData})
 
 
         }
@@ -57,8 +57,12 @@ const handleSubmitLoginGuest= async ()=> {
             const response = await myApi.post('/users/login',{email:'guest',password:'guest'})
             console.log('login-Guest',response)
             handleDialogueMessage('guest','guest','green')
-        }catch(e) {
-            console.log(e.message)
+
+        }catch(error) {
+            setErrorMessage(error.response.data.message)
+            setIsErrorMessage(true)
+            console.log('loginEE;',error.response);
+            setFormData({})
         }
 }
 
