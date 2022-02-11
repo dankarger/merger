@@ -35,7 +35,7 @@ export default function UploadImages({setBackgroundImage,
     const handleFileInputChane = (e)=> {
 
             const file = e.target.files[0];
-            console.log(file.type)
+            console.log('filetype',file.type)
             if(file.type!=="image/jpeg" && file.type!=="image/svg+xml" ) {
 
                  setErrorMessage('wrong type of File : (supported formats : JPG,JPEG,,PNG,GIF,SVG)')

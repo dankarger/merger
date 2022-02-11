@@ -82,9 +82,9 @@ const WorkSpace =()=> {
     const [currentUser,setCurrentUser]= useContext(UserContext)
 
     const handleSendMergeForm = async ()=>{
-        if(uploadedFile) {
+        // if(uploadedFile) {
           await  uploadImage()
-        }
+        // }
     }
 
      const download2= async ()=>{
@@ -111,6 +111,7 @@ const WorkSpace =()=> {
     }
 
     const uploadImage= async () => {
+        alert('up')
          try {
              const combinedLayers =  await captureHtmlToJpg();
              setIsDownloadLinkReady(false);
@@ -253,7 +254,7 @@ const WorkSpace =()=> {
                                 >
 
                 {!backgroundImage && <SkeletonDiv />}
-                {/*{backgroundImage &&*/}
+
 
                 <ImageDivStyled
                     drag
