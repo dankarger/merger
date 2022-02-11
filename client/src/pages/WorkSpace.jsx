@@ -145,11 +145,9 @@ const WorkSpace =()=> {
 
     const handleMergeButton =()=>{
         if(uploadedFile || inputText || inputTextSecond) {
-            alert('good')
             setIsMergeFormOpen(true);
             setIsErrorMessage(false)
         }else{
-            alert('error')
             setErrorMessage("Cannot Merge an Empty Work Space")
             setIsErrorMessage(true)
         }
