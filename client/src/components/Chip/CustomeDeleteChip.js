@@ -15,18 +15,19 @@ export default function CustomDeleteIconChips() {
 
     return (
         <Stack direction="row" spacing={1}>
+            {/*<Chip*/}
+            {/*    label="Custom delete icon"*/}
+            {/*    onClick={handleClick}*/}
+            {/*    onDelete={handleDelete}*/}
+            {/*    deleteIcon={<DoneIcon />}*/}
+            {/*/>*/}
             <Chip
-                label="Custom delete icon"
-                onClick={handleClick}
-                onDelete={handleDelete}
-                deleteIcon={<DoneIcon />}
-            />
-            <Chip
-                label="Custom delete icon"
+                label=""
                 onClick={handleClick}
                 onDelete={handleDelete}
                 deleteIcon={<DeleteIcon />}
                 variant="outlined"
+                color='error'
             />
         </Stack>
     );

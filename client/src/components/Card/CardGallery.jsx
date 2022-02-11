@@ -6,6 +6,9 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import {BoxShadowStyled} from "../../styles/BoxShadow.styled";
 import {StrongStyled} from "../../styles/Strong.styled";
+import CustomDeleteIconChips from "../Chip/CustomeDeleteChip";
+import {FlexDivStyled} from "../../styles/FlexDiv.styled";
+
 export default function CardGallery({card,downloadCard,handleSelectCard}) {
 
     return (
@@ -30,9 +33,13 @@ export default function CardGallery({card,downloadCard,handleSelectCard}) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
+                <FlexDivStyled>
+
+                </FlexDivStyled>
                 <Button onClick={()=>{downloadCard(card)}} size="small" color="primary">
                     Download
                 </Button>
+                <CustomDeleteIconChips />
             </CardActions>
 
         </Card>

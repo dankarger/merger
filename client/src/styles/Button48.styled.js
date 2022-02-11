@@ -2,13 +2,13 @@ import styled from "styled-components";
 import {motion} from 'framer-motion'
 
 export const Button48Styled = styled(motion.button) `
- 
+
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
+  font-size: calc(16px + 2vmin);
   letter-spacing: 2px;
   text-decoration: none;
-  text-transform: uppercase;
-  color: #000;
+
+  color: #424141;
   cursor: pointer;
   border: 3px solid;
   padding: 0.25em 0.5em;
@@ -17,7 +17,7 @@ export const Button48Styled = styled(motion.button) `
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
- 
+
 
   //&:active {
   //  box-shadow: 0px 0px 0px 0px;
@@ -26,8 +26,8 @@ export const Button48Styled = styled(motion.button) `
   //}
 
   @media (min-width: 768px) {
-    
-      padding: 0.25em 0.75em;
-  
+
+    padding: 0.25em 0.75em;
+
   }
-  `
+`

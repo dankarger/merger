@@ -33,7 +33,7 @@ export default function HomePageMenu() {
                             variants={DownloadButtonVariants}
                             whileTap='tap'
                            whileHover='hover'
-                            >LOGIN</Button48Styled>
+                            >LOGIN/REGISTER</Button48Styled>
                             {/*<AddIcon sx={{mr: 1}}/>*/}
 
                         {/*</Fab>*/}

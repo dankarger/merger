@@ -11,7 +11,7 @@ import {GreetingStyled} from "../styles/Greeting.styled";
 import {motion} from "framer-motion";
 import {fadeIn,HomePageMenuVariants} from "../animations/animations";
 import {Button48Styled} from "../styles/Button48.styled";
-import {ReactComponent as ReactLogo} from './logo9.svg';
+import {ReactComponent as ReactLogo} from './logowave.svg';
 
 const xVariants = {
     initial:{x:0},
@@ -43,14 +43,14 @@ const HomePage = () => {
 
     return (
         <HomePageStyled>
-            <HomePageContent />
-            <HeadingH1Styled
-            variants={HeadingH1Variants}
-            initial='initial'
-            animate='animate         '
-            >Welcome to PhotoBasta</HeadingH1Styled>
+            {/*<HeadingH1Styled*/}
+            {/*variants={HeadingH1Variants}*/}
+            {/*initial='initial'*/}
+            {/*animate='animate         '*/}
+            {/*>Welcome to PhotoBasta</HeadingH1Styled>*/}
 {/*<Button48Styled>buttin</Button48Styled>*/}
             <HomePageMenu />
+            <HomePageContent />
 
                 {/*<motion.div*/}
                 {/*    variants={fadeIn}*/}
@@ -65,7 +65,6 @@ const HomePage = () => {
                     />
                 {/*</motion.div>*/}
 
-            <ReactLogo />
 
         </HomePageStyled>
     )

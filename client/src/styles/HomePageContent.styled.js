@@ -4,8 +4,8 @@ import {motion} from 'framer-motion'
 export const HomePageContentStyled = styled(motion.div) `
   width: 100%;
   max-width:100%;
-  padding: 0 20px;
-  margin:0 auto;
+  padding: 10%;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
