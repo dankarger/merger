@@ -12,14 +12,16 @@ export default function AlertCostum({errorMessage,severity,isErrorMessage,setErr
     const [open, setOpen] = React.useState(false);
 
     useEffect(()=> {
+
             if(isErrorMessage) {
                 setOpen(true)
             }
             return () => {
-         setErrorMessage(false)
+                // setErrorMessage(null)
+                setIsErrorMessage(false)
             }
         }
-    ,[isErrorMessage,setIsErrorMessage])
+    ,[setErrorMessage,isErrorMessage,setIsErrorMessage])
 
 
     return (
