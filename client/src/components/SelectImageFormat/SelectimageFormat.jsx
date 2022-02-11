@@ -12,9 +12,9 @@ export default function SelectimageFormat({imageFormat,setImageFormat}) {
     }
 
     return (
-        <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label">Format</FormLabel>
-            <RadioGroup
+        <FormControl >
+            <FormLabel sx={{textAlign:'center'}} id="demo-radio-buttons-group-label">Format</FormLabel>
+            <RadioGroup style={{border:'1px grey dotted',padding:'.5rem',width:'fit-content',borderRadius:'10px'}}
                 aria-labelledby="demo-radio-buttons-group-label"
                 value={imageFormat}
                 name="radio-buttons-group"

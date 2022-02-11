@@ -79,7 +79,7 @@ export default function ModalMergeForm({isMergeFormOpen,
                 <Fade in={open}>
                     <Box sx={style}>
                         <ModalMergeFormStyled>
-                        <Typography id="transition-modal-title" variant="h6" component="h2">
+                        <Typography id="transition-modal-title" variant="h3" color='rgba(124,168,186)' component="h2">
                           Merge
                         </Typography>
                         <FlexDivStyled>
@@ -90,6 +90,7 @@ export default function ModalMergeForm({isMergeFormOpen,
                                     // label="Title"
                                     value={imageTitle}
                                     onChange={handleTitleChange}
+                                    style={{border:'1px grey solid'}}
                                 />
                             </Typography>
                             <SelectimageFormat setImageFormat={setImageFormat} imageFormat={imageFormat}/>
