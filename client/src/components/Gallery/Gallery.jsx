@@ -47,8 +47,9 @@ const Gallery = () => {
         <AnimatePresence>
         <GalleryContainerStyled
         >
-            {isLoading && <Loader size={90}/> }
-             <GalleryStyled
+            {isLoading &&  <Loader size={120}/>  }
+            {isLoading && <p> LOADING...</p> }
+            <GalleryStyled
                 variants={GalleryStyleVariants}
                 initial='initial'
                 animate='animate'
