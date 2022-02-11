@@ -199,6 +199,8 @@ const WorkSpace =()=> {
                          imageBorderColor={imageBorderColor}
                          setImageBorderColor={setImageBorderColor}
                          backgroundImage={backgroundImage}
+                         setErrorMessage={setErrorMessage}
+                         setIsErrorMessage={setIsErrorMessage}
            />
             }
             {isTextMenuOpen &&

@@ -24,32 +24,44 @@ export default function UploadImages({setBackgroundImage,
                                          imageBorderRadius,
                                          setImageBorderColor,
                                          imageBorderColor,
-                                         backgroundImage
+                                         backgroundImage,
+                                         setErrorMessage,
+                                         setIsErrorMessage
 }) {
     const[fileInputState,setFileInputState]=useState('')
     const [previewSource,setPreviewSource]=useState()
     const[fileName,setFileName] = useState('')
 
-    const handleFileInputChane = (e)=>{
-        const file = e.target.files[0];
-        previewFile(file);
-        if(file.name.length>0) setFileName(file.name);
-    }
-    function download () {
+    const handleFileInputChane = (e)=> {
 
-        console.log('d',downloadLink)
-        const a = document.createElement('a');
-       const url = downloadLink.substring(8)
-        console.log(url)
-        a.href=downloadLink
-        a.download = "test.jpg"
-        a.target='_blank'
-        a.type='image/jpg'
-        a.click()
-        console.log(a)
+            const file = e.target.files[0];
+            console.log(file.type)
+            if(file.type!=="image/jpeg" && file.type!=="image/svg+xml" ) {
 
+                 setErrorMessage('wrong type of File : (supported formats : JPG,JPEG,,PNG,GIF,SVG)')
+               return   setIsErrorMessage(true)
+
+            }
+            console.log(file)
+            previewFile(file);
+            if (file.name.length > 0) setFileName(file.name);
 
     }
+    // function download () {
+    //
+    //     console.log('d',downloadLink)
+    //     const a = document.createElement('a');
+    //    const url = downloadLink.substring(8)
+    //     console.log(url)
+    //     a.href=downloadLink
+    //     a.download = "test.jpg"
+    //     a.target='_blank'
+    //     a.type='image/jpg'
+    //     a.click()
+    //     console.log(a)
+    //
+    //
+    // }
 
     const previewFile= (file) => {
         const reader = new FileReader();
