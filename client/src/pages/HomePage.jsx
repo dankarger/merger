@@ -10,6 +10,8 @@ import TopMenuBar from "../TopMenuBar/TopMenuBar";
 import {GreetingStyled} from "../styles/Greeting.styled";
 import {motion} from "framer-motion";
 import {fadeIn,HomePageMenuVariants} from "../animations/animations";
+import {Button48Styled} from "../styles/Button48.styled";
+import {ReactComponent as ReactLogo} from './logo9.svg';
 
 const xVariants = {
     initial:{x:0},
@@ -47,8 +49,9 @@ const HomePage = () => {
             initial='initial'
             animate='animate         '
             >Welcome to PhotoBasta</HeadingH1Styled>
-
+{/*<Button48Styled>buttin</Button48Styled>*/}
             <HomePageMenu />
+
                 {/*<motion.div*/}
                 {/*    variants={fadeIn}*/}
                 {/*    initial='initial'*/}
@@ -62,7 +65,7 @@ const HomePage = () => {
                     />
                 {/*</motion.div>*/}
 
-
+            <ReactLogo />
 
         </HomePageStyled>
     )

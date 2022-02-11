@@ -8,4 +8,7 @@ export const HomepageMenuStyled = styled(motion.div) `
   flex-direction: column;
   height:70%;
   gap:2rem;
+  
+  
+  
 `

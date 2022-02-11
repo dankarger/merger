@@ -9,6 +9,8 @@ import {HomepageMenuStyled} from "../../styles/HomepageMenu.styled";
 import {motion} from "framer-motion";
 import {HomeMenuButtonsVariants, HomePageMenuVariants} from "../../animations/animations";
 import {Link} from 'react-router-dom'
+import {Button48Styled} from "../../styles/Button48.styled";
+import {DownloadButtonVariants} from "../../animations/animations";
 
 const hover = '&:hover { transform:scale(1.2) '
 
@@ -23,12 +25,18 @@ export default function HomePageMenu() {
                             whileHover='hover'
                             animate='animate'
                             initial='initial'
+
                 >
                     <Link to='/Login'>
-                        <Fab variant="extended" color="primary">
-                            <AddIcon sx={{mr: 1}}/>
-                            Login
-                        </Fab>
+                        {/*<Fab variant="extended" color="primary">*/}
+                            <Button48Styled
+                            variants={DownloadButtonVariants}
+                            whileTap='tap'
+                           whileHover='hover'
+                            >LOGIN</Button48Styled>
+                            {/*<AddIcon sx={{mr: 1}}/>*/}
+
+                        {/*</Fab>*/}
                     </Link>
                 </motion.div>
                 <motion.div variants={HomePageMenuVariants}
@@ -38,11 +46,12 @@ export default function HomePageMenu() {
                 >
 
                     <Link to='/work'>
-                        <Fab variant="extended">
+                        <Button48Styled
+                            variants={DownloadButtonVariants}
+                            whileTap='tap'
+                            whileHover='hover'
+                        >CREATE</Button48Styled>
 
-                            <EditIcon sx={{mr: 1}}/>
-                            Create
-                        </Fab>
                     </Link>
                 </motion.div>
                 <motion.div variants={HomePageMenuVariants}
@@ -50,18 +59,7 @@ export default function HomePageMenu() {
                             animate='animate3'
                             initial='initial'
                 >
-                    {/*<Fab variant="extended" variants={HomeMenuButtonsVariants} whilehover='hover'>*/}
 
-                    {/*    <NavigationIcon sx={{ mr: 1 }} />*/}
-                    {/*    Navigate*/}
-                    {/*</Fab>*/}
-
-                    {/*<Fab color="primary" aria-label="add" variants={HomeMenuButtonsVariants} whilehover='hover'>*/}
-                    {/*    <AddIcon />*/}
-                    {/*</Fab>*/}
-                    {/*<Fab color="secondary" aria-label="edit" variants={HomeMenuButtonsVariants} whilehover='hover'>*/}
-                    {/*    <EditIcon />*/}
-                    {/*</Fab>*/}
                 </motion.div>
                 <motion.div variants={HomePageMenuVariants}
                             whileHover='hover'
@@ -69,10 +67,11 @@ export default function HomePageMenu() {
                             initial='initial'
                 >
                 <Link to='/gallery'>
-                    <Fab variant="extended">
-                        <NavigationIcon sx={{mr: 1}}/>
-                        Gallery
-                    </Fab>
+                    <Button48Styled
+                        variants={DownloadButtonVariants}
+                        whileTap='tap'
+                        whileHover='hover'
+                    >GALLERY</Button48Styled>
                 </Link>
                 </motion.div>
                 <motion.div variants={HomePageMenuVariants}
