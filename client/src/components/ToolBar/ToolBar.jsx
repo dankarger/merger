@@ -8,6 +8,8 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import MergeIcon from '@mui/icons-material/Merge';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
+import Loader from "../Loader/Loader";
+
 import {AddTextSecondStyled} from "../../styles/AddTextDivider.styled";
 
 export default function ToolBar({imageCallback,
@@ -21,7 +23,8 @@ export default function ToolBar({imageCallback,
                                     handleMergeButton,
                                     backgroundImage,
                                     overlayText,
-                                    textCallbackSecond
+                                    textCallbackSecond,
+                                    isDownloadLoader
                                 }) {
     const [view, setView] = React.useState('list');
     const[isDownloadLink,setIsDownloadLink]=useState(false)
@@ -99,6 +102,9 @@ export default function ToolBar({imageCallback,
 
             <Button style={{justifySelf:'center'}} onClick={handleMergeButton} variant={(backgroundImage||overlayText)?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
             <Button style={{justifySelf:'center'}} onClick={download} variant="contained" color={'success'} disabled={!isDownloadLinkReady}> <FileDownloadIcon /> Download Image</Button>
+            {(isDownloadLoader ) &&
+            <span style={{transform: 'translateX(-90px) translateY(10px)'}}><Loader size={20}/></span>
+            }
         </ToggleButtonGroup>
             // </ToolBarMenuStyled>
     );

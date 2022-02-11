@@ -15,6 +15,7 @@ const MenuLeft=({imageCallback,
                     handleMergeButton,
                     backgroundImage,
                     textCallbackSecond,
+                    isDownloadLoader,
                     overlayText}) => {
 
 
@@ -36,6 +37,7 @@ const MenuLeft=({imageCallback,
                      backgroundImage={backgroundImage}
                      overlayText={overlayText}
                      textCallbackSecond={textCallbackSecond}
+                     isDownloadLoader={isDownloadLoader}
             />
         </MenuLeftStyled>
     )

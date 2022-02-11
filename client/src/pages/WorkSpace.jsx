@@ -31,7 +31,7 @@ import AddTextSecond from "../components/AddTextSecond/AddTextSecond";
 
 const WorkSpace =()=> {
     //image const
-    const[isImgMenuOpen,setIsImgMenuOpen]=useState(true);
+    const[isImgMenuOpen,setIsImgMenuOpen]=useState(false);
     const[backgroundImage,setBackgroundImage]=useState();
     const[imageTitle,setImageTitle]=useState('Title');
     const[imageBorderWidth,setImageBorderWidth]=useState(5);
@@ -71,6 +71,7 @@ const WorkSpace =()=> {
     const[isDownloadLinkReady,setIsDownloadLinkReady]=useState(false);
     const[imageFormat,setImageFormat]=useState('JPG')
     const downloadLinkRef = useRef(null)
+    const [isDownloadLoader,setIsDownloader ]= useState(false)
 
     //Reff
     const constraintsRef = useRef(null);
@@ -110,7 +111,8 @@ const WorkSpace =()=> {
     const uploadImage= async () => {
          try {
              const combinedLayers =  await captureHtmlToJpg();
-             setIsDownloadLinkReady(false)
+             setIsDownloadLinkReady(false);
+             setIsDownloader(true);
              const link = await myApi.post('/images', {
                 data: combinedLayers ,
                  // overlay:{overlayObject},
@@ -123,7 +125,8 @@ const WorkSpace =()=> {
             setIsSnackBar(snack=>!snack);
             downloadLinkRef.current = link.data.secure_url
             setDownloadLink(downloadLinkRef.current)
-            setIsDownloadLinkReady(true)
+            setIsDownloadLinkReady(true);
+             setIsDownloader(false);
         }catch (error) {
             console.log(error)
         }
@@ -168,6 +171,7 @@ const WorkSpace =()=> {
                       handleMergeButton={handleMergeButton}
                       backgroundImage={backgroundImage}
                       overlayText={overlayText}
+                      isDownloadLoader={isDownloadLoader}
 
             />
             {isImgMenuOpen &&

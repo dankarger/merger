@@ -52,7 +52,7 @@ const Gallery = () => {
         // initial='initial'
         // animate='animate'
         >
-            {isLoading && <Loader />}
+            {isLoading && <Loader size={90}/> }
             {/*<MenuLeft />*/}
             <GalleryStyled
                 variants={GalleryStyleVariants}
