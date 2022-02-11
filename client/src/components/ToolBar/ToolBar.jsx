@@ -11,6 +11,7 @@ import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import Loader from "../Loader/Loader";
 
 import {AddTextSecondStyled} from "../../styles/AddTextDivider.styled";
+import {isDisabled} from "@testing-library/user-event/dist/utils";
 
 export default function ToolBar({imageCallback,
                                     isMenuOpen,
@@ -88,7 +89,7 @@ export default function ToolBar({imageCallback,
                               imageCallback(false)
 
             }}>
-                Color
+                Canvas
             </ToggleButton>
             <ToggleButton value="fx" aria-label="fx"
                           onClick={()=>{
@@ -96,7 +97,9 @@ export default function ToolBar({imageCallback,
                               textCallbackSecond(false)
                               textCallback(false)
                               imageCallback(false)
+
                           }}
+                          disabled={true}
             >
                 FX
             </ToggleButton>

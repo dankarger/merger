@@ -6,7 +6,7 @@ import MenuLeft from "../components/Menu/MenuLeft";
 import Snackbars1 from "../components/SnackBar/SnackBar1";
 import {ImageDivStyled} from "../styles/ImageDiv.styled";
 import myApi from "../api/Api";
-import {motion} from "framer-motion";
+import {motion,useDragControls} from "framer-motion";
 import {OverlayTextStyled} from "../styles/OverlayText.styled";
 import {WorkImageDivStyled} from "../styles/WorkImageDiv.styled";
 import {createColor} from "material-ui-color";
@@ -30,6 +30,7 @@ import axios from 'axios'
 import AddTextSecond from "../components/AddTextSecond/AddTextSecond";
 import Alert from "../components/Alert/Alert";
 import AlertCostum from "../components/Alert/Alert";
+import {brightness} from "@cloudinary/url-gen/actions/adjust";
 
 const WorkSpace =()=> {
     //image const
@@ -72,6 +73,7 @@ const WorkSpace =()=> {
     const [isDownloadLoader,setIsDownloader ]= useState(false);
     const[errorMessage,setErrorMessage] = useState(null)
     const[isErrorMessage,setIsErrorMessage]=useState(false)
+    const dragControls = useDragControls()
 
     //Reff
     const constraintsRef = useRef(null);
@@ -254,7 +256,7 @@ const WorkSpace =()=> {
 
             <WorkImageDivStyled as={motion.div}
                                 // backgroundColor={backgroundColor}
-                              drag
+                              // drag
                               color={backgroundColor}
                                 ref={exportRef}
                                 shadow={isBackgroundShadow}
@@ -269,22 +271,43 @@ const WorkSpace =()=> {
                 {/*>*/}
 
                 <ImageDivStyled
+                    // drag
 
                     dragConstraints={dragConstraints}
                     color={imageBorderColor}
                     width={imageBorderWidth}
                     radius={imageBorderRadius}
-                >
-                    {backgroundImage &&
-                //     <ResizeDiv2
-                //     Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
-                //     Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
-                // >
+                    // dragSnapToOrigin={true}
+                    // dragControls={dragControls}
+                    // dragListener={false}
+                    // onPointerDown={(e) => {
+                    //     dragControls.start(e)}}
 
-                    <motion.img   dragConstraints={dragConstraints} ref={constraintsRef}   src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
-                // </ResizeDiv2>
+                >
+
+                    {backgroundImage &&
+                    <ResizeDiv2
+                    Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
+                    Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
+                >
+
+
+                   <motion.img
+                       drag
+                       onPointerDown={(e) => {
+                           dragControls.start(e)
+                       }}
+                       // dragListener={false}
+                        dragControls={dragControls}
+                        dragConstraints={dragConstraints} ref={constraintsRef}
+                        src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
+
+
+                </ResizeDiv2>
                         }
+
                 </ImageDivStyled>
+
                     <OverlayTextDiveStyled
                         drag
                     width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
