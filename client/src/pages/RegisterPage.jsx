@@ -81,7 +81,7 @@ const RegisterPage =()=> {
                                    handleSubmitLogin={handleSubmitRegister2}
                                    handleSubmitLoginGuest={handleSubmitLoginGuest}/>
                 <NotRegisterTextStyled>
-                    all ready Register ? <Link to='/login'><span> click here </span> </Link>  to Login
+                    already Registered ? <Link to='/login'><span> click here </span> </Link>  to Login
                 </NotRegisterTextStyled>
             </LoginFormStyled>
             <CustomizedDialogs isDialogueOpen={isDialogueOpen} modalInfo={modalInfo}/>

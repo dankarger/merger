@@ -85,7 +85,7 @@ const handleSubmitLoginGuest= async ()=> {
                                   handleSubmitLogin={handleSubmitLogin}
                                   handleSubmitLoginGuest={handleSubmitLoginGuest}/>
              <NotRegisterTextStyled>
-               Not Register ? <Link to='/register'><span> click here </span> </Link>  to Register
+               Not Registered ? <Link to='/register'><span> click here </span> </Link>  to Register
              </NotRegisterTextStyled>
             </LoginFormStyled>
         <CustomizedDialogs isDialogueOpen={isDialogueOpen} modalInfo={modalInfo} />

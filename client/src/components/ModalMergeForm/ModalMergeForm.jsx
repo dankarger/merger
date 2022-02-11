@@ -10,6 +10,7 @@ import {TextField} from "@mui/material";
 import {ButtonsDivStyled} from "../../styles/ButtonsDiv.styled";
 import {ModalMergeFormStyled} from "../../styles/ModalMergeForm.styled";
 import SelectimageFormat from "../SelectImageFormat/SelectimageFormat";
+import {FlexDivStyled} from "../../styles/FlexDiv.styled";
 
 const style = {
     position: 'absolute',
@@ -79,18 +80,20 @@ export default function ModalMergeForm({isMergeFormOpen,
                     <Box sx={style}>
                         <ModalMergeFormStyled>
                         <Typography id="transition-modal-title" variant="h6" component="h2">
-                          MergeForm
+                          Merge
                         </Typography>
-                        <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                            Enter a Title for the Image
-                            <TextField
-                                id="outlined-Title"
-                                // label="Title"
-                                value={imageTitle}
-                                onChange={handleTitleChange}
-                            />
-                        </Typography>
+                        <FlexDivStyled>
+                            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                                Enter a Title for the Image
+                                <TextField
+                                    id="outlined-Title"
+                                    // label="Title"
+                                    value={imageTitle}
+                                    onChange={handleTitleChange}
+                                />
+                            </Typography>
                             <SelectimageFormat setImageFormat={setImageFormat} imageFormat={imageFormat}/>
+                         </FlexDivStyled>
                             <ButtonsDivStyled>
                                 <Button variant="contained" type="submit" color="error" onClick={handleClose2}>Cancel</Button>
                                 <Button variant="contained" type="submit" color="success" onClick={HandleMergeButton}>Merge</Button>
