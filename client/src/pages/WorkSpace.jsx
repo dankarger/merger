@@ -38,15 +38,21 @@ const WorkSpace =()=> {
     const[imageBorderRadius,setImageBorderRadius]=useState(0);
     const[imageBorderColor,setImageBorderColor]=useState('#000000');
 
-    //Text
+    //Text 1
     const[inputText,setInputText]=useState(String);
-    // const[overlayColor,setOverlayColor]=useState('#000000');
     const[isTextMenuOpen,setIsTextMenuOpen]=useState(false);
-    const[isTextMenuSecondOpen,setIsTextMenuSecondOpen]=useState(false)
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState("#000000");
     const TextOverlayRef = useRef();
     const [fontSize,setFontSize]=useState('80');
+    //Text2
+    const[inputTextSecond,setInputTextSecond]=useState(String);
+    const[isTextMenuSecondOpen,setIsTextMenuSecondOpen]=useState(false)
+    const[overlayTextSecond,setOverlayTextSecond] = useState({inputTextSecond})
+    const [colorSecond, setColorSecond] = useState("#000000");
+    const TextOverlaySecondRef = useRef();
+    const [fontSizeSecond,setFontSizeSecond]=useState('80');
+
 
     //Background
     const[backgroundColor,setBackGroundColor]=useState('#333333');
@@ -126,6 +132,10 @@ const WorkSpace =()=> {
         setInputText(e.target.value);
     }
 
+    const handleInputChangeSecond = (e)=>{
+        setInputTextSecond(e.target.value);
+    }
+
     const handleMergeButton =()=>{
        setIsMergeFormOpen(true);
     }
@@ -188,15 +198,16 @@ const WorkSpace =()=> {
             />
             }
           {isTextMenuSecondOpen &&
-          <AddTextSecond callback={handleInputChange}
-                   value={inputText}
-                   handleChange={setColor}
-                   color={color}
+          <AddTextSecond callback={handleInputChangeSecond}
+                   value={inputTextSecond}
+                   handleChange={setColorSecond}
+                   color={colorSecond}
                    drag
                    dragElastic={111}
               // dragConstraints={constraintsRefAddText}
-                   fontSize={fontSize}
-                   setFontSize={setFontSize}
+                   fontSize={fontSizeSecond}
+                   setFontSize={setFontSizeSecond}
+
           />
           }
             <MenuLeftPlaceHolder />
@@ -254,6 +265,28 @@ const WorkSpace =()=> {
                                              ref={TextOverlayRef}
                         > {inputText}</OverlayTextStyled>
                     </OverlayTextDiveStyled >
+
+                    {/*<OverlayTextDiveStyled*/}
+                    {/*    drag*/}
+                    {/*    // width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}*/}
+                    {/*    // height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}*/}
+                    {/*>*/}
+                        <OverlayTextStyled
+                            // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
+                            drag
+                            dragElastic={111}
+                            transition={{type:'spring',stiffness:300}}
+                            textshadow={'1px 1px 1px black'}
+                            color={colorSecond}
+                            fontSize={fontSizeSecond}
+                            dragConstraints={dragConstraints}
+                            ref={TextOverlaySecondRef}
+                        > {inputTextSecond}</OverlayTextStyled>
+                    {/*</OverlayTextDiveStyled >*/}
+
+
+
+
                 </ImageDivStyled>
                 <UploadImageDivStyled image={backgroundImage}/>
                  </WorkImageDivStyled>
