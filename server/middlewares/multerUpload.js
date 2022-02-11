@@ -13,12 +13,9 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + "--" + file.originalname);
     },
     limits: function (req, file, cb) {
-        cb({fileSize: 200000, files:1})
+        cb({fileSize:  50000000, files:1})
     },
-    onError: function(err, next) {
-        console.log('error', err);
-        next(err);
-    }
+
 })
 
 const fileFilter = (req, file, cb) => {
@@ -36,15 +33,13 @@ const fileFilter = (req, file, cb) => {
 }
 
 
-let upload2 = multer({storage, fileFilter: fileFilter})
+let upload2 = multer({storage:storage, fileFilter: fileFilter})
 
 
 const upload = multer({
-
-    dest: 'images', // to save on local directory
-    limits: {fileSize: 199000000},
+    // dest: 'images', // to save on local directory
+    limits: {fileSize: 50000000},
     fileFilter(req, file, cb) {
-        console.log('f')
         if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
             return cb(new Error('Please upload an image'))
         }
@@ -55,4 +50,4 @@ const upload = multer({
     }
 })
 
-module.exports = {upload, upload2: upload2.single('file')}
+module.exports = {upload, upload2: upload2.single('image')}

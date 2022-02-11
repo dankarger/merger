@@ -14,6 +14,7 @@ export const AddFileLabelStyled = styled(motion.label) `
   justify-content: space-between;
   align-items: center;
   gap: 5px;
+  white-space: nowrap;
   &:hover {
     cursor: pointer;
   }

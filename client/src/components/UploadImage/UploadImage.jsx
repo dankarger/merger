@@ -94,7 +94,6 @@ export default function UploadImages({setBackgroundImage,
                 <AddFileInputStyled
                     type="file" name='image'
                     id='files'
-
                        onChange={handleFileInputChane}
                        value={fileInputState}
                        className='form-input'

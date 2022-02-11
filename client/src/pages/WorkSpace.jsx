@@ -132,7 +132,7 @@ const WorkSpace =()=> {
         }catch (error) {
              setErrorMessage(error.message)
              setIsErrorMessage(true)
-            throw new Error(error)
+           console.log(error)
 
 
         }

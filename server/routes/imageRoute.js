@@ -12,7 +12,7 @@ imageRoute.get('/',imageController.getImages )
 imageRoute.delete('/:id',imageController.deleteImage)
 imageRoute.delete('/delete-all/:id',imageController.deleteAllImagesByUser)
 
-imageRoute.post('/',upload2,imageController.uploadImage )
+imageRoute.post('/',imageController.uploadImage )
 // imageRoute.post('/' ,imageController.uploadImage )
 imageRoute.post('/filter-images',auth.authenticateToken,imageController.filterImages)
 
