@@ -8,6 +8,7 @@ import {UserContext} from "../App";
 import myApi from "../api/Api";
 import CustomizedDialogs from "../components/Dialog/Dialog";
 import {loggedInGuestMessage, loggedInUserMessage,ErrorUserMessage} from "./Info/Info";
+import AlertCostum from "../components/Alert/Alert";
 
 const LoginPage =()=> {
         const [currentUser,setCurrentUser]= useContext(UserContext);
@@ -16,8 +17,13 @@ const LoginPage =()=> {
         const[isDialogueOpen,setIsDialogueOpen] = useState(false);
         const[modalInfo,setModalInfo]=useState({});
         const nameInput = useRef(null);
-        const [errorMessage,setErrorMessage]=useState('')
-        const handleSubmitLogin = async ()=>{
+        // const [errorMessage,setErrorMessage]=useState('')
+
+    const[errorMessage,setErrorMessage] = useState(null)
+    const[isErrorMessage,setIsErrorMessage]=useState(false)
+
+
+    const handleSubmitLogin = async ()=>{
         try {
 
             const email = formData.email
@@ -27,16 +33,19 @@ const LoginPage =()=> {
                 console.log('yes',response.data)
                 setCurrentUser(response.data.user)
                  console.log('u',currentUser)
-                handleDialogueMessage('user',response.data.user,'success')
+                // handleDialogueMessage('user',response.data.user,'success')
             }else {
-
-
+                // handleDialogueMessage('user',response.data.user,'error')
+                // setErrorMessage('eroro')
+                console.error('loginss;',response.status);
             }
         }
-        catch (e) {
-            handleDialogueMessage('error','guest','red')
-            setErrorMessage(e)
-            console.log('loginEE;',e);
+        catch(error) {
+
+            // handleDialogueMessage('error','guest','red')
+            setErrorMessage(error.response.data.message)
+            setIsErrorMessage(true)
+            console.log('loginEE;',error.response);
 
 
         }
@@ -69,7 +78,7 @@ const handleSubmitLoginGuest= async ()=> {
             }
             else if(type==='error'){
                 const{title,message,message2,navigate,titleColor}=ErrorUserMessage
-                setModalInfo({title:title,message:`${message}dd ${errorMessage.message}`,message2:errorMessage,navigate:navigate,titleColor:'red'});
+                setModalInfo({title:title,message:`${message}dd ${errorMessage.message}`+errorMessage,message2:errorMessage,navigate:navigate,titleColor:'red'});
             }
             setIsDialogueOpen(true);
     }
@@ -77,6 +86,13 @@ const handleSubmitLoginGuest= async ()=> {
     return (
 
         <LoginPageStyled>
+            <AlertCostum
+                errorMessage={errorMessage}
+                         severity={'error'}
+                         setErrorMessage={setErrorMessage}
+                         isErrorMessage={isErrorMessage}
+                         setIsErrorMessage={setIsErrorMessage}
+                         />
             <LoginFormStyled>
                 <h1>Login</h1>
                <LoginRegisterForm type={'login'}

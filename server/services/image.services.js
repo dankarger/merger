@@ -7,8 +7,8 @@ const findUser = async (id) => {
 }
 
 const getImages = async () => {
-    return await cloudinary.search.expression('folder:workspaceop/*').sort_by('public_id', 'desc')
-        .max_results(50)
+    return await cloudinary.search.expression('folder:workspaceop/*').sort({user: -1})
+        // .max_results(50)
         .execute();
 
 }

@@ -51,7 +51,7 @@ const WorkSpace =()=> {
     //Text2
     const[inputTextSecond,setInputTextSecond]=useState(String);
     const[isTextMenuSecondOpen,setIsTextMenuSecondOpen]=useState(false)
-    const[overlayTextSecond,setOverlayTextSecond] = useState({inputTextSecond})
+    // const[overlayTextSecond,setOverlayTextSecond] = useState({inputTextSecond})
     const [colorSecond, setColorSecond] = useState("#000000");
     const TextOverlaySecondRef = useRef();
     const [fontSizeSecond,setFontSizeSecond]=useState('80');
@@ -111,7 +111,6 @@ const WorkSpace =()=> {
     }
 
     const uploadImage= async () => {
-        alert('up')
          try {
              const combinedLayers =  await captureHtmlToJpg();
              setIsDownloadLinkReady(false);

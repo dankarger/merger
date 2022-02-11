@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import {BoxShadowStyled} from "../../styles/BoxShadow.styled";
-
+import {StrongStyled} from "../../styles/Strong.styled";
 export default function CardGallery({card,downloadCard,handleSelectCard}) {
 
     return (
@@ -24,8 +24,8 @@ export default function CardGallery({card,downloadCard,handleSelectCard}) {
                         {card.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                       Created By: {card.nameOfUser}
-                       at : {card.dateCreated}
+                        Created By: <StrongStyled> {card.nameOfUser}</StrongStyled>
+                      ( {card.dateCreated.substring(0,10)} )
                     </Typography>
                 </CardContent>
             </CardActionArea>
