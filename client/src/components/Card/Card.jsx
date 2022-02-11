@@ -10,11 +10,11 @@ import {ImageDivStyled} from "../../styles/ImageDiv.styled";
 
 export default function ActionAreaCard({image,title,createdBy}) {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: '20vw' }}>
 
             <CardActionArea>
 
-                <ImageDivStyled sx={{minHeight:'500px'}}>
+                <ImageDivStyled sx={{minHeight:'200px'}}>
                     {image}
                 </ImageDivStyled>
 

@@ -9,8 +9,9 @@ import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
 import Loader from "../Loader/Loader";
 import {CardGalleryStyled} from "../../styles/CardGallery.styled";
 import Cards2 from "../Card/Card2";
+import CardGallery from "../Card/CardGallery";
 
-const DownloadImages = ({handleSelectCard}) => {
+const DownloadImages = ({handleSelectCard,downloadCard}) => {
     const [imageIds, setImageId] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const cardRef=useRef(null)
@@ -25,12 +26,8 @@ const DownloadImages = ({handleSelectCard}) => {
 
     const loadImages = async () => {
         try {
-
             const {data} = await myApi.get('/images');
-            // const data =await res.json();
             setImageId(data)
-
-            // return data.data
             console.log('da', data)
         } catch (e) {
             console.error(e)
@@ -50,25 +47,28 @@ const DownloadImages = ({handleSelectCard}) => {
 
                 <GalleryContainerStyled>
                     {isLoading && <Loader />}
-                        {imageIds && imageIds.map((imageId, index) => (
-                            <CardGalleryStyled  key={imageId._id}>
-                           <ActionAreaCard
-                               ref={cardRef}
-                               title ={imageId.title}
-                               createdBy={imageId.nameOfUser}
+                        {/*{imageIds && imageIds.map((imageId, index) => (*/}
+                        {/*    <CardGalleryStyled  key={imageId._id}>*/}
+                        {/*   <ActionAreaCard*/}
+                        {/*       ref={cardRef}*/}
+                        {/*       title ={imageId.title}*/}
+                        {/*       createdBy={imageId.nameOfUser}*/}
 
-                               image={ <GalleryItemStyled><Image
-                                   cloudName="meme3"
-                                publicId={imageId.url}
-                                crop='scale'
-                                title={imageId.title}
+                        {/*       image={ <GalleryItemStyled><Image*/}
+                        {/*           cloudName="meme3"*/}
+                        {/*        publicId={imageId.url}*/}
+                        {/*        crop='scale'*/}
+                        {/*        title={imageId.title}*/}
 
-                                onClick={()=>handleSelectCard(imageId,cardRef)}
-                               /></GalleryItemStyled>}/>
+                        {/*        onClick={()=>handleSelectCard(imageId,cardRef)}*/}
+                        {/*       /></GalleryItemStyled>}/>*/}
 
-                            </CardGalleryStyled>
+                        {/*    </CardGalleryStyled>*/}
 
-                        ))}
+                        {/*))}*/}
+                    {imageIds && imageIds.map((card,index)=>{
+                        return  <CardGallery card={card} downloadCard={downloadCard}/>
+                    })}
                     {imageIds &&  <Cards2 images={imageIds}/>}
                     </GalleryContainerStyled>
 

@@ -37,7 +37,11 @@ const style = {
     pb: 3,
 };
 
-export default function ModalCardDetail({card,handleSelectCard,isDetaileCardOpen}) {
+export default function ModalCardDetail({card,
+                                            handleSelectCard,
+                                            isDetaileCardOpen
+                                            ,downloadCard
+                                            }) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);

@@ -7,6 +7,8 @@ import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
 import ModalCardDetail from "../ModalCardDetail/ModalCardDetail";
 import {GalleryContainerVariants, GalleryStyleVariants} from "../../animations/animations";
 import {AnimatePresence} from "framer-motion";
+import CardGallery from "../Card/CardGallery";
+import axios from "axios";
 
 const Gallery = () => {
     const [imageIds, setImageId] = useState([]);
@@ -19,6 +21,25 @@ const Gallery = () => {
          setSelectedCard(card)
 
      }
+
+
+
+    const downloadCard= async (card)=>{
+            console.log('carddd',card)
+        await axios({
+            url: card.secure_url, //your url
+            method: 'GET',
+            responseType: 'blob', // important
+        }).then((response) => {
+            const url =  window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            const format = card.secure_url.substring(card.secure_url.length-3)
+            link.href = url;
+            link.setAttribute('download', `${card.title}.${format}`); //or any other extension
+            document.body.appendChild(link);
+            link.click();
+        });
+    }
 
     return (
 
@@ -36,10 +57,14 @@ const Gallery = () => {
                 animate='animate'
             >
              <h1>Gallery</h1>
-                <DownloadImages handleSelectCard={handleSelectCard} />
+                <DownloadImages handleSelectCard={handleSelectCard} downloadCard={downloadCard}/>
+
                 {isDetailCardOpen &&
                 // <DetailCard card={selectedCard} handleSelectCard={handleSelectCard}/>
-                <ModalCardDetail isDetaileCardOpen={isDetailCardOpen} card={selectedCard} handleSelectCard={handleSelectCard} />
+                <ModalCardDetail isDetaileCardOpen={isDetailCardOpen}
+                                 card={selectedCard}
+                                 handleSelectCard={handleSelectCard}
+                                 downloadCard={downloadCard}/>
                 }
             </GalleryStyled>
 
