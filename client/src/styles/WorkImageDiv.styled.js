@@ -17,7 +17,7 @@ export const WorkImageDivStyled = styled.div `
   //top:50px;
   font-size: 5vmin;
   overflow: hidden;
- 
+  box-shadow: ${({textShadow})=>textShadow || ''};
   background-color:${({color})=>color||'#333333'} ;
   //img {
   //  width:100%;

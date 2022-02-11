@@ -63,7 +63,7 @@ const WorkSpace =()=> {
     // const position = useRef('top');
     // const [positionState,setPositionState]=useState('center');
 
-    //Utils
+    //utils
     const[isSnackbar,setIsSnackBar]=useState(false);
     const [isMergeFormOpen,setIsMergeFormOpen]= useState(false);
     const[uploadedFile,setUploadedFile] = useState();

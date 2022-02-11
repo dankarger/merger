@@ -1,3 +1,10 @@
+const randomize=(num)=>{
+    alert( Math.floor(Math.random()*num).toFixed(1))
+    return Math.floor(Math.random()*num).toFixed(1)
+
+}
+
+
 export const navbarVariants = {
     initial:{
         opacity:0,
@@ -243,12 +250,14 @@ export const DetailCardStyleVariants = {
 export const cardGalleryVariants = {
     initial:{
         opacity:0,
+        scale:(0.9)
     },
     animate:{
         x:0,
         opacity:1,
+        scale:(1),
         transition:{
-            stiffness:11
+            stiffness:11,
         }
     },
     hover:{
@@ -256,3 +265,4 @@ export const cardGalleryVariants = {
     }
 
 }
+

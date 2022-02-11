@@ -18,16 +18,15 @@ const Gallery = () => {
     const [isDetailCardOpen, setIsDetailCardOpen]=useState(false);
     const [selectedCard,setSelectedCard]=useState({});
     const[isLoading,setIsLoading]=useState(true)
+
      const handleSelectCard=(card,cardRef)=>{
          setIsDetailCardOpen(!isDetailCardOpen);
          setSelectedCard(card)
-
-     }
+    }
 
 
 
     const downloadCard= async (card)=>{
-
         await axios({
             url: card.secure_url, //your url
             method: 'GET',
@@ -46,9 +45,7 @@ const Gallery = () => {
     return (
 
         <AnimatePresence>
-
         <GalleryContainerStyled
-
         >
             {isLoading && <Loader size={90}/> }
              <GalleryStyled

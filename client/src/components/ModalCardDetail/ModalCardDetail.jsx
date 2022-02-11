@@ -5,6 +5,8 @@ import {useEffect} from "react";
 import ActionAreaCard from "../Card/Card";
 import {GalleryItemStyled} from "../../styles/GalleryItem.styled";
 import {Image} from 'cloudinary-react'
+import CardGallery from "../Card/CardGallery";
+
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
   z-index: 1300;
@@ -45,15 +47,12 @@ export default function ModalCardDetail({card,
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
-
     useEffect(()=>{
         if(isDetaileCardOpen){
             handleOpen()
         }
 
     },[isDetaileCardOpen])
-
 
     return (
         <div>
@@ -68,26 +67,10 @@ export default function ModalCardDetail({card,
                 BackdropComponent={Backdrop}
             >
                 <Box sx={style}>
-                    <h2 id="unstyled-modal-title">{card.title}</h2>
-                    {/*<img src={card.secure_url} alt=""/>*/}
-                    {/*<p id="unstyled-modal-description">By: {card.createdBy}</p>*/}
-
-
-                    <ActionAreaCard
-                        // ref={cardRef}
-                        title ={card.title}
-                        createdBy={card.nameOfUser}
-
-                        image={ <GalleryItemStyled><Image
-                            cloudName="meme3"
-                            publicId={card.url}
-                            crop='scale'
-                            title={card.title}
-
-                            onClick={()=>handleSelectCard(card)}
-                        /></GalleryItemStyled>
-}  />
-
+                    <GalleryItemStyled >
+                         <h2 id="unstyled-modal-title">{card.title}</h2>
+                        <CardGallery card={card} />
+                        </GalleryItemStyled>
                 </Box>
             </StyledModal>
         </div>

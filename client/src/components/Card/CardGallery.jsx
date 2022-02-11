@@ -6,13 +6,13 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import {BoxShadowStyled} from "../../styles/BoxShadow.styled";
 
-export default function CardGallery({card,downloadCard}) {
+export default function CardGallery({card,downloadCard,handleSelectCard}) {
 
     return (
         <BoxShadowStyled>
         <Card sx={{ maxWidth: 345 }}>
 
-            <CardActionArea>
+            <CardActionArea onClick={()=>handleSelectCard(card)}>
                 <CardMedia
                     component="img"
                     height="140"

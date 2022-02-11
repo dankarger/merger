@@ -48,8 +48,7 @@ const DownloadImages = ({handleSelectCard,downloadCard,setIsLoading}) => {
     return (
 
                 <GalleryContainerStyled>
-                    {isLoading2 && <Loader />}
-                    {isLoading2 && <div style={{height:"100%",width:"100%"}}>  <Loader /></div>}
+
                     {imageIds && imageIds.map((card,index)=>{
                         return ( <motion.div
                                 variants={cardGalleryVariants}
@@ -57,8 +56,9 @@ const DownloadImages = ({handleSelectCard,downloadCard,setIsLoading}) => {
                                 animate='animate'
                                 whileHover='hover'
                             >
-                            <CardGallery card={card} downloadCard={downloadCard}
-
+                            <CardGallery card={card}
+                                         downloadCard={downloadCard}
+                                         handleSelectCard={handleSelectCard}
                         />
                         </motion.div>
                         )
