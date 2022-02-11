@@ -246,11 +246,11 @@ const WorkSpace =()=> {
                 ref={dragConstraints}
             >
 
-                 <ResizeDiv2
-                Imagewidth={uploadedFile ? exportRef.current.naturalWidth: '100px'}
-                Imageheight={uploadedFile? exportRef.current.naturalHeight : '100px'}
-                drag
-                >
+                {/* <ResizeDiv2*/}
+                {/*Imagewidth={uploadedFile ? exportRef.current.naturalWidth: '100px'}*/}
+                {/*Imageheight={uploadedFile? exportRef.current.naturalHeight : '100px'}*/}
+                {/*drag*/}
+                {/*>*/}
 
             <WorkImageDivStyled as={motion.div}
                                 // backgroundColor={backgroundColor}
@@ -258,27 +258,33 @@ const WorkSpace =()=> {
                               color={backgroundColor}
                                 ref={exportRef}
                                 shadow={isBackgroundShadow}
+                                dragConstraints={dragConstraints}
                                 >
 
                 {!backgroundImage && <SkeletonDiv />}
-
+                {/*<ResizeDiv2*/}
+                {/*    Imagewidth={uploadedFile ? exportRef.current.naturalWidth: '100px'}*/}
+                {/*    Imageheight={uploadedFile? exportRef.current.naturalHeight : '100px'}*/}
+                {/*    drag*/}
+                {/*>*/}
 
                 <ImageDivStyled
-                    drag
+
                     dragConstraints={dragConstraints}
                     color={imageBorderColor}
                     width={imageBorderWidth}
                     radius={imageBorderRadius}
                 >
                     {backgroundImage &&
-                    <ResizeDiv2
-                    Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
-                    Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
-                >
+                //     <ResizeDiv2
+                //     Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
+                //     Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
+                // >
 
-                    <motion.img drag dragConstraints={dragConstraints} ref={constraintsRef}   src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
-                </ResizeDiv2>
+                    <motion.img   dragConstraints={dragConstraints} ref={constraintsRef}   src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
+                // </ResizeDiv2>
                         }
+                </ImageDivStyled>
                     <OverlayTextDiveStyled
                         drag
                     width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
@@ -318,10 +324,10 @@ const WorkSpace =()=> {
 
 
 
-                </ImageDivStyled>
+
                 <UploadImageDivStyled image={backgroundImage}/>
                  </WorkImageDivStyled>
-               </ResizeDiv2>
+               {/*</ResizeDiv2>*/}
             </WorkingDivBounderiesStyled>
             <Snackbars1 isOpen={isSnackbar}/>
             {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage}

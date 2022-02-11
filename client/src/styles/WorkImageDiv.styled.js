@@ -19,16 +19,9 @@ export const WorkImageDivStyled = styled.div `
   overflow: hidden;
   box-shadow: ${({shadow})=>shadow? '':'rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;'};
   background-color:${({color})=>color||'#333333'} ;
-  //filter: blur();
-  backdrop-filter: blur(10px)  ;
+  
+  backdrop-filter: blur(5px)  ;
  
 //backdrop-filter: blur(93);
-  //img {
-  //  width:100%;
-  //  height: 100%;
-  //  object-fit: contain;
-  //  object-position: inherit;
-  //  
-  //}
   
 `
