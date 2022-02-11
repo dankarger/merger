@@ -17,7 +17,7 @@ const hover = '&:hover { transform:scale(1.2) '
 
 export default function HomePageMenu() {
     return (
-        <Box sx={{'& > :not(style)': {m: 1}, display: "flex", gap: '2rem'}}>
+        <Box sx={{'& > :not(style)': {m: 1}, display: "flex", gap: '3rem'}}>
             <HomepageMenuStyled
 
             >
@@ -27,17 +27,7 @@ export default function HomePageMenu() {
                             initial='initial'
 
                 >
-                    <Link to='/Login'>
-                        {/*<Fab variant="extended" color="primary">*/}
-                            <Button48Styled
-                            variants={DownloadButtonVariants}
-                            whileTap='tap'
-                           whileHover='hover'
-                            >LOGIN/REGISTER</Button48Styled>
-                            {/*<AddIcon sx={{mr: 1}}/>*/}
 
-                        {/*</Fab>*/}
-                    </Link>
                 </motion.div>
                 <motion.div variants={HomePageMenuVariants}
                             whileHover='hover'
@@ -54,13 +44,13 @@ export default function HomePageMenu() {
 
                     </Link>
                 </motion.div>
-                <motion.div variants={HomePageMenuVariants}
-                            whileHover='hover'
-                            animate='animate3'
-                            initial='initial'
-                >
+                {/*<motion.div variants={HomePageMenuVariants}*/}
+                {/*            whileHover='hover'*/}
+                {/*            animate='animate3'*/}
+                {/*            initial='initial'*/}
+                {/*>*/}
 
-                </motion.div>
+                {/*</motion.div>*/}
                 <motion.div variants={HomePageMenuVariants}
                             whileHover='hover'
                             animate='animate3'
@@ -74,6 +64,14 @@ export default function HomePageMenu() {
                     >GALLERY</Button48Styled>
                 </Link>
                 </motion.div>
+                    <Link to='/Login'>
+                        <Button48Styled
+                            variants={DownloadButtonVariants}
+                            whileTap='tap'
+                            whileHover='hover'
+                        >LOGIN/REGISTER</Button48Styled>
+                    </Link>
+
                 <motion.div variants={HomePageMenuVariants}
                             whileHover='hover'
                             animate='animate4'
