@@ -33,7 +33,7 @@ const LoginPage =()=> {
                 console.log('yes',response.data)
                 setCurrentUser(response.data.user)
                  console.log('u',currentUser)
-                // handleDialogueMessage('user',response.data.user,'success')
+                handleDialogueMessage('user',response.data.user,'success')
             }else {
                 // handleDialogueMessage('user',response.data.user,'error')
                 // setErrorMessage('eroro')
@@ -46,6 +46,7 @@ const LoginPage =()=> {
             setErrorMessage(error.response.data.message)
             setIsErrorMessage(true)
             console.log('loginEE;',error.response);
+            setFormData({})
 
 
         }

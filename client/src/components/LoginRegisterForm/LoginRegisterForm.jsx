@@ -6,12 +6,13 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import {fadeIn} from "../../animations/animations";
 import {motion} from 'framer-motion'
+import { FormControl } from '@mui/material';
 
 export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLogin,formData,handleSubmitLoginGuest}) {
    
 
     return (
-
+        <FormControl>
             <Box
                 as={motion.div}
                 variants={fadeIn}
@@ -33,6 +34,7 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                                                   value={formData.name}
                                                   autoComplete="current-name"
                                                   autoFocus={type!=='login'}
+                                                  required={true}
                 />}
 
                 <TextField id="filled-basic-email" label="Email"
@@ -43,6 +45,7 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                            value={formData.email}
                            // autoComplete="current-email"
                            autoFocus={type==='login' }
+                           required={true}
 
                 />
 
@@ -55,6 +58,7 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                     onChange={handleFormInputs}
                     name='password'
                     value={formData.password}
+                    required={true}
                 />
                 <Stack direction="column" spacing={2}>
                     {/*<Button variant="outlined">Primary</Button>*/}
@@ -68,7 +72,7 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
 
         </LoginFormStyled>
             </Box>
-
+        </FormControl>
     );
 }
 
