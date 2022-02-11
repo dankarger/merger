@@ -11,9 +11,9 @@ import {CardGalleryStyled} from "../../styles/CardGallery.styled";
 import Cards2 from "../Card/Card2";
 import CardGallery from "../Card/CardGallery";
 
-const DownloadImages = ({handleSelectCard,downloadCard}) => {
+const DownloadImages = ({handleSelectCard,downloadCard,setIsLoading}) => {
     const [imageIds, setImageId] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading2, setIsLoading2] = useState(true);
     const cardRef=useRef(null)
     const cld = new Cloudinary({
         cloud: {
@@ -26,18 +26,23 @@ const DownloadImages = ({handleSelectCard,downloadCard}) => {
 
     const loadImages = async () => {
         try {
+            setIsLoading(true)
+            setIsLoading2(true)
+
             const {data} = await myApi.get('/images');
             setImageId(data)
+            setIsLoading(false)
+            setIsLoading2(false)
             console.log('da', data)
         } catch (e) {
             console.error(e)
         }
     }
 
-    useEffect(() => {
+    useEffect(async () => {
         setIsLoading(true)
-       const data =  loadImages();
-        setImageId(data.data)
+        const data = await loadImages();
+        await setImageId(data.data)
         setIsLoading(false)
 
     }, [])
@@ -46,7 +51,8 @@ const DownloadImages = ({handleSelectCard,downloadCard}) => {
     return (
 
                 <GalleryContainerStyled>
-                    {isLoading && <Loader />}
+                    {isLoading2 && <Loader />}
+                    {isLoading2 && <div style={{height:"100%",width:"100%"}}>  <Loader /></div>}
                         {/*{imageIds && imageIds.map((imageId, index) => (*/}
                         {/*    <CardGalleryStyled  key={imageId._id}>*/}
                         {/*   <ActionAreaCard*/}
@@ -70,6 +76,7 @@ const DownloadImages = ({handleSelectCard,downloadCard}) => {
                         return  <CardGallery card={card} downloadCard={downloadCard}/>
                     })}
                     {imageIds &&  <Cards2 images={imageIds}/>}
+
                     </GalleryContainerStyled>
 
     )

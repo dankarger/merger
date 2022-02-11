@@ -10,6 +10,7 @@ export const WorkingDivBounderiesStyled = styled.div `
   position: relative;
   overflow: hidden;
   border-radius: 1%;
+  background: rgb(236, 236, 236);
 
   border: #333333 3px solid;
 

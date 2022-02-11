@@ -8,6 +8,8 @@ import ModalCardDetail from "../ModalCardDetail/ModalCardDetail";
 import {GalleryContainerVariants, GalleryStyleVariants} from "../../animations/animations";
 import {AnimatePresence} from "framer-motion";
 import CardGallery from "../Card/CardGallery";
+import Loader from "../Loader/Loader";
+
 import axios from "axios";
 
 const Gallery = () => {
@@ -15,7 +17,7 @@ const Gallery = () => {
     const [imageIds2, setImageId2] = useState([]);
     const [isDetailCardOpen, setIsDetailCardOpen]=useState(false);
     const [selectedCard,setSelectedCard]=useState({});
-
+    const[isLoading,setIsLoading]=useState(true)
      const handleSelectCard=(card,cardRef)=>{
          setIsDetailCardOpen(!isDetailCardOpen);
          setSelectedCard(card)
@@ -46,10 +48,11 @@ const Gallery = () => {
         <AnimatePresence>
 
         <GalleryContainerStyled
-        variants={GalleryContainerVariants}
-        initial='initial'
-        animate='animate'
+        // variants={GalleryContainerVariants}
+        // initial='initial'
+        // animate='animate'
         >
+            {isLoading && <Loader />}
             {/*<MenuLeft />*/}
             <GalleryStyled
                 variants={GalleryStyleVariants}
@@ -57,7 +60,13 @@ const Gallery = () => {
                 animate='animate'
             >
              <h1>Gallery</h1>
-                <DownloadImages handleSelectCard={handleSelectCard} downloadCard={downloadCard}/>
+
+
+                <DownloadImages handleSelectCard={handleSelectCard}
+                                downloadCard={downloadCard}
+                                setIsLoading={setIsLoading}
+                                isLoading={isLoading}
+                                />
 
                 {isDetailCardOpen &&
                 // <DetailCard card={selectedCard} handleSelectCard={handleSelectCard}/>
