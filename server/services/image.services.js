@@ -59,7 +59,7 @@ const uploadImage = async (req,res)=> {
 
 const deleteImage = async (id) => {
     // TODO:add checks and validations
-    const user = await User.findById("61fdbde72601c0ac1f890bbb");
+    const user = await User.findById(id);
     const image = await Image.findOne({_id:id})
     await cloudinary.uploader.destroy(image.public_id, function(error,result) {
         console.log(result, error) });

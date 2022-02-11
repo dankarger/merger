@@ -7,7 +7,7 @@ import React,{useContext} from "react";
 export const loggedInGuestMessage = {
     title:'Logged-in Successfully',
     message:'Hi Guest',
-    message2: 'Your works will be saved as Guest , if you want to save under your name please Register or Sign-in in your Account ',
+    message2: 'Your works will be saved as Guest , if you want to save under your name please Register or Sign-in with your Account ',
     titleColor:'green',
     navigate:'/work'
 

@@ -47,6 +47,7 @@ const WorkSpace =()=> {
     const [color, setColor] = useState("#000000");
     const TextOverlayRef = useRef();
     const [fontSize,setFontSize]=useState('80');
+
     //Text2
     const[inputTextSecond,setInputTextSecond]=useState(String);
     const[isTextMenuSecondOpen,setIsTextMenuSecondOpen]=useState(false)
@@ -58,11 +59,6 @@ const WorkSpace =()=> {
     //Background
     const[backgroundColor,setBackGroundColor]=useState('#333333');
     const[isBackgroundMenuOpen,setIsBackGroundMenuOpen]=useState()
-
-    //Positions
-    // const [cursorPosition,setCursorPosition]=useState({x:0,y:0});
-    // const position = useRef('top');
-    // const [positionState,setPositionState]=useState('center');
 
     //utils
     const[isSnackbar,setIsSnackBar]=useState(false);
@@ -81,6 +77,8 @@ const WorkSpace =()=> {
     const constraintsRefAddText = useRef(null);
     const dragConstraints = useRef(null);
     const exportRef = useRef(null)
+
+    //User
     const [currentUser,setCurrentUser]= useContext(UserContext)
 
     const handleSendMergeForm = async ()=>{
