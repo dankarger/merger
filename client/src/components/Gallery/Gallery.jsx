@@ -27,7 +27,7 @@ const Gallery = () => {
 
 
     const downloadCard= async (card)=>{
-            console.log('carddd',card)
+
         await axios({
             url: card.secure_url, //your url
             method: 'GET',
@@ -48,18 +48,15 @@ const Gallery = () => {
         <AnimatePresence>
 
         <GalleryContainerStyled
-        // variants={GalleryContainerVariants}
-        // initial='initial'
-        // animate='animate'
+
         >
             {isLoading && <Loader size={90}/> }
-            {/*<MenuLeft />*/}
-            <GalleryStyled
+             <GalleryStyled
                 variants={GalleryStyleVariants}
                 initial='initial'
                 animate='animate'
             >
-             <h1>Gallery</h1>
+             <h1>Gallery</h1> <span>Images: {imageIds.length}</span>
 
 
                 <DownloadImages handleSelectCard={handleSelectCard}
@@ -69,8 +66,7 @@ const Gallery = () => {
                                 />
 
                 {isDetailCardOpen &&
-                // <DetailCard card={selectedCard} handleSelectCard={handleSelectCard}/>
-                <ModalCardDetail isDetaileCardOpen={isDetailCardOpen}
+                 <ModalCardDetail isDetaileCardOpen={isDetailCardOpen}
                                  card={selectedCard}
                                  handleSelectCard={handleSelectCard}
                                  downloadCard={downloadCard}/>

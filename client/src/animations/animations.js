@@ -238,3 +238,21 @@ export const DetailCardStyleVariants = {
     }
 }
 
+//Card
+
+export const cardGalleryVariants = {
+    initial:{
+        opacity:0,
+    },
+    animate:{
+        x:0,
+        opacity:1,
+        transition:{
+            stiffness:11
+        }
+    },
+    hover:{
+        scale:(1.04)
+    }
+
+}
