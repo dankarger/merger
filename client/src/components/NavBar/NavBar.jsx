@@ -22,7 +22,7 @@ import {GreetingStyled} from "../../styles/Greeting.styled";
 import PersonOutlineTwoToneIcon from '@mui/icons-material/PersonOutlineTwoTone';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
-const pages = ['Home', 'Work', 'Login','Gallery'];
+const pages = ['Home', 'Login', 'Work','Gallery'];
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 

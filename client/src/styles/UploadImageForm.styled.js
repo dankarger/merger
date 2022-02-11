@@ -4,7 +4,7 @@ export const UploadImageFormStyled = styled.form `
   width: 210px;
   height: calc(100% - 150px);
   //padding-left:10px;
-  padding: 12px 17px 3px 11px;
+  padding: 20px 17px 13px 20px;
   //margin:0 auto;
   display: flex;
   justify-content: start;

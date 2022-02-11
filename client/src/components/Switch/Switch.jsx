@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Switch from '@mui/material/Switch';
 
-export default function CustomSwitch() {
+export default function CustomSwitch({}) {
     const [checked, setChecked] = React.useState(true);
 
     const handleChange = (event) => {

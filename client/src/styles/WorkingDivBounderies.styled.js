@@ -9,6 +9,7 @@ export const WorkingDivBounderiesStyled = styled.div `
   align-items: center;
   position: relative;
   overflow: hidden;
+  border-radius: 1%;
 
   border: #333333 3px solid;
 
