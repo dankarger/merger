@@ -21,16 +21,13 @@ const handleColorChange=(e)=>{
 
     return (
         <AddImageBorderStyled>
-            <CustomSwitch /> <span>Border</span>
-            {/*<ColorPicker onChange={handleColorChange} value={imageBorderColor}/>*/}
+            {/*<CustomSwitch /> <span>Border</span>*/}
             <ColorPickerDivStyled>
-            {/*    < FormatColorTextIcon />*/}
                 <ColorPickerHtml color={imageBorderColor}
                                  setColor={setImageBorderColor}
                                 label={'Border Color:'}
                                  icon={<BorderColorIcon/>}
                 />
-                {/*<ColorPicker    onChange={handleColorChange}/>*/}
             </ColorPickerDivStyled>
 
         <SlideImageBorder  setImageBorderWidth={ setImageBorderWidth}

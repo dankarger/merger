@@ -10,10 +10,11 @@ const ColorPickerHtml=({setColor,color,label,icon})=> {
 
     return (
         <ColorPickerDivStyled>
-
             {icon}
+            <label htmlFor="favcolor">{label}</label>
+
             <input   type="color" id="favcolor" name="favcolor" value={color} onChange={ChooseColor}/>
-           <label htmlFor="favcolor">{label}</label>
+
 
         </ColorPickerDivStyled>
     )

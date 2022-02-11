@@ -169,7 +169,8 @@ export const DownloadButtonVariants = {
     tap:{
         scale:(0.85),
         color:'#2CBEDF',
-        backgroundColor:'#21107E'
+        backgroundColor:'#21107E',
+        transition:{duration:0.3}
     }
 }
 

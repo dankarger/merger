@@ -47,21 +47,7 @@ export default function UploadImages({setBackgroundImage,
             if (file.name.length > 0) setFileName(file.name);
 
     }
-    // function download () {
-    //
-    //     console.log('d',downloadLink)
-    //     const a = document.createElement('a');
-    //    const url = downloadLink.substring(8)
-    //     console.log(url)
-    //     a.href=downloadLink
-    //     a.download = "test.jpg"
-    //     a.target='_blank'
-    //     a.type='image/jpg'
-    //     a.click()
-    //     console.log(a)
-    //
-    //
-    // }
+
 
     const previewFile= (file) => {
         const reader = new FileReader();
@@ -76,9 +62,7 @@ export default function UploadImages({setBackgroundImage,
     const handleSubmitFile = async (e) => {
         e.preventDefault();
         if(!previewSource) return
-        // const reader = new FileReader();
-        // reader.readAsDataURL(selectedFile)
-        // uploadImage(previewSource);
+
     }
     return (
         <>
@@ -97,9 +81,7 @@ export default function UploadImages({setBackgroundImage,
                        onChange={handleFileInputChane}
                        value={fileInputState}
                        className='form-input'
-                    // style={{opacity:0}}
                       />
-                    {/*//button2*/}
                         <AddFileLabelStyled
                             htmlFor="files"
                             variants={DownloadButtonVariants}
@@ -107,24 +89,27 @@ export default function UploadImages({setBackgroundImage,
                             whileHover='hover'
                         ><PhotoCamera
                         /> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>
-                    <AddFileInputStyled
-                        type="file" name='image'
-                        id='files'
-                        // disabled='true'
-                        onChange={handleFileInputChane}
-                        value={fileInputState}
-                        className='form-input'
-                        // style={{opacity:0}}
-                    />
-                    <AddFileLabelStyled
-                        htmlFor="files"
-                        variants={DownloadButtonVariants}
-                        whileTap="tap"
-                        whileHover='hover'
-                    ><PhotoCamera
-                    /> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>
+                    <hr/>
+                    <Button style={{justifySelf:'center'}} onClick={handleMergeButton} variant={backgroundImage?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
+
+                    {/*<AddFileInputStyled*/}
+                    {/*    type="file" name='image'*/}
+                    {/*    id='files'*/}
+                    {/*    // disabled='true'*/}
+                    {/*    onChange={handleFileInputChane}*/}
+                    {/*    value={fileInputState}*/}
+                    {/*    className='form-input'*/}
+                    {/*    // style={{opacity:0}}*/}
+                    {/*/>*/}
+                    {/*<AddFileLabelStyled*/}
+                    {/*    htmlFor="files"*/}
+                    {/*    variants={DownloadButtonVariants}*/}
+                    {/*    whileTap="tap"*/}
+                    {/*    whileHover='hover'*/}
+                    {/*><PhotoCamera*/}
+                    {/*/> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>*/}
                 </motion.div>
-                Image -border
+                {/*Image -border*/}
 
                 <AddImageBorder  imageBorderWidth={ imageBorderWidth}
                                  setImageBorderWidth={ setImageBorderWidth}
@@ -133,7 +118,6 @@ export default function UploadImages({setBackgroundImage,
                                  setImageBorderColor={setImageBorderColor}
                                  imageBorderColor={imageBorderColor}
                 />
-                <Button style={{justifySelf:'center'}} onClick={handleMergeButton} variant={backgroundImage?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
 
         </UploadImageFormStyled>
         </>
