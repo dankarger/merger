@@ -5,8 +5,10 @@ import {AddBackGroundColorStyled} from "../../styles/AddBackGroundColor.styled";
 import ColorPickerHtml from "../ColorPickerHtml/ColorPickerHtml";
 import {MenuLeftVariants} from "../../animations/animations";
 import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
+import CustomSwitch from "../Switch/Switch";
+import SwitchOnOff from "../Switch/SwitchOnOff";
 
-const AddBackGroundColor =({backGroundColor,setBackGroundColor })=> {
+const AddBackGroundColor =({backGroundColor,setBackGroundColor,setIsBackgroundShadow })=> {
 
 
     const handleChange=(e)=>{
@@ -20,17 +22,18 @@ const AddBackGroundColor =({backGroundColor,setBackGroundColor })=> {
             initial='initial'
             animate='animate'
         >
-            <p>Choose the BackGround color</p>
+            <p><u>Canvas Options</u></p>
             <ColorPickerDivStyled>
                 {/*<ColorPicker  value={backGroundColor} onChange={setBackGroundColor}/>*/}
                 <ColorPickerHtml color={backGroundColor}
                                  setColor={setBackGroundColor}
-                                 label={'BackGround Color'}
+                                 label={' Color'}
                                  icon={<FormatColorFillIcon/>}
                 />
 
             </ColorPickerDivStyled>
-
+            <CustomSwitch label={'Add Shadow'} setIsChecked={setIsBackgroundShadow} defaultValue={false}/>
+            <SwitchOnOff label={'Shadow'}/>
         </AddBackGroundColorStyled>
     )
 }

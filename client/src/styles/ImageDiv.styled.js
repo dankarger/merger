@@ -10,7 +10,7 @@ export const ImageDivStyled = styled(motion.div) `
   //max-width: 90vw;
   max-height: 90vh;
   //border: grey 1px solid;
- 
+  opacity: 0.5;
 
   img {
     object-fit: cover;

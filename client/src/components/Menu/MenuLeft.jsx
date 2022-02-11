@@ -16,7 +16,9 @@ const MenuLeft=({imageCallback,
                     backgroundImage,
                     textCallbackSecond,
                     isDownloadLoader,
-                    overlayText}) => {
+                    overlayText,
+                    setIsBackgroundShadow
+                }) => {
 
 
     return (
@@ -38,6 +40,7 @@ const MenuLeft=({imageCallback,
                      overlayText={overlayText}
                      textCallbackSecond={textCallbackSecond}
                      isDownloadLoader={isDownloadLoader}
+
             />
         </MenuLeftStyled>
     )

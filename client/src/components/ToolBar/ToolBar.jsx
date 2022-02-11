@@ -24,7 +24,8 @@ export default function ToolBar({imageCallback,
                                     backgroundImage,
                                     overlayText,
                                     textCallbackSecond,
-                                    isDownloadLoader
+                                    isDownloadLoader,
+
                                 }) {
     const [view, setView] = React.useState('list');
     const[isDownloadLink,setIsDownloadLink]=useState(false)

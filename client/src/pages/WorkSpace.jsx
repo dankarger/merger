@@ -58,7 +58,8 @@ const WorkSpace =()=> {
 
     //Background
     const[backgroundColor,setBackGroundColor]=useState('#333333');
-    const[isBackgroundMenuOpen,setIsBackGroundMenuOpen]=useState()
+    const[isBackgroundMenuOpen,setIsBackGroundMenuOpen]=useState();
+    const[isBackgroundShadow,setIsBackgroundShadow]=useState(false)
 
     //utils
     const[isSnackbar,setIsSnackBar]=useState(false);
@@ -185,6 +186,7 @@ const WorkSpace =()=> {
                       overlayText={overlayText}
                       isDownloadLoader={isDownloadLoader}
 
+
             />
             {isImgMenuOpen &&
             <UploadImages
@@ -201,6 +203,7 @@ const WorkSpace =()=> {
                          backgroundImage={backgroundImage}
                          setErrorMessage={setErrorMessage}
                          setIsErrorMessage={setIsErrorMessage}
+                         setIsBackgroundShadow={setIsBackgroundShadow}
            />
             }
             {isTextMenuOpen &&
@@ -229,7 +232,11 @@ const WorkSpace =()=> {
           />
           }
             <MenuLeftPlaceHolder />
-            {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={handleBackgroundChange}/>}
+            {isBackgroundMenuOpen &&
+            <AddBackGroundColor backGroundColor={backgroundColor}
+                                setBackGroundColor={handleBackgroundChange}
+                                setIsBackgroundShadow={setIsBackgroundShadow}
+            />}
           <AlertCostum errorMessage={errorMessage}
                        severity={'error'}
                        setErrorMessage={setErrorMessage}
@@ -247,9 +254,10 @@ const WorkSpace =()=> {
 
             <WorkImageDivStyled as={motion.div}
                                 // backgroundColor={backgroundColor}
-                drag
+                              drag
                               color={backgroundColor}
                                 ref={exportRef}
+                                shadow={isBackgroundShadow}
                                 >
 
                 {!backgroundImage && <SkeletonDiv />}
