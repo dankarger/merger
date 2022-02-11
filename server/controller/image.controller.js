@@ -20,8 +20,8 @@ const uploadImage =async (req, res)=> {
         console.log('wtf')
       const image = await imageService.uploadImage(req,res)
       res.status(200).send(image);
-    } catch (error) {
-        console.error(error)
+    } catch(error) {
+        console.log('error',error)
         res.status(500).send({error:error})
     }
 }

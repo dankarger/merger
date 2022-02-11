@@ -130,7 +130,11 @@ const WorkSpace =()=> {
             setIsDownloadLinkReady(true);
              setIsDownloader(false);
         }catch (error) {
-            console.log(error)
+             setErrorMessage(error.message)
+             setIsErrorMessage(true)
+            throw new Error(error)
+
+
         }
     }
     const handleInputChange = (e)=>{
