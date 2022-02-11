@@ -28,6 +28,8 @@ import {WorkingDivBounderiesStyled} from "../styles/WorkingDivBounderies.styled"
 import {fadeIn} from "../animations/animations";
 import axios from 'axios'
 import AddTextSecond from "../components/AddTextSecond/AddTextSecond";
+import Alert from "../components/Alert/Alert";
+import AlertCostum from "../components/Alert/Alert";
 
 const WorkSpace =()=> {
     //image const
@@ -53,7 +55,6 @@ const WorkSpace =()=> {
     const TextOverlaySecondRef = useRef();
     const [fontSizeSecond,setFontSizeSecond]=useState('80');
 
-
     //Background
     const[backgroundColor,setBackGroundColor]=useState('#333333');
     const[isBackgroundMenuOpen,setIsBackGroundMenuOpen]=useState()
@@ -71,7 +72,9 @@ const WorkSpace =()=> {
     const[isDownloadLinkReady,setIsDownloadLinkReady]=useState(false);
     const[imageFormat,setImageFormat]=useState('JPG')
     const downloadLinkRef = useRef(null)
-    const [isDownloadLoader,setIsDownloader ]= useState(false)
+    const [isDownloadLoader,setIsDownloader ]= useState(false);
+    const[errorMessage,setErrorMessage] = useState(null)
+    const[isErrorMessage,setIsErrorMessage]=useState(false)
 
     //Reff
     const constraintsRef = useRef(null);
@@ -101,6 +104,7 @@ const WorkSpace =()=> {
             link.click();
         });
     }
+
     useEffect(()=>{
         setOverlayText(inputText)
     },[inputText])
@@ -140,7 +144,15 @@ const WorkSpace =()=> {
     }
 
     const handleMergeButton =()=>{
-       setIsMergeFormOpen(true);
+        if(uploadedFile || inputText || inputTextSecond) {
+            alert('good')
+            setIsMergeFormOpen(true);
+            setIsErrorMessage(false)
+        }else{
+            alert('error')
+            setErrorMessage("Cannot Merge an Empty Work Space")
+            setIsErrorMessage(true)
+        }
     }
     const handleCloseMergeForm =()=>{
         setIsMergeFormOpen(false);
@@ -216,6 +228,11 @@ const WorkSpace =()=> {
           }
             <MenuLeftPlaceHolder />
             {isBackgroundMenuOpen && <AddBackGroundColor backGroundColor={backgroundColor} setBackGroundColor={handleBackgroundChange}/>}
+          <AlertCostum errorMessage={errorMessage}
+                       severity={'error'}
+                       setErrorMessage={setErrorMessage}
+                        isErrorMessage={isErrorMessage}
+                         setIsErrorMessage={setIsErrorMessage}/>
             <WorkingDivBounderiesStyled
                 ref={dragConstraints}
             >
