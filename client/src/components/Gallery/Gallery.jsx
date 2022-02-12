@@ -11,25 +11,29 @@ import Loader from "../Loader/Loader";
 import axios from "axios";
 import AlertCostum from "../Alert/Alert";
 import {UserContext} from "../../App";
-
+import DeleteDialog from "../Dialog/DeleteDialog";
 
 const Gallery = () => {
     const [imageIds, setImageId] = useState([]);
     const [imageIds2, setImageId2] = useState([]);
     const [isDetailCardOpen, setIsDetailCardOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState({});
-    const [isLoading, setIsLoading] = useState(true)
-    const [errorMessage, setErrorMessage] = useState(null)
-    const [isErrorMessage, setIsErrorMessage] = useState(false)
-    const [currentUser,setCurrentUser]= useContext(UserContext)
 
-    const handleSelectCard = (card, cardRef) => {
-        setIsDetailCardOpen(!isDetailCardOpen);
-        setSelectedCard(card)
-    }
+    const [isLoading, setIsLoading] = useState(true);
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [isErrorMessage, setIsErrorMessage] = useState(false);
+    const[isDialogueOpen,setIsDialogueOpen] = useState(false);
 
-    const handleDeleteCard = async (card) => {
-        console.log('dddellleet',currentUser)
+    // const[modalInfo,setModalInfo]=useState({});
+
+    const [currentUser,setCurrentUser]= useContext(UserContext);
+
+
+    useEffect(()=>{
+
+    },[isDialogueOpen])
+
+    const handleConfirmDelete= async (card)=>{
         try {
             const response = await myApi.delete(`/images/${card._id}`, {
                 headers: {
@@ -46,6 +50,22 @@ const Gallery = () => {
             setIsErrorMessage(true);
             console.log(error);
         }
+
+
+    }
+
+    const handleSelectCard = (card, cardRef) => {
+
+        setIsDetailCardOpen(!isDetailCardOpen);
+        setSelectedCard(card)
+    }
+
+    const handleDeleteCard = (card) => {
+        setSelectedCard(card)
+        setIsDialogueOpen(true)
+
+
+
 
     }
 
@@ -76,6 +96,9 @@ const Gallery = () => {
     return (
 
         <div>
+            <DeleteDialog isDialogueOpen={isDialogueOpen}
+                          card={selectedCard}
+                          handleConfirmDelete={handleConfirmDelete}/>
             <AlertCostum errorMessage={errorMessage}
                          severity={'error'}
                          setErrorMessage={setErrorMessage}
