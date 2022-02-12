@@ -33,13 +33,13 @@ export default function CardGallery({card,downloadCard,handleSelectCard}) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <FlexDivStyled>
+                <div style={{display:'flex',justifyContent:'space-between',gap:'4rem'}}>
+                    <Button onClick={()=>{downloadCard(card)}} size="small" color="primary">
+                        Download
+                    </Button>
+                    <CustomDeleteIconChips />
+                </div>
 
-                </FlexDivStyled>
-                <Button onClick={()=>{downloadCard(card)}} size="small" color="primary">
-                    Download
-                </Button>
-                <CustomDeleteIconChips />
             </CardActions>
 
         </Card>

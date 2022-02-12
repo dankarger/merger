@@ -64,6 +64,11 @@ export default function HomePageMenu() {
                     >GALLERY</Button48Styled>
                 </Link>
                 </motion.div>
+                <motion.div variants={HomePageMenuVariants}
+                            whileHover='hover'
+                            animate='animate4'
+                            initial='initial2'
+                >
                     <Link to='/Login'>
                         <Button48Styled
                             variants={DownloadButtonVariants}
@@ -71,6 +76,7 @@ export default function HomePageMenu() {
                             whileHover='hover'
                         >LOGIN/REGISTER</Button48Styled>
                     </Link>
+                </motion.div>
 
                 <motion.div variants={HomePageMenuVariants}
                             whileHover='hover'
