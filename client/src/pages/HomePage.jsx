@@ -49,12 +49,6 @@ const HomePage = () => {
 {/*<Button48Styled>buttin</Button48Styled>*/}
             <HomePageMenu />
             <HomePageContent />
-
-                {/*<motion.div*/}
-                {/*    variants={fadeIn}*/}
-                {/*    initial='initial'*/}
-                {/*    animate='animate'*/}
-                {/*>*/}
                     <TopMenuBar as={motion.div}
                                 step={stepCounter}
                 //                 variants={MenuLeftVariants}
