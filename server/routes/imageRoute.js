@@ -7,8 +7,8 @@ const auth = require('../middlewares/auth')
 const userController = require("../controller/user.controller");
 
 
-// imageRoute.get('/',imageController.getImages );
-imageRoute.post('/',imageController.filterImages )
+imageRoute.get('/',imageController.getImages );
+imageRoute.post('/get',imageController.filterImages )
 
 
 // imageRoute.post('/',imageController.uploadImage )

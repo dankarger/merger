@@ -34,7 +34,7 @@ const DownloadImages = ({handleSelectCard,
             setIsLoading(true)
             setIsLoading2(true)
 
-            const {data} = await myApi.post('/images',{
+            const {data} = await myApi.post('/images/get',{
                 userId:currentUser.id
                 });
             setImageId(data)
@@ -47,9 +47,9 @@ const DownloadImages = ({handleSelectCard,
         }
     }
 
-    useEffect( async () => {
+    useEffect(  () => {
         setIsLoading(true)
-        const {data} = await loadImages();
+        const {data} =  loadImages();
         console.log('dada' ,data)
         // setImageId(data)
         setIsLoading(false)
@@ -59,7 +59,7 @@ const DownloadImages = ({handleSelectCard,
 
     return (
         <>
-            <h1>Gallery for <StrongStyled>{currentUser.name}</StrongStyled></h1>  <span><StrongStyled><h3>Images: {imageIds.length}</h3></StrongStyled></span>
+           Gallery for <StrongStyled>{currentUser.name}</StrongStyled>   <span><StrongStyled>Images: {imageIds.length}</StrongStyled></span>
 
 
 

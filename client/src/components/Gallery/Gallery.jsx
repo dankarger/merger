@@ -116,7 +116,7 @@ const Gallery = () => {
                     initial='initial'
                     animate='animate'
                 >
-                    <h1>Gallery</h1>
+                    {/*<h1>Gallery</h1>*/}
 
 
                     <DownloadImages handleSelectCard={handleSelectCard}
