@@ -49,8 +49,9 @@ const deleteAllImagesByUser = async function (req, res) {
 
 
 const filterImages= async (req,res)=> {
+    console.log('b',req.body)
     try {
-        const images = await imageService.filterImages(req.body.id);
+        const images = await imageService.filterImages(req.body.userId);
         res.status(200).send(images);
     } catch (e) {
         console.log('filter',e)

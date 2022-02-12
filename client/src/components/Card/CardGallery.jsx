@@ -34,6 +34,7 @@ export default function CardGallery({   card,
                     image={card.secure_url}
                     alt="green iguana"
                 />
+                {card &&
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {card.title}
@@ -43,6 +44,7 @@ export default function CardGallery({   card,
                       ( {card.dateCreated.substring(0,10)} )
                     </Typography>
                 </CardContent>
+                }
             </CardActionArea>
             <CardActions>
                 <div style={{display:'flex',justifyContent:'space-between',gap:'4rem'}}>

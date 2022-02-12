@@ -17,8 +17,8 @@ const getImages = async () => {
 }
 
 
-const getMongoImages = async () => {
-    const images = await Image.find()
+const getMongoImages = async (userId) => {
+    const images = await Image.find({createdBy:userId})
     return images
 }
 
@@ -94,10 +94,15 @@ const deleteAllImagesByUser = async (id) => {
 }
 
 const filterImages = async (id) => {
-    const user = await User.findById(id)
-    console.log('filter images user', user);
-    const images = user.images
-    console.log(images)
+    console.log('ididid,id',id)
+    // const user = await User.findById(id)
+    // console.log('filter images user', user);
+    // const images = user.images
+    //
+    const images = await Image.find({createdBy:id})
+
+
+    console.log('images',images)
     return images
 
 }

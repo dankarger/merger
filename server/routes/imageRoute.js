@@ -7,14 +7,17 @@ const auth = require('../middlewares/auth')
 const userController = require("../controller/user.controller");
 
 
-imageRoute.get('/',imageController.getImages )
+// imageRoute.get('/',imageController.getImages );
+imageRoute.post('/',imageController.filterImages )
+
+
 // imageRoute.post('/',imageController.uploadImage )
 imageRoute.delete('/:id',imageController.deleteImage)
 imageRoute.delete('/delete-all/:id',imageController.deleteAllImagesByUser)
 
 imageRoute.post('/',imageController.uploadImage )
 // imageRoute.post('/' ,imageController.uploadImage )
-imageRoute.post('/filter-images',auth.authenticateToken,imageController.filterImages)
+imageRoute.post('/filter-images',imageController.filterImages)
 
 
 

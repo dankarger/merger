@@ -1,4 +1,4 @@
-import React, {useState, useEffect,useRef} from "react";
+import React, {useState, useEffect, useRef, useContext} from "react";
 import myApi from '../../api/Api';
 import {Cloudinary} from "@cloudinary/url-gen";
 import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
@@ -7,6 +7,9 @@ import Cards2 from "../Card/Card2";
 import CardGallery from "../Card/CardGallery";
 import {cardGalleryVariants} from "../../animations/animations";
 import {motion} from 'framer-motion'
+import {UserContext} from "../../App";
+
+
 
 const DownloadImages = ({handleSelectCard,
                             downloadCard,
@@ -16,7 +19,9 @@ const DownloadImages = ({handleSelectCard,
                         }) => {
     const [imageIds, setImageId] = useState([]);
     const [isLoading2, setIsLoading2] = useState(true);
-    const cardRef=useRef(null)
+    // const cardRef=useRef(null)
+    const [currentUser,setCurrentUser]= useContext(UserContext)
+
     const cld = new Cloudinary({
         cloud: {
             cloudName: 'meme3'
@@ -31,7 +36,9 @@ const DownloadImages = ({handleSelectCard,
             setIsLoading(true)
             setIsLoading2(true)
 
-            const {data} = await myApi.get('/images');
+            const {data} = await myApi.post('/images',{
+                userId:currentUser.id
+                });
             setImageId(data)
             setIsLoading(false)
             setIsLoading2(false)
@@ -44,8 +51,9 @@ const DownloadImages = ({handleSelectCard,
 
     useEffect( async () => {
         setIsLoading(true)
-        const data = await loadImages();
-        setImageId(data.data)
+        const {data} = await loadImages();
+        console.log('dada' ,data)
+        // setImageId(data)
         setIsLoading(false)
 
     }, [isRefresh])
@@ -63,10 +71,12 @@ const DownloadImages = ({handleSelectCard,
                                 whileHover='hover'
                                 key={card.id}
                             >
+                                {/*<img src={card.secure_url }/>*/}
                             <CardGallery card={card}
                                          downloadCard={downloadCard}
                                          handleSelectCard={handleSelectCard}
                                          handleDeleteCard={handleDeleteCard }
+                                         key={card.id+card.username}
                         />
                         </motion.div>
                         )

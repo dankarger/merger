@@ -13,7 +13,7 @@ import Footer from "./components/Footer/Footer";
 
 
 function App() {
-    const[currentUser,setCurrentUser] = useState({name:'guest',email:'guest',password:'guest',_id:"620668fd2127376b525099dd"})
+    const[currentUser,setCurrentUser] = useState({name:'guest',email:'guest',password:'guest',_id:"620668fd2127376b525099dd",id:"620668fd2127376b525099dd"})
 
   return (
     <div className="App">
