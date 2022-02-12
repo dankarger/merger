@@ -66,7 +66,7 @@ const RegisterPage =()=> {
         try {
             const response = await myApi.post('/users/login',{name:'guest',email:'guest',password:'guest'})
             console.log('login-Guest',response.data.user)
-            setCurrentUser(response.data)
+            setCurrentUser(response.data.user)
             handleDialogueMessage('guest')
             // navigate(`/work`);
         }catch (error) {
