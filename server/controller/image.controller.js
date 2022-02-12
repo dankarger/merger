@@ -28,9 +28,10 @@ const deleteImage = async function (req, res) {
     try {
 
         const password = req.body.password;
+        const userId=req.body.userId;
         const id= req.params.id
-        console.log('ggg',password,id)
-        const deleteImage = await imageService.deleteImage(id,password);
+        console.log('ggg',id,userId)
+        const deleteImage = await imageService.deleteImage(id,password,userId);
         res.status(200).send(deleteImage);
     } catch (e) {
         res.status(400).json({error: e.message})

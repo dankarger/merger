@@ -2,6 +2,8 @@ const Image = require("../models/image.model");
 const User = require("../models/user.model");
 const {cloudinary} = require("../utils/cloudinary");
 const bcrypt =require('bcrypt')
+const mongoose = require('mongoose')
+
 
 const findUser = async (id) => {
     return User.findById(id)
@@ -57,11 +59,13 @@ const addImage = async (response, user, imageTitle) => {
 
 }
 
-const deleteImage = async (id,password) => {
+const deleteImage = async (id,password,userId) => {
     const image = await Image.findOne({_id: id})
     const user = await User.findById(image.createdBy);
-    console.log('deleteService',image,user)
-    if(await bcrypt.compare(password, user.password)){
+    console.log('deleteService',image.createdBy,user.id,mongoose.Types.ObjectId(userId))
+    // if(await bcrypt.compare(password, user.password)){
+    if(userId===user.id){
+        console.log('dasdasdasdasdasdasdasdasd')
     await cloudinary.uploader.destroy(image.public_id, function (error, result) {
         console.log(result, error)
     });
@@ -71,7 +75,7 @@ const deleteImage = async (id,password) => {
         console.log('delete card:1')
     return (user);}
     else{
-        throw new Error('Incorrect Password')
+        throw new Error('Incorrect User')
     }
 }
 
