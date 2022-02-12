@@ -37,7 +37,7 @@ const LoginPage =()=> {
             }else {
                 // handleDialogueMessage('user',response.data.user,'error')
                 // setErrorMessage('eroro')
-                console.error('loginss;',response.status);
+                console.log('logins;',response.status);
             }
         }
         catch(error) {

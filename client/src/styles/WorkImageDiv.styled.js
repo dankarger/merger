@@ -17,7 +17,7 @@ export const WorkImageDivStyled = styled.div `
   //top:50px;
   font-size: 5vmin;
   overflow: hidden;
-  box-shadow: ${({shadow})=>shadow? '':'rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;'};
+  box-shadow: ${({shadow})=>shadow||'none' };
   background-color:${({color})=>color||'#333333'} ;
   
   backdrop-filter: blur(5px)  ;

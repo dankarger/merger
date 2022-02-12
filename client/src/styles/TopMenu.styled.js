@@ -13,7 +13,7 @@ export const TopMenuStyled = styled(motion.div) `
   background: rgba(28, 28, 35, 0.35);
   min-height: 100px;
   z-index:  100;
-  position: absolute;
+  //position: absolute;
   //  top:80px;
   //right:0;
   top: 70px;

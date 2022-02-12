@@ -4,9 +4,9 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Tooltip from "@mui/material/Tooltip";
-import {TopMenuStyled} from "../styles/TopMenu.styled";
+import {TopMenuStyled} from "../../styles/TopMenu.styled";
 import {motion} from "framer-motion";
-import {fadeIn} from "../animations/animations";
+import {fadeIn} from "../../animations/animations";
 
 const steps = [
     'Upload an Image',

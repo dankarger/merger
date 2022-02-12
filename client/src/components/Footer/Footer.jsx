@@ -16,7 +16,7 @@ const Footer =()=>{
     return (
         <FooterStyled>
             <div>
-                {dateYear()}<CopyrightIcon />
+                <CopyrightIcon />  {dateYear()} MERGER
             </div>
             <div>
                 <ClickableLinkChips icon={<LinkedInIcon sx={{color:'#ffffff'}}/>} size={'medium'}>

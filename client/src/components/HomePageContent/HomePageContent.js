@@ -21,8 +21,9 @@ const HomePageContent=()=> {
         {/*initial='hidden'*/}
         {/*animate='visible'*/}
         {/*>*/}
-                <ReactLogo />
-
+                <HomePageSVGStyled>
+                    <ReactLogo />
+                </HomePageSVGStyled>
         {/*        <AddPhotoAlternateIcon sx={{fontSize:'55vw'}}*/}
         {/*                           variants={pathVariants}*/}
         {/*                           initial='hidden'*/}

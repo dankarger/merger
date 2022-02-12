@@ -6,7 +6,7 @@ export default function CustomSwitch({label,setIsChecked,defaultValue}) {
 
     const handleChange = (event) => {
         setChecked(event.target.checked);
-        setIsChecked(checked)
+        setIsChecked(event.target.checked)
     };
 
     return (

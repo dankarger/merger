@@ -6,7 +6,7 @@ import {HeadingH1Styled} from "../styles/HeadingH1.styled";
 import {HeadingH1Variants, MenuLeftVariants} from "../animations/animations";
 import HomePageContent from "../components/HomePageContent/HomePageContent";
 import HomePageMenu from "../components/HomePageMenu/HomePageMenu";
-import TopMenuBar from "../TopMenuBar/TopMenuBar";
+import TopMenuBar from "../components/TopMenuBar/TopMenuBar";
 import {GreetingStyled} from "../styles/Greeting.styled";
 import {motion} from "framer-motion";
 import {fadeIn,HomePageMenuVariants} from "../animations/animations";
