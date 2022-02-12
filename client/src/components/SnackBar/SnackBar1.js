@@ -17,14 +17,18 @@ export default function Snackbars1({isOpen,setIsOpen}) {
     };
     useEffect(()=>{
         if(isOpen) {setOpen(true)}
+        else{
+            setOpen(false)
+        }
         return ()=>{
             setOpen(false)
         }
     },[isOpen,open])
-    const handleClose = (event, reason) => {
 
-       setOpen(false)
+    const handleClose = (event, reason) => {
         setIsOpen(false)
+       setOpen(false)
+
 
 
     };

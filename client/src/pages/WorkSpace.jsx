@@ -23,6 +23,7 @@ import {fadeIn} from "../animations/animations";
 import axios from 'axios'
 import AddTextSecond from "../components/AddTextSecond/AddTextSecond";
 import AlertCostum from "../components/Alert/Alert";
+import TransitionAlerts from "../components/SnackBar/SnackBar2";
 
 const WorkSpace =()=> {
     //image const
@@ -107,32 +108,6 @@ const WorkSpace =()=> {
     }
 
 
-    // const downloadCard = async (card) => {
-    //     try {
-    //         await axios({
-    //             url: card.secure_url, //your url
-    //             method: 'GET',
-    //             responseType: 'blob', // important
-    //         }).then((response) => {
-    //             const url = window.URL.createObjectURL(new Blob([response.data]));
-    //             const link = document.createElement('a');
-    //             const format = card.secure_url.substring(card.secure_url.length - 3)
-    //             link.href = url;
-    //             link.setAttribute('download', `${card.title}.${format}`); //or any other extension
-    //             document.body.appendChild(link);
-    //             link.click();
-    //         });
-    //     } catch (error) {
-    //         console.log(error.message);
-    //         setErrorMessage(error.message);
-    //         setIsErrorMessage(true);
-    //         console.log(error);
-    //     }
-    // }
-    //
-
-
-
     useEffect(()=>{
         setOverlayText(inputText)
     },[inputText])
@@ -164,10 +139,9 @@ const WorkSpace =()=> {
              setErrorMessage(error.message)
              setIsErrorMessage(true)
            console.log(error)
-
-
         }
     }
+
     const handleInputChange = (e)=>{
         setInputText(e.target.value);
     }
@@ -299,17 +273,10 @@ const WorkSpace =()=> {
                 {/*>*/}
 
                 <ImageDivStyled
-                    // drag
-
                     dragConstraints={dragConstraints}
                     color={imageBorderColor}
                     width={imageBorderWidth}
                     radius={imageBorderRadius}
-                    // dragSnapToOrigin={true}
-                    // dragControls={dragControls}
-                    // dragListener={false}
-                    // onPointerDown={(e) => {
-                    //     dragControls.start(e)}}
 
                 >
 
@@ -336,11 +303,11 @@ const WorkSpace =()=> {
 
                 </ImageDivStyled>
                     {/*Text1*/}
-                    <OverlayTextDiveStyled
-                    //     drag
-                    // width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
-                    // height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
-                    >
+                    {/*<OverlayTextDiveStyled*/}
+                    {/*//     drag*/}
+                    {/*// width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}*/}
+                    {/*// height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}*/}
+                    {/*>*/}
                         <OverlayTextStyled
                             // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
                                            drag
@@ -352,7 +319,7 @@ const WorkSpace =()=> {
                                            dragConstraints={dragConstraints}
                                              ref={TextOverlayRef}
                         > {inputText}</OverlayTextStyled>
-                    </OverlayTextDiveStyled >
+                    {/*</OverlayTextDiveStyled >*/}
 
                     {/*<OverlayTextDiveStyled*/}
                     {/*    drag*/}
@@ -382,6 +349,7 @@ const WorkSpace =()=> {
                {/*</ResizeDiv2>*/}
             </WorkingDivBounderiesStyled>
             <Snackbars1 isOpen={isSnackbar} setIsOpen={setIsSnackBar}/>
+          <TransitionAlerts />
             {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage}
                                                 isMergeFormOpen={isMergeFormOpen}
                                                 setIsMergeFormOpen={setIsMergeFormOpen}

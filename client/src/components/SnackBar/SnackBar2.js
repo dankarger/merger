@@ -1,31 +1,44 @@
-import React from 'react';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
 import Button from '@mui/material/Button';
-import { SnackbarProvider, useSnackbar } from 'notistack';
+import CloseIcon from '@mui/icons-material/Close';
 
-function MyApp() {
-    const { enqueueSnackbar } = useSnackbar();
-
-    const handleClick = () => {
-        enqueueSnackbar('I love snacks.');
-    };
-
-    const handleClickVariant = (variant) => () => {
-        // variant could be success, error, warning, info, or default
-        enqueueSnackbar('This is a success message!', { variant });
-    };
+export default function TransitionAlerts() {
+    const [open, setOpen] = React.useState(true);
 
     return (
-        <React.Fragment>
-            <Button onClick={handleClick}>Show snackbar</Button>
-            <Button onClick={handleClickVariant('success')}>Show success snackbar</Button>
-        </React.Fragment>
-    );
-}
-
-export default function IntegrationNotistack() {
-    return (
-        <SnackbarProvider maxSnack={3}>
-            <MyApp />
-        </SnackbarProvider>
+        <Box sx={{ width: '100%' }}>
+            <Collapse in={open}>
+                <Alert
+                    action={
+                        <IconButton
+                            aria-label="close"
+                            color="inherit"
+                            size="small"
+                            onClick={() => {
+                                setOpen(false);
+                            }}
+                        >
+                            <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    }
+                    sx={{ mb: 2 }}
+                >
+                    Close me!
+                </Alert>
+            </Collapse>
+            <Button
+                disabled={open}
+                variant="outlined"
+                onClick={() => {
+                    setOpen(true);
+                }}
+            >
+                Re-open
+            </Button>
+        </Box>
     );
 }
