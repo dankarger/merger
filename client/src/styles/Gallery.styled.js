@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {motion} from 'framer-motion'
 
 export const GalleryStyled = styled(motion.div) `
+  min-height:100vh;
   padding: 2rem 4rem;
   display: flex;
   justify-content: space-around;

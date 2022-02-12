@@ -14,6 +14,7 @@ import Loader from "../Loader/Loader";
 
 import axios from "axios";
 
+
 const Gallery = () => {
     const [imageIds, setImageId] = useState([]);
     const [imageIds2, setImageId2] = useState([]);
@@ -28,14 +29,21 @@ const Gallery = () => {
 
     const handleDeleteCard= async (card)=>{
         // alert('dddellleet')
-        try{
-          const response = await  myApi.delete(`/images/${card.id}` ,{
+        // try{
+        //   const response = await  myApi.delete(`/images/${card._id}` ,{
+        //     headers: { Authorization: 'authorizationToken'
+        //
+        //   },
+        //       data:{
+        //     password:'test'
+        //     }
+        //     })
+        // }
 
-            })
-        }catch(error) {
-
-            console.log(error.message)
-        }
+        // catch(error) {
+        //
+        //     console.log(error.message)
+        // }
 
     }
 

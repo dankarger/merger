@@ -8,7 +8,6 @@ const bcrypt =require('bcrypt');
 const getImages = async function (req, res) {
     try {
         const images = await imageService.getMongoImages()
-        console.log('controlletimages',images)
         res.status(200).send(images);
     } catch (e) {
         res.status(400).json({message: 'Images not found'+ e.message})
@@ -17,7 +16,6 @@ const getImages = async function (req, res) {
 
 const uploadImage =async (req, res)=> {
     try {
-        console.log('wtf',req)
       const image = await imageService.uploadImage(req,res)
       res.status(200).send(image);
     } catch(error) {
@@ -28,9 +26,10 @@ const uploadImage =async (req, res)=> {
 
 const deleteImage = async function (req, res) {
     try {
+
         const password = req.body.password;
         const id= req.params.id
-
+        console.log('ggg',password,id)
         const deleteImage = await imageService.deleteImage(id,password);
         res.status(200).send(deleteImage);
     } catch (e) {
