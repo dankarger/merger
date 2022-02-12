@@ -3,15 +3,11 @@ import myApi from "../../api/Api"
 import {ContainerStyled} from  "../../styles/Container.styled"
 import DownloadImages from "../DownLoadImages/DownloadImages";
 import {GalleryStyled} from "../../styles/Gallery.styled";
-import DetailCard from "../DetaileCard/DetaileCard";
 import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
 import ModalCardDetail from "../ModalCardDetail/ModalCardDetail";
-import {GalleryContainerVariants, GalleryStyleVariants} from "../../animations/animations";
+import {GalleryStyleVariants} from "../../animations/animations";
 import {AnimatePresence} from "framer-motion";
-import CardGallery from "../Card/CardGallery";
 import Loader from "../Loader/Loader";
-
-
 import axios from "axios";
 
 
@@ -28,22 +24,22 @@ const Gallery = () => {
     }
 
     const handleDeleteCard= async (card)=>{
-        // alert('dddellleet')
-        // try{
-        //   const response = await  myApi.delete(`/images/${card._id}` ,{
-        //     headers: { Authorization: 'authorizationToken'
-        //
-        //   },
-        //       data:{
-        //     password:'test'
-        //     }
-        //     })
-        // }
+        console.log('dddellleet')
+        try{
+          const response = await  myApi.delete(`/images/${card._id}` ,{
+            headers: { Authorization: 'authorizationToken'
 
-        // catch(error) {
-        //
-        //     console.log(error.message)
-        // }
+          },
+              data:{
+            password:'g'
+            }
+            })
+        }
+
+        catch(error) {
+
+            console.log(error.message)
+        }
 
     }
 

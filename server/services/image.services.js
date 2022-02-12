@@ -68,6 +68,7 @@ const deleteImage = async (id,password) => {
     await image.delete()
     user.images.pull({_id: id})
     user.save()
+        console.log('delete card:1')
     return (user);}
     else{
         throw new Error('Incorrect Password')
