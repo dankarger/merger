@@ -308,11 +308,11 @@ const WorkSpace =()=> {
                         }
 
                 </ImageDivStyled>
-
+                    {/*Text1*/}
                     <OverlayTextDiveStyled
-                        drag
-                    width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
-                    height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
+                    //     drag
+                    // width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
+                    // height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
                     >
                         <OverlayTextStyled
                             // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
@@ -332,6 +332,7 @@ const WorkSpace =()=> {
                     {/*    // width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}*/}
                     {/*    // height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}*/}
                     {/*>*/}
+                    {/*text2*/}
                         <OverlayTextStyled
                             // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
                             drag
