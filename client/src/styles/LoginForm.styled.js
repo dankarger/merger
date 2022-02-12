@@ -16,7 +16,8 @@ export const LoginFormStyled = styled.div `
 
   @media (max-width: 950px) {
     max-width:80%;
-    max-height:500px;
+    max-height:50%;
+    border: none;
 
 
   }

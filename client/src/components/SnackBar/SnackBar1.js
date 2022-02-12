@@ -9,21 +9,24 @@ const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function Snackbars1({isOpen}) {
+export default function Snackbars1({isOpen,setIsOpen}) {
     const [open, setOpen] = React.useState(false);
 
     const handleClick = () => {
         setOpen(true);
     };
     useEffect(()=>{
-        if(isOpen!==open) {setOpen(isOpen)}
-    },[open])
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
+        if(isOpen) {setOpen(true)}
+        return ()=>{
+            setOpen(false)
         }
+    },[isOpen,open])
+    const handleClose = (event, reason) => {
 
-        setOpen(false);
+       setOpen(false)
+        setIsOpen(false)
+
+
     };
 
     return (

@@ -381,7 +381,7 @@ const WorkSpace =()=> {
                  </WorkImageDivStyled>
                {/*</ResizeDiv2>*/}
             </WorkingDivBounderiesStyled>
-            <Snackbars1 isOpen={isSnackbar}/>
+            <Snackbars1 isOpen={isSnackbar} setIsOpen={setIsSnackBar}/>
             {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage}
                                                 isMergeFormOpen={isMergeFormOpen}
                                                 setIsMergeFormOpen={setIsMergeFormOpen}

@@ -31,4 +31,12 @@ export const MenuLeftPlaceHolderStyled = styled(motion.div) `
       
     }
 
+  @media (max-width: 950px) {
+     width: 100%;
+     height: 500px;
+    display: none;
+   
+     
+     
+  
 `
