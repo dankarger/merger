@@ -267,7 +267,8 @@ export const cardGalleryVariants = {
         }
     },
     hover:{
-        scale:(1.04)
+        scale:(1.04),
+        // boxShadow: "0px 10px 10px  rgba(0, 0, 0, 0.2)",
     }
 
 }

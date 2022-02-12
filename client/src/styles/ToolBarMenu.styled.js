@@ -6,7 +6,7 @@ export const ToolBarMenuStyled = styled(motion.div) `
 
 
  
-  }
+  
   
   
 `
