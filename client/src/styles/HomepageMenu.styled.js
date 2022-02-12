@@ -6,7 +6,7 @@ export const HomepageMenuStyled = styled(motion.div) `
   //top:50px;
   display: flex;
   justify-content: center;
-  align-items: left;
+  align-items: start;
   flex-direction: column;
   height:70%;
   gap:2rem;

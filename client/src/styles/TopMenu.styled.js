@@ -14,19 +14,15 @@ export const TopMenuStyled = styled(motion.div) `
   min-height: 100px;
   z-index:  100;
   position: absolute;
-  transform: translateY(230px);
+  //transform: translateY(230px);
   //  top:80px;
   //right:0;
-  bottom:50px;
+  bottom:0;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  //
-  //span {
-  //  color: #a8773c;
-  //  margin-right:20px;
-  //  width:fit-content;
-  //  white-space: nowrap;
-  //  
-  //}
+  
+  @media (max-width: 950px) {
+   display: none;
 
+  }
 
 `

@@ -4,9 +4,7 @@ export const MenuLeftStyled = styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
-  //flex-direction: column;
-  //height: 100%;
-  //max-width: 200px;
+   
   width: 100%;
   
   height: fit-content;
@@ -20,5 +18,14 @@ export const MenuLeftStyled = styled.div `
   gap: 11rem;
   border-top-right-radius: 15px;
   box-shadow: rgba(44, 43, 43, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0  0px 3px;
+
+
+  @media (max-width: 950px) {
+    border:red 2px solid;
+    max-width:100%;
+    max-height:500px;
+    //transform: scale(0.3);
+
+
 
 `

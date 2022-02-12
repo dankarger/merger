@@ -10,5 +10,8 @@ export const HomePageContentStyled = styled(motion.div) `
   justify-content: center;
   align-items: center;
   //flex-direction: column;
-
+  
+  @media (max-width: 900px) {
+    //flex-direction: column;
+  }
 `

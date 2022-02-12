@@ -2,9 +2,9 @@ import styled from "styled-components";
 import {motion} from 'framer-motion'
 
 export const FooterStyled = styled(motion.footer) `
-  margin-top: 10vh;
+  //margin-top: 10vh;
   //width: 100%;
-  max-height: 60px;
+  //max-height: 60px;
   min-height: 50px;
   padding: 2rem 4rem;
   display: flex;
@@ -31,4 +31,8 @@ export const FooterStyled = styled(motion.footer) `
     //border: 1px dotted rgba(245, 245, 245, 0.18);
     padding: 10px 20px;
   }
-`
+
+
+  @media (max-width: 900px) {
+    //flex-direction: column;
+  }`

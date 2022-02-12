@@ -56,7 +56,7 @@ const ResponsiveAppBar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{  display: { xs: 'none', md: 'flex' } }}
+                        sx={{ marginLeft:6, display: { xs: 'none', md: 'flex' } }}
                     >
                         {/*<AddPhotoAlternateIcon />*/}
                         {/*<div style={{width:'50px' }}>*/}
