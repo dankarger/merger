@@ -7,24 +7,19 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import CropFreeIcon from '@mui/icons-material/CropFree';
 import {Link} from "react-router-dom";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import {UserContext} from "../../App";
-import {motion} from 'framer-motion'
-import {navbarVariants} from "../../animations/animations";
 import {useContext} from "react";
 import {GreetingStyled} from "../../styles/Greeting.styled";
-import PersonOutlineTwoToneIcon from '@mui/icons-material/PersonOutlineTwoTone';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
 const pages = ['Home', 'Login', 'Create','Gallery'];
 
-const settings = ['Profile', 'Account',   'Logout'];
+const settings = ['Profile',  'Logout'];
 
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -52,9 +47,6 @@ const ResponsiveAppBar = () => {
 
     return (
         <AppBar  position="static"
-        // variants={navbarVariants}
-        //         initial='initial'
-        //         animate='animate'
         >
             <Container maxWidth="xl">
 
@@ -65,9 +57,7 @@ const ResponsiveAppBar = () => {
                         component="div"
                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                     >
-
                         <AddPhotoAlternateIcon />
-                        {/*LOGO  <ColorLensIcon />*/}
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -100,20 +90,12 @@ const ResponsiveAppBar = () => {
                             }}
                         >
                             {pages.map((page) => (
-
                                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                                         <Link to={`${page}`}>
                                         <Typography textAlign="center">{page}</Typography>
                                         </Link>
                                     </MenuItem>
-
                             ))}
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                     <Typography textAlign="center">  <Link to='/'>Home</Link></Typography>
-                            </MenuItem>
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">  <Link to='/work'>Work</Link></Typography>
-                            </MenuItem>
 
                         </Menu>
                     </Box>
@@ -140,9 +122,7 @@ const ResponsiveAppBar = () => {
                              </Button>
                         </Link>
                         ))}
-                            {/*<Button component={Link} to="/">*/}
-                            {/*    Click Me*/}
-                            {/*</Button>*/}
+
                     </Box>
 
 
@@ -150,12 +130,10 @@ const ResponsiveAppBar = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                {/*<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />*/}
                                 <GreetingStyled>
                                     <span> {currentUser ? currentUser.name :'Guest'}</span>
                                 </GreetingStyled>
                                 <AccountCircleRoundedIcon fontSize="large"/>
-
                             </IconButton>
                         </Tooltip>
 
@@ -178,14 +156,12 @@ const ResponsiveAppBar = () => {
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                                     <Typography textAlign="center">{setting}</Typography>
-
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
                 </Toolbar>
             </Container>
-
         </AppBar>
     );
 };
