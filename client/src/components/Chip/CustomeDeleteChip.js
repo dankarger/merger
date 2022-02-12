@@ -3,8 +3,9 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import DoneIcon from '@mui/icons-material/Done';
 import DeleteIcon from '@mui/icons-material/Delete';
+import {isDisabled} from "@testing-library/user-event/dist/utils";
 
-export default function CustomDeleteIconChips() {
+export default function CustomDeleteIconChips({handleDeleteCard,isDisabled}) {
     const handleClick = () => {
         console.info('You clicked the Chip.');
     };
@@ -15,12 +16,7 @@ export default function CustomDeleteIconChips() {
 
     return (
         <Stack direction="row" spacing={1}>
-            {/*<Chip*/}
-            {/*    label="Custom delete icon"*/}
-            {/*    onClick={handleClick}*/}
-            {/*    onDelete={handleDelete}*/}
-            {/*    deleteIcon={<DoneIcon />}*/}
-            {/*/>*/}
+
             <Chip
                 label=""
                 onClick={handleClick}
@@ -28,6 +24,7 @@ export default function CustomDeleteIconChips() {
                 deleteIcon={<DeleteIcon />}
                 variant="outlined"
                 color='error'
+                disabled={isDisabled}
             />
         </Stack>
     );

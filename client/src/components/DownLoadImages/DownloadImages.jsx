@@ -56,6 +56,7 @@ const DownloadImages = ({handleSelectCard,downloadCard,setIsLoading}) => {
                                 initial='initial'
                                 animate='animate'
                                 whileHover='hover'
+                                key={card.id}
                             >
                             <CardGallery card={card}
                                          downloadCard={downloadCard}
@@ -64,7 +65,7 @@ const DownloadImages = ({handleSelectCard,downloadCard,setIsLoading}) => {
                         </motion.div>
                         )
                     })}
-                    {imageIds &&  <Cards2 images={imageIds}/>}
+                    {/*{imageIds &&  <Cards2 images={imageIds}/>}*/}
 
                     </GalleryContainerStyled>
 
