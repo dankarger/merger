@@ -33,7 +33,7 @@ const AddBackGroundColor =({backGroundColor,setBackGroundColor,setIsBackgroundSh
 
             </ColorPickerDivStyled>
             <CustomSwitch label={'Add Shadow'} setIsChecked={setIsBackgroundShadow} defaultValue={false}/>
-            <SwitchOnOff label={'Shadow'}/>
+            {/*<SwitchOnOff label={'Shadow'}/>*/}
         </AddBackGroundColorStyled>
     )
 }

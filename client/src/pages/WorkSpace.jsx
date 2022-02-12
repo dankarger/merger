@@ -48,6 +48,7 @@ const WorkSpace =()=> {
     const [color, setColor] = useState("#000000");
     const TextOverlayRef = useRef();
     const [fontSize,setFontSize]=useState('80');
+    const [text1Decorations,setText1Decorations] = useState({bold:false,italic:false,underline:false})
 
     //Text2
     const[inputTextSecond,setInputTextSecond]=useState(String);

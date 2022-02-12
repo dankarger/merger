@@ -31,15 +31,16 @@ const DownloadImages = ({handleSelectCard,downloadCard,setIsLoading}) => {
             setIsLoading(false)
             setIsLoading2(false)
             console.log('da', data)
+
         } catch (e) {
             console.error(e)
         }
     }
 
-    useEffect(async () => {
+    useEffect( async () => {
         setIsLoading(true)
         const data = await loadImages();
-        await setImageId(data.data)
+        setImageId(data.data)
         setIsLoading(false)
 
     }, [])
