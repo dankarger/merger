@@ -35,7 +35,7 @@ export default function HomePageMenu() {
                             initial='initial'
                 >
 
-                    <Link to='/work'>
+                    <Link to='/create'>
                         <Button48Styled
                             variants={DownloadButtonVariants}
                             whileTap='tap'

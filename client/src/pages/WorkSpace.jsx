@@ -336,7 +336,7 @@ const WorkSpace =()=> {
                             // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
                             drag
                             dragElastic={111}
-                            transition={{type:'spring',stiffness:300}}
+                            // transition={{type:'spring',stiffness:300}}
                             textshadow={'1px 1px 1px black'}
                             color={colorSecond}
                             fontSize={fontSizeSecond}

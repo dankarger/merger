@@ -10,8 +10,6 @@ import TopMenuBar from "../TopMenuBar/TopMenuBar";
 import {GreetingStyled} from "../styles/Greeting.styled";
 import {motion} from "framer-motion";
 import {fadeIn,HomePageMenuVariants} from "../animations/animations";
-import {Button48Styled} from "../styles/Button48.styled";
-import {ReactComponent as ReactLogo} from './logowave.svg';
 
 const xVariants = {
     initial:{x:0},

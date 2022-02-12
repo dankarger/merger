@@ -9,9 +9,11 @@ export default function ClickableLinkChips({icon, size}) {
         <Stack direction="row" spacing={1}>
             {/*<Chip label="Clickable Link" component="a" href="#basic-chip" clickable />*/}
 
-            <Chip as={motion.button}
-                  // variants={DownloadButtonVariants}
-                  // whileHover='hover'
+            <Chip
+                as={motion.button}
+                  variants={DownloadButtonVariants}
+                  whileHover='hover'
+                whileTap='tap'
                 label={icon}
                 component="a"
                 href="#basic-chip"

@@ -42,7 +42,7 @@ const handleColorChange=(e)=> {
             <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
             <ColorPickerDivStyled>
                          {/*< FormatColorTextIcon />*/}
-                <ColorPickerHtml value={color} setColor={handleChange} label={'Text Color'} icon={ <FormatColorTextIcon/>}/>
+                <ColorPickerHtml color={color} setColor={handleChange} label={'Text Color'} icon={ <FormatColorTextIcon/>}/>
             </ColorPickerDivStyled>
 
             <hr/>
