@@ -84,7 +84,7 @@ const WorkSpace =()=> {
     }
 
      const download2= async ()=>{
-        try {
+         try {
             await axios({
                 url: downLoadLink, //your url
                 method: 'GET',
@@ -105,6 +105,33 @@ const WorkSpace =()=> {
             console.log(error)
         }
     }
+
+
+    // const downloadCard = async (card) => {
+    //     try {
+    //         await axios({
+    //             url: card.secure_url, //your url
+    //             method: 'GET',
+    //             responseType: 'blob', // important
+    //         }).then((response) => {
+    //             const url = window.URL.createObjectURL(new Blob([response.data]));
+    //             const link = document.createElement('a');
+    //             const format = card.secure_url.substring(card.secure_url.length - 3)
+    //             link.href = url;
+    //             link.setAttribute('download', `${card.title}.${format}`); //or any other extension
+    //             document.body.appendChild(link);
+    //             link.click();
+    //         });
+    //     } catch (error) {
+    //         console.log(error.message);
+    //         setErrorMessage(error.message);
+    //         setIsErrorMessage(true);
+    //         console.log(error);
+    //     }
+    // }
+    //
+
+
 
     useEffect(()=>{
         setOverlayText(inputText)
@@ -130,6 +157,7 @@ const WorkSpace =()=> {
             setIsSnackBar(snack=>!snack);
             downloadLinkRef.current = link.data.secure_url
             setDownloadLink(downloadLinkRef.current)
+             console.log('ggg',link)
             setIsDownloadLinkReady(true);
              setIsDownloader(false);
         }catch (error) {

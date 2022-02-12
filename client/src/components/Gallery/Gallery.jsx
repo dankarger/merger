@@ -76,9 +76,9 @@ const Gallery = () => {
     const downloadCard = async (card) => {
         try {
             await axios({
-                url: card.secure_url, //your url
+                url: card.secure_url,
                 method: 'GET',
-                responseType: 'blob', // important
+                responseType: 'blob',
             }).then((response) => {
                 const url = window.URL.createObjectURL(new Blob([response.data]));
                 const link = document.createElement('a');

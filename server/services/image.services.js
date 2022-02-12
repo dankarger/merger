@@ -56,7 +56,7 @@ const addImage = async (response, user, imageTitle) => {
         // console.log('mon',mongoImage)
         user.images.push(mongoImage._id)
         await user.save()
-
+        return(mongoImage)
 }
 
 const deleteImage = async (id,password,userId) => {
