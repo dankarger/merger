@@ -16,4 +16,10 @@ export const HomePageSVGStyled = styled(motion.div) `
   z-index: -10;
   //font-size: calc(53pt + 28vh);
 
+
+  @media only screen and (max-width: 900px) {
+    max-width:800px;
+    max-height:800px;
+    
+  }
 `

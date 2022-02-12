@@ -16,6 +16,7 @@ import {UserContext} from "../../App";
 import {useContext} from "react";
 import {GreetingStyled} from "../../styles/Greeting.styled";
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import {ReactComponent as ReactLogo} from "../../pages/logowave.svg";
 
 const pages = ['Home', 'Login', 'Create','Gallery'];
 
@@ -55,9 +56,13 @@ const ResponsiveAppBar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                        sx={{  display: { xs: 'none', md: 'flex' } }}
                     >
-                        <AddPhotoAlternateIcon />
+                        {/*<AddPhotoAlternateIcon />*/}
+                        {/*<div style={{width:'50px' }}>*/}
+                            {/*<ReactLogo />*/}
+                        {/*</div>*/}
+
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -105,7 +110,7 @@ const ResponsiveAppBar = () => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
-                        LOGO
+                        {/*LOGO*/}
 
                     </Typography>
                     {/*<Link to='/>' >*/}
