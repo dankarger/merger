@@ -22,9 +22,9 @@ import {GreetingStyled} from "../../styles/Greeting.styled";
 import PersonOutlineTwoToneIcon from '@mui/icons-material/PersonOutlineTwoTone';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
-const pages = ['Home', 'Login', 'Work','Gallery'];
+const pages = ['Home', 'Login', 'Create','Gallery'];
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Account',   'Logout'];
 
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);

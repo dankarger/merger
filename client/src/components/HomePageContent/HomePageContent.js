@@ -11,7 +11,7 @@ const HomePageContent=()=> {
     return(
         <HomePageContentStyled>
             <HomePageSVGStyled
-            variants={fadeIn}
+            variants={svgVariants}
             initial='initial'
             animate='animate'
 

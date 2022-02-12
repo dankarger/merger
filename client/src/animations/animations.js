@@ -175,14 +175,14 @@ export const DownloadButtonVariants = {
 }
 
 export const svgVariants = {
-    initial: {rotate: [-250],scale:(0),rotateZ:11,opacity:0, pathLength: 0, },
+    initial: {rotate: [-650],scale:(0),rotateZ:11,opacity:0, pathLength: 0, },
     animate: {
-        opacity:[0,0.1,0.2,0.3],
+        opacity:[0,0.1,0.2,0.2,0.1,1],
         scale:(1.3),x:[-100,40],rotateZ:0,
         fontsize:50,
         rotate:0,pathLength: 1,
         transition: {
-            duration: 1,stiffness:10,mass:100
+           stiffness:550,mass:112,duration:1,
         }
     },path:{
         pathLength: 1,
