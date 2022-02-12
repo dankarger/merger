@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import myApi from "../../api/Api"
 import {ContainerStyled} from  "../../styles/Container.styled"
 import DownloadImages from "../DownLoadImages/DownloadImages";
 import {GalleryStyled} from "../../styles/Gallery.styled";
@@ -9,6 +10,7 @@ import {GalleryContainerVariants, GalleryStyleVariants} from "../../animations/a
 import {AnimatePresence} from "framer-motion";
 import CardGallery from "../Card/CardGallery";
 import Loader from "../Loader/Loader";
+
 
 import axios from "axios";
 
@@ -24,6 +26,18 @@ const Gallery = () => {
          setSelectedCard(card)
     }
 
+    const handleDeleteCard= async (card)=>{
+        // alert('dddellleet')
+        try{
+          const response = await  myApi.delete(`/images/${card.id}` ,{
+
+            })
+        }catch(error) {
+
+            console.log(error.message)
+        }
+
+    }
 
 
     const downloadCard= async (card)=>{
@@ -61,13 +75,16 @@ const Gallery = () => {
                                 downloadCard={downloadCard}
                                 setIsLoading={setIsLoading}
                                 isLoading={isLoading}
+                                handleDeleteCard={handleDeleteCard }
                                 />
 
                 {isDetailCardOpen &&
                  <ModalCardDetail isDetaileCardOpen={isDetailCardOpen}
                                  card={selectedCard}
                                  handleSelectCard={handleSelectCard}
-                                 downloadCard={downloadCard}/>
+                                 downloadCard={downloadCard}
+                                 handleDeleteCard={handleDeleteCard }
+                 />
                 }
             </GalleryStyled>
 

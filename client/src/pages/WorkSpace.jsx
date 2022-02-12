@@ -1,7 +1,6 @@
 import React, {createRef, useContext, useEffect, useRef, useState} from "react";
 import UploadImages from "../components/UploadImage/UploadImage";
 import AddText from "../components/AddText/AddText";
-import {AddTextSecondStyled} from "../styles/AddTextSecond.styled";
 import MenuLeft from "../components/Menu/MenuLeft";
 import Snackbars1 from "../components/SnackBar/SnackBar1";
 import {ImageDivStyled} from "../styles/ImageDiv.styled";
@@ -9,15 +8,10 @@ import myApi from "../api/Api";
 import {motion,useDragControls} from "framer-motion";
 import {OverlayTextStyled} from "../styles/OverlayText.styled";
 import {WorkImageDivStyled} from "../styles/WorkImageDiv.styled";
-import {createColor} from "material-ui-color";
 import {WorkPageStyled} from "../styles/WorkPage.styled";
 import {UploadImageDivStyled} from "../styles/UplaodImageDiv.styled";
 import {OverlayTextDiveStyled} from "../styles/OverlayTextDive.styled";
-import {Skeleton} from "@mui/material";
 import SkeletonDiv from "../components/SkeletonDiv/SkeletonDiv";
-import CanvasElement from "../components/CanvasElement/CanvasElement";
-import Canvas from "../components/CanvasElement/Canvas";
-import {convertPositionToCss} from "../utils/utils";
 import ModalMergeForm from "../components/ModalMergeForm/ModalMergeForm";
 import AddBackGroundColor from "../components/AddBackgroundColor/AddBackGroundColor";
 import {UserContext} from "../App";
@@ -28,9 +22,7 @@ import {WorkingDivBounderiesStyled} from "../styles/WorkingDivBounderies.styled"
 import {fadeIn} from "../animations/animations";
 import axios from 'axios'
 import AddTextSecond from "../components/AddTextSecond/AddTextSecond";
-import Alert from "../components/Alert/Alert";
 import AlertCostum from "../components/Alert/Alert";
-import {brightness} from "@cloudinary/url-gen/actions/adjust";
 
 const WorkSpace =()=> {
     //image const
@@ -92,19 +84,26 @@ const WorkSpace =()=> {
     }
 
      const download2= async ()=>{
-        await axios({
-            url: downLoadLink, //your url
-            method: 'GET',
-            responseType: 'blob', // important
-        }).then((response) => {
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            const format = downloadLinkRef.current.substring(downloadLinkRef.current.length-3)
-            link.href = url;
-            link.setAttribute('download', `${imageTitle}.${format}`); //or any other extension
-            document.body.appendChild(link);
-            link.click();
-        });
+        try {
+            await axios({
+                url: downLoadLink, //your url
+                method: 'GET',
+                responseType: 'blob', // important
+            }).then((response) => {
+                const url = window.URL.createObjectURL(new Blob([response.data]));
+                const link = document.createElement('a');
+                const format = downloadLinkRef.current.substring(downloadLinkRef.current.length - 3)
+                link.href = url;
+                link.setAttribute('download', `${imageTitle}.${format}`); //or any other extension
+                document.body.appendChild(link);
+                link.click();
+            });
+        }
+        catch(error){
+            setErrorMessage(error.message)
+            setIsErrorMessage(true)
+            console.log(error)
+        }
     }
 
     useEffect(()=>{

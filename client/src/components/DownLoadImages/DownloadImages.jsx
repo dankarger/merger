@@ -8,7 +8,10 @@ import CardGallery from "../Card/CardGallery";
 import {cardGalleryVariants} from "../../animations/animations";
 import {motion} from 'framer-motion'
 
-const DownloadImages = ({handleSelectCard,downloadCard,setIsLoading}) => {
+const DownloadImages = ({handleSelectCard,
+                            downloadCard,
+                            setIsLoading,
+                            handleDeleteCard}) => {
     const [imageIds, setImageId] = useState([]);
     const [isLoading2, setIsLoading2] = useState(true);
     const cardRef=useRef(null)
@@ -61,10 +64,11 @@ const DownloadImages = ({handleSelectCard,downloadCard,setIsLoading}) => {
                             <CardGallery card={card}
                                          downloadCard={downloadCard}
                                          handleSelectCard={handleSelectCard}
+                                         handleDeleteCard={handleDeleteCard }
                         />
                         </motion.div>
                         )
-                    })}
+                    }).reverse()}
                     {/*{imageIds &&  <Cards2 images={imageIds}/>}*/}
 
                     </GalleryContainerStyled>

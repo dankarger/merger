@@ -2,7 +2,7 @@ const imageService = require('../services/image.services')
 const utils = require('../utils/utils')
 const {cloudinary} = require('../utils/cloudinary')
 const userService = require("../services/user.services");
-
+const bcrypt =require('bcrypt');
 
 
 const getImages = async function (req, res) {
@@ -28,7 +28,10 @@ const uploadImage =async (req, res)=> {
 
 const deleteImage = async function (req, res) {
     try {
-        const deleteImage = await imageService.deleteImage(req.params.id);
+        const password = req.body.password;
+        const id= req.params.id
+
+        const deleteImage = await imageService.deleteImage(id,password);
         res.status(200).send(deleteImage);
     } catch (e) {
         res.status(400).json({error: e.message})

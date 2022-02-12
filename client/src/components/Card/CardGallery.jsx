@@ -11,10 +11,16 @@ import {FlexDivStyled} from "../../styles/FlexDiv.styled";
 import {useContext} from "react";
 import {UserContext} from "../../App";
 
-export default function CardGallery({card,downloadCard,handleSelectCard,handleDelete}) {
+export default function CardGallery({   card,
+                                        downloadCard,
+                                        handleSelectCard,
+                                        handleDeleteCard}) {
     const [currentUser,setCurrentUser]= useContext(UserContext)
 
+    const handleDeleteChip=()=>{
 
+        return handleDeleteCard(card)
+    }
 
 
     return (
@@ -43,7 +49,7 @@ export default function CardGallery({card,downloadCard,handleSelectCard,handleDe
                     <Button onClick={()=>{downloadCard(card)}} size="small" color="primary">
                         Download
                     </Button>
-                    <CustomDeleteIconChips isDisabled={currentUser._id!==card.createdBy}/>
+                    <CustomDeleteIconChips isDisabled={currentUser.id!==card.createdBy} handleDeleteCard={handleDeleteChip} />
                 </div>
 
             </CardActions>

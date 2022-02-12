@@ -1,6 +1,7 @@
 const Image = require("../models/image.model");
 const User = require("../models/user.model");
 const {cloudinary} = require("../utils/cloudinary");
+const bcrypt =require('bcrypt')
 
 const findUser = async (id) => {
     return User.findById(id)
@@ -39,8 +40,7 @@ const uploadImage = async (req, res) => {
 }
 
 const addImage = async (response, user, imageTitle) => {
-    // console.log('user',user)
-    // try {
+
         const image = {
             title: imageTitle,
             url: response.url,
@@ -54,26 +54,24 @@ const addImage = async (response, user, imageTitle) => {
         // console.log('mon',mongoImage)
         user.images.push(mongoImage._id)
         await user.save()
-        return (mongoImage)
-    // }
-    // catch (e) {
-    //     console.log('ererererer', e)
-    //     throw new Error(e.message)
-    // }
+
 }
 
-const deleteImage = async (id) => {
-    // TODO:add checks and validations
-    const user = await User.findById(id);
+const deleteImage = async (id,password) => {
     const image = await Image.findOne({_id: id})
+    const user = await User.findById(image.createdBy);
+    console.log('deleteService',image,user)
+    if(await bcrypt.compare(password, user.password)){
     await cloudinary.uploader.destroy(image.public_id, function (error, result) {
         console.log(result, error)
     });
-
     await image.delete()
     user.images.pull({_id: id})
     user.save()
-    return (image);
+    return (user);}
+    else{
+        throw new Error('Incorrect Password')
+    }
 }
 
 const deleteAllImagesByUser = async (id) => {

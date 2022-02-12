@@ -7,7 +7,8 @@ import {isDisabled} from "@testing-library/user-event/dist/utils";
 
 export default function CustomDeleteIconChips({handleDeleteCard,isDisabled}) {
     const handleClick = () => {
-        console.info('You clicked the Chip.');
+        handleDeleteCard()
+
     };
 
     const handleDelete = () => {
@@ -19,8 +20,8 @@ export default function CustomDeleteIconChips({handleDeleteCard,isDisabled}) {
 
             <Chip
                 label=""
-                onClick={handleClick}
-                onDelete={handleDelete}
+                onClick={handleDeleteCard}
+                onDelete={handleDeleteCard}
                 deleteIcon={<DeleteIcon />}
                 variant="outlined"
                 color='error'
