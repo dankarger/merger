@@ -15,7 +15,6 @@ import DeleteDialog from "../Dialog/DeleteDialog";
 
 const Gallery = () => {
     const [imageIds, setImageId] = useState([]);
-    const [imageIds2, setImageId2] = useState([]);
     const [isDetailCardOpen, setIsDetailCardOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState({});
 
@@ -23,6 +22,7 @@ const Gallery = () => {
     const [errorMessage, setErrorMessage] = useState(null);
     const [isErrorMessage, setIsErrorMessage] = useState(false);
     const[isDialogueOpen,setIsDialogueOpen] = useState(false);
+    const[isRefresh,setIsRefresh]=useState(false)
 
     // const[modalInfo,setModalInfo]=useState({});
 
@@ -31,7 +31,9 @@ const Gallery = () => {
 
     useEffect(()=>{
 
-    },[isDialogueOpen])
+    },[isDialogueOpen,isRefresh])
+
+
 
     const handleConfirmDelete= async (card)=>{
         try {
@@ -44,6 +46,7 @@ const Gallery = () => {
                     // password: 'password',
                 }
             })
+            setIsRefresh(!isRefresh)
         } catch (error) {
             console.log(error.message);
             setErrorMessage(error.message);
@@ -121,6 +124,7 @@ const Gallery = () => {
                                     setIsLoading={setIsLoading}
                                     isLoading={isLoading}
                                     handleDeleteCard={handleDeleteCard}
+                                    isRefresh={isRefresh}
                     />
 
                     {isDetailCardOpen &&

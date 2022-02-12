@@ -11,7 +11,9 @@ import {motion} from 'framer-motion'
 const DownloadImages = ({handleSelectCard,
                             downloadCard,
                             setIsLoading,
-                            handleDeleteCard}) => {
+                            handleDeleteCard,
+                            isRefresh
+                        }) => {
     const [imageIds, setImageId] = useState([]);
     const [isLoading2, setIsLoading2] = useState(true);
     const cardRef=useRef(null)
@@ -46,7 +48,7 @@ const DownloadImages = ({handleSelectCard,
         setImageId(data.data)
         setIsLoading(false)
 
-    }, [])
+    }, [isRefresh])
 
 
     return (

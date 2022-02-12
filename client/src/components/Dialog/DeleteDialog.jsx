@@ -9,7 +9,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import {useEffect} from "react";
 
-export default function DeleteDialog({card,isDialogueOpen,handleDelete}) {
+export default function DeleteDialog({card,isDialogueOpen,handleConfirmDelete}) {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -17,7 +17,9 @@ export default function DeleteDialog({card,isDialogueOpen,handleDelete}) {
 
     useEffect(()=>{
         setOpen(isDialogueOpen)
-
+    return ()=>{
+            setOpen(false)
+    }
     },[isDialogueOpen])
 
     const handleClickOpen = () => {
@@ -28,11 +30,15 @@ export default function DeleteDialog({card,isDialogueOpen,handleDelete}) {
         setOpen(false);
     };
 
+    const handleDelete=()=>{
+        handleConfirmDelete(card);
+
+        setOpen(false)
+    }
+
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Open responsive dialog
-            </Button>
+
             <Dialog
                 fullScreen={fullScreen}
                 open={open}
@@ -53,7 +59,7 @@ export default function DeleteDialog({card,isDialogueOpen,handleDelete}) {
                     <Button  autoFocus onClick={handleClose}>
                        No
                     </Button>
-                    <Button color={'error'} onClick={handleClose} autoFocus>
+                    <Button color={'error'} onClick={handleDelete} autoFocus>
                        Yes
                     </Button>
                 </DialogActions>
