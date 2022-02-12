@@ -2,13 +2,11 @@ import React, {useState, useEffect, useRef, useContext} from "react";
 import myApi from '../../api/Api';
 import {Cloudinary} from "@cloudinary/url-gen";
 import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
-import Loader from "../Loader/Loader";
-import Cards2 from "../Card/Card2";
 import CardGallery from "../Card/CardGallery";
 import {cardGalleryVariants} from "../../animations/animations";
 import {motion} from 'framer-motion'
 import {UserContext} from "../../App";
-
+import {StrongStyled} from "../../styles/Strong.styled";
 
 
 const DownloadImages = ({handleSelectCard,
@@ -60,9 +58,12 @@ const DownloadImages = ({handleSelectCard,
 
 
     return (
+        <>
+            <h1>Gallery for <StrongStyled>{currentUser.name}</StrongStyled></h1>  <span><StrongStyled><h3>Images: {imageIds.length}</h3></StrongStyled></span>
+
+
 
                 <GalleryContainerStyled>
-
                     {imageIds && imageIds.map((card,index)=>{
                         return ( <motion.div
                                 variants={cardGalleryVariants}
@@ -84,7 +85,7 @@ const DownloadImages = ({handleSelectCard,
                     {/*{imageIds &&  <Cards2 images={imageIds}/>}*/}
 
                     </GalleryContainerStyled>
-
+        </>
     )
 }
 export default DownloadImages
