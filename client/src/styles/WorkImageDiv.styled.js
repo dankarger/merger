@@ -4,8 +4,8 @@ export const WorkImageDivStyled = styled.div `
    
   width: 90%;
   height: 90%;
-  max-width: 1280px;
-  max-height: 720px;
+  max-width: 1920px;
+  max-height: 1080px;
   background-image: ${({image})=>image};
   //padding: 0 20px;
   // margin:20px auto;
