@@ -14,6 +14,13 @@ const steps = [
     'Download Image',
 ];
 
+const stepsText = {
+    step1:"uplaod and image from your computer",
+    step2:"add text layers ,add colors and borders",
+    step3:"merge all the layers together in different formats ",
+    step4:"download the result image to your computer, view all your creations in the gallery page"
+}
+
 export default function TopMenuBar({step=0}) {
     return (
         <TopMenuStyled as={motion.div}
@@ -24,18 +31,27 @@ export default function TopMenuBar({step=0}) {
         <Box sx={{ width: '70%',maxWidth:'1000px', whiteSpace:'nowrap' }}>
             <Stepper activeStep={step} alternativeLabel  >
                     <Step>
-                        <Tooltip title="Click on Image Button" placement="bottom">
+                        <Tooltip   title={stepsText.step1} placement="bottom">
                         <StepLabel>Upload an Image</StepLabel>
                             </Tooltip >
                     </Step>
                 <Step>
-                    <StepLabel>Add Text</StepLabel>
+                    <Tooltip   title={stepsText.step2} placement="bottom">
+                        <StepLabel>Add Text</StepLabel>
+                    </Tooltip >
+
                 </Step>
                 <Step>
-                    <StepLabel>Merge</StepLabel>
+                    <Tooltip   title={stepsText.step3} placement="bottom">
+                     <StepLabel>Merge</StepLabel>
+                    </Tooltip >
+
                 </Step>
                 <Step>
-                    <StepLabel>Download</StepLabel>
+                    <Tooltip   title={stepsText.step4} placement="bottom">
+                      <StepLabel>Download</StepLabel>
+                    </Tooltip >
+
                 </Step>
             </Stepper>
         </Box>

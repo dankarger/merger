@@ -14,6 +14,7 @@ import {UserContext} from "../../App";
 export default function CardGallery({   card,
                                         downloadCard,
                                         handleSelectCard,
+
                                         handleDeleteCard}) {
     const [currentUser,setCurrentUser]= useContext(UserContext)
 

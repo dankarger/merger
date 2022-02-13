@@ -2,7 +2,7 @@ import React from "react";
 import {HomePageContentStyled} from "../../styles/HomePageContent.styled";
 import {pathVariants,svgVariants,fadeIn} from "../../animations/animations";
 import {HomePageSVGStyled} from "../../styles/HomePageSVG.styled";
-import {ReactComponent as ReactLogo} from "../../pages/logowave.svg";
+import {ReactComponent as ReactLogo} from "../../pages/svg/svg/logowave.svg";
 
 const HomePageContent=()=> {
 

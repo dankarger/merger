@@ -19,7 +19,7 @@ export const MenuLeftStyled = styled.div `
   border-top-right-radius: 5px;
   box-shadow: rgba(44, 43, 43, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0 0px 3px;
 
-
+  
   @media (max-width: 950px) {
     //border: red 2px solid;
     max-width: 100%;

@@ -16,7 +16,7 @@ import {UserContext} from "../../App";
 import {useContext} from "react";
 import {GreetingStyled} from "../../styles/Greeting.styled";
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
-import {ReactComponent as ReactLogo} from "../../pages/logowave.svg";
+import {ReactComponent as ReactLogo} from "../../pages/svg/svg/logowave.svg";
 
 const pages = ['Home', 'Login', 'Create','Gallery'];
 

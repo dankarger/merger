@@ -57,8 +57,7 @@ const Gallery = () => {
 
     }
 
-    const handleSelectCard = (card, cardRef) => {
-
+    const handleSelectCard = (card) => {
         setIsDetailCardOpen(!isDetailCardOpen);
         setSelectedCard(card)
     }

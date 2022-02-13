@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const WorkingDivBounderiesStyled = styled.div `
   margin-left: 100px;
   width: calc(100vw - 500px);
-  height: 80vh;
+  max-width: 1500px;
+  max-height: 1200px;
+  height: 92%;
   display: flex;
   justify-content: center;
   align-items: center;
