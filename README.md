@@ -16,6 +16,27 @@
 -Images created are stored on Cloudinary, data on images snd users are stored in mobgoDB.
 ![alt text](./client/public/assets/images/classes-merger.png)
 
+# Using:
+Back-end:
+- Node
+- Express
+- Mongoose
+- Cloudinary
+- Axios
+- Bcrypt
+- 
+
+Front-end:
+- React
+- MUI
+- styled-components
+- Framer Motion
+- Html2Canvas
+- re-resizable
+- Cloudinary-React
+- react-router-dom
+
+
 
 ![alt text](./client/public/assets/images/create6.png)
 
