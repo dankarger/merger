@@ -43,8 +43,10 @@ const RegisterPage =()=> {
             const password = formData.password
             // const{name, email, password} = formData
             const response = await myApi.post('/users/register',{name:name,email:email,password:password})
-
             if(response.status===200) {
+                const user = await myApi.post('/users/login',{email:email,password:password})
+
+                console.log('dasdasd',user)
                 setCurrentUser(response.data);
                return handleDialogueMessage('user',response.data)
             }

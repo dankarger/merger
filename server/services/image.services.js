@@ -23,7 +23,7 @@ const getMongoImages = async (userId) => {
 }
 
 const uploadImage = async (req, res) => {
-    const user = await findUser(req.body.user.id || req.body.user._id)
+    const user = await findUser(req.body.user._id || req.body.user.id)
     const fileStr = req.body.data;
     const imageTitle = req.body.title;
     const imageFormat = req.body.format;

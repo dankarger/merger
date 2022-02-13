@@ -25,6 +25,7 @@ const addUser = async function (req, res) {
     try {
         utils.checkBodyRequest(req);
         const users = await userService.addUser(req, res);
+        console.log('uuu',users)
         res.status(200).send(users);
     } catch (e) {
         console.log('e',e)
