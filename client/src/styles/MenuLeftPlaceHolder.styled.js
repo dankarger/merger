@@ -11,7 +11,7 @@ export const MenuLeftPlaceHolderStyled = styled(motion.div) `
   display: flex;
   justify-content: center;
   gap: 1px;
-  align-items: center;
+  align-items: start;
   flex-direction: column;
   position: absolute;
   z-index: 0;
