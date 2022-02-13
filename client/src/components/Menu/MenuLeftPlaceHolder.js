@@ -18,7 +18,7 @@ const MenuLeftPlaceHolder=()=>{
             <p>{menuLeftPlaceHoldertext.p4}</p>
             <p>{menuLeftPlaceHoldertext.p5}</p>
             <p>{menuLeftPlaceHoldertext.p6}</p>
-            <p>{menuLeftPlaceHoldertext.p2}</p>
+            <p>{menuLeftPlaceHoldertext.p7}</p>
 
 
         </MenuLeftPlaceHolderStyled>

@@ -4,7 +4,7 @@
     p3:"• Text2 tab: Add a second Text layer",
     p4:"•Bg tab : Change the background color",
     p5:"•FX tab : Coming soon",
-    p6:"•MERGE button : Merge the layer",
+    p6:"•MERGE button : Merge the layers",
     p7:"•Download button: Download the file after the merge"
 }
 export default menuLeftPlaceHoldertext
