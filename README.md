@@ -1,7 +1,6 @@
 # MERGER -
 
 An image work station , add text  colors,and  border to images 
-sing React, Node, MongoDb, Express, Cloudinary
 
 ## Authors
 [@dankarger](https://www.github.com/dankarger)
@@ -22,7 +21,7 @@ sing React, Node, MongoDb, Express, Cloudinary
 -Images created are stored on Cloudinary, data on images snd users are stored in mobgoDB.
 ![alt text](./client/public/assets/images/classes-merger3.png)
 
-# Using:
+## Libraries used:
 Back-end:
 - Node
 - Express
