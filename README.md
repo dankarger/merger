@@ -1,20 +1,26 @@
 # MERGER -
-## Image Editing App
-### React, Node, MongoDb, Express, Cloudinary
+
+An image work station , add text  colors,and  border to images 
+sing React, Node, MongoDb, Express, Cloudinary
+
+## Authors
+[@dankarger](https://www.github.com/dankarger)
 
 -  <a href="https://meme-gen3.herokuapp.com/"><strong> The App On Heroku </strong></a>
 
 ![alt text](./client/public/assets/images/home1.png)
 
-- Uplaod images
+
+- Upload images
 - Add Text and Colors
-- merge the layers and convert to JPG,PNG,GIF or SVG
+- merge the layers and convert to JPG,PNG,GIF,SVG
 - Download the result image
+- Gallery page of your images (only the users that created the images can view them)
 
 ![alt text](./client/public/assets/images/create2.png)
 
 -Images created are stored on Cloudinary, data on images snd users are stored in mobgoDB.
-![alt text](./client/public/assets/images/classes-merger.png)
+![alt text](./client/public/assets/images/classes-merger3.png)
 
 # Using:
 Back-end:
