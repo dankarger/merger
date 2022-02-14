@@ -2,10 +2,9 @@
 
 An image work station , add text  colors,and  border to images 
 
-## Authors
-[@dankarger](https://www.github.com/dankarger)
 
--  <a href="https://meme-gen3.herokuapp.com/"><strong> The App On Heroku </strong></a>
+
+-  <a href="https://meme-gen3.herokuapp.com/"><strong> The Site On Heroku </strong></a>
 
 ![alt text](./client/public/assets/images/home1.png)
 
@@ -18,7 +17,7 @@ An image work station , add text  colors,and  border to images
 
 ![alt text](./client/public/assets/images/create2.png)
 
--Images created are stored on Cloudinary, data on images snd users are stored in mobgoDB.
+- Images created are stored on Cloudinary, data on images snd users are stored in mobgoDB.
 ![alt text](./client/public/assets/images/classes-merger3.png)
 
 ## Libraries used:
@@ -29,7 +28,7 @@ Back-end:
 - Cloudinary
 - Axios
 - Bcrypt
-- 
+
 
 Front-end:
 - React
