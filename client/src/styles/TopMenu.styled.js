@@ -10,7 +10,7 @@ export const TopMenuStyled = styled(motion.div) `
   justify-content: center;
   align-items: center;
   color: #f8f6f6;
-  background: rgba(28, 28, 35, 0.98);
+  background: rgba(69, 69, 80, 0.74);
   min-height: 100px;
   z-index: 100;
   position: absolute;

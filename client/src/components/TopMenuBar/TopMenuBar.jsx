@@ -27,12 +27,14 @@ export default function TopMenuBar({step=0}) {
                        variants={fadeIn}
                        initial='initial'
                        animate='animate2'
+                       color='white'
+
         >
-        <Box sx={{ width: '70%',maxWidth:'1000px', whiteSpace:'nowrap' }}>
+        <Box sx={{ width: '70%',maxWidth:'1000px', whiteSpace:'nowrap', color:'#ffffff' }}>
             <Stepper activeStep={step} alternativeLabel  >
                     <Step>
                         <Tooltip   title={stepsText.step1} placement="bottom">
-                        <StepLabel>Upload an Image</StepLabel>
+                        <StepLabel sx={{color:'#ffffff'}}>Upload an Image</StepLabel>
                             </Tooltip >
                     </Step>
                 <Step>
