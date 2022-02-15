@@ -24,7 +24,6 @@ const AddTextSecond = ({callback,
         handleChange(e.target.value)
     }
 
-
     return (
         <AddTextSecondStyled
             variants={MenuLeftVariants}
@@ -41,12 +40,9 @@ const AddTextSecond = ({callback,
             <AddFontSize fontSize={fontSize} setFontSize={setFontSize}/>
             <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
             <ColorPickerDivStyled>
-                {/*< FormatColorTextIcon />*/}
                 <ColorPickerHtml value={color} setColor={handleChange} label={'Text Color'} icon={ <FormatColorTextIcon/>}/>
             </ColorPickerDivStyled>
-
             <hr/>
-
         </AddTextSecondStyled>
 
 

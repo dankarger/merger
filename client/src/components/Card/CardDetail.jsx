@@ -8,13 +8,10 @@ import Typography from '@mui/material/Typography';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import {ButtonYoYoVariants} from "../../animations/animations";
 import {motion} from "framer-motion";
-import {DetailCardStyleVariants} from "../../animations/animations";
-import {DetailCardStyled} from "../../styles/DetailCard.styled";
 
 export default function CardDetail({card,handleSelectCard}) {
 
     return (
-    // <DetailCardStyled>
         <Card  sx={{minHeight:"50vh", minWidth:'50vw'}} onClick={handleSelectCard}>
             <motion.div variants={ButtonYoYoVariants}
             whileHover='hover'
@@ -44,7 +41,6 @@ export default function CardDetail({card,handleSelectCard}) {
                 <Button size="small">Learn More</Button>
             </CardActions>
         </Card>
-  // </DetailCardStyled>
 
     );
 }

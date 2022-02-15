@@ -2,7 +2,6 @@ import React from "react";
 import {MenuLeftPlaceHolderStyled} from "../../styles/MenuLeftPlaceHolder.styled";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import menuLeftPlaceHoldertext from './MenuLeftPlaceHolder.lib'
-import {ReactComponent as ReactLogo} from "../../pages/svg/logo17-tiger.svg";
 
 const MenuLeftPlaceHolder=()=>{
 

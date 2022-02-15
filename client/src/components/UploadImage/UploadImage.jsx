@@ -1,17 +1,13 @@
 import React, { useState   } from "react";
 import Button from "@mui/material/Button";
 import {motion } from 'framer-motion'
-import {DownloadButtonStyled} from "../../styles/DownloadButton.styled";
 import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
 import {DownloadButtonVariants} from "../../animations/animations";
-import {AtagStyled} from "../../styles/Atag.styled";
 import {AddFileInputStyled} from "../../styles/AddFileInput.styled";
 import {AddFileLabelStyled} from "../../styles/AddFileLabel.styled";
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import {fadeIn} from "../../animations/animations";
 import AddImageBorder from "../AddImageBorder/AddImageBorder";
-import CustomSwitch from "../Switch/Switch";
-import {Link} from "react-router-dom";
 import MergeIcon from "@mui/icons-material/Merge";
 
 export default function UploadImages({setBackgroundImage,
@@ -47,7 +43,6 @@ export default function UploadImages({setBackgroundImage,
             if (file.name.length > 0) setFileName(file.name);
 
     }
-
 
     const previewFile= (file) => {
         const reader = new FileReader();
@@ -111,8 +106,6 @@ export default function UploadImages({setBackgroundImage,
                     {/*><PhotoCamera*/}
                     {/*/> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>*/}
                 </motion.div>
-                {/*Image -border*/}
-
                 <AddImageBorder  imageBorderWidth={ imageBorderWidth}
                                  setImageBorderWidth={ setImageBorderWidth}
                                  setImageBorderRadius={setImageBorderRadius}
@@ -120,7 +113,6 @@ export default function UploadImages({setBackgroundImage,
                                  setImageBorderColor={setImageBorderColor}
                                  imageBorderColor={imageBorderColor}
                 />
-
         </UploadImageFormStyled>
         </>
     )

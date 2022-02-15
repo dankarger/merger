@@ -18,7 +18,11 @@ An image work station , add text  colors,and  border to images
 ![alt text](./client/public/assets/images/create2.png)
 
 - Images created are stored on Cloudinary, data on images snd users are stored in mobgoDB.
+
+
 ![alt text](./client/public/assets/images/classes-merger3.png)
+![alt text](./client/public/assets/images/mergerFront.png)
+![alt text](./client/public/assets/images/mergerBack.png)
 
 ## Libraries used:
 Back-end:

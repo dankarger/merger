@@ -4,9 +4,7 @@ import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
 import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
-import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
-import {isNull} from "lodash";
 
 export default function AlertCostum({errorMessage,severity,isErrorMessage,setErrorMessage,setIsErrorMessage}) {
     const [open, setOpen] = React.useState(false);
@@ -46,15 +44,6 @@ export default function AlertCostum({errorMessage,severity,isErrorMessage,setErr
                     {errorMessage}
                 </Alert>
             </Collapse>
-            {/*<Button*/}
-            {/*    disabled={open}*/}
-            {/*    variant="outlined"*/}
-            {/*    onClick={() => {*/}
-            {/*        setOpen(true);*/}
-            {/*    }}*/}
-            {/*>*/}
-            {/*    Re-open*/}
-            {/*</Button>*/}
         </Box>
     );
 }

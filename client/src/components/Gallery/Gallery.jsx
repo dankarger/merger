@@ -1,12 +1,10 @@
 import React, {useState, useEffect, useContext} from "react";
 import myApi from "../../api/Api"
-import {ContainerStyled} from "../../styles/Container.styled"
 import DownloadImages from "../DownLoadImages/DownloadImages";
 import {GalleryStyled} from "../../styles/Gallery.styled";
 import {GalleryContainerStyled} from "../../styles/GalleryContainer.styled";
 import ModalCardDetail from "../ModalCardDetail/ModalCardDetail";
 import {GalleryStyleVariants} from "../../animations/animations";
-import {AnimatePresence} from "framer-motion";
 import Loader from "../Loader/Loader";
 import axios from "axios";
 import AlertCostum from "../Alert/Alert";

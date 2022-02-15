@@ -1,8 +1,6 @@
 import * as React from 'react';
-
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import {SlideImageBorderStyled} from "../../styles/SlideImageBorder.styled";
 
 export default function SlideImageBorder({imageBorderWidth,
                                              setImageBorderWidth,
@@ -20,19 +18,12 @@ export default function SlideImageBorder({imageBorderWidth,
     }
     return (
         <Box width={190}>
-            {/*<Slider*/}
-            {/*    size="small"*/}
-            {/*    defaultValue={70}*/}
-            {/*    aria-label="Small"*/}
-            {/*    valueLabelDisplay="auto"*/}
-            {/*/>*/}
             <hr/>
             <span>Border Width</span>
             <Slider    value={imageBorderWidth} aria-label="default" valueLabelDisplay="auto" onChange={handleChange} />
             <br/>
             <hr/>
             <span>Border Radius</span>
-
             <Slider    value={imageBorderRadius} aria-label="default" valueLabelDisplay="auto" onChange={handleChangeRadius} />
             <hr/>
         </Box>

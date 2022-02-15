@@ -249,13 +249,6 @@ const WorkSpace =()=> {
             <WorkingDivBounderiesStyled
                 ref={dragConstraints}
             >
-
-                {/* <ResizeDiv2*/}
-                {/*Imagewidth={uploadedFile ? exportRef.current.naturalWidth: '100px'}*/}
-                {/*Imageheight={uploadedFile? exportRef.current.naturalHeight : '100px'}*/}
-                {/*drag*/}
-                {/*>*/}
-
             <WorkImageDivStyled as={motion.div}
                                 // backgroundColor={backgroundColor}
                               // drag
@@ -264,13 +257,7 @@ const WorkSpace =()=> {
                                 shadow={isBackgroundShadow?'rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset':'none'}
                                 dragConstraints={dragConstraints}
                                 >
-
                 {!backgroundImage && <SkeletonDiv />}
-                {/*<ResizeDiv2*/}
-                {/*    Imagewidth={uploadedFile ? exportRef.current.naturalWidth: '100px'}*/}
-                {/*    Imageheight={uploadedFile? exportRef.current.naturalHeight : '100px'}*/}
-                {/*    drag*/}
-                {/*>*/}
 
                 <ImageDivStyled
                     dragConstraints={dragConstraints}
@@ -279,7 +266,6 @@ const WorkSpace =()=> {
                     radius={imageBorderRadius}
 
                 >
-
                     {backgroundImage &&
                     <ResizeDiv2
                     Imagewidth={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}
@@ -302,14 +288,7 @@ const WorkSpace =()=> {
                         }
 
                 </ImageDivStyled>
-                    {/*Text1*/}
-                    {/*<OverlayTextDiveStyled*/}
-                    {/*//     drag*/}
-                    {/*// width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}*/}
-                    {/*// height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}*/}
-                    {/*>*/}
                         <OverlayTextStyled
-                            // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
                                            drag
                                            dragElastic={111}
                                            transition={{type:'spring',stiffness:300}}
@@ -319,16 +298,7 @@ const WorkSpace =()=> {
                                            dragConstraints={dragConstraints}
                                              ref={TextOverlayRef}
                         > {inputText}</OverlayTextStyled>
-                    {/*</OverlayTextDiveStyled >*/}
-
-                    {/*<OverlayTextDiveStyled*/}
-                    {/*    drag*/}
-                    {/*    // width={uploadedFile ? constraintsRef.current.naturalWidth: '100px'}*/}
-                    {/*    // height={uploadedFile? constraintsRef.current.naturalHeight : '100px'}*/}
-                    {/*>*/}
-                    {/*text2*/}
                         <OverlayTextStyled
-                            // dragConstraints={{ left:'50%',top:50,right:550,bottom:650 }}
                             drag
                             dragElastic={111}
                             // transition={{type:'spring',stiffness:300}}
@@ -338,18 +308,10 @@ const WorkSpace =()=> {
                             dragConstraints={dragConstraints}
                             ref={TextOverlaySecondRef}
                         > {inputTextSecond}</OverlayTextStyled>
-                    {/*</OverlayTextDiveStyled >*/}
-
-
-
-
-
                 <UploadImageDivStyled image={backgroundImage}/>
                  </WorkImageDivStyled>
-               {/*</ResizeDiv2>*/}
             </WorkingDivBounderiesStyled>
             <Snackbars1 isOpen={isSnackbar} setIsOpen={setIsSnackBar}/>
-          {/*<TransitionAlerts />*/}
             {isMergeFormOpen && <ModalMergeForm uplaodImage={uploadImage}
                                                 isMergeFormOpen={isMergeFormOpen}
                                                 setIsMergeFormOpen={setIsMergeFormOpen}
@@ -358,7 +320,6 @@ const WorkSpace =()=> {
                                                 imageTitle={imageTitle}
                                                 setImageFormat={setImageFormat}
                                                 imageFormat={imageFormat}
-
 
             /> }
         </WorkPageStyled>

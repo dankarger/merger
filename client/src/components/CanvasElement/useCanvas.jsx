@@ -13,7 +13,6 @@ const useCanvas = draw => {
         canvas.width = 612
         canvas.height = 408
         canvas.border = 'red'
-
         const render = () => {
             frameCount++
             draw(context, frameCount)

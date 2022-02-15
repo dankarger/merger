@@ -40,9 +40,6 @@ import Button from '@mui/material/Button';
                     label="Age"
                     onChange={handleChange}
                 >
-                    {/*<MenuItem value="">*/}
-                    {/*    <em>None</em>*/}
-                    {/*</MenuItem>*/}
                     <MenuItem value={'north'}>Top</MenuItem>
                     <MenuItem value={'center'}>Center</MenuItem>
                     <MenuItem value={'south'}>Bottom</MenuItem>

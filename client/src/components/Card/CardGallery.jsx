@@ -7,7 +7,6 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import {BoxShadowStyled} from "../../styles/BoxShadow.styled";
 import {StrongStyled} from "../../styles/Strong.styled";
 import CustomDeleteIconChips from "../Chip/CustomeDeleteChip";
-import {FlexDivStyled} from "../../styles/FlexDiv.styled";
 import {useContext} from "react";
 import {UserContext} from "../../App";
 
@@ -56,7 +55,6 @@ export default function CardGallery({   card,
                 </div>
 
             </CardActions>
-
         </Card>
 </BoxShadowStyled>
     );
