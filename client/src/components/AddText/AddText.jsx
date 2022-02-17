@@ -6,13 +6,15 @@ import {MenuLeftVariants} from "../../animations/animations";
 import AddFontSize from "../AddFontSize/AddFontSize";
 import {AddTextHeadingStyled} from "../../styles/AddTextHeading.styled";
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
-import ChooseTextDecoration from "../../styles/ChooseTextDecoration/ChooseTextDecoration";
+// import ChooseTextDecoration from "../../styles/ChooseTextDecoration/ChooseTextDecoration";
+import ChooseTextDecoration from "../ChooseTextDecoration/ChooseTextDecoration";
 import ColorPickerHtml from "../ColorPickerHtml/ColorPickerHtml";
 
 const AddText = ({callback,
                      value,
                      color,
                      handleChange,
+                     setText1Decorations,
                      setFontSize,fontSize})=> {
 const handleColorChange=(e)=> {
     handleChange(e.target.value)
@@ -24,7 +26,7 @@ const handleColorChange=(e)=> {
             initial='initial'
             animate='animate'
         >
-<ChooseTextDecoration id={'chooseText'}/>
+<ChooseTextDecoration id={'chooseText'} setText1Decorations={setText1Decorations}/>
             <TextField id="outlined-basic"
                        label="Add Text"
                        variant="outlined"

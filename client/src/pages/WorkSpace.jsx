@@ -41,7 +41,7 @@ const WorkSpace =()=> {
     const [color, setColor] = useState("#000000");
     const TextOverlayRef = useRef();
     const [fontSize,setFontSize]=useState('80');
-    const [text1Decorations,setText1Decorations] = useState({bold:false,italic:false,underline:false})
+    const [text1Decorations,setText1Decorations] = useState({bold:'regular',italic:'none',underline:'none'})
 
     //Text2
     const[inputTextSecond,setInputTextSecond]=useState(String);
@@ -50,6 +50,8 @@ const WorkSpace =()=> {
     const [colorSecond, setColorSecond] = useState("#000000");
     const TextOverlaySecondRef = useRef();
     const [fontSizeSecond,setFontSizeSecond]=useState('80');
+    const [text2Decorations,setText2Decorations] = useState({bold:false,italic:false,underline:false})
+
 
     //Background
     const[backgroundColor,setBackGroundColor]=useState('#333333');
@@ -219,6 +221,7 @@ const WorkSpace =()=> {
                      // dragConstraints={constraintsRefAddText}
                      fontSize={fontSize}
                      setFontSize={setFontSize}
+                     setText1Decorations={setText1Decorations}
             />
             }
           {isTextMenuSecondOpen &&
@@ -293,6 +296,9 @@ const WorkSpace =()=> {
                                            transition={{type:'spring',stiffness:300}}
                                            textshadow={'1px 1px 1px black'}
                                            color={color}
+                                           fontWeight={text1Decorations.bold}
+                                           italic={text1Decorations.italic}
+                                           underline={text1Decorations.underline}
                                            fontSize={fontSize}
                                            dragConstraints={dragConstraints}
                                              ref={TextOverlayRef}
@@ -302,6 +308,8 @@ const WorkSpace =()=> {
                             dragElastic={111}
                             // transition={{type:'spring',stiffness:300}}
                             textshadow={'1px 1px 1px black'}
+                            fontWeight={text2Decorations.bold ? 'bold' : 'normal'}
+
                             color={colorSecond}
                             fontSize={fontSizeSecond}
                             dragConstraints={dragConstraints}
