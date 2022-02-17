@@ -132,8 +132,7 @@ const WorkSpace =()=> {
             setIsSnackBar(snack=>!snack);
             downloadLinkRef.current = link.data.secure_url
             setDownloadLink(downloadLinkRef.current)
-             console.log('ggg',link)
-            setIsDownloadLinkReady(true);
+             setIsDownloadLinkReady(true);
              setIsDownloader(false);
         }catch (error) {
              setErrorMessage(error.message)

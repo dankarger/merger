@@ -40,7 +40,6 @@ const DownloadImages = ({handleSelectCard,
             setImageId(data)
             setIsLoading(false)
             setIsLoading2(false)
-            console.log('da', data)
 
         } catch (e) {
             console.error(e)
@@ -50,7 +49,6 @@ const DownloadImages = ({handleSelectCard,
     useEffect(  () => {
         setIsLoading(true)
         const {data} =  loadImages();
-        console.log('dada' ,data)
         // setImageId(data)
         setIsLoading(false)
 

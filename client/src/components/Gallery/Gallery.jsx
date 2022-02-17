@@ -12,7 +12,6 @@ import {UserContext} from "../../App";
 import DeleteDialog from "../Dialog/DeleteDialog";
 
 const Gallery = () => {
-    const [imageIds, setImageId] = useState([]);
     const [isDetailCardOpen, setIsDetailCardOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +22,8 @@ const Gallery = () => {
     const [currentUser,setCurrentUser]= useContext(UserContext);
 
     useEffect(()=>{
+        console.log('refresh')
+        console.log('isDialogueOpen refresh',isDialogueOpen)
 
     },[isDialogueOpen,isRefresh])
 
@@ -38,7 +39,12 @@ const Gallery = () => {
                     // password: 'password',
                 }
             })
-            setIsRefresh(!isRefresh)
+            const emptyCard= new Object(null)
+            setSelectedCard({})
+            setIsDialogueOpen(false)
+            setIsRefresh(state=>!state)
+            console.log('card',selectedCard)
+
         } catch (error) {
             console.log(error.message);
             setErrorMessage(error.message);
@@ -76,16 +82,15 @@ const Gallery = () => {
             console.log(error.message);
             setErrorMessage(error.message);
             setIsErrorMessage(true);
-            console.log(error);
         }
     }
 
     return (
-
         <div>
             <DeleteDialog isDialogueOpen={isDialogueOpen}
                           card={selectedCard}
-                          handleConfirmDelete={handleConfirmDelete}/>
+                          handleConfirmDelete={handleConfirmDelete}
+                          setIsDialogueOpen={setIsDialogueOpen}/>
             <AlertCostum errorMessage={errorMessage}
                          severity={'error'}
                          setErrorMessage={setErrorMessage}

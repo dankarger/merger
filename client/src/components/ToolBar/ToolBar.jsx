@@ -35,7 +35,6 @@ export default function ToolBar({imageCallback,
     };
 
     useEffect(()=>{
-        console.log('ggfg',isDownloadLinkReady)
         if(downLoadLink){
             setIsDownloadLink(true)
         }

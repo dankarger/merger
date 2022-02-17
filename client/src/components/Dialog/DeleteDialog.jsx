@@ -8,8 +8,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import {useEffect} from "react";
+import Loader from "../Loader/Loader";
 
-export default function DeleteDialog({card,isDialogueOpen,handleConfirmDelete}) {
+export default function DeleteDialog({card,
+                                         isDialogueOpen,
+                                         handleConfirmDelete,
+                                         setIsDialogueOpen}) {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -28,6 +32,7 @@ export default function DeleteDialog({card,isDialogueOpen,handleConfirmDelete}) 
 
     const handleClose = () => {
         setOpen(false);
+        setIsDialogueOpen(false)
     };
 
     const handleDelete=()=>{
