@@ -9,7 +9,7 @@ import AddPosition from "../AddPosition/AddPosition";
 import AddFontSize from "../AddFontSize/AddFontSize";
 import {AddTextHeadingStyled} from "../../styles/AddTextHeading.styled";
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
-import ChooseTextDecoration from "../../styles/ChooseTextDecoration/ChooseTextDecoration";
+import ChooseText2Decoration from "../ChooseTextDecoration/ChooseText2Decoration";
 import ColorPickerHtml from "../ColorPickerHtml/ColorPickerHtml";
 import {AddTextSecondStyled} from "../../styles/AddTextSecond.styled";
 
@@ -17,6 +17,7 @@ const AddTextSecond = ({callback,
                      value,
                      color,
                      handleChange,
+                     setText2Decorations,
                      setFontSize,fontSize})=> {
 
     const handleColorChange=(e)=> {
@@ -30,7 +31,7 @@ const AddTextSecond = ({callback,
             initial='initial'
             animate='animate'
         >
-            <ChooseTextDecoration id={'chooseText'}/>
+            <ChooseText2Decoration id={'chooseText'} setText2Decorations={setText2Decorations} />
             <TextField id="outlined-basic"
                        label="Add Text"
                        variant="outlined"

@@ -23,7 +23,6 @@ import {fadeIn} from "../animations/animations";
 import axios from 'axios'
 import AddTextSecond from "../components/AddTextSecond/AddTextSecond";
 import AlertCostum from "../components/Alert/Alert";
-import TransitionAlerts from "../components/SnackBar/SnackBar2";
 
 const WorkSpace =()=> {
     //image const
@@ -50,7 +49,7 @@ const WorkSpace =()=> {
     const [colorSecond, setColorSecond] = useState("#000000");
     const TextOverlaySecondRef = useRef();
     const [fontSizeSecond,setFontSizeSecond]=useState('80');
-    const [text2Decorations,setText2Decorations] = useState({bold:false,italic:false,underline:false})
+    const [text2Decorations,setText2Decorations] = useState({bold:'regular',italic:'none',underline:'none'})
 
 
     //Background
@@ -231,7 +230,7 @@ const WorkSpace =()=> {
                    color={colorSecond}
                    drag
                    dragElastic={111}
-              // dragConstraints={constraintsRefAddText}
+                   setText2Decorations={setText2Decorations}
                    fontSize={fontSizeSecond}
                    setFontSize={setFontSizeSecond}
 
@@ -306,10 +305,10 @@ const WorkSpace =()=> {
                         <OverlayTextStyled
                             drag
                             dragElastic={111}
-                            // transition={{type:'spring',stiffness:300}}
                             textshadow={'1px 1px 1px black'}
-                            fontWeight={text2Decorations.bold ? 'bold' : 'normal'}
-
+                            fontWeight={text2Decorations.bold}
+                            italic={text2Decorations.italic}
+                            underline={text2Decorations.underline}
                             color={colorSecond}
                             fontSize={fontSizeSecond}
                             dragConstraints={dragConstraints}

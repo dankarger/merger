@@ -6,13 +6,21 @@ import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import {ColorPicker} from "material-ui-color";
 
-export default function ChooseTextDecoration() {
-    const [formats, setFormats] = React.useState(() => ['bold', 'italic']);
+export default function ChooseText2Decoration({setText2Decorations}) {
+    const [formats, setFormats] = React.useState(() => []);
 
     const handleFormat = (event, newFormats) => {
+        console.log('formats',event,newFormats)
         setFormats(newFormats);
+        let textDecorations = {
+            bold:newFormats.includes('bold')?'bold':'regular',
+            italic:newFormats.includes('italic')?'italic':'none',
+            underline:newFormats.includes('underlined')?'underline':'none',
+        }
+        console.log('tet',textDecorations)
+        setText2Decorations(textDecorations)
+
     };
 
     return (
