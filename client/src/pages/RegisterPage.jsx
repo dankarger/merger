@@ -41,11 +41,9 @@ const RegisterPage =()=> {
             const name = formData.name
             const email = formData.email
             const password = formData.password
-            // const{name, email, password} = formData
             const response = await myApi.post('/users/register',{name:name,email:email,password:password})
             if(response.status===200) {
                 const user = await myApi.post('/users/login',{email:email,password:password})
-
                 console.log('dasdasd',user)
                 setCurrentUser(response.data);
                return handleDialogueMessage('user',response.data)
@@ -80,7 +78,7 @@ const RegisterPage =()=> {
     }
 
     const handleFormInputs = (e) => {
-        let newFormData = formData
+        let newFormData = {...formData}
         newFormData[e.target.name] = e.target.value
         setFormData(newFormData);
         console.log('form',formData);

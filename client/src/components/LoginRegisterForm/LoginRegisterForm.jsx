@@ -28,7 +28,7 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                 noValidate
                 autoComplete="off"
             >
-
+                <form action="">
             <LoginFormStyled>
                 {type==='login'? null: <TextField id="filled-basic-name" label="Name"
                                                   variant="filled"
@@ -39,6 +39,7 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                                                   autoFocus={type!=='login'}
                                                   required={true}
                 />}
+
 
                 <TextField id="filled-basic-email" label="Email"
                            type="email"
@@ -74,6 +75,7 @@ export default function LoginRegisterForm({type,handleFormInputs,handleSubmitLog
                 </Stack>
 
         </LoginFormStyled>
+            </form>
             </Box>
         </FormControl>
     );

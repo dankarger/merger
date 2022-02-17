@@ -15,22 +15,16 @@ const Gallery = () => {
     const [imageIds, setImageId] = useState([]);
     const [isDetailCardOpen, setIsDetailCardOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState({});
-
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
     const [isErrorMessage, setIsErrorMessage] = useState(false);
     const[isDialogueOpen,setIsDialogueOpen] = useState(false);
     const[isRefresh,setIsRefresh]=useState(false)
-
-    // const[modalInfo,setModalInfo]=useState({});
-
     const [currentUser,setCurrentUser]= useContext(UserContext);
-
 
     useEffect(()=>{
 
     },[isDialogueOpen,isRefresh])
-
 
 
     const handleConfirmDelete= async (card)=>{
@@ -51,8 +45,6 @@ const Gallery = () => {
             setIsErrorMessage(true);
             console.log(error);
         }
-
-
     }
 
     const handleSelectCard = (card) => {
@@ -63,12 +55,7 @@ const Gallery = () => {
     const handleDeleteCard = (card) => {
         setSelectedCard(card)
         setIsDialogueOpen(true)
-
-
-
-
     }
-
 
     const downloadCard = async (card) => {
         try {
@@ -113,8 +100,6 @@ const Gallery = () => {
                     initial='initial'
                     animate='animate'
                 >
-                    {/*<h1>Gallery</h1>*/}
-
 
                     <DownloadImages handleSelectCard={handleSelectCard}
                                     downloadCard={downloadCard}
@@ -133,7 +118,6 @@ const Gallery = () => {
                     />
                     }
                 </GalleryStyled>
-
             </GalleryContainerStyled>
         </div>
     )

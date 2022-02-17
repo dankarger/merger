@@ -17,7 +17,6 @@ const LoginPage =()=> {
         const[isDialogueOpen,setIsDialogueOpen] = useState(false);
         const[modalInfo,setModalInfo]=useState({});
         const nameInput = useRef(null);
-        // const [errorMessage,setErrorMessage]=useState('')
 
     const[errorMessage,setErrorMessage] = useState(null)
     const[isErrorMessage,setIsErrorMessage]=useState(false)
@@ -30,46 +29,34 @@ const LoginPage =()=> {
             const password = formData.password
             const response = await myApi.post('/users/login',{email:email,password:password})
             if(response.status===200) {
-                console.log('yes',response.data)
                 setCurrentUser(response.data.user)
-                 console.log('u',currentUser)
                 handleDialogueMessage('user',response.data.user,'success')
             }else {
-                // handleDialogueMessage('user',response.data.user,'error')
-                // setErrorMessage('eroro')
-                console.log('logins;',response.status);
+
             }
         }
         catch(error) {
-
-            // handleDialogueMessage('error','guest','red')
             setErrorMessage(error.response.data.message)
             setIsErrorMessage(true)
             console.log('loginEE;',error.response);
-            // setFormData({formData})
-
-
         }
     }
 
 const handleSubmitLoginGuest= async ()=> {
         try {
             const response = await myApi.post('/users/login',{email:'guest',password:'guest'})
-            console.log('login-Guest',response)
             setCurrentUser(response.data.user)
-
             handleDialogueMessage('guest','guest','green')
 
         }catch(error) {
             setErrorMessage(error.response.data.message)
             setIsErrorMessage(true)
-            console.log('loginEE;',error.response);
             setFormData({})
         }
 }
 
     const handleFormInputs = (e) => {
-        let newFormData = formData
+        let newFormData = {...formData}
         newFormData[e.target.name] = e.target.value
         setFormData(newFormData)
     }
@@ -91,7 +78,6 @@ const handleSubmitLoginGuest= async ()=> {
     }
 
     return (
-
         <LoginPageStyled>
             <AlertCostum
                 errorMessage={errorMessage}
