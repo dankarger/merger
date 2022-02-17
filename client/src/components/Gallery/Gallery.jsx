@@ -120,6 +120,9 @@ const Gallery = () => {
                                      handleSelectCard={handleSelectCard}
                                      downloadCard={downloadCard}
                                      handleDeleteCard={handleDeleteCard}
+                                     handleConfirmDelete={handleConfirmDelete}
+                                     setIsDialogueOpen={setIsDialogueOpen}
+
                     />
                     }
                 </GalleryStyled>

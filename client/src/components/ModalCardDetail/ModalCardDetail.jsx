@@ -2,10 +2,10 @@ import * as React from 'react';
 import { styled, Box } from '@mui/system';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import {useEffect} from "react";
-import ActionAreaCard from "../Card/Card";
 import {GalleryItemStyled} from "../../styles/GalleryItem.styled";
-import {Image} from 'cloudinary-react'
 import CardGallery from "../Card/CardGallery";
+import CardDetail from "../Card/CardDetail";
+import {DetailCardStyled} from "../../styles/DetailCard.styled";
 
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
@@ -42,7 +42,10 @@ const style = {
 export default function ModalCardDetail({card,
                                             handleSelectCard,
                                             isDetaileCardOpen
-                                            ,downloadCard
+                                            ,downloadCard,
+                                            handleConfirmDelete,
+                                            setIsDialogueOpen,
+                                            handleDeleteCard
                                             }) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -56,9 +59,9 @@ export default function ModalCardDetail({card,
 
     return (
         <div>
-            <button type="button" onClick={handleOpen}>
-                Open modal
-            </button>
+            {/*<button type="button" onClick={handleOpen}>*/}
+            {/*    Open modal*/}
+            {/*</button>*/}
             <StyledModal
                 aria-labelledby="unstyled-modal-title"
                 aria-describedby="unstyled-modal-description"
@@ -67,10 +70,18 @@ export default function ModalCardDetail({card,
                 BackdropComponent={Backdrop}
             >
                 <Box sx={style}>
-                    <GalleryItemStyled >
+                    <DetailCardStyled >
                          <h2 id="unstyled-modal-title">{card.title}</h2>
-                        <CardGallery card={card} />
-                        </GalleryItemStyled>
+                        {/*<CardGallery card={card} handleConfirmDelete={handleConfirmDelete}*/}
+                        {/*             setIsDialogueOpen={setIsDialogueOpen} />*/}
+
+
+                        <CardDetail card={card} handleConfirmDelete={handleConfirmDelete}
+                                    downloadCard={downloadCard}
+                                    handleDeleteCard={handleDeleteCard}
+                                    setIsDialogueOpen={setIsDialogueOpen}
+                                    handleSelectCard={handleSelectCard} />
+                        </DetailCardStyled>
                 </Box>
             </StyledModal>
         </div>

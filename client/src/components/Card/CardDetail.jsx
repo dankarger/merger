@@ -8,11 +8,27 @@ import Typography from '@mui/material/Typography';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import {ButtonYoYoVariants} from "../../animations/animations";
 import {motion} from "framer-motion";
+import CustomDeleteIconChips from "../Chip/CustomeDeleteChip";
+import {useContext} from "react";
+import {UserContext} from "../../App";
 
-export default function CardDetail({card,handleSelectCard}) {
+
+export default function CardDetail({card,
+                                       handleSelectCard,
+                                       handleConfirmDelete,
+                                       downloadCard,
+                                       handleDeleteCard,
+                                       setIsDialogueOpen}) {
+    const [currentUser,setCurrentUser]= useContext(UserContext)
+
+    const handleDeleteChip=()=>{
+
+        return handleDeleteCard(card)
+    }
 
     return (
-        <Card  sx={{minHeight:"50vh", minWidth:'50vw'}} onClick={handleSelectCard}>
+        <Card  sx={{ }} onClick={handleSelectCard}>
+
             <motion.div variants={ButtonYoYoVariants}
             whileHover='hover'
                         drag
@@ -37,8 +53,12 @@ export default function CardDetail({card,handleSelectCard}) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+                <div style={{display:'flex',justifyContent:'space-between', alignItems:'center',gap:'4rem',margin:'auto'}}>
+                    <Button onClick={()=>{downloadCard(card)}} size="small" color="primary">
+                        Download
+                    </Button>
+                    <CustomDeleteIconChips isDisabled={currentUser.id!==card.createdBy} handleDeleteCard={handleDeleteChip} />
+                </div>
             </CardActions>
         </Card>
 

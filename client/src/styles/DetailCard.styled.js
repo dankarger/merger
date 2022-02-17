@@ -4,20 +4,20 @@ import {motion} from 'framer-motion'
 export const DetailCardStyled = styled(motion.div) `
   min-width: 100%;
   min-height: 100%;
-  //max-width: 80vw;
-  //max-height: 80vh;
-  //transform: translate(-50%, -50%);
+  max-width: 70%;
+  max-height: 70%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
   //flex-direction: column;
   //position: absolute;
-  //top: 50%;
-  //left:50%;
+  top: 50%;
+  left:50%;
   //margin-top:-10%;
   position: fixed;
-  left: calc(50vw - 50%);
-  top: calc(50vh - 50%);;
+  //left: calc(50vw - 50%);
+  //top: calc(50vh - 50%);;
   //transform: translate(-50%, -50%);
   z-index: 30000;
   //padding: 1rem 2rem;
