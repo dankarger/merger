@@ -221,6 +221,7 @@ const WorkSpace =()=> {
                      fontSize={fontSize}
                      setFontSize={setFontSize}
                      setText1Decorations={setText1Decorations}
+                     text1Decorations={text1Decorations}
             />
             }
           {isTextMenuSecondOpen &&
@@ -231,6 +232,7 @@ const WorkSpace =()=> {
                    drag
                    dragElastic={111}
                    setText2Decorations={setText2Decorations}
+                   text2Decorations={text2Decorations}
                    fontSize={fontSizeSecond}
                    setFontSize={setFontSizeSecond}
 

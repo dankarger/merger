@@ -18,6 +18,7 @@ const AddTextSecond = ({callback,
                      color,
                      handleChange,
                      setText2Decorations,
+                     text2Decorations,
                      setFontSize,fontSize})=> {
 
     const handleColorChange=(e)=> {
@@ -31,7 +32,10 @@ const AddTextSecond = ({callback,
             initial='initial'
             animate='animate'
         >
-            <ChooseText2Decoration id={'chooseText'} setText2Decorations={setText2Decorations} />
+            <ChooseText2Decoration id={'chooseText'}
+                                   setText2Decorations={setText2Decorations}
+                                   text2Decorations={text2Decorations}
+            />
             <TextField id="outlined-basic"
                        label="Add Text"
                        variant="outlined"
