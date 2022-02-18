@@ -3,11 +3,12 @@ import {motion} from 'framer-motion'
 
 export const ImageDivStyled = styled(motion.div) `
     //width:100%;
-  
+  max-width: 100%;
+
   //display: flex;
   justify-content: center;
   align-items: center;
-  width: fit-content;
+  //width: fit-content;
   //height: fit-content;
   height: auto;
   //border: red  1px solid;
@@ -19,9 +20,9 @@ export const ImageDivStyled = styled(motion.div) `
  
 
   img {
-    object-fit: cover;
+    object-fit: contain;
     //max-width: 100%;
-    //height: auto;
+    height: auto;
     //border:  3px rgba(66, 65, 65, 0.35) solid;
     border-color: ${({color})=> color || '#333333'};
     border-width: ${({width})=> width +'px'|| '0px'};
