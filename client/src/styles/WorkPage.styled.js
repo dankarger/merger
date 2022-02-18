@@ -14,5 +14,15 @@ export const WorkPageStyled = styled(motion.div) `
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  
+
+
+
+
+  @media (max-width: 1000px) {
+    //width:80%;
+    //height:80%;
+    justify-content: right;
+    align-items: end;
+
+
 `

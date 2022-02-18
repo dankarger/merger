@@ -18,10 +18,13 @@ export const WorkingDivBounderiesStyled = styled.div `
 
   z-index: 10;
 
-  @media (max-width: 950px) {
-    width:100%;
-     height:100%;
-    
+  @media (max-width: 1000px) {
+    width:80%;
+     height:80%;
+    justify-content: center;
+    margin-left:50px;
+
+
 
 
   }
