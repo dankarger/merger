@@ -39,7 +39,7 @@ const WorkSpace =()=> {
     const[overlayText,setOverlayText] = useState({inputText})
     const [color, setColor] = useState("#000000");
     const TextOverlayRef = useRef();
-    const [fontSize,setFontSize]=useState('80');
+    const [fontSize,setFontSize]=useState('30');
     const [text1Decorations,setText1Decorations] = useState({bold:'regular',italic:'none',underline:'none'})
 
     //Text2
@@ -48,7 +48,7 @@ const WorkSpace =()=> {
     // const[overlayTextSecond,setOverlayTextSecond] = useState({inputTextSecond})
     const [colorSecond, setColorSecond] = useState("#000000");
     const TextOverlaySecondRef = useRef();
-    const [fontSizeSecond,setFontSizeSecond]=useState('80');
+    const [fontSizeSecond,setFontSizeSecond]=useState('30');
     const [text2Decorations,setText2Decorations] = useState({bold:'regular',italic:'none',underline:'none'})
 
 

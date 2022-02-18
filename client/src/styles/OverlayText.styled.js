@@ -4,7 +4,7 @@ import {motion} from  'framer-motion'
 export const OverlayTextStyled = styled(motion.div) `
 
   color: ${({color})=> color || '#33333'};
-  font-size: ${({fontSize})=>fontSize +'px' || '80px'  };
+  font-size: ${({fontSize})=> parseInt(fontSize) * 5  +'px' || '50px'  };
   font-family: ${({fontFamily})=> fontFamily|| 'Roboto , sans-serif'};
   text-shadow: ${({textShadow})=>textShadow || '1px 1px 1px black'};
   font-weight: ${({fontWeight})=> fontWeight || '300'};

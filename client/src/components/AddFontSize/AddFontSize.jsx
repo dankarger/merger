@@ -57,9 +57,9 @@ export default function AddFontSize({fontSize,setFontSize}) {
                         onChange={handleInputChange}
                         onBlur={handleBlur}
                         inputProps={{
-                            step: 1,
+                            step: 5,
                             min: 0,
-                            max: 150,
+                            max: 100,
                             type: 'number',
                             'aria-labelledby': 'input-slider',
                         }}
