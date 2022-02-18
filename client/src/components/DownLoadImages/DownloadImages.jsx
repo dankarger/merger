@@ -63,19 +63,20 @@ const DownloadImages = ({handleSelectCard,
 
                 <GalleryContainerStyled>
                     {imageIds && imageIds.map((card,index)=>{
-                        return ( <motion.div
+                        return (
+                            <motion.div
                                 variants={cardGalleryVariants}
                                 initial='initial'
                                 animate='animate'
                                 whileHover='hover'
-                                key={card.id}
+                                key={card._id}
                             >
                                 {/*<img src={card.secure_url }/>*/}
                             <CardGallery card={card}
                                          downloadCard={downloadCard}
                                          handleSelectCard={handleSelectCard}
                                          handleDeleteCard={handleDeleteCard }
-                                         key={card.id+card.username}
+
                         />
                         </motion.div>
                         )
