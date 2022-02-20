@@ -13,11 +13,11 @@ An image work station , add text  colors,and  border to images
 - Add Text and Colors
 - merge the layers and convert to JPG,PNG,GIF,SVG
 - Download the result image
-- Gallery page of your images (only the users that created the images can view them)
+- Gallery page to view your images
 
 ![alt text](./client/public/assets/images/create2.png)
 
-- Images created are stored on Cloudinary, data on images snd users are stored in mobgoDB.
+- Created images are stored on Cloudinary, data on images and users are stored on the mobgoDB.
 
 
 ![alt text](./client/public/assets/images/classes-merger3.png)
@@ -46,15 +46,21 @@ Front-end:
 
 
 
+# Features:
+
+- #### Add Border and Background color:
+![alt text](./client/public/assets/images/create4.png)
+
+
+- #### Add Text:
 ![alt text](./client/public/assets/images/create6.png)
 
-
+- ### Convert to SVG:
 ![alt text](./client/public/assets/images/create5.png)
 
-
+#### Gallery
 ![alt text](./client/public/assets/images/img.png)
 
-![alt text](./client/public/assets/images/create4.png)
 
 
 
