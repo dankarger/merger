@@ -1,9 +1,7 @@
 const Image = require("../models/image.model");
 const User = require("../models/user.model");
 const {cloudinary} = require("../utils/cloudinary");
-const bcrypt =require('bcrypt')
 const mongoose = require('mongoose')
-
 
 const findUser = async (id) => {
     return User.findById(id)
@@ -13,7 +11,6 @@ const getImages = async () => {
     return await cloudinary.search.expression('folder:workspaceop/*').sort({user: -1})
         // .max_results(50)
         .execute();
-
 }
 
 
@@ -42,7 +39,6 @@ const uploadImage = async (req, res) => {
 }
 
 const addImage = async (response, user, imageTitle) => {
-
         const image = {
             title: imageTitle,
             url: response.url,
@@ -53,7 +49,6 @@ const addImage = async (response, user, imageTitle) => {
             dateCreated: Date.now()
         }
         const mongoImage = await Image.create(image)
-        // console.log('mon',mongoImage)
         user.images.push(mongoImage._id)
         await user.save()
         return(mongoImage)
@@ -63,7 +58,6 @@ const deleteImage = async (id,password,userId) => {
     const image = await Image.findOne({_id: id})
     const user = await User.findById(image.createdBy);
     console.log('deleteService',image.createdBy,user.id,mongoose.Types.ObjectId(userId))
-    // if(await bcrypt.compare(password, user.password)){
     if(userId===user.id){
         console.log('dasdasdasdasdasdasdasdasd')
     await cloudinary.uploader.destroy(image.public_id, function (error, result) {
@@ -82,7 +76,6 @@ const deleteImage = async (id,password,userId) => {
 const deleteAllImagesByUser = async (id) => {
     const user = await findUser(id)
     console.log('user', user)
-    // await cloudinary.uploader.destroy({},{tags:user.name}, function(error,result)  {console.log(result, error); });
     await cloudinary.api.delete_resources_by_tag(user.name, function (error, result) {
         console.log(result, error)
     })
@@ -94,19 +87,9 @@ const deleteAllImagesByUser = async (id) => {
 }
 
 const filterImages = async (id) => {
-    console.log('ididid,id',id)
-    // const user = await User.findById(id)
-    // console.log('filter images user', user);
-    // const images = user.images
-    //
     const images = await Image.find({createdBy:id})
-
-
-    console.log('images',images)
     return images
-
 }
-
 
 module.exports = {
     getImages,

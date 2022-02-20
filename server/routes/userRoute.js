@@ -7,7 +7,6 @@ const auth = require('../middlewares/auth')
 
 userRoute.get('/',userController.getUsers)
 userRoute.post('/login',userController.loginUser)
-// userRoute.post('/register',userController.registerUser)
 userRoute.post('/token',userController.addUser)
 userRoute.get('/find',auth.authenticateToken, userController.getUser)
 userRoute.post('/register',userController.addUser)

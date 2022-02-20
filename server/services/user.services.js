@@ -6,18 +6,14 @@ const auth = require('../middlewares/auth')
 
 
 const getUsers = async ()=> {
-    console.log('getUsers')
     const data =  await User.find();
-    console.log('data',data)
     return (data)
-    // console.log('get users')
-    // return('users')
+
 }
 
 
 const findUser = async (email) => {
     const user = await User.findOne({email:email}).lean()
-
     return(user)
 }
 
@@ -41,7 +37,6 @@ const addUser = async (req, res) => {
 
 const loginUser = async (req,res)=> {
     const {email, password} = req.body
-    // await checkIfUserExist(email)
     if(await checkIfUserExist(email)===false){
         throw new Error('Cannot find user ')
     }
