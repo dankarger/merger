@@ -13,7 +13,6 @@ const xVariants = {
 }
 
 const HomePage = () => {
-    const[stepCounter,setStepCounter]=useState(0)
 
     return (
         <HomePageStyled>

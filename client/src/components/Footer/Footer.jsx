@@ -5,6 +5,10 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import CopyrightIcon from '@mui/icons-material/Copyright';
 import ClickableLinkChips from "../Chip/ClickableLinkChips";
 
+const links = {
+    github:'https://github.com/dankarger/memes-gen2',
+    linkedin:'https://www.linkedin.com/in/dan-karger-ba36905a/'
+}
 
 const Footer =()=>{
 
@@ -19,11 +23,11 @@ const Footer =()=>{
                 <CopyrightIcon />  {dateYear()} MERGER
             </div>
             <div>
-                <ClickableLinkChips icon={<LinkedInIcon sx={{color:'#ffffff'}}/>} size={'medium'}>
+                <ClickableLinkChips hrefLink={links.linkedin} icon={<LinkedInIcon sx={{color:'#ffffff'}}/>} size={'medium'}>
 
                 </ClickableLinkChips>
 
-                <ClickableLinkChips icon={ <GitHubIcon sx={{color:'#ffffff'}}/>} size={'medium'}>
+                <ClickableLinkChips hrefLink={links.github} icon={ <GitHubIcon sx={{color:'#ffffff'}}/>} size={'medium'}>
 
                 </ClickableLinkChips>
 

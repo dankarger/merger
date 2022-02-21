@@ -33,11 +33,12 @@ function App() {
                 <Route path='/register'  element={<RegisterPage />} />
                 {/*<Route path='/gallery2'  element={<Gallery />} />*/}
             </Routes>
+            <Footer />
         </BrowserRouter>
 
     {/*</Global>*/}
         </UserContext.Provider>
-        <Footer />
+
     </div>
   );
 }
