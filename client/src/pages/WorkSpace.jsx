@@ -108,7 +108,6 @@ const WorkSpace =()=> {
         }
     }
 
-
     useEffect(()=>{
         setOverlayText(inputText)
     },[inputText])
@@ -275,7 +274,6 @@ const WorkSpace =()=> {
                     Imageheight={uploadedFile? constraintsRef.current.naturalHeight : '100px'}
                 >
 
-
                    <motion.img
                        drag
                        onPointerDown={(e) => {
@@ -285,8 +283,6 @@ const WorkSpace =()=> {
                         dragControls={dragControls}
                         dragConstraints={dragConstraints} ref={constraintsRef}
                         src={backgroundImage} alt="chosen22" style={{height: '100%'}}/>
-
-
                 </ResizeDiv2>
                         }
 

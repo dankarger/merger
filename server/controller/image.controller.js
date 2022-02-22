@@ -26,7 +26,6 @@ const uploadImage =async (req, res)=> {
 
 const deleteImage = async function (req, res) {
     try {
-
         const password = req.body.password;
         const userId=req.body.userId;
         const id= req.params.id
@@ -57,7 +56,6 @@ const filterImages= async (req,res)=> {
         console.log('filter',e)
         res.status(400).send({message:e.message})
     }
-
 }
 
 

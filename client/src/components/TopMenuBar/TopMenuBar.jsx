@@ -47,7 +47,6 @@ export default function TopMenuBar({step=0}) {
                     <Tooltip   title={stepsText.step3} placement="bottom">
                      <StepLabel>Merge</StepLabel>
                     </Tooltip >
-
                 </Step>
                 <Step>
                     <Tooltip   title={stepsText.step4} placement="bottom">

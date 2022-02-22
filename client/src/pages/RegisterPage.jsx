@@ -27,13 +27,7 @@ const RegisterPage =()=> {
 
     })
     const resetInputFields=()=>{
-        // let newFormData = formData
-        // let newFormData = {name:'',email:'',password:''}
-        // newFormData[e.target.name] = e.target.value
-        // setFormData(newFormData);
         setFormData({})
-
-
     }
 
     const handleSubmitRegister2 = async ()=>{
@@ -58,7 +52,6 @@ const RegisterPage =()=> {
             }
             setIsErrorMessage(true)
             console.log('loginEE;',error.response);
-            // setFormData(null)
         }
     }
 
@@ -68,12 +61,10 @@ const RegisterPage =()=> {
             console.log('login-Guest',response.data.user)
             setCurrentUser(response.data.user)
             handleDialogueMessage('guest')
-            // navigate(`/work`);
         }catch (error) {
             setErrorMessage(error.response.data.message)
             setIsErrorMessage(true)
             console.log('loginEE;',error.response);
-
         }
     }
 

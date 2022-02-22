@@ -1,6 +1,6 @@
 const User = require("../models/user.model");
 const bcrypt = require('bcrypt');
-const jwt=require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const auth = require('../middlewares/auth')
 
 
@@ -10,7 +10,6 @@ const getUsers = async ()=> {
     return (data)
 
 }
-
 
 const findUser = async (email) => {
     const user = await User.findOne({email:email}).lean()

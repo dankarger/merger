@@ -22,7 +22,6 @@ const AddBackGroundColor =({backGroundColor,setBackGroundColor,setIsBackgroundSh
         >
             <p><u>Canvas Options</u></p>
             <ColorPickerDivStyled>
-                {/*<ColorPicker  value={backGroundColor} onChange={setBackGroundColor}/>*/}
                 <ColorPickerHtml color={backGroundColor}
                                  setColor={setBackGroundColor}
                                  label={' Color'}
@@ -31,7 +30,6 @@ const AddBackGroundColor =({backGroundColor,setBackGroundColor,setIsBackgroundSh
 
             </ColorPickerDivStyled>
             <CustomSwitch label={'Add Shadow'} setIsChecked={setIsBackgroundShadow} defaultValue={false}/>
-            {/*<SwitchOnOff label={'Shadow'}/>*/}
         </AddBackGroundColorStyled>
     )
 }
