@@ -17,7 +17,6 @@ const RegisterPage =()=> {
     const navigate = useNavigate();
     const[modalInfo,setModalInfo]=useState({})
     const[isDialogueOpen,setIsDialogueOpen] = useState(false)
-
     const[errorMessage,setErrorMessage] = useState(null)
     const[isErrorMessage,setIsErrorMessage]=useState(false)
 
