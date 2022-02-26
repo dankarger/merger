@@ -12,12 +12,12 @@ const HomePageContent=()=> {
             variants={svgVariants}
             initial='initial'
             animate='animate'
-
             >
                 <HomePageSVGStyled>
                     <ReactLogo />
                 </HomePageSVGStyled>
             </HomePageSVGStyled>
+
         </HomePageContentStyled>
     )
 }

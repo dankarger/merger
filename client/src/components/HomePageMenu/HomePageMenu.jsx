@@ -15,16 +15,12 @@ const hover = '&:hover { transform:scale(1.2) '
 export default function HomePageMenu() {
     return (
         <Box sx={{'& > :not(style)': {m: 1}, display: "flex", gap: '3rem'}}>
-            <HomepageMenuStyled
-
-            >
+            <HomepageMenuStyled >
                 <motion.div variants={HomePageMenuVariants}
                             whileHover='hover'
                             animate='animate'
                             initial='initial'
-
                 >
-
                 </motion.div>
                 <motion.div variants={HomePageMenuVariants}
                             whileHover='hover'
@@ -41,13 +37,7 @@ export default function HomePageMenu() {
 
                     </Link>
                 </motion.div>
-                {/*<motion.div variants={HomePageMenuVariants}*/}
-                {/*            whileHover='hover'*/}
-                {/*            animate='animate3'*/}
-                {/*            initial='initial'*/}
-                {/*>*/}
 
-                {/*</motion.div>*/}
                 <motion.div variants={HomePageMenuVariants}
                             whileHover='hover'
                             animate='animate3'
