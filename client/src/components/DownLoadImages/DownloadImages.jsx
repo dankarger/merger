@@ -7,9 +7,10 @@ import {cardGalleryVariants} from "../../animations/animations";
 import {motion} from 'framer-motion'
 import {UserContext} from "../../App";
 import {StrongStyled} from "../../styles/Strong.styled";
+import {DownloadImagesInfoStyled} from "../../styles/DownloadImagesInfo.styled";
 
-
-const DownloadImages = ({handleSelectCard,
+const DownloadImages = ({
+                            handleSelectCard,
                             downloadCard,
                             setIsLoading,
                             handleDeleteCard,
@@ -17,8 +18,7 @@ const DownloadImages = ({handleSelectCard,
                         }) => {
     const [imageIds, setImageId] = useState([]);
     const [isLoading2, setIsLoading2] = useState(true);
-    // const cardRef=useRef(null)
-    const [currentUser,setCurrentUser]= useContext(UserContext)
+    const [currentUser, setCurrentUser] = useContext(UserContext)
 
     const cld = new Cloudinary({
         cloud: {
@@ -34,9 +34,9 @@ const DownloadImages = ({handleSelectCard,
             setIsLoading(true)
             setIsLoading2(true)
 
-            const {data} = await myApi.post('/images/get',{
-                userId:currentUser.id
-                });
+            const {data} = await myApi.post('/images/get', {
+                userId: currentUser.id
+            });
             setImageId(data)
             setIsLoading(false)
             setIsLoading2(false)
@@ -46,9 +46,9 @@ const DownloadImages = ({handleSelectCard,
         }
     }
 
-    useEffect(  () => {
+    useEffect(() => {
         setIsLoading(true)
-        const {data} =  loadImages();
+        const {data} = loadImages();
         // setImageId(data)
         setIsLoading(false)
 
@@ -57,33 +57,33 @@ const DownloadImages = ({handleSelectCard,
 
     return (
         <>
-           Gallery for <StrongStyled>{currentUser.name}</StrongStyled>   <span><StrongStyled>Images: {imageIds.length}</StrongStyled></span>
-
-
-
-                <GalleryContainerStyled>
-                    {imageIds && imageIds.map((card,index)=>{
-                        return (
-                            <motion.div
-                                variants={cardGalleryVariants}
-                                initial='initial'
-                                animate='animate'
-                                whileHover='hover'
-                                key={card._id}
-                            >
-                                {/*<img src={card.secure_url }/>*/}
+            <DownloadImagesInfoStyled>
+                User:  <StrongStyled>{currentUser.name}</StrongStyled>
+                <span>Images:<StrongStyled> {imageIds.length}</StrongStyled></span>
+            </DownloadImagesInfoStyled>
+            <GalleryContainerStyled>
+                {imageIds && imageIds.map((card, index) => {
+                    return (
+                        <motion.div
+                            variants={cardGalleryVariants}
+                            initial='initial'
+                            animate='animate'
+                            whileHover='hover'
+                            key={card._id}
+                        >
+                            {/*<img src={card.secure_url }/>*/}
                             <CardGallery card={card}
                                          downloadCard={downloadCard}
                                          handleSelectCard={handleSelectCard}
-                                         handleDeleteCard={handleDeleteCard }
+                                         handleDeleteCard={handleDeleteCard}
 
-                        />
+                            />
                         </motion.div>
-                        )
-                    }).reverse()}
-                    {/*{imageIds &&  <Cards2 images={imageIds}/>}*/}
+                    )
+                }).reverse()}
+                {/*{imageIds &&  <Cards2 images={imageIds}/>}*/}
 
-                    </GalleryContainerStyled>
+            </GalleryContainerStyled>
         </>
     )
 }

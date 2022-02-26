@@ -6,11 +6,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
-import {ButtonYoYoVariants} from "../../animations/animations";
+import {ButtonYoYoVariants, DetailCardStyleVariants} from "../../animations/animations";
+
 import {motion} from "framer-motion";
 import CustomDeleteIconChips from "../Chip/CustomeDeleteChip";
 import {useContext} from "react";
 import {UserContext} from "../../App";
+import {StrongStyled} from "../../styles/Strong.styled";
 
 
 export default function CardDetail({card,
@@ -27,7 +29,11 @@ export default function CardDetail({card,
     }
 
     return (
-        <Card  sx={{ }} onClick={handleSelectCard}>
+        <Card  sx={{height:'80%' }} onClick={handleSelectCard}
+            // variant={DetailCardStyleVariants}
+            //    initial='initial'
+            //    animate='animate'
+        >
 
             <motion.div variants={ButtonYoYoVariants}
             whileHover='hover'
@@ -38,17 +44,18 @@ export default function CardDetail({card,
             <Typography   center variant="h3" component="h1">
                {card.title}
             </Typography>
-            <CardMedia  sx={{border:'1px solid #333333'}}
+            <CardMedia  sx={{border:'1px solid #333333', maxHeight:'60vh'}}
                 component="img"
                 alt="green iguana"
                 image={card.url}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div" color='text.info'>
+                <Typography gutterBottom variant="h3" component="div" color='text.info'>
                     {card.title}
                 </Typography>
-                <Typography variant="body2" color="text.primary" >
-                    Created by: <span sx={{color:'blue'}}>{card.nameOfUser}</span>
+                <Typography variant="h5" color="text.primary" >
+                    Created by: <StrongStyled >{card.nameOfUser}</StrongStyled>
+                    <br/>
                    at: <span> {card.dateCreated.substring(0,10)}</span>
                 </Typography>
             </CardContent>

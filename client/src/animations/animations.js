@@ -234,10 +234,10 @@ export const GalleryStyleVariants = {
 export const DetailCardStyleVariants = {
     initial:{
         opacity:0,
-        scale:(0)
+        scale:(-1)
     },
     animate:{
-        scale:(1),
+        scale:(1.1),
         x:0,
         opacity:1,
         transition:{

@@ -10,7 +10,6 @@ import axios from "axios";
 import AlertCostum from "../Alert/Alert";
 import {UserContext} from "../../App";
 import DeleteDialog from "../Dialog/DeleteDialog";
-import {Navigate} from "react-router-dom";
 
 const Gallery = () => {
     const [isDetailCardOpen, setIsDetailCardOpen] = useState(false);
@@ -22,11 +21,9 @@ const Gallery = () => {
     const[isRefresh,setIsRefresh]=useState(false)
     const [currentUser,setCurrentUser]= useContext(UserContext);
 
-
     useEffect(()=>{
         console.log('refresh')
         console.log('isDialogueOpen refresh',isDialogueOpen)
-
     },[isDialogueOpen,isRefresh])
 
 
@@ -38,15 +35,11 @@ const Gallery = () => {
                 },
                 data: {
                     userId:currentUser.id,
-                    // password: 'password',
                 }
             })
             setSelectedCard({})
             setIsDialogueOpen(false)
             setIsRefresh(state=>!state)
-            // Navigate('/gallery')
-
-
 
         } catch (error) {
             console.log(error.message);

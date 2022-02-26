@@ -19,8 +19,7 @@ const HomePage = () => {
 
             <HomePageMenu />
             <HomePageContent />
-                    <TopMenuBar
-                    />
+                    <TopMenuBar />
         </HomePageStyled>
     )
 }
