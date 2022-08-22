@@ -70,7 +70,7 @@ const Gallery = () => {
                 const link = document.createElement('a');
                 const format = card.secure_url.substring(card.secure_url.length - 3)
                 link.href = url;
-                link.setAttribute('download', `${card.title}.${format}`); //or any other extension
+                link.setAttribute('download', `${card.title}.${format}`);
                 document.body.appendChild(link);
                 link.click();
             });

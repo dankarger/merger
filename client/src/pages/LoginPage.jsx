@@ -13,10 +13,8 @@ import AlertCostum from "../components/Alert/Alert";
 const LoginPage = () => {
     const [currentUser, setCurrentUser] = useContext(UserContext);
     const [formData, setFormData] = useState({});
-    const navigate = useNavigate();
     const [isDialogueOpen, setIsDialogueOpen] = useState(false);
     const [modalInfo, setModalInfo] = useState({});
-    const nameInput = useRef(null);
 
     const [errorMessage, setErrorMessage] = useState(null)
     const [isErrorMessage, setIsErrorMessage] = useState(false)
