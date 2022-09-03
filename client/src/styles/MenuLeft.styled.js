@@ -2,19 +2,20 @@ import styled from "styled-components";
 
 export const MenuLeftStyled = styled.div `
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-
+  justify-content: right;
+  align-items: start;
+  width: fit-content;
   height: fit-content;
-  position: absolute;
-  left: 0;
-  top: 80px;
-  background: rgba(236, 236, 236, 0.93);
+  //position: absolute;
+  //left: 0;
+  //top: 80px;
+  margin-bottom:10px;
+  background:#d3d3d3;
   gap: 11rem;
   border-top-right-radius: 5px;
-
+  button {
+    height:40px;
+  }
   //color: #9d9d9d;
   @media (max-width: 950px) {
     //border: red 2px solid;
@@ -28,6 +29,11 @@ export const MenuLeftStyled = styled.div `
     button {
       font-size: 8px;
       max-width: 50px;
+ 
+      &:active{
+        background: white;
+      }
     }
+  }
 
 `

@@ -13,8 +13,9 @@ import Loader from "../Loader/Loader";
 const toggleButtonStyle = {
    letterSpacing: "1px",
     border: "none",
-    hover:"background:red"
-
+    '&:hover': {
+    background: 'red',
+},
 }
 const downLoadImageButtonStyle = {
     letterSpacing: "1px",
@@ -55,8 +56,8 @@ export default function ToolBar({imageCallback,
             value={view}
             exclusive
             onChange={handleChange}
-            color='info'
-            sx={{width:'100%',display:'flex',justifyContent:'right',marginRight:'5%', background:"#d3d3d3", gap:"20px"}}
+            // color='primary'
+            // sx={{width:'fit-content' ,display:'flex', gap:"20px"}}
         >
             <ToggleButton sx={{padding:'0 1rem '}} value="list" aria-label="list" onClick={()=>{
                 imageCallback(menu=>!menu)
