@@ -22,32 +22,27 @@ export default function ListDividers() {
             initial='initial'
             animate='animate'
         >
-        <List sx={style} component="nav" aria-label="mailbox folders">
-             <Link to={'/work'} >
-
-                <ListItem button >
-
-                    <ListItemText primary="WorkPlace"  />
-
+            <List sx={style} component="nav" aria-label="mailbox folders">
+                <Link to={'/work'}>
+                    <ListItem button>
+                        <ListItemText primary="WorkPlace"/>
+                    </ListItem>
+                </Link>
+                <Divider/>
+                <ListItem button divider>
+                    <ListItemText primary="Login"/>
                 </ListItem>
-
-            </Link>
-
-            <Divider />
-            <ListItem button divider>
-                <ListItemText primary="Login" />
-            </ListItem>
-            <ListItem button>
-                <ListItemText primary="Sign-Up" />
-            </ListItem>
-            <Divider light />
-            <Link to={'/gallery'} >
-            <ListItem button>
-                <button>butt</button>
-                <ListItemText primary="Gallery" />
-            </ListItem>
-            </Link>
-        </List>
+                <ListItem button>
+                    <ListItemText primary="Sign-Up"/>
+                </ListItem>
+                <Divider light/>
+                <Link to={'/gallery'}>
+                    <ListItem button>
+                        <button>butt</button>
+                        <ListItemText primary="Gallery"/>
+                    </ListItem>
+                </Link>
+            </List>
         </motion.div>
     );
 }

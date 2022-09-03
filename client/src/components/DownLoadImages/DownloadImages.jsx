@@ -26,7 +26,6 @@ const DownloadImages = ({
         }
     });
 
-    // cld.image returns a CloudinaryImage with the configuration set.
     const myImage = cld.image('sample');
 
     const loadImages = async () => {
@@ -58,7 +57,7 @@ const DownloadImages = ({
     return (
         <>
             <DownloadImagesInfoStyled>
-                User:  <StrongStyled>{currentUser.name}</StrongStyled>
+                User: <StrongStyled>{currentUser.name}</StrongStyled>
                 <span>Images:<StrongStyled> {imageIds.length}</StrongStyled></span>
             </DownloadImagesInfoStyled>
             <GalleryContainerStyled>

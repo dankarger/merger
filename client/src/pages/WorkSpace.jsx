@@ -10,7 +10,6 @@ import {OverlayTextStyled} from "../styles/OverlayText.styled";
 import {WorkImageDivStyled} from "../styles/WorkImageDiv.styled";
 import {WorkPageStyled} from "../styles/WorkPage.styled";
 import {UploadImageDivStyled} from "../styles/UplaodImageDiv.styled";
-import {OverlayTextDiveStyled} from "../styles/OverlayTextDive.styled";
 import SkeletonDiv from "../components/SkeletonDiv/SkeletonDiv";
 import ModalMergeForm from "../components/ModalMergeForm/ModalMergeForm";
 import AddBackGroundColor from "../components/AddBackgroundColor/AddBackGroundColor";
@@ -45,12 +44,10 @@ const WorkSpace =()=> {
     //Text2
     const[inputTextSecond,setInputTextSecond]=useState(String);
     const[isTextMenuSecondOpen,setIsTextMenuSecondOpen]=useState(false)
-    // const[overlayTextSecond,setOverlayTextSecond] = useState({inputTextSecond})
     const [colorSecond, setColorSecond] = useState("#000000");
     const TextOverlaySecondRef = useRef();
     const [fontSizeSecond,setFontSizeSecond]=useState('30');
     const [text2Decorations,setText2Decorations] = useState({bold:'regular',italic:'none',underline:'none'})
-
 
     //Background
     const[backgroundColor,setBackGroundColor]=useState('#333333');
@@ -157,9 +154,6 @@ const WorkSpace =()=> {
             setErrorMessage("Cannot Merge an Empty Work Space")
             setIsErrorMessage(true)
         }
-    }
-    const handleCloseMergeForm =()=>{
-        setIsMergeFormOpen(false);
     }
 
     const captureHtmlToJpg =async ()=> {

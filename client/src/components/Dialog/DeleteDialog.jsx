@@ -6,25 +6,26 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
+import {useTheme} from '@mui/material/styles';
 import {useEffect} from "react";
-import Loader from "../Loader/Loader";
 
-export default function DeleteDialog({card,
+export default function DeleteDialog({
+                                         card,
                                          isDialogueOpen,
                                          handleConfirmDelete,
-                                         setIsDialogueOpen}) {
+                                         setIsDialogueOpen
+                                     }) {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
 
-    useEffect(()=>{
+    useEffect(() => {
         setOpen(isDialogueOpen)
-    return ()=>{
+        return () => {
             setOpen(false)
-    }
-    },[isDialogueOpen])
+        }
+    }, [isDialogueOpen])
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -35,7 +36,7 @@ export default function DeleteDialog({card,
         setIsDialogueOpen(false)
     };
 
-    const handleDelete=()=>{
+    const handleDelete = () => {
         handleConfirmDelete(card);
 
         setOpen(false)
@@ -55,17 +56,17 @@ export default function DeleteDialog({card,
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                      Delete this image?
+                        Delete this image?
                         You cannot undo this
 
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button  autoFocus onClick={handleClose}>
-                       No
+                    <Button autoFocus onClick={handleClose}>
+                        No
                     </Button>
                     <Button color={'error'} onClick={handleDelete} autoFocus>
-                       Yes
+                        Yes
                     </Button>
                 </DialogActions>
             </Dialog>

@@ -3,20 +3,14 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import {useEffect, useState} from "react";
 import Button from "@mui/material/Button";
-import {ToolBarMenuStyled} from "../../styles/ToolBarMenu.styled";
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import MergeIcon from '@mui/icons-material/Merge';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import Loader from "../Loader/Loader";
 
-import {AddTextSecondStyled} from "../../styles/AddTextDivider.styled";
-import {isDisabled} from "@testing-library/user-event/dist/utils";
-
 export default function ToolBar({imageCallback,
-                                    isMenuOpen,
                                     textCallback,
-                                    isTextMenuOpen,
                                     setIsBackGroundMenuOpen,
                                     downLoadLink,
                                     isDownloadLinkReady,
@@ -43,7 +37,6 @@ export default function ToolBar({imageCallback,
 
 
     return (
-        // <ToolBarMenuStyled>
         <ToggleButtonGroup
             orientation="horizontal"
             value={view}
@@ -109,6 +102,5 @@ export default function ToolBar({imageCallback,
             <span style={{transform: 'translateX(-90px) translateY(10px)'}}><Loader size={20}/></span>
             }
         </ToggleButtonGroup>
-            // </ToolBarMenuStyled>
     );
 }
