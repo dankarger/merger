@@ -5,7 +5,9 @@ import {ColorPickerDivStyled} from "../../styles/ColorPickerDiv.styled";
 import {MenuLeftVariants} from "../../animations/animations";
 import AddFontSize from "../AddFontSize/AddFontSize";
 import {AddTextHeadingStyled} from "../../styles/AddTextHeading.styled";
+import TabHeading from "../TabHeading/TabHeading";
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
+
 // import ChooseTextDecoration from "../../styles/ChooseTextDecoration/ChooseTextDecoration";
 import ChooseTextDecoration from "../ChooseTextDecoration/ChooseTextDecoration";
 import ColorPickerHtml from "../ColorPickerHtml/ColorPickerHtml";
@@ -27,6 +29,7 @@ const handleColorChange=(e)=> {
             initial='initial'
             animate='animate'
         >
+            <TabHeading heading={'Add Text'} icon={1}/>
 <ChooseTextDecoration id={'chooseText'}
                       setText1Decorations={setText1Decorations}
                       text1Decorations={text1Decorations}/>

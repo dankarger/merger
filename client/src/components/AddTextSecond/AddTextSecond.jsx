@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import {TextField} from "@mui/material";
-import Button from "@mui/material/Button";
-import {AddTextStyled} from "../../styles/AddText.styled";
-import {ColorPicker} from "material-ui-color";
+import TabHeading from "../TabHeading/TabHeading";
 import {ColorPickerDivStyled} from "../../styles/ColorPickerDiv.styled";
 import {MenuLeftVariants} from "../../animations/animations";
 import AddPosition from "../AddPosition/AddPosition";
@@ -32,6 +30,7 @@ const AddTextSecond = ({callback,
             initial='initial'
             animate='animate'
         >
+            <TabHeading heading={'Add Text'} icon={2} />
             <ChooseText2Decoration id={'chooseText'}
                                    setText2Decorations={setText2Decorations}
                                    text2Decorations={text2Decorations}

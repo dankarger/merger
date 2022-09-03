@@ -11,12 +11,12 @@ export const AddTextStyled = styled(motion.div) `
   display: flex;
   justify-content: start;
   gap: 4rem;
-  align-items: start;
+  align-items: center;
   flex-direction: column;
   position: absolute;
   z-index: 150;
   left: 0;
-  top: 150px;
+  top: 70px;
   border: 1px solid grey;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
