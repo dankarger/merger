@@ -18,15 +18,14 @@ import {GreetingStyled} from "../../styles/Greeting.styled";
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import {ReactComponent as ReactLogo} from "../../pages/svg/svg/logowave.svg";
 
-const pages = ['Home', 'Login', 'Create','Gallery'];
+const pages = ['Home', 'Login', 'Create', 'Gallery'];
 
-const settings = ['Profile',  'Logout'];
+const settings = ['Profile', 'Logout'];
 
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const [currentUser,setCurrentUser]= useContext(UserContext)
-
+    const [currentUser, setCurrentUser] = useContext(UserContext)
 
 
     const handleOpenNavMenu = (event) => {
@@ -43,17 +42,15 @@ const ResponsiveAppBar = () => {
     };
 
     const handleCloseUserMenu = (setting) => {
-        if(setting==='Logout') {
-            console.log('set',setting)
+        if (setting === 'Logout') {
+            console.log('set', setting)
         }
         setAnchorElUser(null);
     };
 
 
-
-
     return (
-        <AppBar  position="static" style={{background: "rgb(154,169,173)"}}
+        <AppBar position="static" style={{background: "rgb(50,58,63)", maxHeight: "100px"}}
         >
             <Container maxWidth="xl">
 
@@ -62,10 +59,10 @@ const ResponsiveAppBar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ marginLeft:6, display: { xs: 'none', md: 'flex' } }} >
+                        sx={{marginLeft: 2, display: {xs: 'none', md: 'flex'}}}>
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -74,7 +71,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon />
+                            <MenuIcon/>
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -91,15 +88,15 @@ const ResponsiveAppBar = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: {xs: 'block', md: 'none'},
                             }}
                         >
                             {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Link to={`${page}`}>
+                                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                    <Link to={`${page}`}>
                                         <Typography textAlign="center">{page}</Typography>
-                                        </Link>
-                                    </MenuItem>
+                                    </Link>
+                                </MenuItem>
                             ))}
 
                         </Menu>
@@ -108,42 +105,41 @@ const ResponsiveAppBar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                        sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}
                     >
                         {/*LOGO*/}
 
                     </Typography>
                     {/*<Link to='/>' >*/}
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                         {pages.map((page) => (
                             <Link to={`/${page}`} key={page}>
-                            <Button
+                                <Button
 
-                                onClick={handleCloseNavMenu}
+                                    onClick={handleCloseNavMenu}
 
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                             </Button>
-                        </Link>
+                                    sx={{my: 2, color: 'white', display: 'block'}}
+                                >
+                                    {page}
+                                </Button>
+                            </Link>
                         ))}
 
                     </Box>
 
 
-
-                    <Box sx={{ flexGrow: 0 }}>
+                    <Box sx={{flexGrow: 0}}>
                         <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                            <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
                                 <GreetingStyled>
-                                    <span> {currentUser ? currentUser.name :'Guest'}</span>
+                                    <span> {currentUser ? currentUser.name : 'Guest'}</span>
                                 </GreetingStyled>
                                 <AccountCircleRoundedIcon fontSize="large"/>
                             </IconButton>
                         </Tooltip>
 
                         <Menu
-                            sx={{ mt: '45px' }}
+                            sx={{mt: '45px'}}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{
@@ -159,7 +155,7 @@ const ResponsiveAppBar = () => {
                             onClose={handleCloseUserMenu}
                         >
                             {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={()=>handleCloseUserMenu(setting)}>
+                                <MenuItem key={setting} onClick={() => handleCloseUserMenu(setting)}>
                                     <Typography textAlign="center">{setting}</Typography>
                                 </MenuItem>
                             ))}
