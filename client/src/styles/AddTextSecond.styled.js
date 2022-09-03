@@ -16,7 +16,7 @@ export const AddTextSecondStyled = styled(motion.div) `
   left: 0;
   top: 70px;
   border: 1px solid grey;
-  border-top-right-radius: 10px;
+  //border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   background: rgb(236, 236, 236);
 
