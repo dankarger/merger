@@ -59,7 +59,7 @@ const ResponsiveAppBar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{marginLeft: 2, display: {xs: 'none', md: 'flex'}}}>
+                        sx={{marginLeft: 8, display: {xs: 'none', md: 'flex'}}}>
                     </Typography>
 
                     <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
