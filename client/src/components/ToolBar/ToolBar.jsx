@@ -11,11 +11,11 @@ import Loader from "../Loader/Loader";
 
 
 const toggleButtonStyle = {
-   letterSpacing: "1px",
-    border: "none",
-    '&:hover': {
-    background: 'red',
-},
+//    letterSpacing: "1px",
+//     border: "none",
+//     '&:hover': {
+//     background: 'red',
+// },
 }
 const downLoadImageButtonStyle = {
     letterSpacing: "1px",

@@ -1,5 +1,6 @@
 import React, { useState   } from "react";
 import Button from "@mui/material/Button";
+import TabHeading from "../TabHeading/TabHeading";
 import {motion } from 'framer-motion'
 import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
 import {DownloadButtonVariants} from "../../animations/animations";
@@ -70,6 +71,7 @@ export default function UploadImages({setBackgroundImage,
                     initial='initial'
                     animate='animate'
                 >
+                    <TabHeading heading={'Image Tab'} />
                 <AddFileInputStyled
                     type="file" name='image'
                     id='files'
