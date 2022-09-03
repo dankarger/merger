@@ -6,4 +6,5 @@ export const TabHeadingStyle = styled.span `
   font-weight: bold;
   letter-spacing: 1px;
   //text-shadow: 1px 1px 1px #333333;
+  text-decoration: underline;
 `

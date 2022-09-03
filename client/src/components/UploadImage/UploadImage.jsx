@@ -1,7 +1,7 @@
-import React, { useState   } from "react";
+import React, {useState} from "react";
 import Button from "@mui/material/Button";
 import TabHeading from "../TabHeading/TabHeading";
-import {motion } from 'framer-motion'
+import {motion} from 'framer-motion'
 import {UploadImageFormStyled} from "../../styles/UploadImageForm.styled";
 import {DownloadButtonVariants} from "../../animations/animations";
 import {AddFileInputStyled} from "../../styles/AddFileInput.styled";
@@ -11,7 +11,8 @@ import {fadeIn} from "../../animations/animations";
 import AddImageBorder from "../AddImageBorder/AddImageBorder";
 import MergeIcon from "@mui/icons-material/Merge";
 
-export default function UploadImages({setBackgroundImage,
+export default function UploadImages({
+                                         setBackgroundImage,
                                          handleMergeButton,
                                          setUploadedFile,
                                          downloadLink,
@@ -24,31 +25,31 @@ export default function UploadImages({setBackgroundImage,
                                          backgroundImage,
                                          setErrorMessage,
                                          setIsErrorMessage
-}) {
-    const[fileInputState,setFileInputState]=useState('')
-    const [previewSource,setPreviewSource]=useState()
-    const[fileName,setFileName] = useState('')
+                                     }) {
+    const [fileInputState, setFileInputState] = useState('')
+    const [previewSource, setPreviewSource] = useState()
+    const [fileName, setFileName] = useState('')
 
-    const handleFileInputChane = (e)=> {
+    const handleFileInputChane = (e) => {
 
-            const file = e.target.files[0];
-            console.log('filetype',file.type)
-            if(file.type!=="image/jpeg" && file.type!=="image/svg+xml" && file.type!=="image/png" ) {
+        const file = e.target.files[0];
+        console.log('filetype', file.type)
+        if (file.type !== "image/jpeg" && file.type !== "image/svg+xml" && file.type !== "image/png") {
 
-                 setErrorMessage('wrong type of File : (supported formats : JPG,JPEG,PNG,GIF,SVG)')
-               return   setIsErrorMessage(true)
+            setErrorMessage('wrong type of File : (supported formats : JPG,JPEG,PNG,GIF,SVG)')
+            return setIsErrorMessage(true)
 
-            }
-            console.log(file)
-            previewFile(file);
-            if (file.name.length > 0) setFileName(file.name);
+        }
+        console.log(file)
+        previewFile(file);
+        if (file.name.length > 0) setFileName(file.name);
 
     }
 
-    const previewFile= (file) => {
+    const previewFile = (file) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onloadend = ()=> {
+        reader.onloadend = () => {
             setPreviewSource(reader.result)
             setBackgroundImage(reader.result)
             setUploadedFile(reader.result)
@@ -57,65 +58,50 @@ export default function UploadImages({setBackgroundImage,
     }
     const handleSubmitFile = async (e) => {
         e.preventDefault();
-        if(!previewSource) return
+        if (!previewSource) return
 
     }
     return (
         <>
             <UploadImageFormStyled
-                                   action="" onSubmit={handleSubmitFile}
-                                   className='form'
+                action="" onSubmit={handleSubmitFile}
+                className='form'
             >
                 <motion.div
                     variants={fadeIn}
                     initial='initial'
                     animate='animate'
                 >
-                    <TabHeading heading={'Image Tab'} />
-                <AddFileInputStyled
-                    type="file" name='image'
-                    id='files'
-                       onChange={handleFileInputChane}
-                       value={fileInputState}
-                       className='form-input'
-                      />
-                        <AddFileLabelStyled
-                            htmlFor="files"
-                            variants={DownloadButtonVariants}
-                            whileTap="tap"
-                            whileHover='hover'
-                        ><PhotoCamera
-                        /> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>
-                    <br/>
+                    <TabHeading heading={'Image Tab'}/>
+                    <AddFileInputStyled
+                        type="file" name='image'
+                        id='files'
+                        onChange={handleFileInputChane}
+                        value={fileInputState}
+                        className='form-input'
+                    />
+                    <AddFileLabelStyled
+                        htmlFor="files"
+                        variants={DownloadButtonVariants}
+                        whileTap="tap"
+                        whileHover='hover'
+                    ><PhotoCamera
+                    /> {fileName.substring(0, 14) || 'Upload Image'} </AddFileLabelStyled>
                     <hr/>
-                    <br/>
-                    <Button style={{justifySelf:'center'}} onClick={handleMergeButton} variant={backgroundImage?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
-               <hr/>
-                    {/*<AddFileInputStyled*/}
-                    {/*    type="file" name='image'*/}
-                    {/*    id='files'*/}
-                    {/*    // disabled='true'*/}
-                    {/*    onChange={handleFileInputChane}*/}
-                    {/*    value={fileInputState}*/}
-                    {/*    className='form-input'*/}
-                    {/*    // style={{opacity:0}}*/}
-                    {/*/>*/}
-                    {/*<AddFileLabelStyled*/}
-                    {/*    htmlFor="files"*/}
-                    {/*    variants={DownloadButtonVariants}*/}
-                    {/*    whileTap="tap"*/}
-                    {/*    whileHover='hover'*/}
-                    {/*><PhotoCamera*/}
-                    {/*/> {fileName.substring(0,14) || 'Upload Image' } </AddFileLabelStyled>*/}
                 </motion.div>
-                <AddImageBorder  imageBorderWidth={ imageBorderWidth}
-                                 setImageBorderWidth={ setImageBorderWidth}
-                                 setImageBorderRadius={setImageBorderRadius}
-                                 imageBorderRadius={imageBorderRadius}
-                                 setImageBorderColor={setImageBorderColor}
-                                 imageBorderColor={imageBorderColor}
+
+                <AddImageBorder imageBorderWidth={imageBorderWidth}
+                                setImageBorderWidth={setImageBorderWidth}
+                                setImageBorderRadius={setImageBorderRadius}
+                                imageBorderRadius={imageBorderRadius}
+                                setImageBorderColor={setImageBorderColor}
+                                imageBorderColor={imageBorderColor}
                 />
-        </UploadImageFormStyled>
+
+                <Button style={{justifySelf: 'center'}} onClick={handleMergeButton}
+                        variant={backgroundImage ? "contained" : "outlined"} color={'info'}> <MergeIcon/>Merge</Button>
+                <hr/>
+            </UploadImageFormStyled>
         </>
     )
 }
