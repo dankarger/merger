@@ -9,6 +9,19 @@ import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import Loader from "../Loader/Loader";
 
+
+const toggleButtonStyle = {
+   letterSpacing: "1px",
+    border: "none",
+    hover:"background:red"
+
+}
+const downLoadImageButtonStyle = {
+    letterSpacing: "1px",
+
+}
+
+
 export default function ToolBar({imageCallback,
                                     textCallback,
                                     setIsBackGroundMenuOpen,
@@ -43,14 +56,17 @@ export default function ToolBar({imageCallback,
             exclusive
             onChange={handleChange}
             color='info'
-            sx={{width:'100%',display:'flex',justifyContent:'left',marginLeft:'5%'  }}
+            sx={{width:'100%',display:'flex',justifyContent:'right',marginRight:'5%', background:"#d3d3d3", gap:"20px"}}
         >
             <ToggleButton sx={{padding:'0 1rem '}} value="list" aria-label="list" onClick={()=>{
                 imageCallback(menu=>!menu)
                 textCallback(false)
                 textCallbackSecond(false)
                 setIsBackGroundMenuOpen(false)
-            }}>
+
+            }}
+                          style={toggleButtonStyle}
+            >
               Image
             </ToggleButton>
                 <ToggleButton value="module" aria-label="module"
@@ -60,7 +76,10 @@ export default function ToolBar({imageCallback,
                                   imageCallback(false)
                                     setIsBackGroundMenuOpen(false)
 
-                              }}>
+                              }}
+                              style={toggleButtonStyle}
+
+                >
               Text   <LooksOneIcon/>
                 </ToggleButton>
             <ToggleButton value="module2" aria-label="module2"
@@ -69,8 +88,9 @@ export default function ToolBar({imageCallback,
                               textCallback(false)
                               imageCallback(false)
                               setIsBackGroundMenuOpen(false)
-
-                          }}>
+                          }}
+                          style={toggleButtonStyle}
+            >
                 Text <LooksTwoIcon />
             </ToggleButton>
             <ToggleButton value="quilt" aria-label="quilt"
@@ -80,7 +100,9 @@ export default function ToolBar({imageCallback,
                               textCallback(false)
                               imageCallback(false)
 
-            }}>
+            }}
+              style={toggleButtonStyle}
+            >
                 Canvas
             </ToggleButton>
             <ToggleButton value="fx" aria-label="fx"
@@ -92,11 +114,12 @@ export default function ToolBar({imageCallback,
 
                           }}
                           disabled={true}
+                          style={toggleButtonStyle}
             >
                 FX
             </ToggleButton>
 
-            <Button style={{justifySelf:'center'}} onClick={handleMergeButton} variant={(backgroundImage||overlayText)?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
+            <Button style={toggleButtonStyle} onClick={handleMergeButton} variant={(backgroundImage||overlayText)?"contained":"outlined"} color={'info'}> <MergeIcon/>Merge</Button>
             <Button style={{justifySelf:'center'}} onClick={download} variant="contained" color={'success'} disabled={!isDownloadLinkReady}> <FileDownloadIcon /> Download Image</Button>
             {(isDownloadLoader ) &&
             <span style={{transform: 'translateX(-90px) translateY(10px)'}}><Loader size={20}/></span>

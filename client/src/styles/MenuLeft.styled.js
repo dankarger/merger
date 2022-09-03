@@ -11,15 +11,11 @@ export const MenuLeftStyled = styled.div `
   position: absolute;
   left: 0;
   top: 80px;
-  //z-index: 20000;
-  border-left: 6px rgba(44, 41, 41, 0.64) solid;
-  border-top: 1px rgba(51, 51, 51, 0.85) solid;
   background: rgba(236, 236, 236, 0.93);
   gap: 11rem;
   border-top-right-radius: 5px;
-  box-shadow: rgba(44, 43, 43, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0 0px 3px;
 
-  
+  //color: #9d9d9d;
   @media (max-width: 950px) {
     //border: red 2px solid;
     max-width: 100%;
