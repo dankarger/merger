@@ -53,7 +53,7 @@ const ResponsiveAppBar = () => {
 
 
     return (
-        <AppBar  position="static"
+        <AppBar  position="static" style={{background: "rgb(154,169,173)"}}
         >
             <Container maxWidth="xl">
 
