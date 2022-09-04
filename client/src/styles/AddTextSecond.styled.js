@@ -7,6 +7,7 @@ export const AddTextSecondStyled = styled(motion.div) `
   height: calc(100% - 150px);
   padding:10px;
   display: flex;
+  overflow-y: scroll;
   justify-content: start;
   gap: 4rem;
   align-items: center;
@@ -16,7 +17,6 @@ export const AddTextSecondStyled = styled(motion.div) `
   left: 0;
   top: 70px;
   border: 1px solid grey;
-  //border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   background: rgb(236, 236, 236);
 

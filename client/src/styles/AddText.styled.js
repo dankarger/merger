@@ -5,9 +5,8 @@ import {motion} from 'framer-motion'
 export const AddTextStyled = styled(motion.div) `
   width: 230px;
   height: calc(100% - 150px);
-  
+  overflow-y: scroll;
   padding:10px;
-
   display: flex;
   justify-content: start;
   gap: 4rem;

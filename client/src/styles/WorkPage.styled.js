@@ -13,7 +13,7 @@ export const WorkPageStyled = styled(motion.div) `
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow-y: scroll;
 
 
 

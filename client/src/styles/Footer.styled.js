@@ -3,6 +3,7 @@ import {motion} from 'framer-motion'
 
 export const FooterStyled = styled(motion.footer) `
   min-height: 50px;
+  width:100%;
   padding: 2rem 4rem;
   display: flex;
   justify-content: center;
@@ -13,9 +14,10 @@ export const FooterStyled = styled(motion.footer) `
   color: whitesmoke;
   border-radius: 3px;
   gap: 3rem;
-  position: static;
+  //position: absolute;
   bottom: 0;
-  z-index: 1000;
+  left:0;
+  //z-index: 1000;
   //background: #4e5e5e;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 
