@@ -12,16 +12,18 @@ import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
 import ChooseTextDecoration from "../ChooseTextDecoration/ChooseTextDecoration";
 import ColorPickerHtml from "../ColorPickerHtml/ColorPickerHtml";
 
-const AddText = ({callback,
+const AddText = ({
+                     callback,
                      value,
                      color,
                      handleChange,
                      setText1Decorations,
                      text1Decorations,
-                     setFontSize,fontSize})=> {
-const handleColorChange=(e)=> {
-    handleChange(e.target.value)
-}
+                     setFontSize, fontSize
+                 }) => {
+    const handleColorChange = (e) => {
+        handleChange(e.target.value)
+    }
 
     return (
         <AddTextStyled
@@ -30,9 +32,9 @@ const handleColorChange=(e)=> {
             animate='animate'
         >
             <TabHeading heading={'Add Text'} icon={1}/>
-<ChooseTextDecoration id={'chooseText'}
-                      setText1Decorations={setText1Decorations}
-                      text1Decorations={text1Decorations}/>
+            <ChooseTextDecoration id={'chooseText'}
+                                  setText1Decorations={setText1Decorations}
+                                  text1Decorations={text1Decorations}/>
 
             <TextField id="outlined-basic"
                        label="Add Text"
@@ -40,10 +42,11 @@ const handleColorChange=(e)=> {
                        onChange={callback}
                        value={value}
             />
-                <AddFontSize fontSize={fontSize} setFontSize={setFontSize}/>
+            <AddFontSize fontSize={fontSize} setFontSize={setFontSize}/>
             <AddTextHeadingStyled>Text Color:</AddTextHeadingStyled>
             <ColorPickerDivStyled>
-                <ColorPickerHtml color={color} setColor={handleChange} label={'Text Color'} icon={ <FormatColorTextIcon/>}/>
+                <ColorPickerHtml color={color} setColor={handleChange} label={'Text Color'}
+                                 icon={<FormatColorTextIcon/>}/>
             </ColorPickerDivStyled>
             <hr/>
         </AddTextStyled>
