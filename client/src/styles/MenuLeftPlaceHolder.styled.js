@@ -8,7 +8,7 @@ export const MenuLeftPlaceHolderStyled = styled(motion.div) `
   overflow: hidden;
   padding: 10px 15px 0 25px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1px;
   align-items: start;
   flex-direction: column;
