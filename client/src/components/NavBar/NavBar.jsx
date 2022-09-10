@@ -50,11 +50,11 @@ const ResponsiveAppBar = () => {
 
 
     return (
-        <AppBar position="static" style={{background: "rgb(50,58,63)", maxHeight: "100px"}}
+        <AppBar position="static" style={{background: "rgb(50,58,63)", maxHeight: "100px", width: "100%"}}
         >
             <Container maxWidth="xl">
 
-                <Toolbar disableGutters>
+                <Toolbar disableGutters sx={{width: "100%"}}>
                     <Typography
                         variant="h6"
                         noWrap

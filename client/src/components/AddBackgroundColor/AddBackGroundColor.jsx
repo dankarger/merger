@@ -1,4 +1,5 @@
  import React from "react";
+import TabHeading from "../TabHeading/TabHeading";
 import {ColorPickerDivStyled} from "../../styles/ColorPickerDiv.styled";
 import {AddBackGroundColorStyled} from "../../styles/AddBackGroundColor.styled";
 import ColorPickerHtml from "../ColorPickerHtml/ColorPickerHtml";
@@ -20,7 +21,8 @@ const AddBackGroundColor =({backGroundColor,setBackGroundColor,setIsBackgroundSh
             initial='initial'
             animate='animate'
         >
-            <p><u>Canvas Options</u></p>
+            <TabHeading heading={'Canvas Options'} />
+            {/*<p><u></u></p>*/}
             <ColorPickerDivStyled>
                 <ColorPickerHtml color={backGroundColor}
                                  setColor={setBackGroundColor}

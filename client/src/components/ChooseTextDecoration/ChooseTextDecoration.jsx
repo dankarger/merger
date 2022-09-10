@@ -19,14 +19,13 @@ export default function ChooseTextDecoration({setText1Decorations, text1Decorati
     }, [text1Decorations])
 
     const handleFormat = (event, newFormats) => {
-        console.log('formats', event, newFormats)
+        // console.log('formats', event, newFormats)
         setFormats(newFormats);
         let textDecorations = {
             bold: newFormats.includes('bold') ? 'bold' : 'regular',
             italic: newFormats.includes('italic') ? 'italic' : 'none',
             underline: newFormats.includes('underline') ? 'underline' : 'none',
         }
-        console.log('tet', textDecorations)
         setText1Decorations(textDecorations)
 
     };

@@ -3,13 +3,13 @@ import {motion} from 'framer-motion'
 
 
 export const AddBackGroundColorStyled = styled(motion.div) `
- width: 200px;
-  height: calc(100% - 150px);
+  width: 250px;
   overflow-y: scroll;
-  padding: 70px 15px 0 25px;
+  height: calc(100% - 20px);
+  padding: 10px 17px 13px 10px;
   display: flex;
-  justify-content: start;
-  gap: 4rem;
+  justify-content: flex-start;
+  gap: 5rem;
   align-items: start;
   flex-direction: column;
   position: absolute;
@@ -17,7 +17,6 @@ export const AddBackGroundColorStyled = styled(motion.div) `
   left: 0;
   top: 70px;
   border: 1px solid grey;
-  border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   background: rgb(236, 236, 236);
 `

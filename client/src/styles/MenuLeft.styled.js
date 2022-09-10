@@ -10,7 +10,7 @@ export const MenuLeftStyled = styled.div `
   //position: absolute;
   //left: 0;
   //top: 80px;
-  margin: 10px 25px;
+  margin: 10px 25px 20px 25px;
   //background:#d3d3d3;
   //gap: 11rem;
   //border-top-right-radius: 5px;

@@ -3,10 +3,10 @@ import {motion} from 'framer-motion'
 
 
 export const AddTextStyled = styled(motion.div) `
-  width: 210px;
+  width: 250px;
   overflow-y: scroll;
   height: calc(100% - 20px);
-  padding: 20px 17px 13px 20px;
+  padding: 10px 17px 13px 10px;
   display: flex;
   justify-content: flex-start;
   gap: 5rem;

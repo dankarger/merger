@@ -3,14 +3,14 @@ import {motion} from 'framer-motion'
 
 
 export const AddTextSecondStyled = styled(motion.div) `
-  width: 210px;
-  height: calc(100% - 20px);
-  padding: 20px 17px 13px 20px;
-  display: flex;
+  width: 250px;
   overflow-y: scroll;
-  justify-content: start;
-  gap: 4rem;
-  align-items: center;
+  height: calc(100% - 20px);
+  padding: 10px 17px 13px 10px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 5rem;
+  align-items: start;
   flex-direction: column;
   position: absolute;
   z-index: 150;
@@ -19,6 +19,8 @@ export const AddTextSecondStyled = styled(motion.div) `
   border: 1px solid grey;
   border-bottom-right-radius: 10px;
   background: rgb(236, 236, 236);
+
+
 
   #chooseText {
     padding: 0;
