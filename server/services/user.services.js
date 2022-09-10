@@ -40,7 +40,6 @@ const loginUser = async (req,res)=> {
         throw new Error('Cannot find user ')
     }
     const user = await findUser(email);
-    console.log('uuussususs', user)
     if(!user) {
        throw new Error('Cannot find user ')
     }

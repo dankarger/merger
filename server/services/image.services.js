@@ -15,7 +15,7 @@ const getImages = async () => {
 
 
 const getMongoImages = async (userId) => {
-    const images = await Image.find({createdBy:userId})
+    const images = await Image.find({createdBy: userId})
     return images
 }
 
@@ -39,55 +39,53 @@ const uploadImage = async (req, res) => {
 }
 
 const addImage = async (response, user, imageTitle) => {
-        const image = {
-            title: imageTitle,
-            url: response.url,
-            secure_url: response.secure_url,
-            public_id: response.public_id,
-            createdBy: user._id,
-            nameOfUser: user.name,
-            dateCreated: Date.now()
-        }
-        const mongoImage = await Image.create(image)
-        user.images.push(mongoImage._id)
-        await user.save()
-        return(mongoImage)
+    const image = {
+        title: imageTitle,
+        url: response.url,
+        secure_url: response.secure_url,
+        public_id: response.public_id,
+        createdBy: user._id,
+        nameOfUser: user.name,
+        dateCreated: Date.now()
+    }
+    const mongoImage = await Image.create(image)
+    user.images.push(mongoImage._id)
+    await user.save()
+    return (mongoImage)
 }
 
-const deleteImage = async (id,password,userId) => {
+const deleteImage = async (id, password, userId) => {
     const image = await Image.findOne({_id: id})
     const user = await User.findById(image.createdBy);
-    console.log('deleteService',image.createdBy,user.id,mongoose.Types.ObjectId(userId))
-    if(userId===user.id){
+    // console.log('deleteService', image.createdBy, user.id, mongoose.Types.ObjectId(userId))
+    if (userId === user.id) {
         console.log('dasdasdasdasdasdasdasdasd')
-    await cloudinary.uploader.destroy(image.public_id, function (error, result) {
-        console.log(result, error)
-    });
-    await image.delete()
-    user.images.pull({_id: id})
-    user.save()
-        console.log('delete card:1')
-    return (user);}
-    else{
+        await cloudinary.uploader.destroy(image.public_id, function (error, result) {
+            // console.log(result, error)
+        });
+        await image.delete()
+        user.images.pull({_id: id})
+        user.save()
+        // console.log('delete card:1')
+        return (user);
+    } else {
         throw new Error('Incorrect User')
     }
 }
 
 const deleteAllImagesByUser = async (id) => {
     const user = await findUser(id)
-    console.log('user', user)
     await cloudinary.api.delete_resources_by_tag(user.name, function (error, result) {
         console.log(result, error)
     })
     const deletedImages = await Image.deleteMany({createdBy: id})
     user.images = [];
     user.save()
-    console.log('dI', deletedImages)
     return deletedImages
 }
 
 const filterImages = async (id) => {
-    const images = await Image.find({createdBy:id})
+    const images = await Image.find({createdBy: id})
     return images
 }
 

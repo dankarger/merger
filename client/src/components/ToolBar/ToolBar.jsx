@@ -36,7 +36,7 @@ export default function ToolBar({imageCallback,
                                     isDownloadLoader,
 
                                 }) {
-    const [view, setView] = React.useState('list');
+    const [view, setView] = React.useState('');
     const[isDownloadLink,setIsDownloadLink]=useState(false)
     const handleChange = (event, nextView) => {
         setView(nextView);

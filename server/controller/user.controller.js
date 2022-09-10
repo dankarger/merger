@@ -14,7 +14,7 @@ const getUsers = async function (req, res) {
 const getUser = async function (req, res) {
     try {
         // if(req.params.passId<0) { throw new Error('Error passPort ') }
-        const user = await userService.getUser(req.params.id);
+        const user = await userService.getUsers(req.params.id);
         res.status(200).send(user);
     } catch (e) {
         res.status(400).json({message: 'User not found'})

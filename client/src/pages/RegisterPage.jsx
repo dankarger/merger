@@ -37,7 +37,6 @@ const RegisterPage =()=> {
             const response = await myApi.post('/users/register',{name:name,email:email,password:password})
             if(response.status===200) {
                 const user = await myApi.post('/users/login',{email:email,password:password})
-                console.log('dasdasd',user)
                 setCurrentUser(response.data);
                return handleDialogueMessage('user',response.data)
             }
@@ -57,7 +56,7 @@ const RegisterPage =()=> {
     const handleSubmitLoginGuest= async ()=> {
         try {
             const response = await myApi.post('/users/login',{name:'guest',email:'guest',password:'guest'})
-            console.log('login-Guest',response.data.user)
+            // console.log('login-Guest',response.data.user)
             setCurrentUser(response.data.user)
             handleDialogueMessage('guest')
         }catch (error) {
@@ -71,7 +70,7 @@ const RegisterPage =()=> {
         let newFormData = {...formData}
         newFormData[e.target.name] = e.target.value
         setFormData(newFormData);
-        console.log('form',formData);
+        // console.log('form',formData);
     }
 
     const handleDialogueMessage=(type,user) => {
