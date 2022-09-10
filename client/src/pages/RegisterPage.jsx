@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import {LoginPageStyled} from "../styles/LoginPage.styled";
 import LoginRegisterForm from "../components/LoginRegisterForm/LoginRegisterForm";
+import TabHeading from "../components/TabHeading/TabHeading";
 import {LoginFormStyled} from "../styles/LoginForm.styled";
 import {Link, useNavigate} from 'react-router-dom'
 import {NotRegisterTextStyled} from "../styles/NotRegisterText.styled";
@@ -96,7 +97,8 @@ const RegisterPage =()=> {
                 setIsErrorMessage={setIsErrorMessage}
             />
             <LoginFormStyled>
-                <h1>Register</h1>
+                <TabHeading heading={'Register'} />
+                {/*<h1>Register</h1>*/}
                 <LoginRegisterForm type={'register'}
                                    handleFormInputs={handleFormInputs}
                                    formData={formData}

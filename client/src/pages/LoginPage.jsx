@@ -1,4 +1,5 @@
 import React, {useContext, useState, useRef} from "react";
+import TabHeading from "../components/TabHeading/TabHeading";
 import {LoginPageStyled} from "../styles/LoginPage.styled";
 import LoginRegisterForm from "../components/LoginRegisterForm/LoginRegisterForm";
 import {LoginFormStyled} from "../styles/LoginForm.styled";
@@ -100,7 +101,8 @@ const LoginPage = () => {
                 setIsErrorMessage={setIsErrorMessage}
             />
             <LoginFormStyled>
-                <h1>Login</h1>
+                <TabHeading heading={'Login'} />
+                {/*<h1>Login</h1>*/}
                 <LoginRegisterForm type={'login'}
                                    handleFormInputs={handleFormInputs}
                                    formData={formData}

@@ -4,11 +4,11 @@ export const UploadImageFormStyled = styled.form `
   width: 250px;
   overflow-y: scroll;
   height: calc(100% - 20px);
-  padding: 10px 17px 13px 10px;
+  padding: 10px 13px 13px 14px;
   display: flex;
   justify-content: flex-start;
   gap: 5rem;
-  align-items: start;
+  align-items: center;
   flex-direction: column;
   position: absolute;
   z-index: 150;

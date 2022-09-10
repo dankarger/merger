@@ -66,13 +66,13 @@ export default function UploadImages({
             <UploadImageFormStyled
                 action="" onSubmit={handleSubmitFile}
                 className='form'
-            >
+            > <TabHeading heading={'Image Tab'}/>
                 <motion.div
                     variants={fadeIn}
                     initial='initial'
                     animate='animate'
                 >
-                    <TabHeading heading={'Image Tab'}/>
+
                     <AddFileInputStyled
                         type="file" name='image'
                         id='files'

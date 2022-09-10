@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const TabHeadingStyle = styled.span `
   //color: #0e8a8a;
+  width:100%;
   display: flex;
   justify-content: center;
   align-items: center;
