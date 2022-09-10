@@ -134,7 +134,7 @@ const ResponsiveAppBar = () => {
                                 <GreetingStyled>
                                     <span> {currentUser ? currentUser.name : 'Guest'}</span>
                                 </GreetingStyled>
-                                <AccountCircleRoundedIcon fontSize="large"/>
+                                <AccountCircleRoundedIcon fontSize="large" color='primary'/>
                             </IconButton>
                         </Tooltip>
 

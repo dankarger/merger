@@ -13,15 +13,15 @@ export const MenuLeftStyled = styled.div `
   margin: 10px 25px;
   //background:#d3d3d3;
   //gap: 11rem;
-  border-top-right-radius: 5px;
+  //border-top-right-radius: 5px;
   & button:active {
-    background:red
+    
   }
   button {
     height: 40px;
-    margin-right: 10px;
+    margin-right: 2px;
     background: #d3d3d3;
-    border-radius: 40px;
+    //border-radius: 40px;
 
     &:hover {
       box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
@@ -30,6 +30,7 @@ export const MenuLeftStyled = styled.div `
 
     &:active {
       background: #ffffff;
+      transform: scale(1.03);
       //border: 4px #231c1c solid;
       box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
     }

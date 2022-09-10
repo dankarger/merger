@@ -3,23 +3,23 @@ import {motion} from 'framer-motion'
 
 
 export const AddTextStyled = styled(motion.div) `
-  width: 230px;
-  height: calc(100% - 150px);
+  width: 210px;
   overflow-y: scroll;
-  padding:10px;
+  height: calc(100% - 20px);
+  padding: 20px 17px 13px 20px;
   display: flex;
-  justify-content: start;
-  gap: 4rem;
-  align-items: center;
+  justify-content: flex-start;
+  gap: 5rem;
+  align-items: start;
   flex-direction: column;
   position: absolute;
   z-index: 150;
   left: 0;
   top: 70px;
   border: 1px solid grey;
-  //border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   background: rgb(236, 236, 236);
+
 
   #chooseText {
     padding: 0;

@@ -3,9 +3,9 @@ import {motion} from 'framer-motion'
 
 
 export const AddTextSecondStyled = styled(motion.div) `
-  width: 230px;
-  height: calc(100% - 150px);
-  padding:10px;
+  width: 210px;
+  height: calc(100% - 20px);
+  padding: 20px 17px 13px 20px;
   display: flex;
   overflow-y: scroll;
   justify-content: start;
