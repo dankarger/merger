@@ -3,7 +3,7 @@ import {motion} from 'framer-motion'
 
 export const FooterStyled = styled(motion.footer) `
   min-height: 50px;
-  width:100%;
+  //width:100vw;
   padding: 2rem 4rem;
   display: flex;
   justify-content: center;
