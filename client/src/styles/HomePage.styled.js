@@ -4,8 +4,8 @@ export const HomePageStyled = styled.div `
  width:100%;
   height:90vh;
  // min-height:50vh;
-  max-width:100%;
-  padding: 0 20px;
+ // max-width:100%;
+  //padding: 0 20px;
   margin:0 auto;
   display: flex;
   justify-content: center;

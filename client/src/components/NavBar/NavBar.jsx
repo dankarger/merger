@@ -54,7 +54,7 @@ const ResponsiveAppBar = () => {
         >
             <Container maxWidth="xl">
 
-                <Toolbar disableGutters sx={{width: "100%"}}>
+                <Toolbar disableGutters >
                     <Typography
                         variant="h6"
                         noWrap
