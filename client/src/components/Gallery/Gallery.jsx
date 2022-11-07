@@ -17,8 +17,8 @@ const Gallery = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
     const [isErrorMessage, setIsErrorMessage] = useState(false);
-    const[isDialogueOpen,setIsDialogueOpen] = useState(false);
-    const[isRefresh,setIsRefresh]=useState(false)
+    const [isDialogueOpen,setIsDialogueOpen] = useState(false);
+    const [isRefresh,setIsRefresh]=useState(false)
     const [currentUser,setCurrentUser]= useContext(UserContext);
 
     useEffect(()=>{
