@@ -6,11 +6,19 @@ export const HomePageInstructionsStyled = styled(motion.div) `
   //max-width: 100%;
   padding: 10%;
   height: 50vh;
-  background: rgba(127, 255, 212, 0.88);
+  background: rgba(23, 87, 66, 0.79);
   display: flex;
   justify-content: center;
   align-items: center;
   //flex-direction: column;
+  .instructions {
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+  }
 
   @media (max-width: 900px) {
     //flex-direction: column;

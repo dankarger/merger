@@ -54,6 +54,7 @@ const addImage = async (response, user, imageTitle) => {
     return (mongoImage)
 }
 
+
 const deleteImage = async (id, password, userId) => {
     const image = await Image.findOne({_id: id})
     const user = await User.findById(image.createdBy);
