@@ -30,7 +30,11 @@ export default function TopMenuBar({step=0}) {
                        color='white'
 
         >
+            <div>
+                <p className='scrolldown' >Scroll Down for Instructions ⬇</p>
+            </div>
         <Box sx={{ width: '70%',maxWidth:'1000px', whiteSpace:'nowrap', color:'#ffffff' }}>
+
             <Stepper activeStep={step} alternativeLabel  >
                     <Step>
                         <Tooltip   title={stepsText.step1} placement="bottom">
