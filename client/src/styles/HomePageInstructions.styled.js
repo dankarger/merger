@@ -27,6 +27,7 @@ export const HomePageInstructionsStyled = styled(motion.div) `
     gap: 1rem;
     flex-direction: column;
     padding-left: 1rem;
+    font-size: calc(12px + 0.8vw);
   }
   .video-div {
     padding:50px;
@@ -41,5 +42,11 @@ export const HomePageInstructionsStyled = styled(motion.div) `
 
   @media (max-width: 900px) {
     //flex-direction: column;
+    .details {
+      font-size: calc(8px + 0.3vw);
+    }
+    .instructions {
+      flex-direction: column;
+    }
   }
 `

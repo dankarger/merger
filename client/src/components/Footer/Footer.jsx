@@ -20,7 +20,7 @@ const Footer = () => {
     return (
         <FooterStyled>
             <div>
-                <CopyrightIcon/> {dateYear()} MERGER
+                <CopyrightIcon/> {dateYear()} MERGER - Dan Karger
             </div>
             <div>
                 <ClickableLinkChips hrefLink={links.linkedin} icon={<LinkedInIcon sx={{color: '#ffffff'}}/>}
