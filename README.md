@@ -1,11 +1,11 @@
-# MERGER -
+# **MERGER**  
 
+ [![](https://skillicons.dev/icons?i=js,react,nodejs,html,css,git,mongodb)](https://skillicons.dev)
+>Fullstack website:  An image work station, add text, colors and border to images.
  
-> An image work station , add text  colors,and  border to images 
- 
 
 
--  <a href="https://meme-gen3.herokuapp.com/"><strong> The Site On Heroku </strong></a>
+-  <a href="https://meme-gen3.herokuapp.com/"><strong> Link to the Site On Heroku </strong></a>
 
 ![alt text](./client/public/assets/images/home1.png)
 
